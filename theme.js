@@ -1543,6 +1543,11 @@
   "The person or group completing the review must identify the local requirements and responsibilities that apply.": "La persona o el grupo que completa la revisión debe identificar los requisitos y las responsabilidades locales aplicables.",
   "Thorough calculates a normalized screening percentage and asks whether the risks that remain can be managed.": "La evaluación exhaustiva calcula un porcentaje normalizado de evaluación inicial y pregunta si pueden gestionarse los riesgos que quedan."
 });
+
+  Object.assign(ES, {
+  "The wording does not assume a particular country, administrative structure, education level, curriculum, pedagogical model or legal framework. The person or group completing the review must identify the local requirements and responsibilities that apply.": "La redacción no presupone un país, una estructura administrativa, un nivel educativo, un currículo, un modelo pedagógico ni un marco jurídico determinados. Quien complete la revisión debe identificar los requisitos y responsabilidades locales aplicables.",
+  "forms run locally and do not send or persist answers. Quick returns a provisional route from its highest concern signal. Thorough calculates a normalized screening percentage and asks whether the risks that remain can be managed. Neither is an official result; safeguard practice is not combined into the risk score.": "Los formularios funcionan localmente y no envían ni guardan las respuestas. La evaluación rápida indica una ruta preliminar según la señal de mayor preocupación. La evaluación exhaustiva calcula un porcentaje normalizado de evaluación inicial y pregunta si los riesgos que quedan pueden gestionarse. Ninguno de los resultados es oficial; la calidad de las salvaguardas se evalúa por separado de la ruta de riesgo."
+});
   function translated(value) {
     var source = key(value), exact = ES[source];
     if (exact) return exact;
