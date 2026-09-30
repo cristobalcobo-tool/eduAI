@@ -1521,6 +1521,28 @@
   "Priority actions:": "Acciones prioritarias:",
   "It supports review and discussion but is not an official classification, legal opinion or measure of educational quality.": "Sirve de apoyo para la revisión y el diálogo, pero no constituye una clasificación oficial, una opinión jurídica ni una medida de la calidad educativa."
 });
+
+  Object.assign(ES, {
+  "Interpretation of risk routes, practice indicators and risks that remain after safeguards for education AI uses.": "Interpretación de las rutas de riesgo, los indicadores de práctica y los riesgos que quedan después de aplicar medidas en los usos educativos de la IA.",
+  "Close the review only when the evidence is sufficient and the risks that remain can be managed.": "Cierra la revisión solo cuando la evidencia sea suficiente y los riesgos que quedan puedan gestionarse.",
+  "The safeguard is operating and evidence is available.": "La medida de protección está funcionando y hay evidencia disponible.",
+  "The reviewer considers an item irrelevant to this context.": "Quien realiza la revisión considera que el elemento no es pertinente en este contexto.",
+  "4. Risks that remain after safeguards": "4. Riesgos que quedan después de aplicar las medidas",
+  "These are the risks that still exist after the planned measures are applied. Some technical frameworks call this residual risk. The final questions record the priority risks, the actions needed and the decision. Assess each important risk separately so that a serious risk is not hidden by an average.": "Son los riesgos que todavía existen después de aplicar las medidas previstas. Algunos marcos técnicos los denominan «riesgo residual». Las preguntas finales registran los riesgos prioritarios, las acciones necesarias y la decisión. Evalúa por separado cada riesgo importante para que un riesgo grave no quede oculto en un promedio.",
+  "Level of risk that remains": "Nivel del riesgo que queda",
+  "Record whether the risks that remain can be managed, require additional conditions, or are too high to proceed.": "Registra si los riesgos que quedan pueden gestionarse, requieren condiciones adicionales o son demasiado altos para continuar.",
+  "The toolkit helps one person or a group review an AI use in its education context, organise the answers and download a clear record.": "El instrumento ayuda a una persona o a un grupo a revisar un uso de IA en su contexto educativo, organizar las respuestas y descargar un registro claro.",
+  "The person or group completing the review supplies the applicable laws, policies, institutional responsibilities, evidence and local context.": "La persona o el grupo que completa la revisión aporta las leyes, políticas, responsabilidades institucionales, evidencias y contexto local aplicables.",
+  "The answers and findings can be reviewed before downloading a copy.": "Las respuestas y los hallazgos pueden revisarse antes de descargar una copia.",
+  "Use the three views below to understand what is reviewed, what the site organises and how an authorised education decision maker can use the result.": "Utiliza las tres vistas siguientes para comprender qué se revisa, qué organiza el sitio y cómo puede utilizar el resultado una autoridad educativa con capacidad de decisión.",
+  "What the reviewer receives": "Qué recibe quien realiza la revisión",
+  "The page can be used individually or in a group to organise the answers.": "La página puede utilizarse de forma individual o en grupo para organizar las respuestas.",
+  "The reviewer describes the system, purpose, data use, affected people, safeguards, evidence and remaining uncertainty.": "Quien realiza la revisión describe el sistema, el propósito, el uso de datos, las personas afectadas, las medidas de protección, la evidencia y las incertidumbres pendientes.",
+  "The assessment review summary, the two page results PDF, JSON or text can be downloaded for local records.": "El resumen de la revisión, el PDF de resultados de dos páginas, el archivo JSON o el texto pueden descargarse para los registros locales.",
+  "A response that the remaining risks can be managed is a recommendation, not an approval. Record the authorised decision maker and any conditions separately.": "Indicar que los riesgos que quedan pueden gestionarse es una recomendación, no una aprobación. Registra por separado quién tiene la autoridad para decidir y las condiciones aplicables.",
+  "The person or group completing the review must identify the local requirements and responsibilities that apply.": "La persona o el grupo que completa la revisión debe identificar los requisitos y las responsabilidades locales aplicables.",
+  "Thorough calculates a normalized screening percentage and asks whether the risks that remain can be managed.": "La evaluación exhaustiva calcula un porcentaje normalizado de evaluación inicial y pregunta si pueden gestionarse los riesgos que quedan."
+});
   function translated(value) {
     var source = key(value), exact = ES[source];
     if (exact) return exact;
