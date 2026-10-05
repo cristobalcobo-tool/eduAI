@@ -389,6 +389,6 @@ document.getElementById("clearBtn").addEventListener("click",()=>{if(!confirm("C
 </script><script>document.getElementById("pdfBtn").addEventListener("click",()=>{const d=build();downloadAssessmentPdf(thoroughPdfReport(d),"education-ai-thorough-assessment-results.pdf");document.getElementById("validation").textContent="Full results PDF downloaded.";});</script>
 </body>
 </html>
-<script src="theme.js?v=operational-review-2.2.6"></script>
+<script src="theme.js?v=operational-review-2.2.7"></script>
 
 <script>function markSummaryOutdated(){const report=document.getElementById("report");if(report.classList.contains("ready")){report.classList.remove("ready");document.getElementById("validation").textContent="Answers changed. Rebuild the summary to review the latest responses.";}document.getElementById("summaryReady").hidden=true;}document.addEventListener("input",markSummaryOutdated);document.addEventListener("change",markSummaryOutdated);</script>

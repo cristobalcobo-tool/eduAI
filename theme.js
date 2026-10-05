@@ -1452,7 +1452,7 @@
   "No. They are too serious to continue.": "No. Son demasiado graves para continuar.",
   "Continue with routine monitoring.": "Continuar con el seguimiento habitual.",
   "Continue only with added safeguards and monitoring.": "Continuar solo con medidas adicionales y seguimiento.",
-  "Complete the Thorough assessment before deciding.": "Completar la evaluación exhaustiva antes de decidir.",
+  "Complete the Thorough assessment before deciding.": "Completar la evaluación detallada antes de decidir.",
   "Strengthen staff capacity before proceeding.": "Reforzar las capacidades del personal antes de continuar.",
   "Review policy, data governance or procurement before proceeding.": "Revisar la política, la gobernanza de datos o las compras antes de continuar.",
   "Pause and seek specialist review.": "Pausar y solicitar una revisión especializada.",
@@ -1535,12 +1535,12 @@
   "The assessment review summary, the two page results PDF, JSON or text can be downloaded for local records.": "El resumen de la revisión, el PDF completo de resultados, el archivo JSON o el texto pueden descargarse para los registros locales.",
   "A response that the remaining risks can be managed is a recommendation, not an approval. Record the authorised decision maker and any conditions separately.": "Indicar que los riesgos que quedan pueden gestionarse es una recomendación, no una aprobación. Registra por separado quién tiene la autoridad para decidir y las condiciones aplicables.",
   "The person or group completing the review must identify the local requirements and responsibilities that apply.": "La persona o el grupo que completa la revisión debe identificar los requisitos y las responsabilidades locales aplicables.",
-  "Thorough calculates a normalized screening percentage and asks whether the risks that remain can be managed.": "La evaluación exhaustiva calcula un porcentaje normalizado de evaluación inicial y pregunta si pueden gestionarse los riesgos que quedan."
+  "Thorough calculates a normalized screening percentage and asks whether the risks that remain can be managed.": "La evaluación detallada calcula un porcentaje normalizado de evaluación inicial y pregunta si pueden gestionarse los riesgos que quedan."
 });
 
   Object.assign(ES, {
   "The wording does not assume a particular country, administrative structure, education level, curriculum, pedagogical model or legal framework. The person or group completing the review must identify the local requirements and responsibilities that apply.": "La redacción no presupone un país, una estructura administrativa, un nivel educativo, un currículo, un modelo pedagógico ni un marco jurídico determinados. Quien complete la revisión debe identificar los requisitos y responsabilidades locales aplicables.",
-  "forms run locally and do not send or persist answers. Quick returns a provisional route from its highest concern signal. Thorough calculates a normalized screening percentage and asks whether the risks that remain can be managed. Neither is an official result; safeguard practice is not combined into the risk score.": "Los formularios funcionan localmente y no envían ni guardan las respuestas. La evaluación rápida indica una ruta preliminar según la señal de mayor preocupación. La evaluación exhaustiva calcula un porcentaje normalizado de evaluación inicial y pregunta si los riesgos que quedan pueden gestionarse. Ninguno de los resultados es oficial; la calidad de las salvaguardas se evalúa por separado de la ruta de riesgo."
+  "forms run locally and do not send or persist answers. Quick returns a provisional route from its highest concern signal. Thorough calculates a normalized screening percentage and asks whether the risks that remain can be managed. Neither is an official result; safeguard practice is not combined into the risk score.": "Los formularios funcionan localmente y no envían ni guardan las respuestas. La evaluación rápida indica una ruta preliminar según la señal de mayor preocupación. La evaluación detallada calcula un porcentaje normalizado de evaluación inicial y pregunta si los riesgos que quedan pueden gestionarse. Ninguno de los resultados es oficial; la calidad de las salvaguardas se evalúa por separado de la ruta de riesgo."
 });
   Object.assign(ES, {
   "Download full results PDF": "Descargar el PDF completo de resultados",
@@ -1614,7 +1614,7 @@
     "Each assessment uses an HTML page together with shared styling, language and PDF files. Keep these files together for local use. The forms run in the browser without an assessment service.": "Cada evaluación utiliza una página HTML junto con archivos compartidos de estilos, idiomas y PDF. Mantén estos archivos juntos para el uso local. Los formularios funcionan en el navegador sin un servicio de evaluación.",
     "Each principle percentage is calculated from its applicable questions. The overall practice indicator averages the applicable principle percentages equally. A principle with no applicable questions is excluded, so sections with more questions do not dominate.": "El porcentaje de cada principio se calcula con sus preguntas aplicables. El indicador general es el promedio de los principios aplicables, todos con el mismo peso. Si un principio no tiene preguntas aplicables, se excluye. Así, las secciones con más preguntas no predominan.",
     "Review the safeguards.": "Revisa las medidas de protección.",
-    "Complete the checks in your chosen assessment. Thorough covers all six principles. Use evidence from the relevant education setting.": "Completa las preguntas de la evaluación elegida. La evaluación detallada abarca los seis principios. Utiliza evidencia del contexto educativo correspondiente."
+    "Complete the checks in your chosen assessment. Thorough covers all six principles. Use evidence from the relevant education setting. Seek specialist input when a technical, educational or legal point cannot be confirmed.": "Completa las preguntas de la evaluación elegida. La evaluación detallada abarca los seis principios. Utiliza evidencia del contexto educativo correspondiente. Solicita apoyo especializado cuando no puedas confirmar un aspecto técnico, educativo o legal."
 });
   Object.assign(ES, {
     "Open one section at a time. For 'Not applicable', record the question number and reason in the final notes.": "Abre una sección a la vez. Si eliges «No aplica», indica el número de la pregunta y el motivo en las notas finales.",
