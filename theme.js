@@ -1620,9 +1620,19 @@
     "Open one section at a time. For 'Not applicable', record the question number and reason in the final notes.": "Abre una sección a la vez. Si eliges «No aplica», indica el número de la pregunta y el motivo en las notas finales.",
     "Each assessment uses an HTML page together with shared styling, language and PDF files. Keep these files together for local use. The forms run in the browser without an assessment service. Answers remain in the current page session, are not submitted and are cleared when the page closes. Export JSON, text or PDF to keep a record under the rules that apply in your education system or institution.": "Cada evaluación utiliza una página HTML junto con archivos compartidos de estilos, idiomas y PDF. Mantén estos archivos juntos para el uso local. Los formularios funcionan en el navegador sin un servicio de evaluación. Las respuestas permanecen en la sesión actual, no se envían y se borran al cerrar la página. Exporta JSON, texto o PDF para conservar un registro según las normas de tu sistema educativo o institución."
 });
+  Object.assign(ES, window.assessmentRecommendations ? window.assessmentRecommendations.translations : {});
+  Object.assign(ES, {
+    "Feedback guidance": "Orientaciones para las recomendaciones",
+    "The priority recommendations use our own plain language wording informed by UNESCO's guidance on generative AI and its AI competency frameworks. They address educational benefit, age suitability, human judgement, inclusion, privacy and sustainable use. Recommendations respond to the selected answers and risk signals; the original framework, questions and scoring remain separate.": "Las recomendaciones prioritarias utilizan una redacción propia y sencilla basada en las orientaciones de UNESCO sobre IA generativa y sus marcos de competencias en IA. Abordan el beneficio educativo, la adecuación a la edad, el criterio humano, la inclusión, la privacidad y el uso sostenible. Responden a las respuestas elegidas y a las señales de riesgo; el marco original, las preguntas y la puntuación se mantienen por separado.",
+    "Guidance for generative AI in education and research (2023)": "Guía para el uso de IA generativa en educación e investigación (2023)",
+    "AI competency frameworks for students and teachers (2024)": "Marcos de competencias en IA para estudiantes y docentes (2024)"
+  });
   function translated(value) {
     var source = key(value), exact = ES[source];
     if (exact) return exact;
+    if (source.startsWith("Based on ")) return "Según " + source.slice(9).split(", ").map(translated).join(", ");
+    var recommendation = source.match(/^(.+\.) (Based on .+)$/);
+    if (recommendation) return translated(recommendation[1]) + " " + translated(recommendation[2]);
     var match = source.match(/^(\d+) of (\d+) required (?:questions|items) answered(\.)?$/);
     if (match) return match[1] + " de " + match[2] + " preguntas obligatorias respondidas" + (match[3] || "");
     match = source.match(/^(Risk|Core|Governance|Action) (\d+)$/);
