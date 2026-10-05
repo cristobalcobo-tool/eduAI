@@ -64,34 +64,41 @@ header p, .hero p, .policy-hero p { color: #e3edf6 !important; }
 .pathway-arrow, .pathway-icon { display: none !important; }
 .wrap { max-width: 1140px; margin: 1.5rem auto; padding: 0 1.25rem; }
 
-/* Compact, content-sized links. Pair spacing communicates the menu groups. */
+/* Reference-inspired navigation: one blue bar with compact pill highlights. */
 .package-nav, .policy-nav {
-  display: flex; flex-wrap: nowrap; align-items: center; gap: .3rem;
-  margin: 0 0 1.8rem; padding: .55rem .65rem !important;
-  background: #fff !important; border: 1px solid var(--brand-line) !important;
-  border-radius: 12px !important; box-shadow: none !important;
+  display: flex; flex-wrap: nowrap; align-items: center; justify-content: center; gap: .65rem;
+  margin: 0 0 1.8rem; padding: .75rem 1rem !important;
+  background: #004c79 !important; border: 0 !important;
+  border-radius: 0 !important; box-shadow: none !important;
 }
 .package-nav > a, .policy-nav > a {
   display: inline-flex; align-items: center; justify-content: center;
   flex: 0 0 auto; min-height: 44px; min-width: 0;
-  margin: 0; padding: .55rem .75rem;
-  color: var(--brand-muted) !important; background: transparent;
-  border: 1px solid transparent; border-radius: 8px !important;
-  font-size: .9375rem; font-weight: 500 !important; line-height: 1.35;
+  margin: 0 !important; padding: .5rem .85rem;
+  color: #fff !important; background: transparent !important;
+  border: 1px solid transparent; border-radius: 999px !important;
+  font-size: 1rem; font-weight: 400 !important; line-height: 1.35;
   text-decoration: none; white-space: nowrap; text-align: center;
-  transition: background .15s ease, color .15s ease;
+  box-shadow: none !important; transform: none !important;
+  transition: background .15s ease;
 }
-.package-nav > a:nth-child(3), .policy-nav > a:nth-child(3),
-.package-nav > a:nth-child(5), .policy-nav > a:nth-child(5) { margin-left: auto; }
-.package-nav > a:hover, .policy-nav > a:hover { color: var(--brand-deep) !important; background: #f3f6fa !important; }
-.package-nav > a[aria-current="page"], .policy-nav > a[aria-current="page"] { color: var(--brand-deep) !important; background: #edf2f7 !important; font-weight: 600 !important; }
-.package-nav > a[href="quick-assessment.html"], .policy-nav > a[href="quick-assessment.html"] { background: #edf4fb !important; color: #174d7b !important; font-weight: 600 !important; }
-.package-nav > a[href="thorough-assessment.html"], .policy-nav > a[href="thorough-assessment.html"] { background: #dce9f5 !important; color: #174d7b !important; font-weight: 600 !important; }
-.package-nav > a[href="quick-assessment.html"]:hover, .policy-nav > a[href="quick-assessment.html"]:hover { background: #e2eef9 !important; }
-.package-nav > a[href="thorough-assessment.html"]:hover, .policy-nav > a[href="thorough-assessment.html"]:hover { background: #cedeef !important; }
+.package-nav > a:hover, .policy-nav > a:hover { background: #ffffff18 !important; }
+.package-nav > a[aria-current="page"], .policy-nav > a[aria-current="page"] {
+  text-decoration: underline !important; text-underline-offset: .4rem; text-decoration-thickness: 2px;
+}
+.package-nav > a[href="quick-assessment.html"], .policy-nav > a[href="quick-assessment.html"] {
+  background: #0879b7 !important;
+}
+.package-nav > a[href="thorough-assessment.html"], .policy-nav > a[href="thorough-assessment.html"] {
+  background: #06629a !important;
+}
+.package-nav > a[href="quick-assessment.html"]:hover, .policy-nav > a[href="quick-assessment.html"]:hover { background: #086da6 !important; }
+.package-nav > a[href="thorough-assessment.html"]:hover, .policy-nav > a[href="thorough-assessment.html"]:hover { background: #085889 !important; }
 .package-nav > a[href="quick-assessment.html"][aria-current="page"], .policy-nav > a[href="quick-assessment.html"][aria-current="page"],
-.package-nav > a[href="thorough-assessment.html"][aria-current="page"], .policy-nav > a[href="thorough-assessment.html"][aria-current="page"] { border-color: #3879ae; }
-.package-nav a:focus-visible, .policy-nav a:focus-visible { outline: 3px solid #b47700 !important; outline-offset: 2px; }
+.package-nav > a[href="thorough-assessment.html"][aria-current="page"], .policy-nav > a[href="thorough-assessment.html"][aria-current="page"] {
+  border-color: #fff; text-decoration: none !important;
+}
+.package-nav a:focus-visible, .policy-nav a:focus-visible { outline: 3px solid #fff !important; outline-offset: 3px; }
 .assessment-stepper { display: flex; flex-wrap: wrap; gap: .35rem; margin: -.7rem 0 1.6rem; padding: .35rem 0; background: transparent; border: 0; box-shadow: none; }
 .step-link { display: inline-flex; align-items: center; gap: .45rem; min-height: 40px; padding: .35rem .6rem; color: var(--brand-muted); font-size: .875rem; font-weight: 500; text-decoration: none; border-radius: 6px; }
 .step-link span { color: var(--brand-dark); font-size: .875rem; }
@@ -153,9 +160,8 @@ table td, table th { border-color: var(--brand-line) !important; }
 .export-panel .summary-ready { margin-top: 1rem; }
 .export-status { margin-top: 1rem !important; }
 @media (max-width: 950px) {
-  .package-nav, .policy-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem .65rem; }
-  .package-nav > a, .policy-nav > a { justify-self: start; max-width: 100%; white-space: normal; text-align: left; justify-content: flex-start; }
-  .package-nav > a:nth-child(3), .policy-nav > a:nth-child(3), .package-nav > a:nth-child(5), .policy-nav > a:nth-child(5) { margin-left: 0; }
+  .package-nav, .policy-nav { flex-wrap: wrap; justify-content: center; gap: .4rem .5rem; }
+  .package-nav > a, .policy-nav > a { max-width: 100%; white-space: normal; }
 }
 @media (max-width: 760px) {
   .export-groups { grid-template-columns: 1fr; }
@@ -175,8 +181,8 @@ table td, table th { border-color: var(--brand-line) !important; }
   .hero-pathway { grid-template-columns: 1fr; }
   .pathway-label { grid-column: 1; grid-row: auto; }
   .hero-pathway strong, .hero-pathway small { grid-column: 1; }
-  .package-nav, .policy-nav { padding: .45rem !important; gap: .25rem; }
-  .package-nav > a, .policy-nav > a { padding: .5rem .55rem; font-size: .875rem; }
+  .package-nav, .policy-nav { padding: .7rem .5rem !important; gap: .4rem .25rem; }
+  .package-nav > a, .policy-nav > a { padding: .5rem .7rem; font-size: .9375rem; }
   .intro-copy, .self-card, .assessment-card, .risk-panel, .benefits { padding: 1.2rem !important; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
