@@ -122,7 +122,7 @@ button:hover,.actions button:hover{filter:brightness(1.08)}
     <div class="record-heading"><div><h2>Start with the education context</h2><p class="lede">Describe the use, the level of the education system and who may be affected.</p></div><span class="record-badge">Step 1 · context</span></div>
     <div class="section-guide"><p><strong>Purpose</strong>Place the AI use within its education, institutional and territorial context.</p><p><strong>What to prepare</strong>The intended purpose, responsible authority or institution, affected groups, data involved and an accountable review owner.</p><p><strong>What you get</strong>A context record that supports interpretation across different education systems.</p></div>
     <div class="record-grid">
-      <div class="field"><label for="project">Short name of the AI system or type of use</label><input id="project" autocomplete="off" placeholder="Example: Education planning data assistant"></div>
+      <div class="field"><label for="project">Short name of the AI system or type of use</label><input id="project" autocomplete="off" placeholder="Example: Use AI to prepare teaching lesson materials"></div>
       <div class="field"><label for="agency">Which education authority, institution or team is responsible?</label><input id="agency" autocomplete="organization" placeholder="Example: National authority, local office, institution or service unit"></div>
       <div class="field field-wide"><label for="purpose">What does it do, where is it used and who may be affected?</label><textarea id="purpose" rows="3" placeholder="Describe the education process, system level, intended users, affected groups and decisions or services it may influence."></textarea></div>
       <div class="field"><label for="owner">Person, role or unit responsible for this review</label><input id="owner" autocomplete="organization-title" placeholder="Person, role, unit or group"></div>
@@ -388,6 +388,6 @@ document.getElementById("clearBtn").addEventListener("click",()=>{if(!confirm("C
 </script><script>document.getElementById("pdfBtn").addEventListener("click",()=>{const d=build();downloadAssessmentPdf(thoroughPdfReport(d),"education-ai-thorough-assessment-results.pdf");document.getElementById("validation").textContent="Full results PDF downloaded.";});</script>
 </body>
 </html>
-<script src="theme.js?v=assessment-menu-2.2.1"></script>
+<script src="theme.js?v=assessment-menu-2.2.2"></script>
 
 <script>function markSummaryOutdated(){const report=document.getElementById("report");if(report.classList.contains("ready")){report.classList.remove("ready");document.getElementById("validation").textContent="Answers changed. Rebuild the summary to review the latest responses.";}document.getElementById("summaryReady").hidden=true;}document.addEventListener("input",markSummaryOutdated);document.addEventListener("change",markSummaryOutdated);</script>

@@ -1577,6 +1577,10 @@
   "The assessment review summary, the full results PDF, JSON or text can be downloaded for local records.": "El resumen de la revisión, el PDF de resultados completo, el archivo JSON o el texto pueden descargarse para los registros locales.",
   "The screening answers are incomplete. Any severe harm warning still applies.": "Las respuestas de evaluación inicial están incompletas. Cualquier advertencia de daño grave sigue siendo válida."
 });
+
+  Object.assign(ES, {
+  "Example: Use AI to prepare teaching lesson materials": "Ejemplo: usar IA para preparar materiales para una clase"
+});
   function translated(value) {
     var source = key(value), exact = ES[source];
     if (exact) return exact;
