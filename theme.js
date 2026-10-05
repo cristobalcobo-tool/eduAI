@@ -80,18 +80,9 @@
       var scoring = links.find(function (a) { return a.getAttribute("href") === "scoring.html"; });
       var policy = links.find(function (a) { return a.getAttribute("href") === "policy-and-data.html"; });
       if (!home || !instructions || !quick || !thorough || !scoring || !policy) return;
-      var details = document.createElement("details");
-      details.className = "nav-dropdown";
-      var summary = document.createElement("summary");
-      summary.textContent = "Assessments";
-      summary.setAttribute("aria-label", "Choose an assessment");
-      var currentAssessment = quick.getAttribute("aria-current") === "page" || thorough.getAttribute("aria-current") === "page";
-      if (currentAssessment) { details.open = true; summary.setAttribute("aria-current", "page"); }
-      var menu = document.createElement("div");
-      menu.className = "nav-dropdown-links";
-      menu.append(quick, thorough);
-      details.append(summary, menu);
-      nav.replaceChildren(home, instructions, details, scoring, policy);
+      quick.classList.add("assessment-nav-link");
+      thorough.classList.add("assessment-nav-link");
+      nav.replaceChildren(quick, thorough, home, instructions, scoring, policy);
       nav.dataset.navEnhanced = "true";
     });
   }
