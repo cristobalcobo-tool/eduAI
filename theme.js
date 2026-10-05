@@ -1581,6 +1581,17 @@
   Object.assign(ES, {
   "Example: Use AI to prepare teaching lesson materials": "Ejemplo: usar IA para preparar materiales para una clase"
 });
+  Object.assign(ES, {
+    "Does the evidence show a clear benefit from using AI rather than doing the same task without it?": "¿La evidencia muestra un beneficio claro de usar IA en lugar de hacer la misma tarea sin ella?",
+    "Consider accuracy, safety and usefulness, including suitability for learners' ages and needs.": "Considera la precisión, la seguridad y la utilidad, incluida la adecuación a las edades y necesidades del alumnado.",
+    "Test and record the benefit compared with doing the task without AI, including accuracy, safety and suitability for learners' ages and needs.": "Prueba y registra el beneficio frente a hacer la tarea sin IA, incluida la precisión, la seguridad y la adecuación a las edades y necesidades del alumnado.",
+    "Does the evidence show that the AI is suitable for the learners' ages and needs?": "¿La evidencia muestra que la IA es adecuada para las edades y necesidades del alumnado?",
+    "Check accuracy, safety and learning benefit in the intended setting, including adult support where needed. For other uses, consider the intended users.": "Comprueba la precisión, la seguridad y el beneficio para el aprendizaje en el contexto previsto, con apoyo de una persona adulta cuando sea necesario. Para otros usos, considera a las personas que utilizarán la IA.",
+    "Test suitability for learners' ages and needs before use, including accuracy, safety and benefit.": "Antes de usar la IA, comprueba que sea adecuada para las edades y necesidades del alumnado, incluida la precisión, la seguridad y el beneficio.",
+    "Have risks to learners' own thinking and relationships with other people been assessed?": "¿Se han evaluado los riesgos para la capacidad del alumnado de pensar por sí mismo y sus relaciones con otras personas?",
+    "Consider excessive reliance on AI, less interaction with teachers or peers, learner wellbeing, and staff roles, workload and working conditions. Take learners' ages into account.": "Considera la dependencia excesiva de la IA, una menor interacción con docentes o compañeros, el bienestar del alumnado y las funciones, la carga de trabajo y las condiciones laborales del personal. Ten en cuenta las edades del alumnado.",
+    "Assess effects on independent thinking, human relationships, wellbeing and staff working conditions, then agree support and safeguards.": "Evalúa los efectos sobre el pensamiento propio, las relaciones humanas, el bienestar y las condiciones laborales del personal, y acuerda el apoyo y las medidas de protección."
+  });
   function translated(value) {
     var source = key(value), exact = ES[source];
     if (exact) return exact;

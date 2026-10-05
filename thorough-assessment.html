@@ -191,7 +191,7 @@ const sections = [
   {id:"tr2",type:"single",prompt:"Can an important result be explained clearly and reviewed by a responsible person?",recommend:"Explain the main reasons, evidence and limits, and provide a clear human review route.",options:M("Provide understandable explanations and an effective route for human review or challenge.")}
  ]},
  {id:"security",title:"4. Security and robustness",questions:[
-  {id:"sr1",type:"single",prompt:"Has the system been tested in realistic conditions for its intended education use?",recommend:"Record tests, results, limits and open problems across representative operating conditions.",options:M("Test the system in realistic education contexts before relying on it.")},
+  {id:"sr1",type:"single",prompt:"Does the evidence show that the AI is suitable for the learners' ages and needs?",recommend:"Check accuracy, safety and learning benefit in the intended setting, including adult support where needed. For other uses, consider the intended users.",options:M("Test suitability for learners' ages and needs before use, including accuracy, safety and benefit.")},
   {id:"sr2",type:"single",prompt:"Is the system protected against misuse, unauthorised access, data leakage and attacks?",recommend:"Confirm security controls, supplier responsibilities and access arrangements with the technical or security team.",options:M("Address the main security risks for education data, users and infrastructure.")},
   {id:"sr3",type:"single",prompt:"Can responsible teams detect problems, correct or stop the system and continue the education process safely?",recommend:"Define monitoring, incident response, communication and a workable alternative process.",options:M("Set up monitoring, response responsibilities and a safe continuity option.")}
  ]},
@@ -205,7 +205,7 @@ const sections = [
   {id:"ha3",type:"single",prompt:"Can learners, families, staff or institutions challenge a result, report a problem and receive a timely response?",recommend:"Provide accessible reporting, review, response and correction processes.",options:M("Create effective routes for complaints, review, remedy and correction.")}
  ]},
  {id:"sustainability",title:"7. Sustainability and wellbeing",questions:[
-  {id:"sw1",type:"single",prompt:"Have possible effects on learner wellbeing and staff roles, workload and working conditions been assessed?",recommend:"Consult affected people and plan changes, training, support and workload protections.",options:M("Assess effects on wellbeing and work, then agree the support and safeguards needed.")},
+  {id:"sw1",type:"single",prompt:"Have risks to learners' own thinking and relationships with other people been assessed?",recommend:"Consider excessive reliance on AI, less interaction with teachers or peers, learner wellbeing, and staff roles, workload and working conditions. Take learners' ages into account.",options:M("Assess effects on independent thinking, human relationships, wellbeing and staff working conditions, then agree support and safeguards.")},
   {id:"sw2",type:"single",prompt:"Have long term financial, infrastructure, supplier dependency, environmental and computing costs been considered?",recommend:"Review total costs, required infrastructure, exit options, energy use and supplier dependency.",options:M("Identify long term resource and dependency risks and practical ways to reduce them.")}
  ]},
  {id:"residual",title:"8. Main risks, actions and decision",questions:[
@@ -388,6 +388,6 @@ document.getElementById("clearBtn").addEventListener("click",()=>{if(!confirm("C
 </script><script>document.getElementById("pdfBtn").addEventListener("click",()=>{const d=build();downloadAssessmentPdf(thoroughPdfReport(d),"education-ai-thorough-assessment-results.pdf");document.getElementById("validation").textContent="Full results PDF downloaded.";});</script>
 </body>
 </html>
-<script src="theme.js?v=assessment-menu-2.2.2"></script>
+<script src="theme.js?v=assessment-questions-2.2.4"></script>
 
 <script>function markSummaryOutdated(){const report=document.getElementById("report");if(report.classList.contains("ready")){report.classList.remove("ready");document.getElementById("validation").textContent="Answers changed. Rebuild the summary to review the latest responses.";}document.getElementById("summaryReady").hidden=true;}document.addEventListener("input",markSummaryOutdated);document.addEventListener("change",markSummaryOutdated);</script>
