@@ -80,9 +80,9 @@
       var scoring = links.find(function (a) { return a.getAttribute("href") === "scoring.html"; });
       var policy = links.find(function (a) { return a.getAttribute("href") === "policy-and-data.html"; });
       if (!home || !instructions || !quick || !thorough || !scoring || !policy) return;
-      quick.classList.add("assessment-nav-link");
-      thorough.classList.add("assessment-nav-link");
-      nav.replaceChildren(quick, thorough, home, instructions, scoring, policy);
+      quick.classList.add("assessment-nav-link", "assessment-nav-quick");
+      thorough.classList.add("assessment-nav-link", "assessment-nav-thorough");
+      nav.replaceChildren(home, instructions, quick, thorough, scoring, policy);
       nav.dataset.navEnhanced = "true";
     });
   }

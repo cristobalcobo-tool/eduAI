@@ -259,32 +259,47 @@ table td, table th { border-color: var(--brand-line) !important; }
 }
 @media print { body { background: #fff !important; } nav, .package-nav, .policy-nav { box-shadow: none !important; } }
 
-/* Keep the two assessment pathways visible and prominent on every page. */
-.package-nav, .policy-nav { display: flex; flex-wrap: wrap; gap: .4rem; align-items: stretch; }
-.package-nav a.assessment-nav-link, .policy-nav a.assessment-nav-link {
+/* Shared menu order: introduction, assessments, reference pages. */
+.package-nav, .policy-nav {
+  display: grid; grid-template-columns: auto auto minmax(0, 1fr) minmax(0, 1fr) auto auto;
+  gap: .4rem; align-items: stretch;
+}
+.package-nav > a, .policy-nav > a {
   display: inline-flex; align-items: center; justify-content: center;
-  min-height: 44px; padding: .65rem .95rem;
-  background: #e3effb !important; color: #124978 !important;
-  border: 1px solid #a6c7e8; font-weight: 800 !important;
-  font-size: 1rem; line-height: 1.35; text-align: center;
+  min-width: 0; min-height: 44px; margin: 0; padding: .65rem .8rem;
+  line-height: 1.35; text-align: center;
 }
-.package-nav a.assessment-nav-link:hover, .package-nav a.assessment-nav-link:focus-visible,
-.policy-nav a.assessment-nav-link:hover, .policy-nav a.assessment-nav-link:focus-visible {
-  background: #cee3f7 !important; color: #103f6b !important;
+.package-nav a[href="quick-assessment.html"], .policy-nav a[href="quick-assessment.html"],
+.package-nav a[href="thorough-assessment.html"], .policy-nav a[href="thorough-assessment.html"] {
+  border: 1px solid #a6c7e8; font-weight: 800 !important; font-size: 1rem;
+  color: #124978 !important;
 }
-.package-nav a.assessment-nav-link[aria-current="page"],
-.policy-nav a.assessment-nav-link[aria-current="page"] {
-  background: #124978 !important; color: #fff !important;
-  border-color: #124978;
+.package-nav a[href="quick-assessment.html"], .policy-nav a[href="quick-assessment.html"] {
+  background: #eaf3fc !important;
+}
+.package-nav a[href="thorough-assessment.html"], .policy-nav a[href="thorough-assessment.html"] {
+  background: #c6dcf0 !important; border-color: #8eb5d9;
+}
+.package-nav a[href="quick-assessment.html"]:hover, .policy-nav a[href="quick-assessment.html"]:hover {
+  background: #dbeafb !important;
+}
+.package-nav a[href="thorough-assessment.html"]:hover, .policy-nav a[href="thorough-assessment.html"]:hover {
+  background: #aecdea !important;
+}
+.package-nav a[href="quick-assessment.html"][aria-current="page"], .policy-nav a[href="quick-assessment.html"][aria-current="page"] {
+  background: #dbeafb !important; border-color: #124978; box-shadow: inset 0 -3px 0 #124978;
+}
+.package-nav a[href="thorough-assessment.html"][aria-current="page"], .policy-nav a[href="thorough-assessment.html"][aria-current="page"] {
+  background: #124978 !important; color: #fff !important; border-color: #124978;
 }
 .package-nav a:focus-visible, .policy-nav a:focus-visible {
   outline: 3px solid #b47700 !important; outline-offset: 2px;
 }
-@media (max-width: 700px) {
-  .package-nav, .policy-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .45rem; }
-  .package-nav a, .policy-nav a { min-width: 0; margin: 0; }
-  .package-nav a.assessment-nav-link, .policy-nav a.assessment-nav-link {
-    font-size: .9375rem; padding: .7rem .5rem; margin-bottom: .35rem;
-    overflow-wrap: anywhere;
+@media (max-width: 1000px) {
+  .package-nav, .policy-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .45rem; }
+  .package-nav > a, .policy-nav > a { padding: .7rem .5rem; overflow-wrap: anywhere; }
+  .package-nav a[href="quick-assessment.html"], .policy-nav a[href="quick-assessment.html"],
+  .package-nav a[href="thorough-assessment.html"], .policy-nav a[href="thorough-assessment.html"] {
+    font-size: .9375rem;
   }
 }
