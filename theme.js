@@ -1582,9 +1582,9 @@
   "Example: Use AI to prepare teaching lesson materials": "Ejemplo: usar IA para preparar materiales para una clase"
 });
   Object.assign(ES, {
-    "Does the evidence show a clear benefit from using AI rather than doing the same task without it?": "¿La evidencia muestra un beneficio claro de usar IA en lugar de hacer la misma tarea sin ella?",
-    "Consider accuracy, safety and usefulness, including suitability for learners' ages and needs.": "Considera la precisión, la seguridad y la utilidad, incluida la adecuación a las edades y necesidades del alumnado.",
-    "Test and record the benefit compared with doing the task without AI, including accuracy, safety and suitability for learners' ages and needs.": "Prueba y registra el beneficio frente a hacer la tarea sin IA, incluida la precisión, la seguridad y la adecuación a las edades y necesidades del alumnado.",
+    "Does the evidence show that AI offers a clear benefit suited to learners' ages and needs?": "¿La evidencia muestra que la IA ofrece un beneficio claro y adecuado para las edades y necesidades del alumnado?",
+    "Consider accuracy, safety and the benefit compared with doing the same task without AI.": "Considera la precisión, la seguridad y el beneficio frente a hacer la misma tarea sin IA.",
+    "Record evidence of benefit suited to learners' ages and needs, compared with doing the task without AI. Check accuracy and safety.": "Registra evidencia de un beneficio adecuado para las edades y necesidades del alumnado, frente a hacer la tarea sin IA. Comprueba la precisión y la seguridad.",
     "Does the evidence show that the AI is suitable for the learners' ages and needs?": "¿La evidencia muestra que la IA es adecuada para las edades y necesidades del alumnado?",
     "Check accuracy, safety and learning benefit in the intended setting, including adult support where needed. For other uses, consider the intended users.": "Comprueba la precisión, la seguridad y el beneficio para el aprendizaje en el contexto previsto, con apoyo de una persona adulta cuando sea necesario. Para otros usos, considera a las personas que utilizarán la IA.",
     "Test suitability for learners' ages and needs before use, including accuracy, safety and benefit.": "Antes de usar la IA, comprueba que sea adecuada para las edades y necesidades del alumnado, incluida la precisión, la seguridad y el beneficio.",
@@ -1775,4 +1775,3 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 }());
-
