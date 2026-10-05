@@ -1720,7 +1720,7 @@
   }
   function init() {
     ensureToggle();
-    var saved = ((navigator.language || "").toLowerCase().startsWith("es")) ? "es" : "en";
+    var saved = "en";
     try { saved = localStorage.getItem("civic-ai-compass-language") || saved; } catch (e) {}
     setLanguage(saved);
     new MutationObserver(function (records) {
