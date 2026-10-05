@@ -1,31 +1,157 @@
-(function(){
-const C={navy:[.06,.18,.29],ink:[.10,.18,.26],muted:[.32,.40,.48],line:[.84,.88,.92],wash:[.95,.97,.98],blue:[.10,.37,.66],green:[.08,.43,.28],greenPale:[.86,.95,.90],orange:[.72,.38,.06],orangePale:[1,.94,.80],red:[.64,.14,.19],redPale:[.98,.88,.89],grey:[.48,.54,.60],greyPale:[.92,.94,.96],white:[1,1,1]};
-const S={good:{label:"Strong",color:C.green,pale:C.greenPale},partial:{label:"Needs attention",color:C.orange,pale:C.orangePale},gap:{label:"Priority action",color:C.red,pale:C.redPale},missing:{label:"Incomplete",color:C.grey,pale:C.greyPale},na:{label:"Not applicable",color:C.grey,pale:C.greyPale}};
-const translateKnownPortuguese=v=>{let t=String(v==null?"":v);const pairs=[["Questionário Principal de Avaliação","Main Assessment Questionnaire"],["O Questionário Principal","The Main Questionnaire"],["analisa em profundidade","examines in depth"],["os aspectos éticos e de governança do projeto de IA","the ethical and governance aspects of the AI project"],["conforme o nível de risco definido na Avaliação de Riscos","according to the risk level defined in the Risk Assessment"],["Ele busca identificar boas práticas","It seeks to identify good practices"],["e pontos críticos que precisam ser melhorados","and critical areas that need improvement"],["pontos críticos que precisam ser melhorados","critical areas that need improvement"],["Pontuação","Score"]];for(const [from,to] of pairs)t=t.replace(new RegExp(from,"gi"),to);return t};
-const ascii=v=>{let t=translateKnownPortuguese(v);if(window.civicTranslate)t=window.civicTranslate(t);return t.replace(/[^\x20-\xFF€‘’“”–—]/g," ").replace(/\s+/g," ").trim()};
-const esc=v=>ascii(v).replace(/\\/g,"\\\\").replace(/\(/g,"\\(").replace(/\)/g,"\\)");
-const wrap=(v,max,limit)=>{const words=ascii(v).split(/\s+/).filter(Boolean),out=[];let line="";for(const word of words){if(line&&line.length+word.length+1>max){out.push(line);line=""}line+=(line?" ":"")+word;if(out.length===limit)break}if(line&&out.length<limit)out.push(line);if(words.length>out.join(" ").split(/\s+/).filter(Boolean).length&&out.length)out[out.length-1]=out[out.length-1]+" ...";return out.length?out:[""]};
-const statusForRatio=r=>r==null?"missing":r>=.75?"good":r>=.45?"partial":"gap";
-const text=(p,x,y,size,value,color=C.ink)=>p.ops.push("BT /F1 "+size+" Tf "+color.join(" ")+" rg 1 0 0 1 "+x+" "+y+" Tm ("+esc(value)+") Tj ET");
-const rect=(p,x,y,w,h,color)=>p.ops.push(color.join(" ")+" rg "+x+" "+y+" "+w+" "+h+" re f");
-const line=(p,x1,y1,x2,y2,color=C.line,width=1)=>p.ops.push(color.join(" ")+" RG "+width+" w "+x1+" "+y1+" m "+x2+" "+y2+" l S");
-function block(p,x,y,value,maxChars,size,leading,color=C.muted,maxLines=3){const ls=wrap(value,maxChars,maxLines);ls.forEach((v,i)=>text(p,x,y-i*leading,size,v,color));return y-ls.length*leading}
-function pill(p,x,y,label,status){const s=S[status]||S.missing,w=Math.max(68,ascii(label).length*5.4+18);rect(p,x,y-14,w,19,s.pale);text(p,x+8,y-7,8.5,label,s.color);return w}
-function header(p,report,n){rect(p,0,770,595,72,C.navy);text(p,42,815,19,report.title||"Responsible AI in Education Compass",C.white);text(p,42,795,10,report.pathway+" results",[.86,.93,.98]);text(p,508,815,8,n+" of 2",[.86,.93,.98])}
-function footer(p,report,n){line(p,42,48,553,48,C.line,.7);text(p,42,32,7.5,report.pathway+" results",C.muted);text(p,508,32,7.5,"Page "+n+" of 2",C.muted)}
-function row(p,item,y){const s=S[item.status]||S.missing;text(p,42,y,9.2,item.name,C.ink);text(p,465,y,9,item.scoreText||"Pending",s.color);text(p,510,y,7.8,s.label,s.color);rect(p,42,y-15,405,8,C.greyPale);if(item.ratio!=null)rect(p,42,y-15,405*Math.max(0,Math.min(1,item.ratio)),8,s.color);return y-34}
-function card(p,x,y,w,title,value,status){const s=S[status]||S.missing;rect(p,x,y-62,w,62,C.wash);rect(p,x,y-62,5,62,s.color);text(p,x+14,y-16,9.2,title,C.ink);block(p,x+14,y-31,value,Math.floor((w-28)/5.4),8.5,11,C.muted,2)}
-function build(report){const pages=[{ops:[]},{ops:[]}],p1=pages[0],p2=pages[1];header(p1,report,1);header(p2,report,2);
-text(p1,42,744,14,"Assessment overview",C.navy);const overall=report.overall||{label:"Incomplete",status:"missing"},pw=pill(p1,42,714,overall.label,overall.status);text(p1,42+pw+10,707,9,report.overallDetail||"Review the evidence recorded in this assessment.",C.muted);
-const m=report.meta||{};card(p1,42,663,243,"AI system or use",m.project||"Not provided","good");card(p1,310,663,243,"Responsible education authority or institution",m.publicBody||m.agency||"Not provided","good");card(p1,42,589,243,"Responsible review lead",m.accountableOwner||"Not provided","good");card(p1,310,589,243,"Assessment date",m.assessmentDate||"Not provided","good");if(m.purpose)card(p1,42,515,511,"Education purpose, context and affected groups",m.purpose,"good");
-text(p1,42,434,13,"Results by category",C.navy);block(p1,42,416,"Green indicates evidence of a safeguard. Orange indicates work to strengthen. Red indicates priority action. Grey indicates missing information.",100,8.5,11,C.muted,2);
-const dims=report.dimensions||[],first=report.pathway==="Thorough assessment"?dims.slice(0,7):dims;let y=389;first.forEach(item=>{y=row(p1,item,y)});if(dims.length>first.length)text(p1,42,145,8.5,(dims.length-first.length)+" additional dimensions continue on page 2.",C.muted);else text(p1,42,145,8.5,"Scores describe the evidence recorded in this self assessment.",C.muted);
-const remaining=report.pathway==="Thorough assessment"?dims.slice(7):[];let y2=744;text(p2,42,y2,14,remaining.length?"Results by category continued":"Findings and action plan",C.navy);y2-=29;remaining.forEach(item=>{y2=row(p2,item,y2)});if(remaining.length)y2-=7;
-text(p2,42,y2,13,"Preliminary risk route",C.navy);y2-=22;const rw=pill(p2,42,y2,report.riskRoute?.label||overall.label,report.riskRoute?.status||overall.status);block(p2,42+rw+10,y2-7,report.riskRoute?.detail||report.overallDetail||"",72,8.8,11,C.muted,2);y2-=42;
-text(p2,42,y2,13,"Key findings",C.navy);y2-=22;const findings=(report.findings||[]).slice(0,3);if(!findings.length){block(p2,42,y2,"No priority issue was generated automatically. Review the evidence and remaining uncertainty before closing the assessment.",92,9,12,C.muted,3);y2-=42}else{for(const f of findings){const s=S[f.status]||S.missing;rect(p2,42,y2-4,7,7,s.color);text(p2,56,y2,9.2,f.title,C.ink);y2=block(p2,56,y2-13,f.text,82,8.5,11,C.muted,2)-8}}
-text(p2,42,y2,13,"Priority actions",C.navy);y2-=22;for(const t of (report.takeaways||[]).slice(0,5)){rect(p2,42,y2-3,6,6,C.blue);y2=block(p2,56,y2,t,82,8.7,12,C.ink,2)-6}
-footer(p1,report,1);footer(p2,report,2);
-const objects=[];objects[1]="<< /Type /Catalog /Pages 2 0 R >>";objects[2]="<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>";objects[3]="<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>";for(let i=0;i<2;i++){const c=pages[i].ops.join("\n");objects[4+i*2]="<< /Length "+c.length+" >>\nstream\n"+c+"\nendstream";objects[5+i*2]="<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents "+(4+i*2)+" 0 R >>"}let pdf="%PDF-1.4\n",offs=[0];for(let i=1;i<objects.length;i++){offs[i]=pdf.length;pdf+=i+" 0 obj\n"+objects[i]+"\nendobj\n"}const start=pdf.length;pdf+="xref\n0 "+objects.length+"\n0000000000 65535 f \n";for(let i=1;i<objects.length;i++)pdf+=String(offs[i]).padStart(10,"0")+" 00000 n \n";pdf+="trailer\n<< /Size "+objects.length+" /Root 1 0 R >>\nstartxref\n"+start+"\n%%EOF";const cp1252={"€":128,"‘":145,"’":146,"“":147,"”":148,"–":150,"—":151};return Uint8Array.from(Array.from(pdf,c=>cp1252[c]??(c.charCodeAt(0)<=255?c.charCodeAt(0):32)))}
-window.downloadAssessmentPdf=function(report,filename){const bytes=build(report),url=URL.createObjectURL(new Blob([bytes],{type:"application/pdf"})),a=document.createElement("a");a.href=url;a.download=filename||"assessment-results.pdf";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)};
-window.assessmentPdfStatusFromRatio=statusForRatio;
-})();
+(function () {
+  "use strict";
+  const W = 595, H = 842, SCALE = 2, MARGIN = 42;
+  const COLORS = { navy: "#103f6b", ink: "#17324d", muted: "#526579", line: "#d8e0e8", good: "#167044", partial: "#966100", gap: "#a42a35", missing: "#526579", na: "#526579" };
+  const translate = value => window.civicTranslate ? window.civicTranslate(String(value == null ? "" : value)) : String(value == null ? "" : value);
+  function statusForRatio(ratio) { return ratio == null ? "missing" : ratio >= .75 ? "good" : ratio >= .45 ? "partial" : "gap"; }
+  // Canvas uses the browser's Unicode fonts and shaping. PDF pages retain the
+  // complete rendered text, including scripts unsupported by WinAnsi fonts.
+  function render(report) {
+    const pages = [];
+    let canvas, ctx, y;
+    function font(size, bold) { ctx.font = (bold ? "600 " : "") + size + 'px system-ui, "Segoe UI", sans-serif'; }
+    function raw(value, x, top, size, bold, color) {
+      font(size, bold); ctx.fillStyle = color || COLORS.ink;
+      ctx.textBaseline = "top"; ctx.fillText(value, x, top);
+    }
+    function newPage() {
+      canvas = document.createElement("canvas"); canvas.width = W * SCALE; canvas.height = H * SCALE;
+      ctx = canvas.getContext("2d"); if (!ctx) throw new Error("PDF rendering is unavailable.");
+      ctx.scale(SCALE, SCALE); ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, W, H);
+      ctx.fillStyle = COLORS.navy; ctx.fillRect(0, 0, W, 88);
+      font(17, true);
+      const titleLines = wrap(translate(report.title), W - MARGIN * 2);
+      titleLines.forEach((line, index) => raw(line, MARGIN, 20 + index * 21, 17, true, "#ffffff"));
+      raw(translate(report.pathway), MARGIN, 66, 10, false, "#e7f1fa");
+      y = 108; pages.push(canvas);
+    }
+    function room(height) { if (y + height > H - 62) newPage(); }
+    function graphemes(value) {
+      return typeof Intl.Segmenter === "function" ? Array.from(new Intl.Segmenter(undefined, { granularity: "grapheme" }).segment(value), part => part.segment) : Array.from(value);
+    }
+    function wrap(value, width) {
+      const lines = [];
+      for (const paragraph of String(value).split(/\r?\n/)) {
+        let line = "";
+        for (const word of paragraph.split(/\s+/).filter(Boolean)) {
+          const candidate = line ? line + " " + word : word;
+          if (ctx.measureText(candidate).width <= width) { line = candidate; continue; }
+          if (line) { lines.push(line); line = ""; }
+          if (ctx.measureText(word).width <= width) { line = word; continue; }
+          for (const char of graphemes(word)) {
+            if (line && ctx.measureText(line + char).width > width) { lines.push(line); line = ""; }
+            line += char;
+          }
+        }
+        lines.push(line);
+      }
+      return lines;
+    }
+    function paragraph(value, options) {
+      const o = options || {}, size = o.size || 10, leading = size * 1.45;
+      font(size, o.bold);
+      const lines = wrap(o.userText ? String(value) : translate(value), W - 2 * MARGIN);
+      for (const line of lines) { room(leading); raw(line, MARGIN, y, size, o.bold, o.color); y += leading; }
+      y += o.gap == null ? 7 : o.gap;
+    }
+    function heading(value) { room(48); y += 7; paragraph(value, { size: 13, bold: true, color: COLORS.navy, gap: 9 }); }
+    function field(label, value, userText) {
+      room(38); paragraph(label, { bold: true, gap: 2 }); paragraph(value || "Not provided", { userText: !!userText });
+    }
+    newPage();
+    heading("Assessment overview");
+    paragraph(report.overall?.label || "Incomplete", { size: 12, bold: true, color: COLORS[report.overall?.status] });
+    paragraph(report.overallDetail || "");
+    if (report.completion) {
+      const c = report.completion;
+      field("Completion", c.answered + " / " + c.total);
+      if (c.answered < c.total) paragraph("Incomplete assessment. Complete all required questions before relying on the findings.", { bold: true, color: COLORS.gap });
+    }
+    const meta = report.meta || {};
+    field("AI system or use", meta.project, true);
+    field("Responsible education authority or institution", meta.publicBody || meta.agency, true);
+    field("Education purpose, context and affected groups", meta.purpose, true);
+    field("Responsible review lead", meta.accountableOwner, true);
+    field("Assessment date", meta.assessmentDate, true);
+    if (meta.nextReview) field("Next review", meta.nextReview, true);
+    heading("Decision and conditions");
+    field("Final decision", report.decision);
+    field("Actions, responsible roles, dates and remaining risk", report.conditions, true);
+    paragraph(report.note || "This self assessment records the evidence and judgement provided. It does not verify compliance or authorise the use.");
+    heading("Preliminary risk route");
+    paragraph(report.riskRoute?.label || "Incomplete", { bold: true, color: COLORS[report.riskRoute?.status] });
+    paragraph(report.riskRoute?.detail || "");
+    heading("Results by category");
+    for (const item of report.dimensions || []) {
+      room(66); paragraph(item.name, { bold: true, gap: 2 });
+      paragraph(item.scoreText || "Pending", { bold: true, color: COLORS[item.status], gap: 3 });
+      const ratio = item.ratio;
+      if (ratio != null) {
+        ctx.fillStyle = "#edf2f6"; ctx.fillRect(MARGIN, y, W - 2 * MARGIN, 6);
+        ctx.fillStyle = COLORS[item.status] || COLORS.missing;
+        ctx.fillRect(MARGIN, y, (W - 2 * MARGIN) * Math.max(0, Math.min(1, ratio)), 6); y += 12;
+      }
+      if (item.detail) paragraph(item.detail);
+    }
+    heading("Key findings");
+    if (!(report.findings || []).length) paragraph("No priority issue was generated automatically. Review the evidence and remaining uncertainty before closing the assessment.");
+    for (const item of report.findings || []) {
+      paragraph(item.title, { bold: true, color: COLORS[item.status], gap: 3 }); paragraph(item.text, { userText: true });
+    }
+    heading("Priority actions");
+    for (const item of report.takeaways || []) paragraph(item);
+    heading("Full response record");
+    let section = "";
+    for (const item of report.responses || []) {
+      if (item.section !== section) { section = item.section; heading(section); }
+      paragraph(item.prompt, { bold: true, gap: 3 });
+      // Translate only exact questionnaire options; free responses remain intact.
+      paragraph(Array.isArray(item.answer) ? item.answer.map(translate).join("; ") : translate(item.answer || "Not answered"));
+      if (item.evidence) field("Evidence / reason", item.evidence, true);
+    }
+    pages.forEach((page, index) => {
+      ctx = page.getContext("2d");
+      ctx.strokeStyle = COLORS.line; ctx.beginPath(); ctx.moveTo(MARGIN, H - 45); ctx.lineTo(W - MARGIN, H - 45); ctx.stroke();
+      raw(translate("Version 2.2"), MARGIN, H - 32, 8, false, COLORS.muted);
+      const label = (index + 1) + " / " + pages.length;
+      font(8); raw(label, W - MARGIN - ctx.measureText(label).width, H - 32, 8, false, COLORS.muted);
+    });
+    return pages;
+  }
+  function encodePdf(pages) {
+    const encoder = new TextEncoder(), objects = [];
+    const bytes = value => encoder.encode(value);
+    const join = arrays => {
+      const result = new Uint8Array(arrays.reduce((n, item) => n + item.length, 0));
+      let offset = 0; for (const item of arrays) { result.set(item, offset); offset += item.length; } return result;
+    };
+    objects[1] = bytes("<< /Type /Catalog /Pages 2 0 R >>");
+    const kids = pages.map((_, i) => (3 + i * 3) + " 0 R").join(" ");
+    objects[2] = bytes("<< /Type /Pages /Kids [" + kids + "] /Count " + pages.length + " >>");
+    pages.forEach((canvas, index) => {
+      const pageId = 3 + index * 3, imageId = pageId + 1, streamId = pageId + 2;
+      const data = atob(canvas.toDataURL("image/jpeg", .94).split(",")[1]);
+      const image = Uint8Array.from(data, c => c.charCodeAt(0));
+      objects[pageId] = bytes("<< /Type /Page /Parent 2 0 R /MediaBox [0 0 " + W + " " + H + "] /Resources << /XObject << /Img " + imageId + " 0 R >> >> /Contents " + streamId + " 0 R >>");
+      objects[imageId] = join([bytes("<< /Type /XObject /Subtype /Image /Width " + canvas.width + " /Height " + canvas.height + " /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length " + image.length + " >>\nstream\n"), image, bytes("\nendstream")]);
+      const commands = "q " + W + " 0 0 " + H + " 0 0 cm /Img Do Q\n";
+      objects[streamId] = bytes("<< /Length " + bytes(commands).length + " >>\nstream\n" + commands + "endstream");
+    });
+    const parts = [bytes("%PDF-1.4\n")], offsets = [0]; let length = parts[0].length;
+    for (let id = 1; id < objects.length; id++) {
+      offsets[id] = length; const object = join([bytes(id + " 0 obj\n"), objects[id], bytes("\nendobj\n")]);
+      parts.push(object); length += object.length;
+    }
+    let xref = "xref\n0 " + objects.length + "\n0000000000 65535 f \n";
+    for (let id = 1; id < objects.length; id++) xref += String(offsets[id]).padStart(10, "0") + " 00000 n \n";
+    parts.push(bytes(xref + "trailer\n<< /Size " + objects.length + " /Root 1 0 R >>\nstartxref\n" + length + "\n%%EOF"));
+    return join(parts);
+  }
+  window.downloadAssessmentPdf = function (report, filename) {
+    const data = encodePdf(render(report));
+    const url = URL.createObjectURL(new Blob([data], { type: "application/pdf" }));
+    const link = document.createElement("a"); link.href = url; link.download = filename || "assessment-results.pdf";
+    document.body.appendChild(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1500);
+  };
+  window.assessmentPdfStatusFromRatio = statusForRatio;
+}());

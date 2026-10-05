@@ -48,11 +48,14 @@
     if (summaryDownload) summaryActions.append(summaryDownload);
     summaryGroup.append(summaryActions);
     if (ready) summaryGroup.append(ready);
-    var pdfGroup = makeGroup("2", "Download the two page results PDF", "Save the visual scorecard and findings for your team records.", "pdf");
+    var pdfGroup = makeGroup("2", "Download the full results PDF", "Save the results, final decision and all responses for your team records.", "pdf");
     var pdfActions = document.createElement("div");
     pdfActions.className = "export-actions";
     pdfActions.append(pdfButton);
     pdfGroup.append(pdfActions);
+    var pdfNote = document.createElement("p");
+    pdfNote.textContent = "The PDF includes the complete response record. For selectable text and screen reader access, download the HTML summary or text report.";
+    pdfGroup.append(pdfNote);
     var toolsGroup = makeGroup("3", "Other formats and page controls", "Use these options for machine readable data, a text record, printing or a fresh start.", "tools");
     var toolsActions = document.createElement("div");
     toolsActions.className = "export-actions";
@@ -358,7 +361,7 @@
     "Build and export": "Crear y exportar",
     "Download text report": "Descargar informe de texto",
     "Print or save as PDF": "Imprimir o guardar como PDF",
-    "Download the two page results PDF for dimension scores and findings.": "Descarga el PDF de resultados de dos páginas con las puntuaciones por dimensión y los hallazgos.",
+    "Download the full results PDF for dimension scores and findings.": "Descarga el PDF de resultados de dos páginas con las puntuaciones por dimensión y los hallazgos.",
     "Skip to content": "Ir al contenido",
     "Self assessment for public sector AI": "Autoevaluación para IA del sector público",
     "Navigate risk, governance, and responsible use.": "Navega los riesgos, la gobernanza y el uso responsable.",
@@ -575,7 +578,7 @@
     "Six principles": "Seis principios",
     "Calculated route": "Ruta calculada",
     "Completion:": "Completado:",
-    "Download the two page results PDF for dimension scores and findings.": "Descarga el PDF de resultados de dos páginas con las puntuaciones y hallazgos.",
+    "Download the full results PDF for dimension scores and findings.": "Descarga el PDF de resultados de dos páginas con las puntuaciones y hallazgos.",
     "Assessment review summary": "Resumen de revisión de la evaluación",
     "English": "Inglés",
     "Spanish": "Español",
@@ -636,8 +639,8 @@
     "Pause and escalate. Seek specialist review for a potentially unlawful use or severe unresolved harm.": "Pausa y escala. Busca una revisión especializada por un posible uso ilegal o un daño grave sin resolver.",
     "Build the assessment review summary": "Crear el resumen de revisión de la evaluación",
     "Create the readable findings view before downloading the record.": "Crea una vista legible de los hallazgos antes de descargar el registro.",
-    "Download the two page results PDF": "Descargar el PDF de resultados de dos páginas",
-    "Save the visual scorecard and findings for your team records.": "Guarda el cuadro visual de puntuaciones y los hallazgos para los registros de tu equipo.",
+    "Download the full results PDF": "Descargar el PDF de resultados de dos páginas",
+    "Save the results, final decision and all responses for your team records.": "Guarda el cuadro visual de puntuaciones y los hallazgos para los registros de tu equipo.",
     "Other formats and page controls": "Otros formatos y controles de página",
     "Use these options for machine readable data, a text record, printing or a fresh start.": "Usa estas opciones para datos legibles por máquinas, un registro de texto, imprimir o empezar de nuevo.",
     "Download text report": "Descargar informe de texto",
@@ -866,7 +869,7 @@
   "A clear cover sheet for the assessment report and follow up.": "Una portada clara para el informe de evaluación y su seguimiento.",
   "Complete the risk screen to see its provisional color coded result.": "Completa la evaluación inicial del riesgo para ver el resultado provisional indicado con colores.",
   "0 of 0 required items answered": "0 de 0 elementos obligatorios respondidos",
-  ". Download the two page results PDF for dimension scores and findings.": ". Descarga el PDF de resultados de dos páginas para consultar las puntuaciones por dimensión y los hallazgos.",
+  ". Download the full results PDF for dimension scores and findings.": ". Descarga el PDF de resultados de dos páginas para consultar las puntuaciones por dimensión y los hallazgos.",
   "The screen calculates an adapted risk score and colored route. Practice responses remain separate. The summary does not certify compliance or approve the system.": "La evaluación inicial calcula una puntuación y una ruta de riesgo adaptadas. Las respuestas sobre prácticas se presentan por separado. El resumen no certifica el cumplimiento ni aprueba el sistema.",
   "Thorough assessment · Version 2.1 · 24 questions. Export or print a copy before closing the page.": "Evaluación detallada · Versión 2.1 · 24 preguntas. Exporta o imprime una copia antes de cerrar la página.",
   "What this toolkit is for, how to choose a path and how to use the assessment results.": "Para qué sirve este conjunto de herramientas, cómo elegir una ruta y cómo utilizar los resultados de la evaluación.",
@@ -1548,6 +1551,41 @@
   "The wording does not assume a particular country, administrative structure, education level, curriculum, pedagogical model or legal framework. The person or group completing the review must identify the local requirements and responsibilities that apply.": "La redacción no presupone un país, una estructura administrativa, un nivel educativo, un currículo, un modelo pedagógico ni un marco jurídico determinados. Quien complete la revisión debe identificar los requisitos y responsabilidades locales aplicables.",
   "forms run locally and do not send or persist answers. Quick returns a provisional route from its highest concern signal. Thorough calculates a normalized screening percentage and asks whether the risks that remain can be managed. Neither is an official result; safeguard practice is not combined into the risk score.": "Los formularios funcionan localmente y no envían ni guardan las respuestas. La evaluación rápida indica una ruta preliminar según la señal de mayor preocupación. La evaluación exhaustiva calcula un porcentaje normalizado de evaluación inicial y pregunta si los riesgos que quedan pueden gestionarse. Ninguno de los resultados es oficial; la calidad de las salvaguardas se evalúa por separado de la ruta de riesgo."
 });
+  Object.assign(ES, {
+  "Download full results PDF": "Descargar el PDF completo de resultados",
+  "Download the full results PDF": "Descargar el PDF completo de resultados",
+  "Full results PDF downloaded.": "PDF completo de resultados descargado.",
+  "Save the results, final decision and all responses for your team records.": "Guarda los resultados, la decisión final y todas las respuestas para los registros de tu equipo.",
+  "Incomplete assessment.": "Evaluación incompleta.",
+  "Incomplete assessment. Complete all required questions before relying on the findings.": "Evaluación incompleta. Completa todas las preguntas obligatorias antes de utilizar los hallazgos.",
+  "Complete all required questions before relying on the findings. Unanswered questions do not establish that safeguards are in place.": "Completa todas las preguntas obligatorias antes de utilizar los hallazgos. Las preguntas sin responder no demuestran que existan medidas de protección.",
+  "Possible unlawful use or severe harm was selected. Pause and seek specialist review, even while other answers remain incomplete.": "Se ha indicado un posible uso ilegal o daño grave. Detén el proceso y solicita una revisión especializada, aunque todavía falten respuestas.",
+  "Assessment answers stay in this page and are not sent or saved by the site. The browser saves your language preference only.": "Las respuestas permanecen en esta página y el sitio no las envía ni las guarda. El navegador guarda únicamente tu preferencia de idioma.",
+  "Assessment answers are not stored": "Las respuestas de la evaluación no se guardan",
+  "Final decision": "Decisión final",
+  "Full response record": "Registro completo de respuestas",
+  "Version 2.2": "Versión 2.2",
+  "Answers changed. Rebuild the summary to review the latest responses.": "Las respuestas han cambiado. Vuelve a generar el resumen para revisar las respuestas actuales.",
+  "The PDF includes the complete response record. For selectable text and screen reader access, download the HTML summary or text report.": "El PDF incluye el registro completo de respuestas. Para obtener texto seleccionable y acceso mediante un lector de pantalla, descarga el resumen HTML o el informe de texto.",
+  "English working package · Version 2.2. Review local legal and governance requirements.": "Versión de trabajo · Versión 2.2. Revisa los requisitos legales y de gobernanza locales.",
+  "Quick assessment · Version 2.2. See Instructions for facilitation and follow-up.": "Evaluación rápida · Versión 2.2. Consulta las instrucciones para facilitar la revisión y hacer el seguimiento.",
+  "Scoring guide · Version 2.2. Apply local risk and approval rules.": "Guía de puntuación · Versión 2.2. Aplica las normas locales sobre riesgos y aprobación.",
+  "Package version: 2.2 · Prepared 21 September 2026.": "Versión del paquete: 2.2 · Preparado el 21 de septiembre de 2026.",
+  "Sources and method notes · Version 2.2.": "Notas sobre fuentes y método · Versión 2.2.",
+  "Policy and data notes · Version 2.2.": "Notas sobre políticas y datos · Versión 2.2.",
+  "Thorough assessment · Version 2.2 · 24 questions. Export or print a copy before closing the page.": "Evaluación detallada · Versión 2.2 · 24 preguntas. Exporta o imprime una copia antes de cerrar la página.",
+  "Facilitation guide · Version 2.2. Review local requirements before operational use.": "Guía de facilitación · Versión 2.2. Revisa los requisitos locales antes de su uso operativo.",
+  "Package version: 2.2 · Prepared 24 September 2026.": "Versión del paquete: 2.2 · Preparada el 24 de septiembre de 2026.",
+  "Package version: 2.2 · Updated 5 October 2026.": "Versión del paquete: 2.2 · Actualizada el 5 de octubre de 2026."
+});
+  Object.assign(ES, {
+  "Build the assessment review summary first, then download the summary or a full results PDF. JSON and text exports remain available for records.": "Crea primero el resumen de revisión y luego descarga el resumen o un PDF de resultados completo. Las exportaciones JSON y de texto siguen disponibles para los registros.",
+  "Download full results PDF": "Descargar PDF de resultados completo",
+  "After the team agrees its answers, select Build assessment review summary. The page reveals the summary and enables an English HTML download. You can also download the full results PDF, which summarises the selected pathway, colour coded dimensions, risk route, main findings and three to five takeaways.": "Una vez acordadas las respuestas, selecciona «Crear resumen de la evaluación». La página muestra el resumen y permite descargar una copia HTML en español. También puedes descargar un PDF de resultados completo que resume la ruta elegida, las dimensiones por colores, la ruta de riesgo, los hallazgos principales y entre tres y cinco conclusiones.",
+  "The team can download the assessment review summary, the full results PDF or JSON and text for local records. The site does not retain the information.": "El equipo puede descargar el resumen de la evaluación, el PDF de resultados completo o archivos JSON y de texto para sus registros locales. El sitio no conserva la información.",
+  "The assessment review summary, the full results PDF, JSON or text can be downloaded for local records.": "El resumen de la revisión, el PDF de resultados completo, el archivo JSON o el texto pueden descargarse para los registros locales.",
+  "The screening answers are incomplete. Any severe harm warning still applies.": "Las respuestas de evaluación inicial están incompletas. Cualquier advertencia de daño grave sigue siendo válida."
+});
   function translated(value) {
     var source = key(value), exact = ES[source];
     if (exact) return exact;
@@ -1731,3 +1769,4 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 }());
+
