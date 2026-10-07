@@ -39,13 +39,22 @@
     }
   ];
   var publicationUrl = "https://unesdoc.unesco.org/ark:/48223/pf0000399343_eng";
+  var topics = {
+    en: ["Harm", "Age", "Development", "Privacy", "Wellbeing", "Necessity", "Relationships", "Consultation", "Local fit"],
+    es: ["Daños", "Edad", "Desarrollo", "Privacidad", "Bienestar", "Necesidad", "Relaciones", "Consulta", "Contexto local"]
+  };
+  function validExplanation(value) {
+    var text = String(value || "").replace(/[\u200b\u200c\u200d\ufeff]/g, "").trim().replace(/\s+/g, " ");
+    return text.length >= 20 && /[\p{L}\p{N}]/u.test(text);
+  }
   function initial() { return { step: 0, answers: [], paused: null, history: [], notes: Array(9).fill(""), use: "", position: "", completedAt: null }; }
   function transition(state, action) {
     if (action === "restart") return initial();
     if (action === "back" && state.step > 0) return Object.assign({}, state, { step: state.step - 1, answers: state.answers.slice(0, state.step - 1), paused: null, completedAt: null });
     if (action === "recheck" && state.paused) return Object.assign({}, state, { paused: null });
     if (state.step >= checks.length || state.paused) return state;
-    var history = state.history.concat({ step: state.step, answer: action });
+    if (action === "yes" && !validExplanation(state.notes[state.step])) return state;
+    var history = state.history.concat({ step: state.step, answer: action, explanation: state.notes[state.step].trim() });
     if (action === "yes") return Object.assign({}, state, { step: state.step + 1, answers: state.answers.concat("yes"), paused: null, history: history, completedAt: state.step === 8 ? new Date().toISOString() : null });
     if (action === "no" || action === "unsure") return Object.assign({}, state, { paused: action, history: history });
     return state;
@@ -61,10 +70,10 @@
       record: "For a fuller review and an action record, use one of the assessments.", quick: "Quick assessment", thorough: "Thorough assessment", summary: "Review confirmed checks", note: "This guide supports a decision; it does not provide approval or change assessment scores.",
       privacy: "Choices stay on this page and are cleared when you reload it. No answers are submitted.",
       source: "Adapted from Livingstone et al. (2026), Is there a right age for AI in education? Deciding whether AI is age-appropriate and why, UNESCO, figure 1, page 13.",
-      publication: "Read the original UNESCO publication", sourceLabel: "Based on UNESCO research", noteLabel: "Add a decision note (optional)", noteHint: "Record the evidence, reasoning or conditions behind your answer.",
+      publication: "Read the original UNESCO publication", sourceLabel: "Based on UNESCO research", noteLabel: "Explain how or why", noteHint: "A brief sentence about how this condition is met is enough. Write at least 20 characters to continue.", noteReady: "Explanation added. You can continue.", topic: "Topic", topicSequence: "Topic progression", topicProgress: "Topics in this review",
       exportTitle: "Keep your decision record", exportIntro: "Save the nine answers, earlier pauses, your notes and the guidance for continued use.", useLabel: "AI use reviewed (optional)", useHint: "Name the tool, activity and intended learners.", positionLabel: "Your decision and conditions (optional)", positionHint: "Record your next step, safeguards or review date.",
       pdf: "Download decision record (PDF)", html: "Download accessible HTML", accessible: "For selectable text or screen reader access, use the HTML record.", downloaded: "Decision record downloaded.", downloadError: "The download could not be created. Try the HTML record or download again.",
-      recordTitle: "AI classroom decision record", overview: "Review overview", useField: "AI use reviewed", dateField: "Completed on", outcome: "Guide outcome", positionField: "Your decision and conditions", notProvided: "Not provided", answer: "Final answer", answerYes: "Yes", answerNo: "No", answerUnsure: "Not sure", earlier: "Earlier answers", noteField: "Decision note", guidanceGiven: "Guidance shown when paused", nextSteps: "During use and future review", sourceTitle: "Source and scope", historyNote: "Earlier answers and guidance are recorded for context. This record does not verify that actions were completed.", footer: "Responsible AI in Education Compass"
+      recordTitle: "AI classroom decision record", overview: "Review overview", useField: "AI use reviewed", dateField: "Completed on", outcome: "Guide outcome", positionField: "Your decision and conditions", notProvided: "Not provided", answer: "Final answer", answerYes: "Yes", answerNo: "No", answerUnsure: "Not sure", earlier: "Earlier answers and explanations", noteField: "Explanation", guidanceGiven: "Guidance shown when paused", nextSteps: "During use and future review", sourceTitle: "Source and scope", historyNote: "Earlier answers and guidance are recorded for context. This record does not verify that actions were completed.", footer: "Responsible AI in Education Compass"
     },
     es: {
       title: "Guía de decisiones", intro: "Nueve preguntas antes de usar IA en el aula. Responde para un uso concreto, según la evidencia disponible.",
@@ -76,27 +85,27 @@
       record: "Para una revisión más completa y un registro de acciones, utiliza una de las evaluaciones.", quick: "Evaluación rápida", thorough: "Evaluación detallada", summary: "Revisar las comprobaciones confirmadas", note: "Esta guía apoya una decisión; no otorga aprobación ni modifica las puntuaciones de las evaluaciones.",
       privacy: "Las respuestas permanecen en esta página y se borran al recargarla. No se envía ninguna respuesta.",
       source: "Adaptado de Livingstone et al. (2026), Is there a right age for AI in education? Deciding whether AI is age-appropriate and why, UNESCO, figura 1, página 13.",
-      publication: "Leer la publicación original de UNESCO", sourceLabel: "Basado en investigación de UNESCO", noteLabel: "Añadir una nota sobre la decisión (opcional)", noteHint: "Registra la evidencia, el razonamiento o las condiciones de tu respuesta.",
+      publication: "Leer la publicación original de UNESCO", sourceLabel: "Basado en investigación de UNESCO", noteLabel: "Explica cómo o por qué", noteHint: "Basta una frase breve sobre cómo se cumple esta condición. Escribe al menos 20 caracteres para continuar.", noteReady: "Explicación añadida. Puedes continuar.", topic: "Tema", topicSequence: "Progresión de temas", topicProgress: "Temas de esta revisión",
       exportTitle: "Guarda el registro de tus decisiones", exportIntro: "Guarda las nueve respuestas, las pausas anteriores, tus notas y la orientación para el uso continuado.", useLabel: "Uso de IA revisado (opcional)", useHint: "Indica la herramienta, la actividad y el alumnado destinatario.", positionLabel: "Tu decisión y sus condiciones (opcional)", positionHint: "Registra tu siguiente paso, las medidas de protección o la fecha de revisión.",
       pdf: "Descargar registro de decisiones (PDF)", html: "Descargar HTML accesible", accessible: "Para texto seleccionable o acceso con lector de pantalla, utiliza el registro HTML.", downloaded: "Registro de decisiones descargado.", downloadError: "No se pudo crear la descarga. Prueba el registro HTML o vuelve a descargar.",
-      recordTitle: "Registro de decisiones sobre IA en el aula", overview: "Resumen de la revisión", useField: "Uso de IA revisado", dateField: "Fecha de finalización", outcome: "Resultado de la guía", positionField: "Tu decisión y sus condiciones", notProvided: "No proporcionado", answer: "Respuesta final", answerYes: "Sí", answerNo: "No", answerUnsure: "No estoy seguro", earlier: "Respuestas anteriores", noteField: "Nota sobre la decisión", guidanceGiven: "Orientación mostrada durante la pausa", nextSteps: "Durante el uso y en futuras revisiones", sourceTitle: "Fuente y alcance", historyNote: "Las respuestas anteriores y la orientación se registran como contexto. Este registro no verifica que las acciones se hayan completado.", footer: "Brújula para una IA responsable en educación"
+      recordTitle: "Registro de decisiones sobre IA en el aula", overview: "Resumen de la revisión", useField: "Uso de IA revisado", dateField: "Fecha de finalización", outcome: "Resultado de la guía", positionField: "Tu decisión y sus condiciones", notProvided: "No proporcionado", answer: "Respuesta final", answerYes: "Sí", answerNo: "No", answerUnsure: "No estoy seguro", earlier: "Respuestas y explicaciones anteriores", noteField: "Explicación", guidanceGiven: "Orientación mostrada durante la pausa", nextSteps: "Durante el uso y en futuras revisiones", sourceTitle: "Fuente y alcance", historyNote: "Las respuestas anteriores y la orientación se registran como contexto. Este registro no verifica que las acciones se hayan completado.", footer: "Brújula para una IA responsable en educación"
     }
   };
   function buildRecord(state, language) {
-    if (state.step !== 9 || state.answers.length !== 9 || !state.answers.every(function (a) { return a === "yes"; })) throw new Error("Complete all nine checks before exporting.");
+    if (state.step !== 9 || state.answers.length !== 9 || !state.answers.every(function (a) { return a === "yes"; }) || !state.notes.every(validExplanation)) throw new Error("Complete and explain all nine checks before exporting.");
     var lang = language === "es" ? "es" : "en", c = copy[lang];
     var answerLabels = { yes: c.answerYes, no: c.answerNo, unsure: c.answerUnsure };
     var sections = [{ title: c.overview, fields: [
       { label: c.useField, value: state.use.trim() || c.notProvided },
       { label: c.dateField, value: new Date(state.completedAt).toLocaleString(lang === "es" ? "es" : "en", { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" }) + " UTC" },
       { label: c.outcome, value: c.complete + ". " + c.completeNote },
-      { label: c.positionField, value: state.position.trim() || c.notProvided }
+      { label: c.positionField, value: state.position.trim() || c.notProvided },
+      { label: c.topicSequence, value: topics[lang].join(" · ") }
     ] }];
     checks.forEach(function (check, i) {
       var previous = state.history.filter(function (entry) { return entry.step === i; }).slice(0, -1);
-      var fields = [{ label: c.answer, value: c.answerYes }];
-      if (previous.length) fields.push({ label: c.earlier, value: previous.map(function (entry) { return answerLabels[entry.answer]; }).join("; ") });
-      if (state.notes[i].trim()) fields.push({ label: c.noteField, value: state.notes[i].trim() });
+      var fields = [{ label: c.topic, value: topics[lang][i] }, { label: c.answer, value: c.answerYes }, { label: c.noteField, value: state.notes[i].trim() }];
+      if (previous.length) fields.push({ label: c.earlier, value: previous.map(function (entry) { return answerLabels[entry.answer] + (entry.explanation ? ": " + entry.explanation : ""); }).join("\n") });
       if (previous.some(function (entry) { return entry.answer !== "yes"; })) fields.push({ label: c.guidanceGiven, value: check[lang][2] });
       sections.push({ title: (i + 1) + ". " + check[lang][0], fields: fields });
     });
@@ -111,7 +120,7 @@
     }).join("");
     return '<!doctype html><html lang="' + record.language + '"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' + escape(record.title) + '</title><style>body{font:16px/1.6 system-ui,sans-serif;color:#1a304a;margin:0;background:#f5f7fa}main{max-width:780px;margin:auto;padding:2rem}header{border-bottom:3px solid #146e68;padding-bottom:1rem}h1{line-height:1.2;font-size:2rem}h2{font-size:1.2rem;line-height:1.4}section{border-bottom:1px solid #dce4e9;padding:1rem 0}p{white-space:pre-wrap;overflow-wrap:anywhere}a{color:#12645f}@media print{body{background:white}main{max-width:none;padding:0}h2{break-after:avoid}p{orphans:3;widows:3}}</style></head><body><main><header><p>' + escape(record.pathway) + '</p><h1>' + escape(record.title) + '</h1></header>' + sections + '</main></body></html>';
   }
-  var flow = { checks: checks, initial: initial, transition: transition, buildRecord: buildRecord, recordHtml: recordHtml };
+  var flow = { checks: checks, topics: topics, validExplanation: validExplanation, initial: initial, transition: transition, buildRecord: buildRecord, recordHtml: recordHtml };
   if (typeof module !== "undefined" && module.exports) module.exports = flow;
   if (!root.document) return;
   function init() {
@@ -142,7 +151,15 @@
       var progress = element("progress");
       progress.max = 9; progress.value = state.answers.length;
       progress.setAttribute("aria-label", state.answers.length + " / 9 " + c.confirmed);
-      host.append(progressRow, progress);
+      var topicList = element("ol", null, "guide-topic-progress");
+      topicList.setAttribute("aria-label", c.topicProgress);
+      topics[language].forEach(function (topic, index) {
+        var item = element("li", null, index < state.step ? "is-done" : index === state.step ? "is-current" : "is-upcoming");
+        if (index === state.step) item.setAttribute("aria-current", "step");
+        var topicNumber = element("span", String(index + 1), "guide-topic-number"); topicNumber.setAttribute("aria-hidden", "true");
+        item.append(topicNumber, element("span", topic)); topicList.append(item);
+      });
+      host.append(progressRow, topicList, progress);
       var panel = element("section", null, "guide-card" + (state.paused ? " is-paused" : ""));
       var heading;
       function input(label, hint, value, onInput, multiline) {
@@ -177,10 +194,23 @@
         var number = element("span", String(state.step + 1).padStart(2, "0"), "guide-question-number"); number.setAttribute("aria-hidden", "true");
         questionHead.append(number, heading);
         panel.append(questionHead, element("p", check[1], "guide-context"));
-        var note = element("details", null, "guide-note-entry");
-        note.append(element("summary", c.noteLabel));
-        note.append(input(c.noteField, c.noteHint, state.notes[state.step], function (value) { state.notes[state.step] = value; }, true));
-        if (state.notes[state.step]) note.open = true;
+        var yesButton, explanationControl;
+        var note = element("div", null, "guide-note-entry");
+        var explanationHint = element("p", validExplanation(state.notes[state.step]) ? c.noteReady : c.noteHint, "guide-small");
+        explanationHint.id = "guide-explanation-hint";
+        explanationHint.setAttribute("aria-live", "polite");
+        var explanationField = input(c.noteLabel, check[1], state.notes[state.step], function (value) {
+          state.notes[state.step] = value;
+          var ready = validExplanation(value);
+          if (yesButton) yesButton.disabled = !ready;
+          var message = ready ? c.noteReady : c.noteHint;
+          if (explanationHint.textContent !== message) explanationHint.textContent = message;
+        }, true);
+        explanationControl = explanationField.querySelector("textarea");
+        explanationControl.required = true; explanationControl.minLength = 20; explanationControl.rows = 2;
+        explanationControl.setAttribute("aria-describedby", "guide-explanation-hint");
+        explanationControl.setAttribute("aria-required", "true");
+        note.append(explanationField, explanationHint);
         panel.append(note);
         if (state.paused) {
           var pause = element("div", null, "guide-action");
@@ -193,7 +223,9 @@
           answers.setAttribute("role", "group");
           heading.id = "guide-question";
           answers.setAttribute("aria-labelledby", "guide-question");
-          answers.append(button(c.yes, "yes", "guide-primary"), button(c.no, "no", "guide-secondary"), button(c.unsure, "unsure", "guide-secondary"));
+          yesButton = button(c.yes, "yes", "guide-primary");
+          yesButton.disabled = !validExplanation(state.notes[state.step]);
+          answers.append(yesButton, button(c.no, "no", "guide-secondary"), button(c.unsure, "unsure", "guide-secondary"));
           panel.append(answers);
         }
       } else {
