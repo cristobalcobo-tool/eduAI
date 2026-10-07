@@ -75,14 +75,15 @@
       var links = Array.from(nav.querySelectorAll("a"));
       var home = links.find(function (a) { return a.getAttribute("href") === "index.html"; });
       var instructions = links.find(function (a) { return a.getAttribute("href") === "instructions.html"; });
+      var guide = links.find(function (a) { return a.getAttribute("href") === "decision-guide.html"; });
       var quick = links.find(function (a) { return a.getAttribute("href") === "quick-assessment.html"; });
       var thorough = links.find(function (a) { return a.getAttribute("href") === "thorough-assessment.html"; });
       var scoring = links.find(function (a) { return a.getAttribute("href") === "scoring.html"; });
       var policy = links.find(function (a) { return a.getAttribute("href") === "policy-and-data.html"; });
-      if (!home || !instructions || !quick || !thorough || !scoring || !policy) return;
+      if (!home || !instructions || !guide || !quick || !thorough || !scoring || !policy) return;
       quick.classList.add("assessment-nav-link", "assessment-nav-quick");
       thorough.classList.add("assessment-nav-link", "assessment-nav-thorough");
-      nav.replaceChildren(home, instructions, quick, thorough, scoring, policy);
+      nav.replaceChildren(home, instructions, guide, quick, thorough, scoring, policy);
       nav.dataset.navEnhanced = "true";
     });
   }
@@ -326,6 +327,9 @@
 (function () {
   "use strict";
   var ES = {
+    "Decision guide": "Guía de decisiones",
+    "Nine questions to guide a thoughtful decision about AI use in the classroom.": "Nueve preguntas para orientar una decisión reflexiva sobre el uso de IA en el aula.",
+    "This guide needs JavaScript to show one question at a time. Enable JavaScript and reload this page to begin.": "Esta guía necesita JavaScript para mostrar una pregunta a la vez. Activa JavaScript y recarga la página para comenzar.",
     "Civic AI Compass | Self assessment for public sector AI": "Civic AI Compass | Autoevaluación para IA del sector público",
     "Civic AI Compass | Instructions": "Civic AI Compass | Instrucciones",
     "Civic AI Compass | Policy and data": "Civic AI Compass | Políticas y datos",
@@ -1799,6 +1803,7 @@
       button.setAttribute("aria-label", current === "es" ? "Cambiar idioma / Switch language" : "Switch language / Cambiar idioma");
     });
     walk(document.documentElement);
+    document.dispatchEvent(new CustomEvent("civiclanguagechange", { detail: { language: current } }));
   }
   function init() {
     ensureToggle();

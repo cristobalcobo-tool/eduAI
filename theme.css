@@ -66,7 +66,7 @@ header p, .hero p, .policy-hero p { color: #e3edf6 !important; }
 
 /* Reference-inspired navigation: one blue bar with compact pill highlights. */
 .package-nav, .policy-nav {
-  display: flex; flex-wrap: nowrap; align-items: center; justify-content: center; gap: .65rem;
+  display: flex; flex-wrap: nowrap; align-items: center; justify-content: center; gap: .35rem;
   margin: 0 0 1.8rem; padding: .75rem 1rem !important;
   background: #004c79 !important; border: 0 !important;
   border-radius: 0 !important; box-shadow: none !important;
@@ -74,7 +74,7 @@ header p, .hero p, .policy-hero p { color: #e3edf6 !important; }
 .package-nav > a, .policy-nav > a {
   display: inline-flex; align-items: center; justify-content: center;
   flex: 0 0 auto; min-height: 44px; min-width: 0;
-  margin: 0 !important; padding: .5rem .85rem;
+  margin: 0 !important; padding: .5rem .7rem;
   color: #fff !important; background: transparent !important;
   border: 1px solid transparent; border-radius: 999px !important;
   font-size: 1rem; font-weight: 400 !important; line-height: 1.35;
@@ -159,7 +159,7 @@ table td, table th { border-color: var(--brand-line) !important; }
 .export-group button:disabled { opacity: .5; cursor: not-allowed; }
 .export-panel .summary-ready { margin-top: 1rem; }
 .export-status { margin-top: 1rem !important; }
-@media (max-width: 950px) {
+@media (max-width: 1100px) {
   .package-nav, .policy-nav { flex-wrap: wrap; justify-content: center; gap: .4rem .5rem; }
   .package-nav > a, .policy-nav > a { max-width: 100%; white-space: normal; }
 }
@@ -187,3 +187,4 @@ table td, table th { border-color: var(--brand-line) !important; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
 @media print { body { background: #fff !important; } .package-nav, .policy-nav, .assessment-stepper, .language-toggle { display: none !important; } header { background: #fff !important; color: #111; box-shadow: none; } .site-brand, header p { color: #111 !important; } }
+
