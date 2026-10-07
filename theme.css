@@ -98,6 +98,10 @@ header p, .hero p, .policy-hero p { color: #e3edf6 !important; }
 .package-nav > a[href="thorough-assessment.html"][aria-current="page"], .policy-nav > a[href="thorough-assessment.html"][aria-current="page"] {
   border-color: #fff; text-decoration: none !important;
 }
+/* The decision guide is a separate, unscored path. */
+.package-nav > a[href="decision-guide.html"], .policy-nav > a[href="decision-guide.html"] { background: #146e68 !important; }
+.package-nav > a[href="decision-guide.html"]:hover, .policy-nav > a[href="decision-guide.html"]:hover { background: #0d5c57 !important; }
+.package-nav > a[href="decision-guide.html"][aria-current="page"], .policy-nav > a[href="decision-guide.html"][aria-current="page"] { border-color: #fff; text-decoration: none !important; }
 .package-nav a:focus-visible, .policy-nav a:focus-visible { outline: 3px solid #fff !important; outline-offset: 3px; }
 .assessment-stepper { display: flex; flex-wrap: wrap; gap: .35rem; margin: -.7rem 0 1.6rem; padding: .35rem 0; background: transparent; border: 0; box-shadow: none; }
 .step-link { display: inline-flex; align-items: center; gap: .45rem; min-height: 40px; padding: .35rem .6rem; color: var(--brand-muted); font-size: .875rem; font-weight: 500; text-decoration: none; border-radius: 6px; }

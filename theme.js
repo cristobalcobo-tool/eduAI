@@ -83,7 +83,7 @@
       if (!home || !instructions || !guide || !quick || !thorough || !scoring || !policy) return;
       quick.classList.add("assessment-nav-link", "assessment-nav-quick");
       thorough.classList.add("assessment-nav-link", "assessment-nav-thorough");
-      nav.replaceChildren(home, instructions, guide, quick, thorough, scoring, policy);
+      nav.replaceChildren(home, instructions, quick, thorough, scoring, guide, policy);
       nav.dataset.navEnhanced = "true";
     });
   }

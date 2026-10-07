@@ -59,6 +59,23 @@
       room(38); paragraph(label, { bold: true, gap: 2 }); paragraph(value || "Not provided", { userText: !!userText });
     }
     newPage();
+    if (report.kind === "decision-guide") {
+      // Guide labels arrive in the selected language. Keep notes as entered.
+      for (const section of report.sections || []) {
+        font(13, true);
+        let height = 16 + wrap(section.title, W - 2 * MARGIN).length * 13 * 1.45;
+        for (const item of section.fields || []) {
+          font(10, true); height += wrap(item.label, W - 2 * MARGIN).length * 14.5 + 2;
+          font(10, false); height += wrap(item.value, W - 2 * MARGIN).length * 14.5 + 7;
+        }
+        font(10, false);
+        for (const line of section.paragraphs || []) height += wrap(line, W - 2 * MARGIN).length * 14.5 + 7;
+        room(Math.min(height + 12, H - 62 - 108));
+        heading(section.title);
+        for (const item of section.fields || []) field(item.label, item.value, true);
+        for (const line of section.paragraphs || []) paragraph(line, { userText: true });
+      }
+    } else {
     heading("Assessment overview");
     paragraph(report.overall?.label || "Incomplete", { size: 12, bold: true, color: COLORS[report.overall?.status] });
     paragraph(report.overallDetail || "");
@@ -109,10 +126,11 @@
       paragraph(Array.isArray(item.answer) ? item.answer.map(translate).join("; ") : translate(item.answer || "Not answered"));
       if (item.evidence) field("Evidence / reason", item.evidence, true);
     }
+    }
     pages.forEach((page, index) => {
       ctx = page.getContext("2d");
       ctx.strokeStyle = COLORS.line; ctx.beginPath(); ctx.moveTo(MARGIN, H - 45); ctx.lineTo(W - MARGIN, H - 45); ctx.stroke();
-      raw(translate("Version 2.2"), MARGIN, H - 32, 8, false, COLORS.muted);
+      raw(report.kind === "decision-guide" ? report.footer : translate("Version 2.2"), MARGIN, H - 32, 8, false, COLORS.muted);
       const label = (index + 1) + " / " + pages.length;
       font(8); raw(label, W - MARGIN - ctx.measureText(label).width, H - 32, 8, false, COLORS.muted);
     });
