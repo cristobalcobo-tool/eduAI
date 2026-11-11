@@ -12,6 +12,7 @@
     escenario: { url: 'data/escenario.json', tipo: 'json' },
     fuentes: { url: 'data/fuentes.json', tipo: 'json' },
     simulador: { url: 'data/simulador.json', tipo: 'json' },
+    contexto: { url: 'data/contexto.json', tipo: 'json' },
     evidencia_es: { url: 'data/evidencia_es.txt', tipo: 'texto' },
     evidencia_en: { url: 'data/evidencia_en.txt', tipo: 'texto' },
     panorama_es: { url: 'data/panorama_es.txt', tipo: 'texto' },

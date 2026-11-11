@@ -251,6 +251,11 @@ const D = {
   zonaMejor: ['más aprendizaje por dólar que B', 'more learning per dollar than B', 'mais aprendizado por dólar que B'],
   clicA: ['Clic: usar como A', 'Click: use as A', 'Clique: usar como A'],
   expA: [['ECA', 'ECA (ensayo controlado aleatorizado)'], ['RCT', 'RCT (randomized controlled trial)'], ['ECR', 'ECR (ensaio controlado randomizado)']],
+  cl_dosis: ['Intensidad y uso real', 'Intensity and actual use', 'Intensidade e uso real'],
+  cl_personas: ['Docentes, apoyo e infraestructura', 'Teachers, support and infrastructure', 'Professores, apoio e infraestrutura'],
+  cl_clave: ['Qué explica el resultado', 'What explains the result', 'O que explica o resultado'],
+  cl_sup: ['es un promedio o un supuesto: no tiene contexto de implementación.', 'is an average or an assumption: it has no implementation context.', 'é uma média ou uma suposição: não tem contexto de implementação.'],
+  cl_fuente: ['Resumido de las fichas de EvidencIA de cada estudio. Sirve para ver si las condiciones se parecen a las tuyas.', 'Summarized from each study\'s EvidencIA record. Use it to judge whether the conditions resemble yours.', 'Resumido das fichas da EvidencIA de cada estudo. Serve para ver se as condições se parecem com as suas.'],
   fCampos: [['Conector', 'Estado', 'Cobertura declarada', 'Consultada'], ['Connector', 'Status', 'Declared coverage', 'Consulted'], ['Conector', 'Status', 'Cobertura declarada', 'Consultada']],
 };
 const T = (k, ...a) => { const e = D[k]; if (!e) return k; const v = e[{ es: 0, en: 1, pt: 2 }[L]] ?? e[0]; return typeof v === 'function' ? v(...a) : v; };
@@ -385,7 +390,7 @@ function elegir(side, id) {
   else { s.cost = Number.isFinite(s.cost) ? s.cost : 20; s.cSrc = 'usuario'; }
   setSlider(side, 'gain', s.gain); setSlider(side, 'cost', s.cost);
 }
-const SIM_DRAWS = ['chips', 'simVal', 'simOrigen', 'simPct', 'simCerca', 'simNota', 'simVeredicto', 'simBarras', 'simUmbral', 'simAlcance', 'simOjo'];
+const SIM_DRAWS = ['chips', 'simVal', 'simOrigen', 'simPct', 'simCerca', 'simNota', 'simVeredicto', 'simClaves', 'simBarras', 'simUmbral', 'simAlcance', 'simOjo'];
 const redibujarSim = () => { SIM_DRAWS.forEach((n) => dash.draw(n)); dash.draw('simMapa'); };
 const esCerca = (o, s) => Number.isFinite(s.gain) && Math.abs(o.gain - s.gain) <= 0.06 && (typeof o.cost !== 'number' || !Number.isFinite(s.cost) || Math.abs(Math.log(o.cost / s.cost)) <= Math.log(2));
 
@@ -490,6 +495,26 @@ reg('simVeredicto', (p) => {
   const th = mejor === 'b' && r.threshold != null ? usd(r.threshold) : null;
   T('verd', nombreDe('a'), nombreDe('b'), f2(r.aiEffectiveness), f2(r.alternativeEffectiveness), mejor, veces, th, usd(SIM.a.cost))
     .forEach(([t, tag]) => p.append(tag ? el(tag, null, t) : document.createTextNode(t)));
+});
+
+reg('simClaves', (box) => {
+  const ctx = new Map(rows('contexto').map((r) => [r.id, r]));
+  const ca = ctx.get(SIM.a.id), cb = ctx.get(SIM.b.id);
+  box.replaceChildren();
+  if (!ca && !cb) return;
+  const ul = el('ul');
+  [['dosis', 'uso', 'cl_dosis'], ['personas', null, 'cl_personas'], ['clave', null, 'cl_clave']].forEach(([f1, f2, k]) => {
+    const li = el('li');
+    li.append(el('b', null, T(k)));
+    [['a', ca], ['b', cb]].forEach(([side, c]) => {
+      const d = el('div', { class: 'cl-lado' });
+      const letra = el('span', { class: 'sim-badge ' + side }, side.toUpperCase());
+      d.append(letra, document.createTextNode(c ? tr(c, f1) + (f2 ? '. ' + tr(c, f2) : '') + '.' : T('cl_sup')));
+      li.append(d);
+    });
+    ul.append(li);
+  });
+  box.append(ul, el('p', { class: 'lab-small lab-muted', style: 'margin:6px 0 0' }, T('cl_fuente')));
 });
 
 reg('simBarras', (box) => {
@@ -636,7 +661,24 @@ reg('simMapa', (box) => {
   const dots = svg.append('g').selectAll('g').data(ops).join('g').attr('transform', (o) => `translate(${px(o)},${y(o.gain)})`).style('cursor', 'pointer');
   dots.append('circle').attr('r', 6).style('fill', (o) => TIPO_COL[o.tipo] || '#999').style('fill-opacity', (o) => (o.ev ? 0.9 : 0.5));
   dots.append('circle').attr('class', 'halo').attr('r', 10).style('fill', 'none').style('stroke-width', 2.5);
-  dots.append('text').attr('x', 9).attr('y', 4).style('font-size', '10.5px').style('fill', 'var(--color-fg)').text((o) => o.corto || String(o.nombre).split(' (')[0]).each(function (o) { recortar(this, Math.max(70, W / 4)); if (typeof o.cost !== 'number' || px(o) + 9 + this.getComputedTextLength() > W) d3.select(this).attr('x', -9).attr('text-anchor', 'end'); });
+  dots.append('text').style('font-size', '10.5px').style('fill', 'var(--color-fg)').text((o) => o.corto || String(o.nombre).split(' (')[0]).each(function () { recortar(this, Math.max(70, W / 4)); });
+  // Etiquetas sin superposición: se prueba a la derecha, izquierda, arriba y abajo; si no cabe, se oculta (queda el detalle al pasar el cursor)
+  const cajas = [];
+  ['a', 'b'].forEach((sd) => { const s = SIM[sd]; if (Number.isFinite(s.gain) && Number.isFinite(s.cost)) { const cx = x(Math.max(1, s.cost)), cy = y(s.gain); cajas.push({ x: cx - 16, y: cy - 16, w: 32, h: 32 }, { x: cx + (sd === 'a' ? -30 : 12), y: cy - 26, w: 18, h: 16 }); } });
+  ops.forEach((o) => cajas.push({ x: px(o) - 7, y: y(o.gain) - 7, w: 14, h: 14 }));
+  const choca = (b) => cajas.some((c) => b.x < c.x + c.w && b.x + b.w > c.x && b.y < c.y + c.h && b.y + b.h > c.y);
+  const prioridad = (o) => (o.id === SIM.a.id || o.id === SIM.b.id ? 0 : o.ev ? 1 : 2);
+  dots.nodes().map((n) => [n, d3.select(n).datum()]).sort((p, q) => prioridad(p[1]) - prioridad(q[1])).forEach(([n, o]) => {
+    const t = d3.select(n).select('text'), w = t.node().getComputedTextLength(), cx = px(o), cy = y(o.gain);
+    const cands = [[9, 4, 'start'], [-9, 4, 'end'], [9, -9, 'start'], [9, 17, 'start'], [-9, -9, 'end'], [-9, 17, 'end']];
+    let elegido = null;
+    for (const [dx, dy, an] of cands) {
+      const bx = an === 'start' ? cx + dx : cx + dx - w, b = { x: bx, y: cy + dy - 10, w, h: 13 };
+      if (bx < 2 || bx + w > W - 2 || b.y < 0 || b.y + b.h > H - m.b + 6) continue;
+      if (!choca(b)) { elegido = [dx, dy, an, b]; break; }
+    }
+    if (elegido) { t.attr('x', elegido[0]).attr('y', elegido[1]).attr('text-anchor', elegido[2]); cajas.push(elegido[3]); } else t.style('display', 'none');
+  });
   const marcar = () => dots.select('.halo').style('stroke', (o) => (esCerca(o, SIM.a) && o.id !== SIM.a.id ? AZUL : esCerca(o, SIM.b) && o.id !== SIM.b.id ? VERDE : 'none')).style('stroke-opacity', 0.8);
   marcar();
   dots.on('mousemove', (ev, o) => tt.show(ev, [o.nombre, (o.gain > 0 ? '+' : '') + f2(o.gain) + ' ' + T('DE') + ' · ' + (typeof o.cost === 'number' ? usd(o.cost) : T('sinCostoCorto')), T('tipo_' + o.tipo), T('clicA')]))
@@ -647,7 +689,8 @@ reg('simMapa', (box) => {
     if (!Number.isFinite(s.gain) || !Number.isFinite(s.cost)) return;
     const g = svg.append('g').attr('class', 'sim-mapa-' + side).attr('transform', `translate(${x(Math.max(1, s.cost))},${y(s.gain)})`);
     g.append('circle').attr('r', 14).style('fill', c).style('fill-opacity', 0.15).style('stroke', c).style('stroke-width', 3);
-    g.append('text').attr('text-anchor', 'middle').attr('y', 5).style('font-size', '13px').style('font-weight', '700').style('fill', c).text(side.toUpperCase());
+    g.append('text').attr('text-anchor', 'middle').attr('x', side === 'a' ? -21 : 21).attr('y', -13).style('font-size', '13px').style('font-weight', '700').style('fill', c)
+      .style('paint-order', 'stroke').style('stroke', 'var(--color-panel)').style('stroke-width', '3px').text(side.toUpperCase());
     g.call(d3.drag()
       .on('start', () => tt.hide())
       .on('drag', (ev) => {
