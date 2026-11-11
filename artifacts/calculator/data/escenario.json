@@ -1,0 +1,62 @@
+[
+ {
+  "parametro": "aiGain",
+  "etiqueta": "Ganancia de aprendizaje con IA",
+  "valor": 0.125,
+  "unidad": "DE",
+  "estado": "Reportado en una síntesis (no es efecto de una intervención individual)",
+  "fuente": "Burneo et al. (2026), Banco Mundial, resumen p. 1",
+  "enlace": "https://thedocs.worldbank.org/en/doc/2fba81cd6cd60d2f54532fc7062395fb-0050062026/original/Can-EdTech-Close-Learning-Gaps.pdf",
+  "etiquetaEn": "AI learning gain",
+  "etiquetaPt": "Ganho de aprendizagem com IA",
+  "estadoEn": "Reported in a synthesis (not the effect of an individual intervention)",
+  "estadoPt": "Reportado em uma síntese (não é o efeito de uma intervenção individual)",
+  "fuenteEn": "Burneo et al. (2026), World Bank, abstract p. 1",
+  "fuentePt": "Burneo et al. (2026), Banco Mundial, resumo p. 1"
+ },
+ {
+  "parametro": "alternativeGain",
+  "etiqueta": "Ganancia de la alternativa",
+  "valor": 0.25,
+  "unidad": "DE",
+  "estado": "Supuesto hipotético",
+  "fuente": "Escenario ilustrativo del encargo",
+  "enlace": "",
+  "etiquetaEn": "Alternative gain",
+  "etiquetaPt": "Ganho da alternativa",
+  "estadoEn": "Hypothetical assumption",
+  "estadoPt": "Suposição hipotética",
+  "fuenteEn": "Illustrative scenario from the brief",
+  "fuentePt": "Cenário ilustrativo do pedido"
+ },
+ {
+  "parametro": "alternativeCost",
+  "etiqueta": "Costo por estudiante de la alternativa",
+  "valor": 20,
+  "unidad": "USD",
+  "estado": "Supuesto hipotético",
+  "fuente": "Escenario ilustrativo del encargo",
+  "enlace": "",
+  "etiquetaEn": "Alternative cost per student",
+  "etiquetaPt": "Custo por estudante da alternativa",
+  "estadoEn": "Hypothetical assumption",
+  "estadoPt": "Suposição hipotética",
+  "fuenteEn": "Illustrative scenario from the brief",
+  "fuentePt": "Cenário ilustrativo do pedido"
+ },
+ {
+  "parametro": "aiCost",
+  "etiqueta": "Costo por estudiante de la IA",
+  "valor": 15,
+  "unidad": "USD",
+  "estado": "Supuesto hipotético",
+  "fuente": "Escenario ilustrativo del encargo",
+  "enlace": "",
+  "etiquetaEn": "AI cost per student",
+  "etiquetaPt": "Custo por estudante da IA",
+  "estadoEn": "Hypothetical assumption",
+  "estadoPt": "Suposição hipotética",
+  "fuenteEn": "Illustrative scenario from the brief",
+  "fuentePt": "Cenário ilustrativo do pedido"
+ }
+]
