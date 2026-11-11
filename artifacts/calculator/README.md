@@ -17,13 +17,13 @@ Página: `artifacts/calculator/index.html` (en GitHub Pages, https://cristobalco
 
 | Archivo | Contenido | Estado |
 |---|---|---|
-| `data/evidencia_es.md`, `data/evidencia_en.md` | Tabla de la herramienta `compare_studies` del conector EvidencIA para 8 estudios | Copia del 11 nov 2026; corte de la base EvidencIA: 16 oct 2026 |
-| `data/panorama_es.md`, `data/panorama_en.md` | Texto de la herramienta `evidence_overview` del conector EvidencIA | Copia del 11 nov 2026 |
+| `data/evidencia_es.txt`, `data/evidencia_en.txt` | Tabla de la herramienta `compare_studies` del conector EvidencIA para 8 estudios | Copia del 11 nov 2026; corte de la base EvidencIA: 16 oct 2026 |
+| `data/panorama_es.txt`, `data/panorama_en.txt` | Texto de la herramienta `evidence_overview` del conector EvidencIA | Copia del 11 nov 2026 |
 | `data/estudios.json`, `data/resultados.json` | Lote 1: 9 estudios extraídos de las publicaciones originales y de Stanford SCALE, cotejados con las fichas de EvidencIA | Cada registro dice si está verificado o es provisional |
 | `data/escenario.json` | Escenario ilustrativo de la calculadora: 0,125 DE de Burneo et al. (2026) y tres supuestos hipotéticos | Ilustrativo |
 | `data/fuentes.json`, `data/simulador.json` | Registro de fuentes y selección de estudios del simulador | |
 
-Los datos de EvidencIA no se actualizan solos en esta versión. En el panel original de Claude Data se leen en vivo desde el conector `https://mcp.redevidencia.org/mcp`. Para actualizar la copia, vuelve a ejecutar esas dos herramientas con los mismos argumentos y reemplaza los archivos `.md`.
+Los datos de EvidencIA no se actualizan solos en esta versión. En el panel original de Claude Data se leen en vivo desde el conector `https://mcp.redevidencia.org/mcp`. Para actualizar la copia, vuelve a ejecutar esas dos herramientas con los mismos argumentos y reemplaza los archivos `.txt` (texto plano, para que GitHub Pages no los convierta en páginas).
 
 ## Cómo funciona
 
