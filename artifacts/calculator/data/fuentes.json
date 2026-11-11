@@ -1,0 +1,42 @@
+[
+ {
+  "id": "evidencia",
+  "nombre": "EvidencIA, Red Latinoamericana de IA y Aprendizaje",
+  "rol": "Fuente primaria",
+  "enlace": "https://redevidencia.org/",
+  "conector": "https://mcp.redevidencia.org/mcp (solo lectura, sin cuenta)",
+  "estado": "Conector activo en esta sesión desde el 11 nov 2026; corte de la base: 16 oct 2026",
+  "cobertura": "1.856 documentos: 96 de nivel 1, 243 de nivel 2, 935 de nivel 3 y 582 de nivel 4 (herramienta evidence_overview del conector)",
+  "fechaConsulta": "2026-11-11",
+  "nombreEn": "EvidencIA, Latin American Network on AI and Learning",
+  "nombrePt": "EvidencIA, Rede Latino Americana de IA e Aprendizagem",
+  "rolEn": "Primary source",
+  "rolPt": "Fonte primária",
+  "conectorEn": "https://mcp.redevidencia.org/mcp (read only, no account)",
+  "conectorPt": "https://mcp.redevidencia.org/mcp (somente leitura, sem conta)",
+  "estadoEn": "Connector active in this session since 11 Nov 2026; database cutoff: 16 Oct 2026",
+  "estadoPt": "Conector ativo nesta sessão desde 11 nov 2026; corte da base: 16 out 2026",
+  "coberturaEn": "1,856 documents: 96 level 1, 243 level 2, 935 level 3 and 582 level 4 (connector's evidence_overview tool)",
+  "coberturaPt": "1.856 documentos: 96 de nível 1, 243 de nível 2, 935 de nível 3 e 582 de nível 4 (ferramenta evidence_overview do conector)"
+ },
+ {
+  "id": "scale",
+  "nombre": "Stanford SCALE, AI in Education Evidence Base Review",
+  "rol": "Fuente complementaria",
+  "enlace": "https://scale.stanford.edu/research-in-action/understanding-evidence-base-ai-k12-education",
+  "conector": "No tiene conector; repositorio web en scale.stanford.edu/ai/repository",
+  "estado": "Consultada por la web: revisión de noviembre 2026 y de marzo 2026, más fichas del repositorio",
+  "cobertura": "52 estudios causales en la base total (42 de estudiantes, 12 de docentes según la página, que suman 54); 32 nuevos en noviembre 2026; 20 en marzo 2026",
+  "fechaConsulta": "2026-11-11",
+  "nombreEn": "Stanford SCALE, AI in Education Evidence Base Review",
+  "nombrePt": "Stanford SCALE, AI in Education Evidence Base Review",
+  "rolEn": "Complementary source",
+  "rolPt": "Fonte complementar",
+  "conectorEn": "No connector; web repository at scale.stanford.edu/ai/repository",
+  "conectorPt": "Sem conector; repositório web em scale.stanford.edu/ai/repository",
+  "estadoEn": "Consulted on the web: November 2026 and March 2026 reviews, plus repository records",
+  "estadoPt": "Consultada na web: revisões de novembro e março de 2026, mais fichas do repositório",
+  "coberturaEn": "52 causal studies in the total base (42 student facing, 12 educator facing per the page, which adds to 54); 32 new in November 2026; 20 in March 2026",
+  "coberturaPt": "52 estudos causais na base total (42 de estudantes, 12 de professores segundo a página, que somam 54); 32 novos em novembro de 2026; 20 em março de 2026"
+ }
+]

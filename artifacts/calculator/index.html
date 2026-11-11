@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laboratorio de Impacto e Inversión en IA Educativa</title>
+<meta name="description" content="Calculadora de impacto y costo efectividad de intervenciones de IA en educación, con datos de EvidencIA y Stanford SCALE.">
+<style>
+:root{--font-anthropic-sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--font-anthropic-serif:Georgia,"Times New Roman",serif;
+--color-fg:#1f1f1c;--color-fg-muted:#5f5e5a;--color-bg:#f6f5f1;--color-panel:#ffffff;--color-border-line:#e1dfd8;--color-ok:#1d7a4c;--color-warn:#a8650a;--color-bad:#c0392f;
+--cds-font-size-caption:12px;--cds-font-size-body:14px;--cds-font-size-heading:16px;--cds-font-size-title:26px;--cds-font-weight-medium:600;
+--cds-gap-xs:4px;--cds-gap-sm:8px;--cds-gap-md:12px;--cds-gap-lg:20px;--cds-gap-xl:28px;--cds-pad-xs:4px;--cds-pad-sm:6px;--cds-pad-md:10px;--cds-pad-lg:16px;--cds-pad-xl:24px;--cds-radius:8px;
+--cds-chart-grid:#ecebe6;--cds-chart-axis:#c9c7bf;--cds-chart-reference:#8f8d86;--cds-text-secondary:#5f5e5a;--cds-surface-popover:#ffffff;--cds-border:#dcdad3;--cds-shadow-popover:0 4px 16px rgba(0,0,0,.12)}
+@media (prefers-color-scheme: dark){:root{--color-fg:#ecebe6;--color-fg-muted:#a9a79f;--color-bg:#1b1b19;--color-panel:#242422;--color-border-line:#3a3936;--color-ok:#5fbf8a;--color-warn:#e0a54b;--color-bad:#ef7a6f;
+--cds-chart-grid:#2f2e2b;--cds-chart-axis:#4a4945;--cds-chart-reference:#8a8880;--cds-text-secondary:#a9a79f;--cds-surface-popover:#2b2b29;--cds-border:#44433f;--cds-shadow-popover:0 4px 16px rgba(0,0,0,.5)}}
+html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans)}
+#dash-root{max-width:1240px;margin:0 auto;padding:20px 16px 48px;box-sizing:border-box}
+.dash-select{font:inherit;font-size:13px;color:var(--color-fg);background-color:var(--color-bg);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:6px 8px}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+</head>
+<body>
+<div id="dash-root">
+<style>
+.lab { font-family: var(--font-anthropic-sans); color: var(--color-fg); }
+.lab.l-es [lang="en"], .lab.l-es [lang="pt"], .lab.l-en [lang="es"], .lab.l-en [lang="pt"], .lab.l-pt [lang="es"], .lab.l-pt [lang="en"] { display: none !important; }
+.lab h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0 0 var(--cds-gap-xs); line-height: 1.2; }
+.lab h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: var(--cds-gap-lg) 0 var(--cds-gap-sm); }
+.lab h3 { font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); margin: 0 0 var(--cds-gap-xs); }
+.lab p { margin: 0 0 var(--cds-gap-sm); line-height: 1.5; }
+.lab-top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--cds-gap-md); flex-wrap: wrap; }
+.lab-langs { display: inline-flex; border: 1px solid var(--color-border-line); border-radius: 999px; overflow: hidden; flex: 0 0 auto; }
+.lab-langs button { appearance: none; border: 0; background: var(--color-panel); color: var(--color-fg-muted); font: inherit; font-size: var(--cds-font-size-caption); padding: 5px 12px; cursor: pointer; }
+.lab-langs button[aria-pressed="true"] { background: #2a78d6; color: #fff; }
+.lab-sub { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.lab-take { font-size: var(--cds-font-size-body); max-width: 72ch; }
+.lab-muted { color: var(--color-fg-muted); }
+.lab-small { font-size: var(--cds-font-size-caption); }
+.lab-num { font-variant-numeric: tabular-nums; }
+.lab-banner { border: 1px solid var(--color-border-line); border-left: 3px solid var(--color-ok); background: var(--color-panel); border-radius: var(--cds-radius); padding: var(--cds-pad-md); margin: var(--cds-gap-md) 0; font-size: var(--cds-font-size-caption); line-height: 1.5; }
+.lab-banner.ilus { border-left-color: #8a6fd1; }
+.lab-tabs { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); border-bottom: 1px solid var(--color-border-line); margin: var(--cds-gap-md) 0; }
+.lab-tab { appearance: none; border: 0; background: none; color: var(--color-fg-muted); font: inherit; font-size: var(--cds-font-size-body); padding: var(--cds-pad-sm) var(--cds-pad-md); border-bottom: 2px solid transparent; cursor: pointer; }
+.lab-tab[aria-selected="true"] { color: var(--color-fg); border-bottom-color: #2a78d6; font-weight: var(--cds-font-weight-medium); }
+.lab-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); margin-bottom: var(--cds-gap-md); min-width: 0; }
+.lab-grid2 { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.lab-tiles { display: grid; gap: var(--cds-gap-sm); grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); margin-bottom: var(--cds-gap-md); }
+.lab-tile { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-md); }
+.lab-tile .v { font-family: var(--font-anthropic-serif); font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; display: block; line-height: 1.1; }
+.lab-tile .l { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.lab-filters { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); margin-bottom: var(--cds-gap-md); }
+.lab-filters label { display: flex; flex-direction: column; gap: 2px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); min-width: 140px; flex: 1 1 140px; }
+.lab input[type=number], .lab input[type=text] { font: inherit; font-size: var(--cds-font-size-body); color: var(--color-fg); background: var(--color-bg); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: 6px 8px; width: 100%; box-sizing: border-box; }
+.lab .dash-select { width: 100%; }
+.lab-tablewrap { overflow-x: auto; }
+.lab table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); }
+.lab th { text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); border-bottom: 1px solid var(--color-border-line); padding: 6px 8px; white-space: nowrap; }
+.lab td { border-bottom: 1px solid var(--color-border-line); padding: 6px 8px; vertical-align: top; }
+.lab tr.lab-click { cursor: pointer; }
+.lab tr.lab-click:hover td, .lab tr.lab-sel td { background: var(--color-bg); }
+.lab-pill { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 999px; border: 1px solid var(--color-border-line); white-space: nowrap; }
+.lab-pill.ver { border-color: var(--color-ok); color: var(--color-ok); }
+.lab-pill.pro { border-color: var(--color-warn); color: var(--color-warn); }
+.lab-pill.sup { border-color: #8a6fd1; color: #8a6fd1; }
+.lab-pill.fal { border-color: var(--color-bad); color: var(--color-bad); }
+.lab-inputs { display: grid; gap: var(--cds-gap-sm); grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.lab-inputs label { display: flex; flex-direction: column; gap: 4px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.lab-out { display: grid; gap: var(--cds-gap-sm); grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin: var(--cds-gap-md) 0; }
+.lab-out .lab-tile .v { font-size: 24px; }
+.lab-warn { font-size: var(--cds-font-size-caption); line-height: 1.5; }
+.lab-warn p { margin: 0 0 4px; }
+.lab-warn .bad { color: var(--color-bad); }
+.lab-warn .warn { color: var(--color-warn); }
+.lab-chart { position: relative; min-height: 120px; }
+.lab-chart.tall { min-height: 220px; }
+.lab-chart svg { display: block; }
+.lab-chart text { font-family: var(--font-anthropic-sans); }
+.lab-chart .tick text { fill: var(--cds-text-secondary); font-size: var(--cds-font-size-caption); }
+.lab-chart .domain, .lab-chart .tick line { stroke: var(--cds-chart-axis); }
+.lab-chart .grid line { stroke: var(--cds-chart-grid); }
+.lab-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); box-shadow: var(--cds-shadow-popover); border-radius: var(--cds-radius); padding: 6px 8px; font-size: var(--cds-font-size-caption); color: var(--color-fg); max-width: 260px; z-index: 5; line-height: 1.4; }
+.lab-btn { appearance: none; font: inherit; font-size: var(--cds-font-size-caption); padding: 6px 10px; border-radius: var(--cds-radius); border: 1px solid var(--color-border-line); background: var(--color-bg); color: var(--color-fg); cursor: pointer; }
+.lab-btn:hover { border-color: #2a78d6; }
+.lab-btn[aria-pressed="true"] { border-color: #2a78d6; color: #2a78d6; }
+.lab-btnrow { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); margin: var(--cds-gap-sm) 0; align-items: center; }
+.lab details { margin: var(--cds-gap-sm) 0; }
+.lab summary { cursor: pointer; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.lab dl { display: grid; grid-template-columns: minmax(110px, 30%) 1fr; gap: 4px 12px; font-size: var(--cds-font-size-caption); margin: 0 0 var(--cds-gap-md); }
+.lab dt { color: var(--color-fg-muted); }
+.lab dd { margin: 0; }
+.lab a { color: #2a78d6; }
+.lab-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 4px 0 8px; }
+.lab-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: -1px; }
+.lab-flow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: var(--cds-font-size-caption); margin: var(--cds-gap-sm) 0; }
+.lab-flow span { border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: 4px 8px; background: var(--color-bg); }
+/* Simulador de la portada */
+.sim-hero { margin: var(--cds-gap-sm) 0 var(--cds-gap-md); }
+.sim-hero h2 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 24px; margin: 0 0 6px; }
+.sim-grid { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.sim-side { border-top: 4px solid #2a78d6; }
+.sim-side.b { border-top-color: #2e8b57; }
+.sim-h { display: flex; align-items: center; gap: 8px; font-weight: var(--cds-font-weight-medium); margin-bottom: 8px; }
+.sim-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.sim-chip { appearance: none; text-align: left; font: inherit; font-size: 12px; line-height: 1.3; padding: 6px 9px; border-radius: 10px; border: 1px solid var(--color-border-line); background: var(--color-bg); color: var(--color-fg); cursor: pointer; max-width: 100%; }
+.sim-chip small { display: block; color: var(--color-fg-muted); font-size: 11px; }
+.sim-side.a .sim-chip[aria-pressed="true"] { border-color: #2a78d6; box-shadow: inset 0 0 0 1px #2a78d6; }
+.sim-side.b .sim-chip[aria-pressed="true"] { border-color: #2e8b57; box-shadow: inset 0 0 0 1px #2e8b57; }
+.sim-sl { display: block; margin: 10px 0 2px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.sim-sl .row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.sim-sl b { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 20px; color: var(--color-fg); font-variant-numeric: tabular-nums; }
+.sim-sl input[type=range] { width: 100%; margin: 6px 0 0; accent-color: #2a78d6; }
+.sim-side.b .sim-sl input[type=range] { accent-color: #2e8b57; }
+.sim-note { font-size: 12px; color: var(--color-fg-muted); line-height: 1.45; margin-top: 10px; }
+.sim-res { border-top: 4px solid var(--color-fg); }
+.sim-verdict { font-size: 17px; line-height: 1.45; margin: 0 0 12px; max-width: 70ch; }
+.sim-verdict b { font-variant-numeric: tabular-nums; }
+.sim-cols { display: grid; gap: var(--cds-gap-md); grid-template-columns: 1fr; }
+.sim-pair { display: grid; gap: var(--cds-gap-md); grid-template-columns: minmax(0, 3fr) minmax(280px, 2fr); align-items: start; }
+@media (max-width: 900px) { .sim-pair { grid-template-columns: 1fr; } }
+.sim-pair > .lab-card { margin-bottom: 0; }
+.sim-ojo { background: var(--color-bg); border-radius: var(--cds-radius); padding: 10px 12px; font-size: 12px; line-height: 1.5; }
+.sim-ojo ul { margin: 4px 0 0; padding-left: 18px; }
+.sim-reset { appearance: none; border: 0; background: none; color: #2a78d6; font: inherit; font-size: 11px; cursor: pointer; padding: 0; }
+
+/* Glosario, etiquetas y mapa */
+.lab-glos { margin: 4px 0 0; }
+.lab-glos > summary { font-size: var(--cds-font-size-caption); color: #2a78d6; }
+.lab-glos dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px 18px; margin: 10px 0 4px; padding: 12px; background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
+.lab-glos .g { display: block; padding: 6px 8px; border-radius: 6px; }
+.lab-glos .g.on { background: color-mix(in srgb, #2a78d6 12%, transparent); }
+.lab-glos dt { color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+.lab-glos dd { color: var(--color-fg-muted); margin: 2px 0 0; }
+.lab-q { appearance: none; width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--color-border-line); background: var(--color-panel); color: var(--color-fg-muted); font: inherit; font-size: 10px; line-height: 14px; padding: 0; cursor: pointer; vertical-align: 1px; }
+.lab-q:hover { border-color: #2a78d6; color: #2a78d6; }
+.lab-tag { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 999px; margin: 2px 4px 0 0; color: var(--color-fg); background: color-mix(in srgb, var(--tc, #888) 13%, transparent); border: 1px solid color-mix(in srgb, var(--tc, #888) 35%, transparent); }
+.lab-explica { font-size: var(--cds-font-size-caption); line-height: 1.5; margin: -4px 0 10px; }
+.lab-explica .g { display: block; padding: 6px 10px; margin-bottom: 4px; border-left: 3px solid color-mix(in srgb, #2a78d6 45%, transparent); background: color-mix(in srgb, #2a78d6 6%, transparent); border-radius: 0 6px 6px 0; }
+.lab-explica dt { font-weight: var(--cds-font-weight-medium); display: inline; }
+.lab-explica dt::after { content: ": "; }
+.lab-explica dd { display: inline; margin: 0; color: var(--color-fg-muted); }
+.sim-steps { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.sim-steps li { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.45; background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: 10px 12px; }
+.sim-steps .n { flex: 0 0 22px; height: 22px; border-radius: 50%; background: var(--color-fg); color: var(--color-bg); font-size: 12px; text-align: center; line-height: 22px; font-weight: 600; }
+.sim-badge { display: inline-block; width: 22px; height: 22px; border-radius: 50%; color: #fff; text-align: center; line-height: 22px; font-size: 12px; font-weight: 700; background: #2a78d6; }
+.sim-badge.b { background: #2e8b57; }
+.sim-chip { border-left: 4px solid var(--tc, var(--color-border-line)); }
+.sim-side.a .sim-chip.cerca { background: color-mix(in srgb, #2a78d6 10%, transparent); }
+.sim-side.b .sim-chip.cerca { background: color-mix(in srgb, #2e8b57 10%, transparent); }
+.sim-chip .near { font-size: 10px; font-weight: 600; margin-left: 4px; }
+.sim-side.a .sim-chip .near { color: #2a78d6; } .sim-side.b .sim-chip .near { color: #2e8b57; }
+.sim-meta { min-height: 20px; font-size: 12px; margin-top: 4px; }
+.sim-cerca { font-size: 12px; line-height: 1.45; margin-top: 10px; padding: 8px 10px; border-radius: 6px; }
+.sim-cerca.a { background: color-mix(in srgb, #2a78d6 7%, transparent); }
+.sim-cerca.b { background: color-mix(in srgb, #2e8b57 7%, transparent); }
+.sim-det { margin-top: 8px; }
+.sim-cerca:empty { display: none; }
+.sim-mapa-a, .sim-mapa-b { cursor: grab; }
+.sim-mapa-a:active, .sim-mapa-b:active { cursor: grabbing; }
+[data-dash-source-state=refreshing] { opacity: .5; }
+</style>
+
+<div class="lab l-es" id="lab">
+  <header id="encabezado">
+    <div class="lab-top">
+      <div>
+        <h1><span lang="es">Laboratorio de Impacto e Inversión en IA Educativa</span><span lang="en">AI Education Impact &amp; Investment Lab</span><span lang="pt">Laboratório de Impacto e Investimento em IA Educacional</span></h1>
+        <p class="lab-sub"><span lang="es">Fuentes: EvidencIA (primaria, copia del 11 nov 2026) y Stanford SCALE (complementaria)</span><span lang="en">Sources: EvidencIA (primary, copy of 11 Nov 2026) and Stanford SCALE (complementary)</span><span lang="pt">Fontes: EvidencIA (primária, cópia de 11 nov 2026) e Stanford SCALE (complementar)</span></p>
+      </div>
+      <div class="lab-langs" role="group" aria-label="Idioma / Language / Idioma">
+        <button type="button" data-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+      </div>
+    </div>
+    <details class="lab-glos" id="glosario">
+      <summary><span lang="es">Glosario: siglas y conceptos</span><span lang="en">Glossary: acronyms and concepts</span><span lang="pt">Glossário: siglas e conceitos</span></summary>
+      <dl>
+        <div class="g" id="g-eca"><dt><span lang="es">ECA: ensayo controlado aleatorizado</span><span lang="en">RCT: randomized controlled trial</span><span lang="pt">ECR: ensaio controlado randomizado</span></dt><dd><span lang="es">Se sortea quién recibe la intervención y quién no. Como el sorteo hace comparables a los grupos, la diferencia en los resultados se puede atribuir a la intervención.</span><span lang="en">A lottery decides who gets the intervention and who does not. Because the lottery makes the groups comparable, the difference in results can be attributed to the intervention.</span><span lang="pt">Um sorteio decide quem recebe a intervenção e quem não recebe. Como o sorteio torna os grupos comparáveis, a diferença nos resultados pode ser atribuída à intervenção.</span></dd></div>
+        <div class="g" id="g-conglomerados"><dt><span lang="es">Individual o por conglomerados</span><span lang="en">Individual or cluster</span><span lang="pt">Individual ou por conglomerados</span></dt><dd><span lang="es">Individual: se sortea estudiante por estudiante. Por conglomerados: se sortean grupos enteros (escuelas, aulas o tutores); con pocos grupos la estimación es menos precisa.</span><span lang="en">Individual: students are randomized one by one. Cluster: whole groups are randomized (schools, classrooms or tutors); with few groups the estimate is less precise.</span><span lang="pt">Individual: o sorteio é estudante por estudante. Por conglomerados: sorteiam se grupos inteiros (escolas, turmas ou tutores); com poucos grupos a estimativa é menos precisa.</span></dd></div>
+        <div class="g" id="g-cruzado"><dt><span lang="es">Diseño cruzado</span><span lang="en">Crossover design</span><span lang="pt">Desenho cruzado</span></dt><dd><span lang="es">Cada participante pasa por las dos condiciones en distinto orden, y se compara consigo mismo.</span><span lang="en">Each participant goes through both conditions in a different order and is compared with themselves.</span><span lang="pt">Cada participante passa pelas duas condições em ordem diferente e é comparado consigo mesmo.</span></dd></div>
+        <div class="g" id="g-factorial"><dt><span lang="es">Diseño factorial (por ejemplo 2x2x2)</span><span lang="en">Factorial design (e.g. 2x2x2)</span><span lang="pt">Desenho fatorial (por exemplo 2x2x2)</span></dt><dd><span lang="es">Se sortean varias características a la vez. 2x2x2 son tres características con dos opciones cada una.</span><span lang="en">Several features are randomized at once. 2x2x2 means three features with two options each.</span><span lang="pt">Várias características são sorteadas ao mesmo tempo. 2x2x2 são três características com duas opções cada.</span></dd></div>
+        <div class="g" id="g-meta"><dt><span lang="es">Revisión sistemática y meta análisis (RVE)</span><span lang="en">Systematic review and meta analysis (RVE)</span><span lang="pt">Revisão sistemática e meta análise (RVE)</span></dt><dd><span lang="es">Reúne todos los estudios que cumplen criterios explícitos y calcula un efecto promedio. RVE (varianza robusta) es un método para combinar varios resultados de un mismo estudio sin contarlo dos veces.</span><span lang="en">It gathers all studies meeting explicit criteria and computes an average effect. RVE (robust variance estimation) combines several results from the same study without counting it twice.</span><span lang="pt">Reúne todos os estudos que cumprem critérios explícitos e calcula um efeito médio. RVE (variância robusta) combina vários resultados de um mesmo estudo sem contá lo duas vezes.</span></dd></div>
+        <div class="g" id="g-agrupado"><dt><span lang="es">Adaptativa y con IA (agrupado)</span><span lang="en">Adaptive and AI enabled (pooled)</span><span lang="pt">Adaptativa e com IA (agrupado)</span></dt><dd><span lang="es">Categoría de la síntesis del Banco Mundial (Burneo et al., 2026) que junta en un solo promedio programas adaptativos y con IA de 14 ensayos. No es una tecnología concreta: es un promedio de muchas.</span><span lang="en">Category in the World Bank synthesis (Burneo et al., 2026) that pools adaptive and AI enabled programs from 14 trials into one average. It is not a specific technology: it is an average of many.</span><span lang="pt">Categoria da síntese do Banco Mundial (Burneo et al., 2026) que junta em uma só média programas adaptativos e com IA de 14 ensaios. Não é uma tecnologia específica: é uma média de muitas.</span></dd></div>
+        <div class="g" id="g-generativa"><dt><span lang="es">IA generativa (LLM)</span><span lang="en">Generative AI (LLM)</span><span lang="pt">IA generativa (LLM)</span></dt><dd><span lang="es">Modelos de lenguaje que escriben texto nuevo en respuesta a lo que pide el usuario, como ChatGPT, Gemini o Copilot. LLM significa modelo de lenguaje grande.</span><span lang="en">Language models that write new text in response to what the user asks, such as ChatGPT, Gemini or Copilot. LLM stands for large language model.</span><span lang="pt">Modelos de linguagem que escrevem texto novo em resposta ao que o usuário pede, como ChatGPT, Gemini ou Copilot. LLM significa modelo de linguagem grande.</span></dd></div>
+        <div class="g" id="g-adaptativa"><dt><span lang="es">Práctica adaptativa</span><span lang="en">Adaptive practice</span><span lang="pt">Prática adaptativa</span></dt><dd><span lang="es">Software que elige el siguiente ejercicio según las respuestas del estudiante. El contenido está escrito de antemano: no genera texto nuevo. Puede llamarse IA aunque no sea generativa.</span><span lang="en">Software that picks the next exercise based on the student's answers. Content is written in advance: it does not generate new text. It may be called AI even though it is not generative.</span><span lang="pt">Software que escolhe o próximo exercício segundo as respostas do estudante. O conteúdo é escrito de antemão: não gera texto novo. Pode ser chamado de IA mesmo sem ser generativo.</span></dd></div>
+        <div class="g" id="g-humano"><dt><span lang="es">Docente humano más IA</span><span lang="en">Human teacher plus AI</span><span lang="pt">Professor humano mais IA</span></dt><dd><span lang="es">La herramienta se usa con un docente o tutor presente que guía y supervisa. El efecto mezcla el aporte de la persona y el de la IA.</span><span lang="en">The tool is used with a teacher or tutor present who guides and supervises. The effect mixes the person's contribution and the AI's.</span><span lang="pt">A ferramenta é usada com um professor ou tutor presente que orienta e supervisiona. O efeito mistura a contribuição da pessoa e a da IA.</span></dd></div>
+        <div class="g" id="g-guiada"><dt><span lang="es">Resolución guiada, andamiaje y respuesta directa</span><span lang="en">Guided solving, scaffolding and direct answers</span><span lang="pt">Resolução guiada, andaimes e resposta direta</span></dt><dd><span lang="es">Guiada: la IA da pistas o pasos sin entregar la respuesta. Andamiaje: apoyos que se retiran a medida que el estudiante avanza. Respuesta directa: la IA entrega la solución completa.</span><span lang="en">Guided: the AI gives hints or steps without handing over the answer. Scaffolding: supports that are removed as the student progresses. Direct answer: the AI hands over the full solution.</span><span lang="pt">Guiada: a IA dá pistas ou passos sem entregar a resposta. Andaimes: apoios que são retirados conforme o estudante avança. Resposta direta: a IA entrega a solução completa.</span></dd></div>
+        <div class="g" id="g-de"><dt><span lang="es">DE: desviación estándar</span><span lang="en">SD: standard deviation</span><span lang="pt">DP: desvio padrão</span></dt><dd><span lang="es">Unidad común para comparar efectos medidos con pruebas distintas. Si los puntajes siguen una distribución normal, +0,10 DE lleva a un estudiante promedio del puesto 50 al 54 de cada 100, y +0,25 DE al puesto 60.</span><span lang="en">A common unit to compare effects measured with different tests. If scores follow a normal distribution, +0.10 SD moves an average student from rank 50 to 54 out of 100, and +0.25 SD to rank 60.</span><span lang="pt">Unidade comum para comparar efeitos medidos com testes diferentes. Se as notas seguem uma distribuição normal, +0,10 DP leva um estudante médio da posição 50 à 54 de cada 100, e +0,25 DP à posição 60.</span></dd></div>
+        <div class="g" id="g-ic"><dt><span lang="es">IC 95% y EE</span><span lang="en">95% CI and SE</span><span lang="pt">IC 95% e EP</span></dt><dd><span lang="es">EE (error estándar) mide la incertidumbre de una estimación. El intervalo de confianza al 95% es el rango de valores compatibles con los datos; si cruza el cero, el efecto podría ser nulo.</span><span lang="en">SE (standard error) measures an estimate's uncertainty. The 95% confidence interval is the range of values compatible with the data; if it crosses zero, the effect could be null.</span><span lang="pt">EP (erro padrão) mede a incerteza de uma estimativa. O intervalo de confiança de 95% é a faixa de valores compatíveis com os dados; se cruza o zero, o efeito pode ser nulo.</span></dd></div>
+        <div class="g" id="g-de100"><dt><span lang="es">DE por USD 100</span><span lang="en">SD per USD 100</span><span lang="pt">DP por USD 100</span></dt><dd><span lang="es">Ganancia de aprendizaje dividida por el costo por estudiante, por 100. Cuanto más alto, más aprendizaje compra cada dólar.</span><span lang="en">Learning gain divided by cost per student, times 100. The higher it is, the more learning each dollar buys.</span><span lang="pt">Ganho de aprendizagem dividido pelo custo por estudante, vezes 100. Quanto mais alto, mais aprendizado cada dólar compra.</span></dd></div>
+        <div class="g" id="g-umbral"><dt><span lang="es">Costo máximo competitivo</span><span lang="en">Maximum competitive cost</span><span lang="pt">Custo máximo competitivo</span></dt><dd><span lang="es">El costo por estudiante al que A rendiría lo mismo por dólar que B: (ganancia de A ÷ ganancia de B) × costo de B. Solo tiene sentido con ganancias positivas.</span><span lang="en">The cost per student at which A would do as well per dollar as B: (A gain ÷ B gain) × B cost. It only makes sense with positive gains.</span><span lang="pt">O custo por estudante em que A renderia o mesmo por dólar que B: (ganho de A ÷ ganho de B) × custo de B. Só faz sentido com ganhos positivos.</span></dd></div>
+        <div class="g" id="g-marginal"><dt><span lang="es">Costo total, marginal, licencias o proyección</span><span lang="en">Total, marginal, licenses or projection</span><span lang="pt">Custo total, marginal, licenças ou projeção</span></dt><dd><span lang="es">Total: todo lo que costó el piloto dividido por estudiante. Marginal: lo que cuesta sumar un estudiante más. Licencias: solo el software. Proyección: estimación de los autores a futuro. No son comparables entre sí.</span><span lang="en">Total: everything the pilot cost, per student. Marginal: what one more student costs. Licenses: software only. Projection: the authors' estimate for the future. They are not comparable with each other.</span><span lang="pt">Total: tudo o que o piloto custou, por estudante. Marginal: quanto custa somar mais um estudante. Licenças: só o software. Projeção: estimativa futura dos autores. Não são comparáveis entre si.</span></dd></div>
+        <div class="g" id="g-nivel"><dt><span lang="es">Niveles de evidencia</span><span lang="en">Evidence levels</span><span lang="pt">Níveis de evidência</span></dt><dd><span lang="es">En este panel: 1 aleatorizado, 2 cuasi experimental, 3 síntesis, 4 contextual. EvidencIA usa su propia escala: 1 ensayo aleatorio verificado que midió aprendizaje sin IA en la prueba; 2 causal con límites; 3 descriptivo; 4 guías y políticas.</span><span lang="en">In this panel: 1 randomized, 2 quasi experimental, 3 synthesis, 4 contextual. EvidencIA uses its own scale: 1 verified randomized trial that measured learning without AI in the test; 2 causal with limits; 3 descriptive; 4 guides and policies.</span><span lang="pt">Neste painel: 1 randomizado, 2 quase experimental, 3 síntese, 4 contextual. A EvidencIA usa sua própria escala: 1 ensaio randomizado verificado que mediu aprendizagem sem IA no teste; 2 causal com limites; 3 descritivo; 4 guias e políticas.</span></dd></div>
+        <div class="g" id="g-verificacion"><dt><span lang="es">Verificado o provisional</span><span lang="en">Verified or provisional</span><span lang="pt">Verificado ou provisório</span></dt><dd><span lang="es">Verificado: cifra revisada en la publicación original. Provisional: tomada de un resumen o repositorio sin revisar el original.</span><span lang="en">Verified: figure checked in the original publication. Provisional: taken from an abstract or repository without checking the original.</span><span lang="pt">Verificado: número conferido na publicação original. Provisório: retirado de um resumo ou repositório sem conferir o original.</span></dd></div>
+        <div class="g" id="g-sinia"><dt><span lang="es">Prueba sin IA y efecto diferido</span><span lang="en">Test without AI and delayed effect</span><span lang="pt">Teste sem IA e efeito posterior</span></dt><dd><span lang="es">Sin IA: el estudiante rinde la prueba sin la herramienta, así se mide lo que aprendió y no lo que la IA hizo por él. Diferido: medido un tiempo después de terminar la intervención.</span><span lang="en">Without AI: the student takes the test without the tool, so it measures what they learned rather than what the AI did for them. Delayed: measured some time after the intervention ended.</span><span lang="pt">Sem IA: o estudante faz o teste sem a ferramenta, assim se mede o que aprendeu e não o que a IA fez por ele. Posterior: medido algum tempo depois do fim da intervenção.</span></dd></div>
+        <div class="g" id="g-pp"><dt><span lang="es">pp: puntos porcentuales</span><span lang="en">pp: percentage points</span><span lang="pt">pp: pontos percentuais</span></dt><dd><span lang="es">Diferencia entre dos porcentajes: pasar de 62% a 66% es +4 pp. No se puede convertir a DE sin más datos.</span><span lang="en">Difference between two percentages: going from 62% to 66% is +4 pp. It cannot be converted to SD without more data.</span><span lang="pt">Diferença entre duas porcentagens: passar de 62% a 66% é +4 pp. Não se converte em DP sem mais dados.</span></dd></div>
+      </dl>
+    </details>
+  </header>
+  <div class="lab-banner ilus" id="aviso-estatico"><span lang="es"><b>Versión estática publicada en GitHub.</b> Los datos de EvidencIA son una copia del 11 nov 2026 (corte de la base: 16 oct 2026) y no se actualizan solos. La versión con datos en vivo está en el panel de Claude Data.</span><span lang="en"><b>Static version published on GitHub.</b> EvidencIA data are a copy from 11 Nov 2026 (database cutoff: 16 Oct 2026) and do not update on their own. The version with live data is the Claude Data dashboard.</span><span lang="pt"><b>Versão estática publicada no GitHub.</b> Os dados da EvidencIA são uma cópia de 11 nov 2026 (corte da base: 16 out 2026) e não se atualizam sozinhos. A versão com dados ao vivo está no painel do Claude Data.</span></div>
+
+  <nav class="lab-tabs" role="tablist">
+    <button class="lab-tab" role="tab" data-tab="inicio" aria-selected="true"><span lang="es">Simulador</span><span lang="en">Simulator</span><span lang="pt">Simulador</span></button>
+    <button class="lab-tab" role="tab" data-tab="explorador" aria-selected="false"><span lang="es">Explorador de evidencia</span><span lang="en">Evidence explorer</span><span lang="pt">Explorador de evidências</span></button>
+    <button class="lab-tab" role="tab" data-tab="impacto" aria-selected="false"><span lang="es">Impacto en el aprendizaje</span><span lang="en">Learning impact</span><span lang="pt">Impacto na aprendizagem</span></button>
+    <button class="lab-tab" role="tab" data-tab="calculadora" aria-selected="false"><span lang="es">Calculadora de inversión</span><span lang="en">Investment calculator</span><span lang="pt">Calculadora de investimento</span></button>
+    <button class="lab-tab" role="tab" data-tab="simulador" aria-selected="false"><span lang="es">Costos y escala</span><span lang="en">Cost and scale</span><span lang="pt">Custos e escala</span></button>
+    <button class="lab-tab" role="tab" data-tab="brechas" aria-selected="false"><span lang="es">Brechas de investigación</span><span lang="en">Research gaps</span><span lang="pt">Lacunas de pesquisa</span></button>
+    <button class="lab-tab" role="tab" data-tab="metodologia" aria-selected="false"><span lang="es">Fuentes y metodología</span><span lang="en">Sources and methodology</span><span lang="pt">Fontes e metodologia</span></button>
+  </nav>
+
+  <!-- 0. PORTADA: SIMULADOR -->
+  <section id="inicio" class="lab-section">
+    <div class="sim-hero">
+      <h2><span lang="es">¿Cuánto aprendizaje compra cada dólar?</span><span lang="en">How much learning does each dollar buy?</span><span lang="pt">Quanto aprendizado cada dólar compra?</span></h2>
+      <ol class="sim-steps">
+        <li><span class="n">1</span><span><span lang="es"><b>Elige</b> una intervención para A y otra para B. Los valores vienen de evaluaciones verificadas por EvidencIA.</span><span lang="en"><b>Pick</b> one intervention for A and another for B. Values come from evaluations verified by EvidencIA.</span><span lang="pt"><b>Escolha</b> uma intervenção para A e outra para B. Os valores vêm de avaliações verificadas pela EvidencIA.</span></span></li>
+        <li><span class="n">2</span><span><span lang="es"><b>Prueba otros valores</b> con los controles o arrastrando A y B en el mapa. Los estudios con resultados parecidos se iluminan.</span><span lang="en"><b>Try other values</b> with the sliders or by dragging A and B on the map. Studies with similar results light up.</span><span lang="pt"><b>Teste outros valores</b> com os controles ou arrastando A e B no mapa. Os estudos com resultados parecidos se destacam.</span></span></li>
+        <li><span class="n">3</span><span><span lang="es"><b>Lee el resultado:</b> cuánto aprendizaje compra cada USD 100 y hasta qué costo A sigue siendo mejor compra que B.</span><span lang="en"><b>Read the result:</b> how much learning each USD 100 buys and up to what cost A is still a better buy than B.</span><span lang="pt"><b>Leia o resultado:</b> quanto aprendizado cada USD 100 compra e até que custo A continua sendo melhor compra que B.</span></span></li>
+      </ol>
+    </div>
+
+    <div class="sim-grid">
+      <div class="lab-card sim-side a" id="sim-a">
+        <div class="sim-h"><span class="sim-badge a">A</span><span lang="es">Intervención que evalúas</span><span lang="en">Intervention you are assessing</span><span lang="pt">Intervenção que você avalia</span></div>
+        <div class="sim-chips" data-draw="chips" data-side="a" data-source="evidencia_es simulador escenario"></div>
+        <label class="sim-sl"><span class="row"><span><span lang="es">Ganancia de aprendizaje</span><span lang="en">Learning gain</span><span lang="pt">Ganho de aprendizagem</span> <button type="button" class="lab-q" data-glos="de" aria-label="?">?</button></span><b data-draw="simVal" data-side="a" data-k="gain">—</b></span>
+          <input type="range" min="-0.3" max="0.8" step="0.01" data-side="a" data-k="gain" aria-label="A gain"></label>
+        <div class="sim-meta"><span data-draw="simOrigen" data-side="a" data-k="gain"></span> <span class="lab-muted" data-draw="simPct" data-side="a"></span></div>
+        <label class="sim-sl"><span class="row"><span><span lang="es">Costo por estudiante</span><span lang="en">Cost per student</span><span lang="pt">Custo por estudante</span> <button type="button" class="lab-q" data-glos="marginal" aria-label="?">?</button></span><b data-draw="simVal" data-side="a" data-k="cost">—</b></span>
+          <input type="range" min="0" max="1000" step="1" data-side="a" data-k="cost" aria-label="A cost"></label>
+        <div class="sim-meta"><span data-draw="simOrigen" data-side="a" data-k="cost"></span></div>
+        <div class="sim-cerca a" data-draw="simCerca" data-side="a"></div>
+        <details class="sim-det"><summary><span lang="es">Sobre este estudio</span><span lang="en">About this study</span><span lang="pt">Sobre este estudo</span></summary><div class="sim-note" data-draw="simNota" data-side="a"></div></details>
+      </div>
+      <div class="lab-card sim-side b" id="sim-b">
+        <div class="sim-h"><span class="sim-badge b">B</span><span lang="es">Alternativa con la que la comparas</span><span lang="en">Alternative you compare it with</span><span lang="pt">Alternativa com a qual você compara</span></div>
+        <div class="sim-chips" data-draw="chips" data-side="b" data-source="evidencia_es simulador escenario"></div>
+        <label class="sim-sl"><span class="row"><span><span lang="es">Ganancia de aprendizaje</span><span lang="en">Learning gain</span><span lang="pt">Ganho de aprendizagem</span> <button type="button" class="lab-q" data-glos="de" aria-label="?">?</button></span><b data-draw="simVal" data-side="b" data-k="gain">—</b></span>
+          <input type="range" min="-0.3" max="0.8" step="0.01" data-side="b" data-k="gain" aria-label="B gain"></label>
+        <div class="sim-meta"><span data-draw="simOrigen" data-side="b" data-k="gain"></span> <span class="lab-muted" data-draw="simPct" data-side="b"></span></div>
+        <label class="sim-sl"><span class="row"><span><span lang="es">Costo por estudiante</span><span lang="en">Cost per student</span><span lang="pt">Custo por estudante</span> <button type="button" class="lab-q" data-glos="marginal" aria-label="?">?</button></span><b data-draw="simVal" data-side="b" data-k="cost">—</b></span>
+          <input type="range" min="0" max="1000" step="1" data-side="b" data-k="cost" aria-label="B cost"></label>
+        <div class="sim-meta"><span data-draw="simOrigen" data-side="b" data-k="cost"></span></div>
+        <div class="sim-cerca b" data-draw="simCerca" data-side="b"></div>
+        <details class="sim-det"><summary><span lang="es">Sobre este estudio</span><span lang="en">About this study</span><span lang="pt">Sobre este estudo</span></summary><div class="sim-note" data-draw="simNota" data-side="b"></div></details>
+      </div>
+    </div>
+    <p class="lab-small lab-muted"><span lang="es">* El puesto de 100 supone que los puntajes siguen una distribución normal; es una forma de leer el tamaño del efecto, no un dato del estudio.</span><span lang="en">* The rank out of 100 assumes scores follow a normal distribution; it is a way to read the effect size, not a figure from the study.</span><span lang="pt">* A posição em 100 supõe que as notas seguem uma distribuição normal; é uma forma de ler o tamanho do efeito, não um dado do estudo.</span></p>
+
+    <div class="sim-pair">
+    <div class="lab-card" id="sim-mapa">
+      <h3><span lang="es">Mapa de las intervenciones: aprendizaje frente a costo</span><span lang="en">Intervention map: learning versus cost</span><span lang="pt">Mapa das intervenções: aprendizado versus custo</span></h3>
+      <p class="lab-small lab-muted"><span lang="es">Cada punto es un estudio. Arrastra los círculos A y B, o haz clic en un punto para ponerlo como A. Sobre la línea punteada, una intervención compra más aprendizaje por dólar que B.</span><span lang="en">Each dot is a study. Drag the A and B circles, or click a dot to make it A. Above the dotted line, an intervention buys more learning per dollar than B.</span><span lang="pt">Cada ponto é um estudo. Arraste os círculos A e B, ou clique em um ponto para defini-lo como A. Acima da linha pontilhada, uma intervenção compra mais aprendizado por dólar que B.</span></p>
+      <div class="lab-legend">
+        <span><i style="background:#7b61c9"></i><span lang="es">IA generativa</span><span lang="en">Generative AI</span><span lang="pt">IA generativa</span> <button type="button" class="lab-q" data-glos="generativa" aria-label="?">?</button></span>
+        <span><i style="background:#c15b9a"></i><span lang="es">IA para docentes</span><span lang="en">AI for teachers</span><span lang="pt">IA para professores</span></span>
+        <span><i style="background:#d08a1e"></i><span lang="es">IA adaptativa, no generativa</span><span lang="en">Adaptive AI, not generative</span><span lang="pt">IA adaptativa, não generativa</span> <button type="button" class="lab-q" data-glos="adaptativa" aria-label="?">?</button></span>
+        <span><i style="background:#5f7a8f"></i><span lang="es">Sin IA generativa: apoyo humano o tutoría</span><span lang="en">No generative AI: human support or tutoring</span><span lang="pt">Sem IA generativa: apoio humano ou tutoria</span></span>
+        <span><i style="background:#9a9a9a"></i><span lang="es">Promedio de síntesis o supuesto</span><span lang="en">Synthesis average or assumption</span><span lang="pt">Média de síntese ou suposição</span> <button type="button" class="lab-q" data-glos="agrupado" aria-label="?">?</button></span>
+      </div>
+      <div class="lab-chart tall" data-draw="simMapa" data-source="evidencia_es simulador"></div>
+    </div>
+
+    <div class="lab-card sim-res" id="sim-resultado">
+      <p class="sim-verdict" data-draw="simVeredicto">—</p>
+      <div class="sim-cols">
+        <div>
+          <h3><span lang="es">Aprendizaje por cada USD 100</span><span lang="en">Learning per USD 100</span><span lang="pt">Aprendizado por cada USD 100</span> <button type="button" class="lab-q" data-glos="de100" aria-label="?">?</button></h3>
+          <div class="lab-chart" style="min-height:84px" data-draw="simBarras"></div>
+          <h3 style="margin-top:12px"><span lang="es">¿Hasta cuánto puede costar A?</span><span lang="en">How much can A cost?</span><span lang="pt">Até quanto A pode custar?</span> <button type="button" class="lab-q" data-glos="umbral" aria-label="?">?</button></h3>
+          <div class="lab-chart" style="min-height:90px" data-draw="simUmbral"></div>
+        </div>
+        <div>
+          <h3><span lang="es">Con un presupuesto de</span><span lang="en">With a budget of</span><span lang="pt">Com um orçamento de</span></h3>
+          <div class="lab-btnrow" id="sim-presupuestos">
+            <button class="lab-btn" type="button" data-budget="10000" aria-pressed="false">USD 10k</button>
+            <button class="lab-btn" type="button" data-budget="100000" aria-pressed="true">USD 100k</button>
+            <button class="lab-btn" type="button" data-budget="1000000" aria-pressed="false">USD 1M</button>
+            <button class="lab-btn" type="button" data-budget="10000000" aria-pressed="false">USD 10M</button>
+          </div>
+          <div class="lab-chart" style="min-height:90px" data-draw="simAlcance"></div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <div class="sim-ojo" data-draw="simOjo"></div>
+    <div class="lab-btnrow" style="margin-top:12px">
+      <button class="lab-btn" type="button" id="sim-intercambiar"><span lang="es">Intercambiar A y B</span><span lang="en">Swap A and B</span><span lang="pt">Trocar A e B</span></button>
+      <button class="lab-btn" type="button" id="sim-a-calc"><span lang="es">Llevar a la calculadora completa</span><span lang="en">Open in the full calculator</span><span lang="pt">Levar para a calculadora completa</span></button>
+    </div>
+    <p class="lab-small lab-muted"><span lang="es">Datos copiados del conector EvidencIA el 11 nov 2026 (núcleo verificado, corte 16 oct 2026). El efecto es el que EvidencIA calcula con una misma regla para todos los estudios y puede diferir de la cifra del paper. Cada estudio calculó su costo de forma distinta (total de un piloto, licencias o proyección): úsalo como orden de magnitud.</span><span lang="en">Data copied from the EvidencIA connector on 11 Nov 2026 (verified core, cutoff 16 Oct 2026). The effect is the one EvidencIA computes with the same rule for all studies and may differ from the paper's figure. Each study computed its cost differently (pilot total, licenses or projection): treat it as an order of magnitude.</span><span lang="pt">Dados copiados do conector EvidencIA em 11 nov 2026 (núcleo verificado, corte 16 out 2026). O efeito é o que a EvidencIA calcula com a mesma regra para todos os estudos e pode diferir do número do paper. Cada estudo calculou o custo de um jeito (total de um piloto, licenças ou projeção): use como ordem de grandeza.</span></p>
+  </section>
+
+  <!-- 1. EXPLORADOR -->
+  <section id="explorador" class="lab-section" hidden>
+    <p class="lab-take"><span lang="es">Este lote reúne</span><span lang="en">This batch holds</span><span lang="pt">Este lote reúne</span> <b data-draw="tNum" data-f="nEstudios" data-source="resumen" data-field="nEstudios" data-row="0">—</b> <span lang="es">registros extraídos de las publicaciones originales:</span><span lang="en">records extracted from the original publications:</span><span lang="pt">registros extraídos das publicações originais:</span> <b data-draw="tNum" data-f="nVerificados" data-source="resumen" data-field="nVerificados" data-row="0">—</b> <span lang="es">verificados y</span><span lang="en">verified and</span><span lang="pt">verificados e</span> <b data-draw="tNum" data-f="nProvisionales" data-source="resumen" data-field="nProvisionales" data-row="0">—</b> <span lang="es">provisionales. Todos tienen ficha en EvidencIA.</span><span lang="en">provisional. All of them have an EvidencIA record.</span><span lang="pt">provisórios. Todos têm ficha na EvidencIA.</span></p>
+    <div class="lab-filters" id="filtros">
+      <label><span lang="es">Buscar</span><span lang="en">Search</span><span lang="pt">Buscar</span><input type="text" id="fTexto"></label>
+      <label><span lang="es">Fuente</span><span lang="en">Source</span><span lang="pt">Fonte</span><select class="dash-select" data-draw="fFuente" aria-label="Fuente"></select></label>
+      <label><span lang="es">Nivel de evidencia</span><span lang="en">Evidence tier</span><span lang="pt">Nível de evidência</span><select class="dash-select" data-draw="fOpc" data-f="nivelEvidencia" aria-label="Nivel"></select></label>
+      <label><span lang="es">País</span><span lang="en">Country</span><span lang="pt">País</span><select class="dash-select" data-draw="fOpc" data-f="pais" aria-label="País"></select></label>
+      <label><span lang="es">Región</span><span lang="en">Region</span><span lang="pt">Região</span><select class="dash-select" data-draw="fOpc" data-f="region" aria-label="Región"></select></label>
+      <label><span lang="es">Nivel educativo</span><span lang="en">Education level</span><span lang="pt">Nível de ensino</span><select class="dash-select" data-draw="fOpc" data-f="nivelEducativo" aria-label="Nivel educativo"></select></label>
+      <label><span lang="es">Tecnología</span><span lang="en">Technology</span><span lang="pt">Tecnologia</span><select class="dash-select" data-draw="fOpc" data-f="tecnologia" aria-label="Tecnología"></select></label>
+      <label><span lang="es">Diseño pedagógico</span><span lang="en">Pedagogical design</span><span lang="pt">Desenho pedagógico</span><select class="dash-select" data-draw="fOpc" data-f="disenoPedagogico" aria-label="Diseño pedagógico"></select></label>
+      <label><span lang="es">Diseño del estudio</span><span lang="en">Study design</span><span lang="pt">Desenho do estudo</span><select class="dash-select" data-draw="fOpc" data-f="diseno" aria-label="Diseño del estudio"></select></label>
+      <label><span lang="es">Verificación</span><span lang="en">Verification</span><span lang="pt">Verificação</span><select class="dash-select" data-draw="fOpc" data-f="verificacion" aria-label="Verificación"></select></label>
+      <label><span lang="es">Costo</span><span lang="en">Cost</span><span lang="pt">Custo</span><select class="dash-select" data-draw="fCosto" aria-label="Costo"></select></label>
+    </div>
+    <div class="lab-explica" data-draw="fExplica"></div>
+    <p class="lab-small lab-muted"><b data-draw="nFiltrados">—</b> · <span lang="es">Haz clic en una fila para abrir la ficha.</span><span lang="en">Click a row to open the study record.</span><span lang="pt">Clique em uma linha para abrir a ficha.</span></p>
+    <div class="lab-card" id="tabla-estudios">
+      <div class="lab-tablewrap">
+        <table data-source="estudios" data-row-key="id">
+          <thead><tr><th><span lang="es">Estudio</span><span lang="en">Study</span><span lang="pt">Estudo</span></th><th><span lang="es">Intervención de IA</span><span lang="en">AI intervention</span><span lang="pt">Intervenção de IA</span></th><th data-field="pais"><span lang="es">País</span><span lang="en">Country</span><span lang="pt">País</span></th><th><span lang="es">Efecto principal</span><span lang="en">Main effect</span><span lang="pt">Efeito principal</span></th><th data-field="costoPorEstudiante"><span lang="es">Costo por estudiante (USD)</span><span lang="en">Cost per student (USD)</span><span lang="pt">Custo por estudante (USD)</span></th><th data-field="verificacion"><span lang="es">Evidencia</span><span lang="en">Evidence</span><span lang="pt">Evidência</span></th></tr></thead>
+          <tbody data-draw="tablaEstudios"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="lab-card" id="ficha">
+      <h2 style="margin-top:0"><span lang="es">Ficha del estudio</span><span lang="en">Study record</span><span lang="pt">Ficha do estudo</span></h2>
+      <p class="lab-muted lab-small" id="ficha-vacia"><span lang="es">Selecciona un estudio en la tabla.</span><span lang="en">Select a study in the table.</span><span lang="pt">Selecione um estudo na tabela.</span></p>
+      <div data-draw="detalle"></div>
+    </div>
+  </section>
+
+  <!-- 2. IMPACTO -->
+  <section id="impacto" class="lab-section" hidden>
+    <div class="lab-tiles" id="disponibilidad">
+      <div class="lab-tile"><span class="v" data-draw="tNum" data-f="nIndividuales" data-source="resumen" data-field="nIndividuales" data-row="0">—</span><span class="l"><span lang="es">estudios individuales</span><span lang="en">individual studies</span><span lang="pt">estudos individuais</span></span></div>
+      <div class="lab-tile"><span class="v" data-draw="tNum" data-f="nConDE" data-source="resumen" data-field="nConDE" data-row="0">—</span><span class="l"><span lang="es">con efecto en desviaciones estándar</span><span lang="en">with an effect in standard deviations</span><span lang="pt">com efeito em desvios padrão</span></span></div>
+      <div class="lab-tile"><span class="v" data-draw="tNum" data-f="nConCosto" data-source="resumen" data-field="nConCosto" data-row="0">—</span><span class="l"><span lang="es">con costo por estudiante</span><span lang="en">with cost per student</span><span lang="pt">com custo por estudante</span></span></div>
+      <div class="lab-tile"><span class="v" data-draw="tNum" data-f="nAmbos" data-source="resumen" data-field="nAmbos" data-row="0">—</span><span class="l"><span lang="es">con efecto y costo</span><span lang="en">with effect and cost</span><span lang="pt">com efeito e custo</span></span></div>
+      <div class="lab-tile"><span class="v" data-draw="tNum" data-f="nSintesis" data-source="resumen" data-field="nSintesis" data-row="0">—</span><span class="l"><span lang="es">síntesis (nivel 3)</span><span lang="en">syntheses (tier 3)</span><span lang="pt">sínteses (nível 3)</span></span></div>
+    </div>
+    <div class="lab-card" id="forest">
+      <h2 style="margin-top:0"><span lang="es">Efectos por estudio con intervalo de confianza al 95%</span><span lang="en">Effects by study with 95% confidence intervals</span><span lang="pt">Efeitos por estudo com intervalo de confiança de 95%</span></h2>
+      <p class="lab-small lab-muted"><span lang="es">Solo resultados en desviaciones estándar. El intervalo es efecto ± 1,96 × error estándar cuando el estudio reporta el error. La estimación agrupada de la síntesis no es el efecto de ninguna intervención individual.</span><span lang="en">Only outcomes in standard deviations. The interval is effect ± 1.96 × standard error when the study reports it. The synthesis's pooled estimate is not the effect of any individual intervention.</span><span lang="pt">Só resultados em desvios padrão. O intervalo é efeito ± 1,96 × erro padrão quando o estudo o reporta. A estimativa agrupada da síntese não é o efeito de nenhuma intervenção individual.</span></p>
+      <div class="lab-legend"><span><i style="background:#2a78d6"></i><span lang="es">Verificado</span><span lang="en">Verified</span><span lang="pt">Verificado</span></span><span><i style="border:2px solid #2a78d6;box-sizing:border-box"></i><span lang="es">Provisional</span><span lang="en">Provisional</span><span lang="pt">Provisório</span></span><span><i style="background:#8a6fd1;border-radius:0;transform:rotate(45deg)"></i><span lang="es">Agrupado (síntesis)</span><span lang="en">Pooled (synthesis)</span><span lang="pt">Agrupado (síntese)</span></span></div>
+      <div class="lab-chart tall" data-draw="forestPlot" data-source="efectosIC"></div>
+    </div>
+    <div class="lab-grid2">
+      <div class="lab-card" id="por-diseno"><h3><span lang="es">Efectos por diseño pedagógico</span><span lang="en">Effects by pedagogical design</span><span lang="pt">Efeitos por desenho pedagógico</span></h3><p class="lab-small lab-muted"><span lang="es">Comparación descriptiva entre estudios distintos, no causal.</span><span lang="en">Descriptive comparison across different studies, not causal.</span><span lang="pt">Comparação descritiva entre estudos diferentes, não causal.</span></p><div class="lab-chart" data-draw="strip" data-g="disenoPedagogico" data-source="efectosIC"></div></div>
+      <div class="lab-card" id="por-tecnologia"><h3><span lang="es">Efectos por tecnología</span><span lang="en">Effects by technology</span><span lang="pt">Efeitos por tecnologia</span></h3><p class="lab-small lab-muted"><span lang="es">Todo el lote usa IA generativa según los autores; EvidencIA clasifica Rori como práctica adaptativa no generativa.</span><span lang="en">The whole batch uses generative AI per the authors; EvidencIA classifies Rori as non generative adaptive practice.</span><span lang="pt">Todo o lote usa IA generativa segundo os autores; a EvidencIA classifica o Rori como prática adaptativa não generativa.</span></p><div class="lab-chart" data-draw="strip" data-g="tecnologia" data-source="efectosIC"></div></div>
+      <div class="lab-card" id="independiente"><h3><span lang="es">Aprendizaje independiente: con o sin acceso a IA en la prueba</span><span lang="en">Independent learning: with or without AI during the test</span><span lang="pt">Aprendizagem independente: com ou sem IA no teste</span></h3><div class="lab-chart" data-draw="strip" data-g="sinIA" data-source="efectosIC"></div></div>
+      <div class="lab-card" id="inmediato-diferido"><h3><span lang="es">Efecto inmediato frente a diferido</span><span lang="en">Immediate versus delayed effect</span><span lang="pt">Efeito imediato versus posterior</span></h3><div class="lab-chart" data-draw="strip" data-g="diferido" data-source="efectosIC"></div></div>
+    </div>
+    <div class="lab-card" id="cobertura-paises"><h3><span lang="es">Cobertura geográfica del lote</span><span lang="en">Geographic coverage of the batch</span><span lang="pt">Cobertura geográfica do lote</span></h3><div class="lab-chart" data-draw="paises" data-source="cobertura"></div></div>
+    <div class="lab-card" id="otras-unidades">
+      <h3><span lang="es">Resultados en otras unidades (no comparables en desviaciones estándar)</span><span lang="en">Outcomes in other units (not comparable in standard deviations)</span><span lang="pt">Resultados em outras unidades (não comparáveis em desvios padrão)</span></h3>
+      <div class="lab-tablewrap"><table data-source="resultados" data-row-key="id">
+        <thead><tr><th><span lang="es">Estudio</span><span lang="en">Study</span><span lang="pt">Estudo</span></th><th data-field="resultado"><span lang="es">Resultado</span><span lang="en">Outcome</span><span lang="pt">Resultado</span></th><th data-field="efecto"><span lang="es">Efecto</span><span lang="en">Effect</span><span lang="pt">Efeito</span></th><th data-field="unidad"><span lang="es">Unidad</span><span lang="en">Unit</span><span lang="pt">Unidade</span></th><th data-field="ee"><span lang="es">EE</span><span lang="en">SE</span><span lang="pt">EP</span></th><th data-field="verificacion"><span lang="es">Verificación</span><span lang="en">Verification</span><span lang="pt">Verificação</span></th></tr></thead>
+        <tbody data-draw="otrasUnidades"></tbody></table></div>
+    </div>
+  </section>
+
+  <!-- 3. CALCULADORA -->
+  <section id="calculadora" class="lab-section" hidden>
+    <div class="lab-banner ilus" id="aviso-ilustrativo"><span lang="es"><b>Escenario ilustrativo por defecto.</b> La ganancia de 0,125 DE viene de una síntesis del Banco Mundial (Burneo et al., 2026) que agrupa 14 estudios; no es el efecto de una intervención concreta. Los otros tres valores son supuestos hipotéticos.</span><span lang="en"><b>Illustrative default scenario.</b> The 0.125 SD gain comes from a World Bank synthesis (Burneo et al., 2026) pooling 14 studies; it is not the effect of a specific intervention. The other three values are hypothetical assumptions.</span><span lang="pt"><b>Cenário ilustrativo padrão.</b> O ganho de 0,125 DP vem de uma síntese do Banco Mundial (Burneo et al., 2026) que agrupa 14 estudos; não é o efeito de uma intervenção específica. Os outros três valores são suposições hipotéticas.</span></div>
+    <div class="lab-grid2">
+      <div class="lab-card" id="calc-a">
+        <h3><span lang="es">Intervención A: IA</span><span lang="en">Intervention A: AI</span><span lang="pt">Intervenção A: IA</span></h3>
+        <label class="lab-small lab-muted"><span lang="es">Fuente de los valores</span><span lang="en">Source of values</span><span lang="pt">Fonte dos valores</span><select class="dash-select" data-draw="selCalc" data-side="a" aria-label="A"></select></label>
+        <div class="lab-inputs" style="margin-top:8px">
+          <label><span lang="es">Ganancia de aprendizaje (DE)</span><span lang="en">Learning gain (SD)</span><span lang="pt">Ganho de aprendizagem (DP)</span><input type="number" step="0.001" data-k="aiGain"><span data-draw="badge" data-k="aiGain"></span></label>
+          <label><span lang="es">Costo por estudiante (USD)</span><span lang="en">Cost per student (USD)</span><span lang="pt">Custo por estudante (USD)</span><input type="number" step="0.5" min="0" data-k="aiCost"><span data-draw="badge" data-k="aiCost"></span></label>
+        </div>
+      </div>
+      <div class="lab-card" id="calc-b">
+        <h3><span lang="es">Intervención B: comparador</span><span lang="en">Intervention B: comparator</span><span lang="pt">Intervenção B: comparador</span></h3>
+        <label class="lab-small lab-muted"><span lang="es">Fuente de los valores</span><span lang="en">Source of values</span><span lang="pt">Fonte dos valores</span><select class="dash-select" data-draw="selCalc" data-side="b" aria-label="B"></select></label>
+        <div class="lab-inputs" style="margin-top:8px">
+          <label><span lang="es">Ganancia de aprendizaje (DE)</span><span lang="en">Learning gain (SD)</span><span lang="pt">Ganho de aprendizagem (DP)</span><input type="number" step="0.001" data-k="altGain"><span data-draw="badge" data-k="altGain"></span></label>
+          <label><span lang="es">Costo por estudiante (USD)</span><span lang="en">Cost per student (USD)</span><span lang="pt">Custo por estudante (USD)</span><input type="number" step="0.5" min="0" data-k="altCost"><span data-draw="badge" data-k="altCost"></span></label>
+        </div>
+      </div>
+    </div>
+    <div class="lab-btnrow"><button class="lab-btn" id="btn-reset-calc" type="button"><span lang="es">Volver al escenario ilustrativo</span><span lang="en">Back to the illustrative scenario</span><span lang="pt">Voltar ao cenário ilustrativo</span></button></div>
+    <div class="lab-card" id="resultados-calc">
+      <h3><span lang="es">Resultado</span><span lang="en">Result</span><span lang="pt">Resultado</span> <span data-draw="tipoResultado"></span></h3>
+      <div class="lab-out">
+        <div class="lab-tile"><span class="v" data-draw="oOut" data-k="threshold">—</span><span class="l"><span lang="es">costo máximo competitivo de la IA por estudiante</span><span lang="en">maximum competitive AI cost per student</span><span lang="pt">custo máximo competitivo da IA por estudante</span></span></div>
+        <div class="lab-tile"><span class="v" data-draw="oOut" data-k="ai">—</span><span class="l"><span lang="es">DE por USD 100 con IA</span><span lang="en">SD per USD 100 with AI</span><span lang="pt">DP por USD 100 com IA</span></span></div>
+        <div class="lab-tile"><span class="v" data-draw="oOut" data-k="alt">—</span><span class="l"><span lang="es">DE por USD 100 del comparador</span><span lang="en">SD per USD 100 for the comparator</span><span lang="pt">DP por USD 100 do comparador</span></span></div>
+        <div class="lab-tile"><span class="v" data-draw="oOut" data-k="ratio">—</span><span class="l"><span lang="es">costo efectividad relativa (IA ÷ comparador)</span><span lang="en">relative cost effectiveness (AI ÷ comparator)</span><span lang="pt">custo efetividade relativa (IA ÷ comparador)</span></span></div>
+        <div class="lab-tile"><span class="v" data-draw="oOut" data-k="comp">—</span><span class="l"><span lang="es">¿la IA es igual o más costo efectiva?</span><span lang="en">is AI as or more cost effective?</span><span lang="pt">a IA é igual ou mais custo efetiva?</span></span></div>
+      </div>
+      <div class="lab-warn" data-draw="avisos"></div>
+      <details><summary><span lang="es">Fórmulas usadas</span><span lang="en">Formulas used</span><span lang="pt">Fórmulas usadas</span></summary>
+        <p class="lab-small"><span lang="es">Costo efectividad = ganancia ÷ costo × 100 (DE por USD 100). Relativa = IA ÷ comparador. Costo máximo competitivo = (ganancia IA ÷ ganancia comparador) × costo del comparador, solo con ganancias positivas y comparables.</span><span lang="en">Cost effectiveness = gain ÷ cost × 100 (SD per USD 100). Relative = AI ÷ comparator. Maximum competitive cost = (AI gain ÷ comparator gain) × comparator cost, only with positive, comparable gains.</span><span lang="pt">Custo efetividade = ganho ÷ custo × 100 (DP por USD 100). Relativa = IA ÷ comparador. Custo máximo competitivo = (ganho IA ÷ ganho comparador) × custo do comparador, só com ganhos positivos e comparáveis.</span></p>
+      </details>
+    </div>
+    <div class="lab-grid2">
+      <div class="lab-card" id="grafico-a"><h3><span lang="es">A. Ganancia por USD 100</span><span lang="en">A. Gain per USD 100</span><span lang="pt">A. Ganho por USD 100</span></h3><div class="lab-chart" data-draw="chartA"></div></div>
+      <div class="lab-card" id="grafico-b"><h3><span lang="es">B. Umbral de equilibrio según el costo de la IA</span><span lang="en">B. Break even threshold by AI cost</span><span lang="pt">B. Limiar de equilíbrio segundo o custo da IA</span></h3>
+        <div class="lab-legend"><span><i style="background:#2a78d6"></i><span lang="es">IA</span><span lang="en">AI</span><span lang="pt">IA</span></span><span><i style="background:#2e8b57"></i><span lang="es">Comparador</span><span lang="en">Comparator</span><span lang="pt">Comparador</span></span></div>
+        <div class="lab-chart tall" data-draw="chartB"></div></div>
+    </div>
+    <div class="lab-card" id="grafico-c">
+      <h3><span lang="es">C. Impacto frente a costo (estudios con ambos datos, EvidencIA, copia del 11 nov 2026)</span><span lang="en">C. Impact versus cost (studies with both, EvidencIA copy of 11 Nov 2026)</span><span lang="pt">C. Impacto versus custo (estudos com ambos, EvidencIA, cópia de 11 nov 2026)</span></h3>
+      <p class="lab-small lab-muted"><span lang="es">Cada costo se calculó con una base distinta; revisa la base en el detalle.</span><span lang="en">Each cost was computed on a different basis; check the basis in the tooltip.</span><span lang="pt">Cada custo foi calculado com uma base diferente; confira a base no detalhe.</span></p>
+      <div class="lab-chart tall" data-draw="chartC" data-source="evidencia_es"></div>
+    </div>
+    <div class="lab-grid2">
+      <div class="lab-card" id="grafico-d"><h3><span lang="es">D. Sensibilidad del costo máximo competitivo</span><span lang="en">D. Sensitivity of the maximum competitive cost</span><span lang="pt">D. Sensibilidade do custo máximo competitivo</span></h3><p class="lab-small lab-muted"><span lang="es">Ganancias entre 50% y 150% de los valores actuales; costo del comparador fijo.</span><span lang="en">Gains between 50% and 150% of current values; comparator cost fixed.</span><span lang="pt">Ganhos entre 50% e 150% dos valores atuais; custo do comparador fixo.</span></p><div class="lab-chart tall" data-draw="chartD"></div></div>
+      <div class="lab-card" id="grafico-e"><h3><span lang="es">E. Incertidumbre</span><span lang="en">E. Uncertainty</span><span lang="pt">E. Incerteza</span></h3>
+        <label class="lab-small lab-muted" style="display:block;max-width:260px"><span lang="es">Rango de escenario para el costo de la IA (± %)</span><span lang="en">Scenario range for the AI cost (± %)</span><span lang="pt">Faixa de cenário para o custo da IA (± %)</span><input type="number" min="0" max="90" step="5" value="25" id="rangoCosto"></label>
+        <div class="lab-chart" data-draw="chartE"></div>
+        <p class="lab-small lab-muted"><span lang="es">El intervalo de la ganancia es estadístico (95%). El rango del costo es un escenario, no un intervalo de confianza.</span><span lang="en">The gain interval is statistical (95%). The cost range is a scenario, not a confidence interval.</span><span lang="pt">O intervalo do ganho é estatístico (95%). A faixa do custo é um cenário, não um intervalo de confiança.</span></p></div>
+    </div>
+    <div class="lab-card" id="tornado"><h3><span lang="es">Sensibilidad determinista: costo efectividad relativa con cada supuesto ± 20%</span><span lang="en">Deterministic sensitivity: relative cost effectiveness with each assumption ± 20%</span><span lang="pt">Sensibilidade determinística: custo efetividade relativa com cada suposição ± 20%</span></h3><div class="lab-chart" data-draw="tornadoChart"></div></div>
+  </section>
+
+  <!-- 4. COSTOS Y ESCALA -->
+  <section id="simulador" class="lab-section" hidden>
+    <div class="lab-banner ilus"><span lang="es"><b>Todo lo de esta sección es proyectado.</b> Los valores iniciales son supuestos ilustrativos editables, no costos observados.</span><span lang="en"><b>Everything in this section is projected.</b> Starting values are editable illustrative assumptions, not observed costs.</span><span lang="pt"><b>Tudo nesta seção é projetado.</b> Os valores iniciais são suposições ilustrativas editáveis, não custos observados.</span></div>
+    <div class="lab-card" id="modelo-costos">
+      <h2 style="margin-top:0"><span lang="es">Modelo de costos de una intervención de IA</span><span lang="en">Cost model for an AI intervention</span><span lang="pt">Modelo de custos de uma intervenção de IA</span></h2>
+      <div class="lab-inputs">
+        <label><span lang="es">Estudiantes atendidos</span><span lang="en">Students served</span><span lang="pt">Estudantes atendidos</span><input type="number" min="1" step="1" value="1000" data-s="nEst"></label>
+        <label><span lang="es">Sesiones por estudiante al mes</span><span lang="en">Sessions per student per month</span><span lang="pt">Sessões por estudante por mês</span><input type="number" min="0" step="1" value="8" data-s="sesMes"></label>
+        <label><span lang="es">Meses de implementación</span><span lang="en">Months of implementation</span><span lang="pt">Meses de implementação</span><input type="number" min="1" step="1" value="6" data-s="meses"></label>
+        <label><span lang="es">Costo por sesión de IA (USD)</span><span lang="en">Cost per AI session (USD)</span><span lang="pt">Custo por sessão de IA (USD)</span><input type="number" min="0" step="0.01" value="0.05" data-s="costoSesion"></label>
+        <label><span lang="es">Licencias anuales (USD, total)</span><span lang="en">Annual licenses (USD, total)</span><span lang="pt">Licenças anuais (USD, total)</span><input type="number" min="0" step="100" value="0" data-s="licencia"></label>
+        <label><span lang="es">Conectividad, soporte y mantenimiento (USD por estudiante al mes)</span><span lang="en">Connectivity, support and maintenance (USD per student per month)</span><span lang="pt">Conectividade, suporte e manutenção (USD por estudante por mês)</span><input type="number" min="0" step="0.1" value="0" data-s="varEst"></label>
+        <label><span lang="es">Costos fijos de implementación (USD)</span><span lang="en">Fixed implementation costs (USD)</span><span lang="pt">Custos fixos de implementação (USD)</span><input type="number" min="0" step="100" value="5000" data-s="fijo"></label>
+        <label><span lang="es">Formación y apoyo docente (USD, total)</span><span lang="en">Teacher training and support (USD, total)</span><span lang="pt">Formação e apoio docente (USD, total)</span><input type="number" min="0" step="100" value="2000" data-s="docente"></label>
+      </div>
+      <div class="lab-out" data-draw="costosOut"></div>
+      <div class="lab-btnrow"><button class="lab-btn" id="btn-usar-costo" type="button"><span lang="es">Usar este costo en la calculadora</span><span lang="en">Use this cost in the calculator</span><span lang="pt">Usar este custo na calculadora</span></button></div>
+      <p class="lab-small lab-muted"><span lang="es">Costo total = fijos (implementación y formación) + variables (sesiones, licencias prorrateadas, conectividad y soporte). Costo por estudiante = total ÷ estudiantes.</span><span lang="en">Total cost = fixed (implementation and training) + variable (sessions, prorated licenses, connectivity and support). Cost per student = total ÷ students.</span><span lang="pt">Custo total = fixos (implementação e formação) + variáveis (sessões, licenças proporcionais, conectividade e suporte). Custo por estudante = total ÷ estudantes.</span></p>
+    </div>
+    <div class="lab-card" id="presupuesto">
+      <h2 style="margin-top:0"><span lang="es">Simulación de presupuesto y escala</span><span lang="en">Budget and scale simulation</span><span lang="pt">Simulação de orçamento e escala</span></h2>
+      <div class="lab-btnrow">
+        <button class="lab-btn" type="button" data-preset="piloto"><span lang="es">Piloto pequeño</span><span lang="en">Small pilot</span><span lang="pt">Piloto pequeno</span></button>
+        <button class="lab-btn" type="button" data-preset="distrito"><span lang="es">Implementación distrital</span><span lang="en">District rollout</span><span lang="pt">Implementação distrital</span></button>
+        <button class="lab-btn" type="button" data-preset="nacional"><span lang="es">Escala nacional</span><span lang="en">National scale</span><span lang="pt">Escala nacional</span></button>
+      </div>
+      <div class="lab-inputs">
+        <label><span lang="es">Presupuesto disponible (USD)</span><span lang="en">Available budget (USD)</span><span lang="pt">Orçamento disponível (USD)</span><input type="number" min="0" step="1000" value="100000" data-b="presupuesto"></label>
+        <label><span lang="es">Población estudiantil elegible</span><span lang="en">Eligible student population</span><span lang="pt">População estudantil elegível</span><input type="number" min="1" step="1" value="10000" data-b="poblacion"></label>
+        <label><span lang="es">Costo por estudiante de la IA (USD)</span><span lang="en">AI cost per student (USD)</span><span lang="pt">Custo por estudante da IA (USD)</span><input type="number" min="0" step="0.5" value="15" data-b="costoIA"></label>
+        <label><span lang="es">Costo por estudiante del comparador (USD)</span><span lang="en">Comparator cost per student (USD)</span><span lang="pt">Custo por estudante do comparador (USD)</span><input type="number" min="0" step="0.5" value="20" data-b="costoAlt"></label>
+        <label><span lang="es">Ganancia esperada de la IA (DE)</span><span lang="en">Expected AI gain (SD)</span><span lang="pt">Ganho esperado da IA (DP)</span><input type="number" step="0.001" value="0.125" data-b="ganIA"></label>
+        <label><span lang="es">Ganancia esperada del comparador (DE)</span><span lang="en">Expected comparator gain (SD)</span><span lang="pt">Ganho esperado do comparador (DP)</span><input type="number" step="0.001" value="0.25" data-b="ganAlt"></label>
+      </div>
+      <div class="lab-btnrow"><button class="lab-btn" id="btn-desde-calc" type="button"><span lang="es">Copiar valores de la calculadora</span><span lang="en">Copy values from the calculator</span><span lang="pt">Copiar valores da calculadora</span></button></div>
+      <div class="lab-tablewrap" data-draw="presupuestoOut"></div>
+      <p class="lab-small lab-muted"><span lang="es">Supuesto explícito: el efecto se mantiene constante al crecer la escala. No hay evidencia de que así sea.</span><span lang="en">Explicit assumption: the effect stays constant as scale grows. There is no evidence that it does.</span><span lang="pt">Suposição explícita: o efeito se mantém constante ao crescer a escala. Não há evidência de que isso aconteça.</span></p>
+    </div>
+  </section>
+
+  <!-- 5. BRECHAS -->
+  <section id="brechas" class="lab-section" hidden>
+    <p class="lab-take"><span lang="es">Ausencia de evidencia no es evidencia de ausencia de efecto. Los conteos del lote van primero; abajo, el panorama de toda la base EvidencIA (copia del 11 nov 2026).</span><span lang="en">Absence of evidence is not evidence of no effect. Batch counts come first; below, the picture for the whole EvidencIA base (copy of 11 Nov 2026).</span><span lang="pt">Ausência de evidência não é evidência de ausência de efeito. Primeiro, as contagens do lote; abaixo, o panorama de toda a base EvidencIA (cópia de 11 nov 2026).</span></p>
+    <div class="lab-card" id="tabla-brechas">
+      <div class="lab-tablewrap"><table data-source="brechas" data-row-key="clave">
+        <thead><tr><th><span lang="es">Brecha</span><span lang="en">Gap</span><span lang="pt">Lacuna</span></th><th data-field="nEstudios"><span lang="es">Estudios con la brecha</span><span lang="en">Studies with the gap</span><span lang="pt">Estudos com a lacuna</span></th><th data-field="nBase"><span lang="es">Base</span><span lang="en">Base</span><span lang="pt">Base</span></th><th data-field="lista"><span lang="es">Detalle</span><span lang="en">Detail</span><span lang="pt">Detalhe</span></th></tr></thead>
+        <tbody data-draw="brechasBody"></tbody></table></div>
+    </div>
+    <div class="lab-card" id="panorama-evidencia">
+      <h3><span lang="es">Panorama de la base EvidencIA</span><span lang="en">EvidencIA base overview</span><span lang="pt">Panorama da base EvidencIA</span></h3>
+      <p class="lab-small lab-muted"><span lang="es">Texto devuelto por la herramienta evidence_overview del conector, en el idioma del conector (español o inglés).</span><span lang="en">Text returned by the connector's evidence_overview tool, in the connector's language (Spanish or English).</span><span lang="pt">Texto devolvido pela ferramenta evidence_overview do conector, no idioma do conector (espanhol ou inglês).</span></p>
+      <div data-draw="panorama" data-source="panorama_es"></div>
+    </div>
+  </section>
+
+  <!-- 6. METODOLOGÍA -->
+  <section id="metodologia" class="lab-section" hidden>
+    <div class="lab-card" id="registro-fuentes"><h2 style="margin-top:0"><span lang="es">Fuentes registradas</span><span lang="en">Registered sources</span><span lang="pt">Fontes registradas</span></h2><div data-draw="fuentesList" data-source="fuentes"></div></div>
+    <div class="lab-card" id="mapeo-fuentes">
+      <h2 style="margin-top:0"><span lang="es">Mapeo entre fuentes (un registro canónico por estudio)</span><span lang="en">Cross source mapping (one canonical record per study)</span><span lang="pt">Mapeamento entre fontes (um registro canônico por estudo)</span></h2>
+      <p class="lab-small lab-muted"><span lang="es">Los conteos no se suman entre fuentes. "Solo repositorio SCALE" significa que figura en el repositorio general de SCALE pero no en sus revisiones de evidencia causal.</span><span lang="en">Counts are never added across sources. "SCALE repository only" means it is in SCALE's general repository but not in its causal evidence reviews.</span><span lang="pt">As contagens não se somam entre fontes. "Só repositório SCALE" significa que está no repositório geral do SCALE, mas não nas revisões de evidência causal.</span></p>
+      <div data-draw="mapeoResumen" data-source="mapeo"></div>
+      <div class="lab-tablewrap"><table data-source="mapeo" data-row-key="id">
+        <thead><tr><th data-field="estudio"><span lang="es">Estudio</span><span lang="en">Study</span><span lang="pt">Estudo</span></th><th data-field="evidencia">EvidencIA</th><th data-field="scale">Stanford SCALE</th><th data-field="categoria"><span lang="es">Categoría</span><span lang="en">Category</span><span lang="pt">Categoria</span></th></tr></thead>
+        <tbody data-draw="mapeoBody"></tbody></table></div>
+    </div>
+    <div class="lab-card" id="metodo">
+      <h2 style="margin-top:0"><span lang="es">Metodología</span><span lang="en">Methodology</span><span lang="pt">Metodologia</span></h2>
+      <div class="lab-flow"><span><span lang="es">Repositorio fuente</span><span lang="en">Source repository</span><span lang="pt">Repositório fonte</span></span>→<span><span lang="es">Estudio original</span><span lang="en">Original study</span><span lang="pt">Estudo original</span></span>→<span><span lang="es">Estimación extraída</span><span lang="en">Extracted estimate</span><span lang="pt">Estimativa extraída</span></span>→<span><span lang="es">Normalización</span><span lang="en">Normalization</span><span lang="pt">Normalização</span></span>→<span><span lang="es">Cálculo</span><span lang="en">Calculation</span><span lang="pt">Cálculo</span></span>→<span><span lang="es">Resultado</span><span lang="en">Result</span><span lang="pt">Resultado</span></span></div>
+      <p class="lab-small"><span lang="es">Cada cifra apunta a su registro en la carpeta data/. El simulador usa una copia fechada de la tabla comparativa de EvidencIA; el explorador usa el lote 1, extraído de las publicaciones originales y cotejado con las fichas de EvidencIA.</span><span lang="en">Every figure points to its record in the data/ folder. The simulator uses a dated copy of EvidencIA's comparison table; the explorer uses batch 1, extracted from the original publications and checked against EvidencIA's records.</span><span lang="pt">Cada número aponta para seu registro na pasta data/. O simulador usa uma cópia datada da tabela comparativa da EvidencIA; o explorador usa o lote 1, extraído das publicações originais e conferido com as fichas da EvidencIA.</span></p>
+      <details><summary><span lang="es">Estados de verificación</span><span lang="en">Verification statuses</span><span lang="pt">Status de verificação</span></summary>
+        <p class="lab-small"><span lang="es"><b>Verificado:</b> revisado contra la publicación original con lectura asistida que cita el texto. <b>Provisional:</b> tomado de un resumen o repositorio sin revisar el original. <b>Supuesto del usuario:</b> ingresado para escenarios. <b>Faltante:</b> sin estimación; nunca se reemplaza con un valor inventado.</span><span lang="en"><b>Verified:</b> checked against the original publication with assisted reading that quotes the text. <b>Provisional:</b> taken from an abstract or repository without checking the original. <b>User assumption:</b> entered for scenarios. <b>Missing:</b> no estimate; never replaced with an invented value.</span><span lang="pt"><b>Verificado:</b> conferido com a publicação original por leitura assistida que cita o texto. <b>Provisório:</b> retirado de um resumo ou repositório sem conferir o original. <b>Suposição do usuário:</b> inserida para cenários. <b>Ausente:</b> sem estimativa; nunca substituída por um valor inventado.</span></p>
+      </details>
+      <details><summary><span lang="es">Niveles de evidencia</span><span lang="en">Evidence tiers</span><span lang="pt">Níveis de evidência</span></summary>
+        <p class="lab-small"><span lang="es">Nivel 1: aleatorizado. Nivel 2: cuasi experimental creíble. Nivel 3: revisiones sistemáticas y meta análisis (sus estimaciones agrupadas no son efectos de una intervención). Nivel 4: contextual, no se usa como prueba causal. EvidencIA usa su propia escala de 1 a 4, que se muestra tal cual en el simulador.</span><span lang="en">Tier 1: randomized. Tier 2: credible quasi experimental. Tier 3: systematic reviews and meta analyses (their pooled estimates are not intervention effects). Tier 4: contextual, never used as causal proof. EvidencIA uses its own 1 to 4 scale, shown as is in the simulator.</span><span lang="pt">Nível 1: randomizado. Nível 2: quase experimental crível. Nível 3: revisões sistemáticas e meta análises (suas estimativas agrupadas não são efeitos de uma intervenção). Nível 4: contextual, não é usado como prova causal. A EvidencIA usa sua própria escala de 1 a 4, mostrada como está no simulador.</span></p>
+      </details>
+      <details><summary><span lang="es">Exportar</span><span lang="en">Export</span><span lang="pt">Exportar</span></summary>
+        <p class="lab-small"><span lang="es">Las filas de cada fuente están en la carpeta data/ de esta página. Para PDF, usa la impresión del navegador. Las columnas de verificación viajan con los datos.</span><span lang="en">Each source's rows are in this page's data/ folder. For PDF, use your browser's print. Verification columns travel with the data.</span><span lang="pt">As linhas de cada fonte estão na pasta data/ desta página. Para PDF, use a impressão do navegador. As colunas de verificação acompanham os dados.</span></p>
+      </details>
+      <details><summary><span lang="es">Idiomas</span><span lang="en">Languages</span><span lang="pt">Idiomas</span></summary>
+        <p class="lab-small"><span lang="es">La interfaz y el lote 1 están en español, inglés y portugués. El conector de EvidencIA responde en español o inglés; en portugués se muestran sus textos en español.</span><span lang="en">The interface and batch 1 are in Spanish, English and Portuguese. The EvidencIA connector answers in Spanish or English; in Portuguese its texts are shown in Spanish.</span><span lang="pt">A interface e o lote 1 estão em espanhol, inglês e português. O conector da EvidencIA responde em espanhol ou inglês; em português, seus textos aparecem em espanhol.</span></p>
+      </details>
+    </div>
+  </section>
+</div>
+
+
+</div>
+<script src="dash-static.js"></script>
+<script src="app.js"></script>
+<script>dash.iniciar();</script>
+</body>
+</html>
