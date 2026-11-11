@@ -506,12 +506,33 @@ reg('simResumen', (p) => {
   const v = LOC.format(',.1f')(aGana ? r.aiEffectiveness / r.alternativeEffectiveness : r.alternativeEffectiveness / r.aiEffectiveness);
   p.replaceChildren(el('b', null, aGana ? 'A' : 'B'), document.createTextNode(' ' + T('resumen', '', v, f2(aGana ? r.aiEffectiveness : r.alternativeEffectiveness), f2(aGana ? r.alternativeEffectiveness : r.aiEffectiveness)).trim()));
 });
+let ORIGEN = null;
+const flash = (t) => { t.classList.remove('sim-flash'); void t.offsetWidth; t.classList.add('sim-flash'); setTimeout(() => t.classList.remove('sim-flash'), 1700); };
+const marcarOrigen = (on) => document.querySelectorAll('.btn-volver').forEach((b) => b.classList.toggle('con-origen', on));
+document.querySelectorAll('.btn-volver').forEach((b) => b.addEventListener('click', () => {
+  const destino = ORIGEN && ORIGEN.isConnected ? ORIGEN : document.getElementById('sim-atajo');
+  if (!destino) return;
+  if (destino.scrollIntoView) destino.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  flash(destino.closest('.sim-atajo, .lab-card') || destino);
+  ORIGEN = null; marcarOrigen(false);
+}));
+(() => {
+  const atajo = document.getElementById('sim-atajo');
+  if (!atajo || !('IntersectionObserver' in window)) return;
+  let io;
+  try { io = new IntersectionObserver((es) => es.forEach((e) => {
+    const abajo = !e.isIntersecting && e.boundingClientRect.top < 0 && e.boundingClientRect.height > 0;
+    document.querySelectorAll('#sim-volver').forEach((v) => { v.hidden = !abajo; });
+    if (e.isIntersecting && !ORIGEN) marcarOrigen(false);
+  }), { root: document }); } catch (err) { io = new IntersectionObserver((es) => es.forEach((e) => { document.querySelectorAll('#sim-volver').forEach((v) => { v.hidden = !(!e.isIntersecting && e.boundingClientRect.top < 0 && e.boundingClientRect.height > 0); }); })); }
+  io.observe(atajo);
+})();
 document.querySelectorAll('.sim-ir[data-ir]').forEach((b) => b.addEventListener('click', () => {
   const t = document.getElementById(b.dataset.ir);
   if (!t) return;
+  ORIGEN = b; marcarOrigen(true);
   if (t.scrollIntoView) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  t.classList.remove('sim-flash'); void t.offsetWidth; t.classList.add('sim-flash');
-  setTimeout(() => t.classList.remove('sim-flash'), 1700);
+  flash(t);
 }));
 
 reg('simClaves', (box) => {

@@ -162,6 +162,12 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 @keyframes simflash { 0% { box-shadow: 0 0 0 4px color-mix(in srgb, #2a78d6 45%, transparent); } 100% { box-shadow: 0 0 0 0 transparent; } }
 @media (prefers-reduced-motion: reduce) { .sim-flash { animation: none; outline: 2px solid #2a78d6; } }
 #sim-claves, #sim-resultado { scroll-margin-top: 16px; }
+.sim-volver { position: sticky; bottom: 14px; display: flex; justify-content: flex-end; pointer-events: none; margin-top: 10px; z-index: 6; }
+.sim-volver[hidden] { display: none; }
+.sim-volver .lab-btn { pointer-events: auto; background: var(--color-panel); box-shadow: var(--cds-shadow-popover); border-radius: 999px; padding: 8px 14px; }
+.btn-volver .v-origen { display: none; }
+.btn-volver.con-origen .v-origen { display: inline; }
+.btn-volver.con-origen .v-arriba { display: none; }
 .sim-claves { margin-top: var(--cds-gap-md); }
 .sim-claves h3 { margin-bottom: 6px; }
 .sim-claves ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px 20px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
@@ -311,6 +317,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     <div class="lab-card sim-claves" id="sim-claves">
       <h3><span lang="es">Qué mirar además del costo</span><span lang="en">What to look at besides cost</span><span lang="pt">O que observar além do custo</span></h3>
       <div data-draw="simClaves" data-source="contexto"></div>
+      <button type="button" class="lab-btn btn-volver" style="margin-top:10px"><span class="v-origen"><span lang="es">↑ Volver a donde estabas</span><span lang="en">↑ Back to where you were</span><span lang="pt">↑ Voltar para onde você estava</span></span><span class="v-arriba"><span lang="es">↑ Volver a la comparación</span><span lang="en">↑ Back to the comparison</span><span lang="pt">↑ Voltar à comparação</span></span></button>
     </div>
     <div class="sim-ojo" data-draw="simOjo"></div>
     <div class="lab-btnrow" style="margin-top:12px">
@@ -318,6 +325,9 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       <button class="lab-btn" type="button" id="sim-a-calc"><span lang="es">Llevar a la calculadora completa</span><span lang="en">Open in the full calculator</span><span lang="pt">Levar para a calculadora completa</span></button>
     </div>
     <p class="lab-small lab-muted"><span lang="es">Datos copiados del conector EvidencIA el 11 nov 2026 (núcleo verificado, corte 16 oct 2026). El efecto es el que EvidencIA calcula con una misma regla para todos los estudios y puede diferir de la cifra del paper. Cada estudio calculó su costo de forma distinta (total de un piloto, licencias o proyección): úsalo como orden de magnitud.</span><span lang="en">Data copied from the EvidencIA connector on 11 Nov 2026 (verified core, cutoff 16 Oct 2026). The effect is the one EvidencIA computes with the same rule for all studies and may differ from the paper's figure. Each study computed its cost differently (pilot total, licenses or projection): treat it as an order of magnitude.</span><span lang="pt">Dados copiados do conector EvidencIA em 11 nov 2026 (núcleo verificado, corte 16 out 2026). O efeito é o que a EvidencIA calcula com a mesma regra para todos os estudos e pode diferir do número do paper. Cada estudo calculou o custo de um jeito (total de um piloto, licenças ou projeção): use como ordem de grandeza.</span></p>
+    <div class="sim-volver" id="sim-volver" hidden>
+      <button type="button" class="lab-btn destacado btn-volver"><span class="v-origen"><span lang="es">↑ Volver a donde estabas</span><span lang="en">↑ Back to where you were</span><span lang="pt">↑ Voltar para onde você estava</span></span><span class="v-arriba"><span lang="es">↑ Volver arriba</span><span lang="en">↑ Back to top</span><span lang="pt">↑ Voltar ao topo</span></span></button>
+    </div>
   </section>
 
   <!-- 1. EXPLORADOR -->
