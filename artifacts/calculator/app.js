@@ -256,6 +256,8 @@ const D = {
   cl_clave: ['Qué explica el resultado', 'What explains the result', 'O que explica o resultado'],
   cl_sup: ['es un promedio o un supuesto: no tiene contexto de implementación.', 'is an average or an assumption: it has no implementation context.', 'é uma média ou uma suposição: não tem contexto de implementação.'],
   cl_fuente: ['Resumido de las fichas de EvidencIA de cada estudio. Sirve para ver si las condiciones se parecen a las tuyas.', 'Summarized from each study\'s EvidencIA record. Use it to judge whether the conditions resemble yours.', 'Resumido das fichas da EvidencIA de cada estudo. Serve para ver se as condições se parecem com as suas.'],
+  resumen: [(g, v, a, b) => g + ' compra ' + v + ' veces más aprendizaje por dólar (' + a + ' frente a ' + b + ' DE por USD 100). Pero el costo no lo es todo:', (g, v, a, b) => g + ' buys ' + v + ' times more learning per dollar (' + a + ' versus ' + b + ' SD per USD 100). But cost is not everything:', (g, v, a, b) => g + ' compra ' + v + ' vezes mais aprendizado por dólar (' + a + ' versus ' + b + ' DP por USD 100). Mas o custo não é tudo:'],
+  resumenNo: ['Elige A y B para comparar.', 'Pick A and B to compare.', 'Escolha A e B para comparar.'],
   fCampos: [['Conector', 'Estado', 'Cobertura declarada', 'Consultada'], ['Connector', 'Status', 'Declared coverage', 'Consulted'], ['Conector', 'Status', 'Cobertura declarada', 'Consultada']],
 };
 const T = (k, ...a) => { const e = D[k]; if (!e) return k; const v = e[{ es: 0, en: 1, pt: 2 }[L]] ?? e[0]; return typeof v === 'function' ? v(...a) : v; };
@@ -390,7 +392,7 @@ function elegir(side, id) {
   else { s.cost = Number.isFinite(s.cost) ? s.cost : 20; s.cSrc = 'usuario'; }
   setSlider(side, 'gain', s.gain); setSlider(side, 'cost', s.cost);
 }
-const SIM_DRAWS = ['chips', 'simVal', 'simOrigen', 'simPct', 'simCerca', 'simNota', 'simVeredicto', 'simClaves', 'simBarras', 'simUmbral', 'simAlcance', 'simOjo'];
+const SIM_DRAWS = ['simResumen', 'chips', 'simVal', 'simOrigen', 'simPct', 'simCerca', 'simNota', 'simVeredicto', 'simClaves', 'simBarras', 'simUmbral', 'simAlcance', 'simOjo'];
 const redibujarSim = () => { SIM_DRAWS.forEach((n) => dash.draw(n)); dash.draw('simMapa'); };
 const esCerca = (o, s) => Number.isFinite(s.gain) && Math.abs(o.gain - s.gain) <= 0.06 && (typeof o.cost !== 'number' || !Number.isFinite(s.cost) || Math.abs(Math.log(o.cost / s.cost)) <= Math.log(2));
 
@@ -496,6 +498,21 @@ reg('simVeredicto', (p) => {
   T('verd', nombreDe('a'), nombreDe('b'), f2(r.aiEffectiveness), f2(r.alternativeEffectiveness), mejor, veces, th, usd(SIM.a.cost))
     .forEach(([t, tag]) => p.append(tag ? el(tag, null, t) : document.createTextNode(t)));
 });
+
+reg('simResumen', (p) => {
+  const r = simCalc();
+  if (!r || !(SIM.a.gain > 0 && SIM.b.gain > 0)) { p.textContent = r ? T('verdNoInterp') : T('resumenNo'); return; }
+  const aGana = r.aiEffectiveness >= r.alternativeEffectiveness;
+  const v = LOC.format(',.1f')(aGana ? r.aiEffectiveness / r.alternativeEffectiveness : r.alternativeEffectiveness / r.aiEffectiveness);
+  p.replaceChildren(el('b', null, aGana ? 'A' : 'B'), document.createTextNode(' ' + T('resumen', '', v, f2(aGana ? r.aiEffectiveness : r.alternativeEffectiveness), f2(aGana ? r.alternativeEffectiveness : r.aiEffectiveness)).trim()));
+});
+document.querySelectorAll('.sim-ir[data-ir]').forEach((b) => b.addEventListener('click', () => {
+  const t = document.getElementById(b.dataset.ir);
+  if (!t) return;
+  if (t.scrollIntoView) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  t.classList.remove('sim-flash'); void t.offsetWidth; t.classList.add('sim-flash');
+  setTimeout(() => t.classList.remove('sim-flash'), 1700);
+}));
 
 reg('simClaves', (box) => {
   const ctx = new Map(rows('contexto').map((r) => [r.id, r]));

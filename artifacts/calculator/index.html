@@ -154,6 +154,14 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 .sim-cerca.b { background: color-mix(in srgb, #2e8b57 7%, transparent); }
 .sim-det { margin-top: 8px; }
 .sim-cerca:empty { display: none; }
+.sim-atajo { margin-top: 10px; padding: 10px 14px; border-radius: var(--cds-radius); background: color-mix(in srgb, #2a78d6 7%, var(--color-panel)); border: 1px solid color-mix(in srgb, #2a78d6 25%, transparent); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; }
+.sim-atajo-txt { margin: 0; font-size: 14px; line-height: 1.45; flex: 1 1 320px; }
+.sim-atajo .lab-btnrow { margin: 0; }
+.lab-btn.destacado { border-color: #2a78d6; color: #2a78d6; font-weight: 600; }
+.sim-flash { animation: simflash 1.6s ease-out 1; }
+@keyframes simflash { 0% { box-shadow: 0 0 0 4px color-mix(in srgb, #2a78d6 45%, transparent); } 100% { box-shadow: 0 0 0 0 transparent; } }
+@media (prefers-reduced-motion: reduce) { .sim-flash { animation: none; outline: 2px solid #2a78d6; } }
+#sim-claves, #sim-resultado { scroll-margin-top: 16px; }
 .sim-claves { margin-top: var(--cds-gap-md); }
 .sim-claves h3 { margin-bottom: 6px; }
 .sim-claves ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px 20px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
@@ -224,6 +232,13 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
         <li><span class="n">2</span><span><span lang="es"><b>Prueba otros valores</b> con los controles o arrastrando A y B en el mapa. Los estudios con resultados parecidos se iluminan.</span><span lang="en"><b>Try other values</b> with the sliders or by dragging A and B on the map. Studies with similar results light up.</span><span lang="pt"><b>Teste outros valores</b> com os controles ou arrastando A e B no mapa. Os estudos com resultados parecidos se destacam.</span></span></li>
         <li><span class="n">3</span><span><span lang="es"><b>Lee el resultado:</b> cuánto aprendizaje compra cada USD 100 y hasta qué costo A sigue siendo mejor compra que B.</span><span lang="en"><b>Read the result:</b> how much learning each USD 100 buys and up to what cost A is still a better buy than B.</span><span lang="pt"><b>Leia o resultado:</b> quanto aprendizado cada USD 100 compra e até que custo A continua sendo melhor compra que B.</span></span></li>
       </ol>
+      <div class="sim-atajo" id="sim-atajo">
+        <p class="sim-atajo-txt" data-draw="simResumen">—</p>
+        <div class="lab-btnrow">
+          <button type="button" class="lab-btn sim-ir" data-ir="sim-resultado"><span lang="es">Ver el resultado ↓</span><span lang="en">See the result ↓</span><span lang="pt">Ver o resultado ↓</span></button>
+          <button type="button" class="lab-btn sim-ir destacado" data-ir="sim-claves"><span lang="es">¿Qué mirar además del costo? ↓</span><span lang="en">What to look at besides cost? ↓</span><span lang="pt">O que observar além do custo? ↓</span></button>
+        </div>
+      </div>
     </div>
 
     <div class="sim-grid">
@@ -270,6 +285,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 
     <div class="lab-card sim-res" id="sim-resultado">
       <p class="sim-verdict" data-draw="simVeredicto">—</p>
+      <button type="button" class="lab-btn sim-ir destacado" data-ir="sim-claves" style="margin-bottom:12px"><span lang="es">Antes de decidir: qué mirar además del costo ↓</span><span lang="en">Before deciding: what to look at besides cost ↓</span><span lang="pt">Antes de decidir: o que observar além do custo ↓</span></button>
       <div class="sim-cols">
         <div>
           <h3><span lang="es">Aprendizaje por cada USD 100</span><span lang="en">Learning per USD 100</span><span lang="pt">Aprendizado por cada USD 100</span> <button type="button" class="lab-q" data-glos="de100" aria-label="?">?</button></h3>
