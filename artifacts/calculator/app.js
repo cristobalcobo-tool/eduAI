@@ -258,6 +258,11 @@ const D = {
   cl_fuente: ['Resumido de las fichas de EvidencIA de cada estudio. Sirve para ver si las condiciones se parecen a las tuyas.', 'Summarized from each study\'s EvidencIA record. Use it to judge whether the conditions resemble yours.', 'Resumido das fichas da EvidencIA de cada estudo. Serve para ver se as condições se parecem com as suas.'],
   resumen: [(g, v, a, b) => g + ' compra ' + v + ' veces más aprendizaje por dólar (' + a + ' frente a ' + b + ' DE por USD 100). Pero el costo no lo es todo:', (g, v, a, b) => g + ' buys ' + v + ' times more learning per dollar (' + a + ' versus ' + b + ' SD per USD 100). But cost is not everything:', (g, v, a, b) => g + ' compra ' + v + ' vezes mais aprendizado por dólar (' + a + ' versus ' + b + ' DP por USD 100). Mas o custo não é tudo:'],
   resumenNo: ['Elige A y B para comparar.', 'Pick A and B to compare.', 'Escolha A e B para comparar.'],
+  mejorCompra: ['Mejor compra por dólar', 'Best buy per dollar', 'Melhor compra por dólar'],
+  masPorDolar: [(w) => w + ' rinde más aprendizaje por dólar', (w) => w + ' buys more learning per dollar', (w) => w + ' rende mais aprendizado por dólar'],
+  detGan: ['Ganancia', 'Gain', 'Ganho'], detCosto: ['Costo por estudiante', 'Cost per student', 'Custo por estudante'],
+  verdB: [(th, now) => [['Para igualar a B por dólar, A tendría que costar como máximo ', null], [th, 'b'], [' por estudiante. Hoy cuesta ' + now + '.', null]], (th, now) => [['To match B per dollar, A would have to cost at most ', null], [th, 'b'], [' per student. It costs ' + now + ' now.', null]], (th, now) => [['Para igualar B por dólar, A teria de custar no máximo ', null], [th, 'b'], [' por estudante. Hoje custa ' + now + '.', null]]],
+  verdA: [(th, now) => [['A ya rinde más por dólar: podría costar hasta ', null], [th, 'b'], [' por estudiante y seguir igualando a B. Hoy cuesta ' + now + '.', null]], (th, now) => [['A already does better per dollar: it could cost up to ', null], [th, 'b'], [' per student and still match B. It costs ' + now + ' now.', null]], (th, now) => [['A já rende mais por dólar: poderia custar até ', null], [th, 'b'], [' por estudante e continuar igualando B. Hoje custa ' + now + '.', null]]],
   fCampos: [['Conector', 'Estado', 'Cobertura declarada', 'Consultada'], ['Connector', 'Status', 'Declared coverage', 'Consulted'], ['Conector', 'Status', 'Cobertura declarada', 'Consultada']],
 };
 const T = (k, ...a) => { const e = D[k]; if (!e) return k; const v = e[{ es: 0, en: 1, pt: 2 }[L]] ?? e[0]; return typeof v === 'function' ? v(...a) : v; };
@@ -392,7 +397,7 @@ function elegir(side, id) {
   else { s.cost = Number.isFinite(s.cost) ? s.cost : 20; s.cSrc = 'usuario'; }
   setSlider(side, 'gain', s.gain); setSlider(side, 'cost', s.cost);
 }
-const SIM_DRAWS = ['simResumen', 'chips', 'simVal', 'simOrigen', 'simPct', 'simCerca', 'simNota', 'simVeredicto', 'simClaves', 'simBarras', 'simUmbral', 'simAlcance', 'simOjo'];
+const SIM_DRAWS = ['simResumen', 'simDuelo', 'chips', 'simVal', 'simOrigen', 'simPct', 'simCerca', 'simNota', 'simVeredicto', 'simClaves', 'simBarras', 'simUmbral', 'simAlcance', 'simOjo'];
 const redibujarSim = () => { SIM_DRAWS.forEach((n) => dash.draw(n)); dash.draw('simMapa'); };
 const esCerca = (o, s) => Number.isFinite(s.gain) && Math.abs(o.gain - s.gain) <= 0.06 && (typeof o.cost !== 'number' || !Number.isFinite(s.cost) || Math.abs(Math.log(o.cost / s.cost)) <= Math.log(2));
 
@@ -487,16 +492,43 @@ function simCalc() {
 }
 const nombreDe = (side) => { const o = opcionesSim().find((x) => x.id === SIM[side].id); return side.toUpperCase() + (o ? ' (' + o.nombre + ')' : ''); };
 
+reg('simDuelo', (box) => {
+  const r = simCalc();
+  box.replaceChildren();
+  if (!r) { box.textContent = rows(evId()).length ? '—' : T('cargando'); return; }
+  const ops = opcionesSim();
+  const pos = SIM.a.gain > 0 && SIM.b.gain > 0;
+  const gana = pos ? (r.aiEffectiveness >= r.alternativeEffectiveness ? 'a' : 'b') : null;
+  const lado = (side, eff) => {
+    const s = SIM[side], o = ops.find((x) => x.id === s.id), c = side === 'a' ? AZUL : VERDE;
+    const d = el('div', { class: 'duelo-lado' + (gana === side ? ' gana' : '') });
+    d.style.setProperty('--c', c);
+    if (gana === side) d.append(el('span', { class: 'duelo-cinta' }, T('mejorCompra')));
+    const top = el('div', { class: 'duelo-top' });
+    top.append(el('span', { class: 'sim-badge' }, side.toUpperCase()), document.createTextNode(o ? T('tipo_' + o.tipo) : T('tuSupuesto')));
+    const det = el('div', { class: 'duelo-det' });
+    const fila = (k, v) => { const x = el('div'); x.append(document.createTextNode(k + ' '), el('b', null, v)); return x; };
+    det.append(fila(T('detGan'), (s.gain > 0 ? '+' : '') + f2(s.gain) + ' ' + T('DE')), fila(T('detCosto'), usd(s.cost)));
+    d.append(top, el('div', { class: 'duelo-nombre' }, o ? o.corto || o.nombre : T('tuSupuesto')), el('div', { class: 'duelo-cifra' }, f2(eff)), el('div', { class: 'duelo-unidad' }, T('por100')), det);
+    return d;
+  };
+  const vs = el('div', { class: 'duelo-vs' });
+  if (gana) {
+    const v = gana === 'a' ? r.aiEffectiveness / r.alternativeEffectiveness : r.alternativeEffectiveness / r.aiEffectiveness;
+    vs.append(el('span', { class: 'x' }, '×' + LOC.format(',.1f')(v)), el('span', { class: 'l' }, T('masPorDolar', gana.toUpperCase())));
+  } else vs.append(el('span', { class: 'x' }, 'vs'));
+  box.append(lado('a', r.aiEffectiveness), vs, lado('b', r.alternativeEffectiveness));
+});
+
 reg('simVeredicto', (p) => {
   const r = simCalc();
   p.replaceChildren();
+  p.style.removeProperty('--vc');
   if (!r) { p.textContent = rows(evId()).length ? '—' : T('cargando'); return; }
-  if (!(SIM.a.gain > 0 && SIM.b.gain > 0)) { p.textContent = T('verdNoInterp'); return; }
-  const mejor = r.aiEffectiveness >= r.alternativeEffectiveness ? 'a' : 'b';
-  const veces = LOC.format(',.1f')(mejor === 'a' ? r.aiEffectiveness / r.alternativeEffectiveness : r.alternativeEffectiveness / r.aiEffectiveness);
-  const th = mejor === 'b' && r.threshold != null ? usd(r.threshold) : null;
-  T('verd', nombreDe('a'), nombreDe('b'), f2(r.aiEffectiveness), f2(r.alternativeEffectiveness), mejor, veces, th, usd(SIM.a.cost))
-    .forEach(([t, tag]) => p.append(tag ? el(tag, null, t) : document.createTextNode(t)));
+  if (!(SIM.a.gain > 0 && SIM.b.gain > 0) || r.threshold == null) { p.textContent = T('verdNoInterp'); return; }
+  const aGana = r.aiEffectiveness >= r.alternativeEffectiveness;
+  p.style.setProperty('--vc', aGana ? AZUL : VERDE);
+  T(aGana ? 'verdA' : 'verdB', usd(r.threshold), usd(SIM.a.cost)).forEach(([t, tag]) => p.append(tag ? el(tag, null, t) : document.createTextNode(t)));
 });
 
 reg('simResumen', (p) => {
@@ -559,22 +591,26 @@ reg('simBarras', (box) => {
   const r = simCalc();
   box.replaceChildren();
   if (!r) return;
-  const data = [{ n: 'A', v: r.aiEffectiveness, c: AZUL }, { n: 'B', v: r.alternativeEffectiveness, c: VERDE }];
-  const W = Math.max(240, box.clientWidth), m = { t: 4, r: 70, b: 4, l: 24 }, rowH = 38, H = m.t + m.b + data.length * rowH;
-  const lo = Math.min(0, d3.min(data, (d) => d.v)), hi = Math.max(0.0001, d3.max(data, (d) => d.v));
-  const x = d3.scaleLinear().domain([lo, hi]).range([m.l, W - m.r]);
+  const ops = opcionesSim();
+  const nom = (sd) => { const o = ops.find((x) => x.id === SIM[sd].id); return o ? o.corto || o.nombre : T('tuSupuesto'); };
+  const data = [{ sd: 'a', v: r.aiEffectiveness, c: AZUL }, { sd: 'b', v: r.alternativeEffectiveness, c: VERDE }];
+  const W = Math.max(240, box.clientWidth), rowH = 46, H = data.length * rowH;
+  const hi = Math.max(0.0001, d3.max(data, (d) => Math.abs(d.v)));
+  const x = d3.scaleLinear().domain([0, hi]).range([0, W - 64]);
   const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', T('por100'));
-  const tt = tip(box);
   const motion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+  const tt = tip(box);
   data.forEach((d, i) => {
-    const y = m.t + i * rowH;
-    svg.append('text').attr('x', 2).attr('y', y + 22).style('font-size', '13px').style('font-weight', '600').style('fill', d.c).text(d.n);
-    svg.append('rect').attr('x', m.l).attr('y', y + 6).attr('height', 24).attr('width', W - m.r - m.l).style('fill', 'var(--color-bg)').attr('rx', 4);
-    const w = Math.max(2, Math.abs(x(d.v) - x(0)));
-    const bar = svg.append('rect').attr('x', Math.min(x(0), x(d.v))).attr('y', y + 6).attr('height', 24).attr('rx', 4).style('fill', d.c)
-      .on('mousemove', (ev) => tt.show(ev, [nombreDe(d.n.toLowerCase()), f3(d.v) + ' ' + T('por100')])).on('mouseleave', () => tt.hide());
-    if (motion) bar.attr('width', 0).transition().duration(350).attr('width', w); else bar.attr('width', w);
-    svg.append('text').attr('x', W - m.r + 8).attr('y', y + 23).style('font-size', '13px').style('fill', 'var(--color-fg)').style('font-variant-numeric', 'tabular-nums').text(f2(d.v));
+    const y = i * rowH;
+    const t = svg.append('text').attr('x', 0).attr('y', y + 13).style('font-size', '12px').style('fill', 'var(--color-fg)');
+    t.append('tspan').style('font-weight', '700').style('fill', d.c).text(d.sd.toUpperCase() + '  ');
+    t.append('tspan').text(nom(d.sd));
+    svg.append('rect').attr('x', 0).attr('y', y + 20).attr('height', 16).attr('width', W - 64).attr('rx', 8).style('fill', 'var(--color-bg)');
+    const w = Math.max(3, x(Math.max(0, d.v)));
+    const bar = svg.append('rect').attr('x', 0).attr('y', y + 20).attr('height', 16).attr('rx', 8).style('fill', d.c)
+      .on('mousemove', (ev) => tt.show(ev, [nom(d.sd), f3(d.v) + ' ' + T('por100')])).on('mouseleave', () => tt.hide());
+    if (motion) bar.attr('width', 3).transition().duration(400).attr('width', w); else bar.attr('width', w);
+    svg.append('text').attr('x', W - 56).attr('y', y + 33).style('font-size', '15px').style('font-family', 'var(--font-anthropic-serif)').style('fill', d.c).style('font-variant-numeric', 'tabular-nums').text(f2(d.v));
   });
 });
 
@@ -603,15 +639,20 @@ reg('simAlcance', (box) => {
   box.replaceChildren();
   const filas = ['a', 'b'].filter((sd) => Number.isFinite(SIM[sd].cost) && SIM[sd].cost > 0);
   if (!filas.length) return;
-  const W = Math.max(240, box.clientWidth), rowH = 40, H = filas.length * rowH + 4;
+  const ops = opcionesSim();
+  const nom = (sd) => { const o = ops.find((x) => x.id === SIM[sd].id); return o ? o.corto || o.nombre : T('tuSupuesto'); };
+  const W = Math.max(240, box.clientWidth), rowH = 46, H = filas.length * rowH;
   const n = filas.map((sd) => Math.floor(SIM.budget / SIM[sd].cost));
-  const x = d3.scaleLinear().domain([0, d3.max(n) || 1]).range([24, W - 130]);
+  const x = d3.scaleLinear().domain([0, d3.max(n) || 1]).range([0, W - 130]);
   const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', T('estudiantes'));
   filas.forEach((sd, i) => {
     const y = i * rowH, c = sd === 'a' ? AZUL : VERDE;
-    svg.append('text').attr('x', 2).attr('y', y + 24).style('font-size', '13px').style('font-weight', '600').style('fill', c).text(sd.toUpperCase());
-    svg.append('rect').attr('x', 24).attr('y', y + 8).attr('height', 22).attr('rx', 4).attr('width', Math.max(2, x(n[i]) - 24)).style('fill', c).style('fill-opacity', 0.75);
-    svg.append('text').attr('x', x(n[i]) + 8).attr('y', y + 24).style('font-size', '13px').style('fill', 'var(--color-fg)').style('font-variant-numeric', 'tabular-nums').text(f0(n[i]) + ' ' + T('estudiantes'));
+    const t = svg.append('text').attr('x', 0).attr('y', y + 13).style('font-size', '12px').style('fill', 'var(--color-fg)');
+    t.append('tspan').style('font-weight', '700').style('fill', c).text(sd.toUpperCase() + '  ');
+    t.append('tspan').text(nom(sd));
+    svg.append('rect').attr('x', 0).attr('y', y + 20).attr('height', 16).attr('rx', 8).attr('width', W - 130).style('fill', 'var(--color-bg)');
+    svg.append('rect').attr('x', 0).attr('y', y + 20).attr('height', 16).attr('rx', 8).attr('width', Math.max(3, x(n[i]))).style('fill', c).style('fill-opacity', 0.8);
+    svg.append('text').attr('x', W - 122).attr('y', y + 33).style('font-size', '13px').style('fill', 'var(--color-fg)').style('font-variant-numeric', 'tabular-nums').text(f0(n[i]) + ' ' + T('estudiantes'));
   });
 });
 
