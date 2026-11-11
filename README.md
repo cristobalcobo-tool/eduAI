@@ -2,7 +2,7 @@
 
 Instrumento bilingüe de autoevaluación para revisar usos de inteligencia artificial en sistemas educativos.
 
-Sitio en GitHub Pages: https://cristobalcobo-tool.github.io/eduIA/
+Sitio en GitHub Pages: https://cristobalcobo-tool.github.io/eduAI/
 
 Sitio de referencia: https://selfassessment-edu.criscob.chatgpt.site/
 
