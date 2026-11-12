@@ -23,6 +23,8 @@ Página: `artifacts/calculator/index.html` (en GitHub Pages, https://cristobalco
 | `data/escenario.json` | Escenario ilustrativo de la calculadora: 0,125 DE de Burneo et al. (2026) y tres supuestos hipotéticos | Ilustrativo |
 | `data/fuentes.json`, `data/simulador.json` | Registro de fuentes y selección de estudios del simulador | |
 | `data/contexto.json` | Intensidad, uso, apoyo humano, infraestructura y qué explica el resultado de cada estudio del simulador, resumidos de las fichas de EvidencIA | Resumen del 11 nov 2026 |
+| `data/estandarizacion.json` | Para cada estudio de la tabla de costos de EvidencIA: si su efecto se calculó con la regla común (coeficiente dividido por la DE del grupo de control) o se tomó del paper, según la ficha `view_study` | Consulta del 12 nov 2026 |
+| `data/atlas_estimaciones.json`, `data/atlas_estudios.json` | Copia de la versión 2026-11-11.1 del AI and Human Skill Atlas (repositorio público germanr/ai-skill-atlas, Germán Reyes, Middlebury College): 184 estimaciones de 43 estudios, con las columnas que usa la página | Sin licencia explícita en el repositorio; uso exploratorio con atribución |
 
 Los datos de EvidencIA no se actualizan solos en esta versión. En el panel original de Claude Data se leen en vivo desde el conector `https://mcp.redevidencia.org/mcp`. Para actualizar la copia, vuelve a ejecutar esas dos herramientas con los mismos argumentos y reemplaza los archivos `.txt` (texto plano, para que GitHub Pages no los convierta en páginas).
 
@@ -33,5 +35,7 @@ Los datos de EvidencIA no se actualizan solos en esta versión. En el panel orig
 ## Advertencias
 
 * Los efectos de EvidencIA son los que EvidencIA calcula con una regla común y pueden diferir de la cifra del paper.
+* Por defecto, el simulador, la pestaña Decidir y la calculadora muestran solo efectos estandarizados con la regla común de EvidencIA. Hoy queda oculto Kestin et al. (2025), cuyo efecto EvidencIA toma del paper porque no hay datos para aplicar la regla, y las cifras del lote 1, tomadas de cada paper. Un interruptor permite verlos, marcados con ⚠.
+* Las cifras del AI Skill Atlas son las que registra el Atlas para cada estimación; no se verificó si usan la misma regla de estandarización que EvidencIA. El Atlas no trae costos, así que no entra en la calculadora.
 * Cada estudio calculó su costo de forma distinta (total de un piloto, licencias, costo marginal o proyección): úsalos como orden de magnitud.
 * Las comparaciones entre estudios de países, edades, materias y duraciones distintas son descriptivas, no causales.
