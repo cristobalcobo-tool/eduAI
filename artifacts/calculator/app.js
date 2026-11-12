@@ -442,13 +442,24 @@ const axisFmt = (d) => (v) => LOC.format(d)(v);
 
 /* ===================== Navegación ===================== */
 
+function abrirAnexo(panel) {
+  document.querySelectorAll('#anexo-d').forEach((d) => { d.open = true; });
+  document.querySelectorAll('.lab-section.anx').forEach((s) => { s.hidden = s.dataset.panel !== panel; });
+  document.querySelectorAll('.anexo-tab').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.anx === panel)));
+}
 function abrir(id) {
-  const secs = document.querySelectorAll('.lab-section');
-  if (!Array.from(secs).some((s) => s.id === id)) return;
-  secs.forEach((s) => { s.hidden = s.id !== id; });
+  const t = document.getElementById(id);
+  if (!t || !t.classList.contains('lab-section')) return;
+  if (t.classList.contains('anx')) { abrirAnexo(t.dataset.panel); dash.setLink(id); return; }
+  document.querySelectorAll('.lab-section:not(.anx)').forEach((s) => { s.hidden = s.id !== id; });
   document.querySelectorAll('.lab-tab').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === id)));
   dash.setLink(id);
 }
+document.querySelectorAll('.anexo-tab').forEach((b) => b.addEventListener('click', () => {
+  abrirAnexo(b.dataset.anx);
+  const p = document.querySelector('.lab-section.anx[data-panel="' + b.dataset.anx + '"]');
+  if (p && p.scrollIntoView) setTimeout(() => p.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+}));
 document.querySelectorAll('.lab-tab').forEach((b) => b.addEventListener('click', () => abrir(b.dataset.tab)));
 document.querySelectorAll('[data-tab-ir]').forEach((b) => b.addEventListener('click', () => { abrir(b.dataset.tabIr); const t = document.getElementById(b.dataset.tabIr); if (t && t.scrollIntoView) setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60); }));
 if (location.hash) abrir(location.hash.slice(1));
@@ -912,6 +923,7 @@ document.querySelectorAll('#sim-a-calc').forEach((b) => b.addEventListener('clic
   C.selA = 'usuario'; C.selB = 'usuario'; C.meta.a = null; C.meta.b = null;
   redibujarCalc(); dash.draw('selCalc');
   abrir('calculadora');
+  const cx = document.getElementById('calculadora'); if (cx && cx.scrollIntoView) setTimeout(() => cx.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
 }));
 
 reg('simPct', (span) => {

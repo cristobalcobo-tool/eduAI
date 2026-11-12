@@ -6,12 +6,10 @@ Página: `artifacts/calculator/index.html` (en GitHub Pages, https://cristobalco
 
 ## Secciones
 
-1. **Simulador**: elige A y B, mueve los controles o arrastra los puntos en el mapa; los estudios con valores parecidos se iluminan.
-2. **Explorador de evidencia**: tabla filtrable con ficha por estudio.
-3. **Impacto en el aprendizaje**: gráfico de bosque y comparaciones descriptivas.
-4. **Calculadora de inversión**: umbral de equilibrio, sensibilidad e incertidumbre.
-5. **Costos y escala**: modelo de costos y simulación de presupuesto (todo proyectado).
-6. **Brechas de investigación** y **Fuentes y metodología**.
+1. **Decidir**: compara dos intervenciones evaluadas con ensayos aleatorizados, con sus cautelas.
+2. **Probar supuestos**: cambia ganancias y costos, o arrastra los puntos en el mapa; los estudios con valores parecidos se iluminan.
+3. **Lecciones para implementar**: ocho lecciones con evidencia causal, descriptiva y de guías, y un explorador de 95 ensayos de nivel 1 por dimensión.
+4. **Anexo técnico** (al final de la página): calculadora avanzada; datos y gráficos (lote 1 y AI Skill Atlas); fuentes y método.
 
 ## Origen de los datos
 
