@@ -1717,7 +1717,9 @@ reg('cotejoBody', (tb) => {
 /* ===================== Lecciones para implementar ===================== */
 
 const LEC = { sel: null };
-const LEC_COL = { consistente: '#1b5e3b', moderada: '#2e8b57', parcial: '#d08a1e', guias: '#8a6fd1', pendiente: '#b8b8b8' };
+const LEC_COL = { consistente: '#1e3a8a', moderada: '#2f6fd6', parcial: '#5ab4e8', guias: '#7b61c9', pendiente: '#b8b8b8' };
+const lecPill = (col, txt) => { const s = el('span', { class: 'lec-pill' }, txt); s.style.setProperty('--pc', col); return s; };
+const NIV_COL = { '1': '#1e3a8a', '2': '#2f6fd6', '3': '#5ab4e8', '4': '#7b61c9', pol: '#7b61c9', atlas: '#6b7a90' };
 reg('lecTiles', (box) => {
   const ts = rows('lecciones');
   if (!ts.length) { failMsg(box, dash.data('lecciones').status); return; }
@@ -1745,14 +1747,14 @@ reg('lecDetalle', (box) => {
   c.append(cerrar, top);
   if (!t.piloto) { c.append(el('p', { class: 'res' }, T('lecPendiente'))); box.append(c); return; }
   c.append(el('h3', { class: 'h' }, tr(t, 'leccion')));
-  const pf = el('p', { style: 'margin:0 0 10px' }); pf.append(pill(t.fuerza === 'moderada' || t.fuerza === 'consistente' ? 'ver' : t.fuerza === 'parcial' ? 'pro' : 'sup', T('lecFuerza_' + t.fuerza))); c.append(pf);
+  const pf = el('p', { style: 'margin:0 0 10px' }); pf.append(lecPill(LEC_COL[t.fuerza] || '#999', T('lecFuerza_' + t.fuerza))); c.append(pf);
   c.append(el('p', { class: 'res' }, tr(t, 'resumen')));
   const grid = el('div', { class: 'lec-grid' });
   const acc = el('div', { class: 'lec-box lec-acc' }); acc.append(el('h4', null, T('lecHacer')));
   const ul = el('ul'); (t.acciones || []).forEach((x) => ul.append(el('li', null, tr(x, 't')))); acc.append(ul);
   const ns = el('div', { class: 'lec-box' }); ns.append(el('h4', null, T('lecNoSabe')), el('p', { style: 'margin:0;font-size:13.5px;line-height:1.5' }, tr(t, 'noSabemos')), el('p', { class: 'lec-med' }, T('lecMedicion') + ': ' + tr(t, 'medicion')));
   grid.append(acc, ns); c.append(grid);
-  const TCOL = { causal: '#2e8b57', contexto: '#d08a1e', guia: '#8a6fd1' };
+  const TCOL = { causal: '#1e3a8a', contexto: '#5ab4e8', guia: '#7b61c9' };
   ['causal', 'contexto', 'guia'].forEach((tier) => {
     const items = (t.evidencia || []).filter((e) => e.tier === tier);
     const sec = el('section', { class: 'lec-tier' });
@@ -1761,7 +1763,7 @@ reg('lecDetalle', (box) => {
     const l = el('ul', { class: 'lec-ev' });
     items.forEach((e) => {
       const li = el('li');
-      li.append(el('a', { class: 'ref', href: e.url, target: '_blank', rel: 'noopener' }, e.ref), pill(e.nivel === '1' ? 'ver' : e.nivel === '2' ? 'pro' : e.nivel === 'pol' ? 'sup' : '', T('lecNivel', e.nivel)), document.createTextNode(tr(e, 'texto')));
+      li.append(el('a', { class: 'ref', href: e.url, target: '_blank', rel: 'noopener' }, e.ref), lecPill(NIV_COL[e.nivel] || '#888', T('lecNivel', e.nivel)), document.createTextNode(tr(e, 'texto')));
       l.append(li);
     });
     sec.append(l); c.append(sec);
@@ -1779,7 +1781,7 @@ reg('lecDetalle', (box) => {
 
 const EXP_GRUPOS = [['personas', ['docentes']], ['infra', ['infraestructura', 'lugar']], ['uso', ['dosis', 'diseno']], ['pedagogia', ['pedagogia']], ['eq', ['equidad', 'privacidad', 'costo']]];
 const EXP_EXTRA = ['comparacion', 'medicion', 'cautelas'];
-const EXP_GCOL = { personas: '#178a8a', infra: '#c97a12', uso: '#2a78d6', pedagogia: '#7b61c9', eq: '#c4466b' };
+const EXP_GCOL = { personas: '#c2410c', infra: '#f08a24', uso: '#e3b007', pedagogia: '#a8661a', eq: '#e0603a' };
 const EXP_DCOL = {};
 EXP_GRUPOS.forEach(([g, ks]) => ks.forEach((k) => { EXP_DCOL[k] = EXP_GCOL[g]; }));
 const EXP_COND = { formacion: (c) => c.formacionDocente === 'yes', adulto: (c) => c.adultoPresente === 'yes', compartido: (c) => c.dispositivo === 'shared', conect: (c) => c.conectividad === 'low_bandwidth' || c.conectividad === 'offline', curriculo: (c) => c.alineadoCurriculo === 'yes', equidad: (c) => !!c.equidadReportada, costo: (c) => !!c.costoReportado, privacidad: (c) => !!c.privacidadReportada };
