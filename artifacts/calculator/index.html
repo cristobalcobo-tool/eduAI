@@ -199,6 +199,39 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 @container (max-width: 430px) { .sim-duelo { grid-template-columns: 1fr 1fr; } .duelo-vs { grid-column: 1 / -1; order: -1; flex-direction: row; gap: 8px; } .duelo-vs .l { max-width: none; } .duelo-cifra { font-size: 32px; } }
 .res-bloque { border-top: 1px solid var(--color-border-line); padding-top: 12px; margin-top: 14px; }
 .res-bloque h4 { font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: var(--color-fg-muted); font-weight: 600; margin: 0 0 8px; }
+
+/* Decidir: vista mínima */
+.lab-tabs { align-items: flex-end; }
+.lab-tab.pri { font-size: 15px; font-weight: 600; color: var(--color-fg); padding: 10px 16px; }
+.lab-tab.pri[aria-selected="true"] { border-bottom-width: 3px; }
+.lab-tab.sec { font-size: 12.5px; padding: 8px 10px; }
+.lab-tabs .tab-grupo { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-fg-muted); padding: 0 4px 10px 18px; margin-left: 6px; border-left: 1px solid var(--color-border-line); align-self: center; }
+.dec-head { margin: 6px 0 16px; }
+.dec-head h2 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 4px; }
+.dec-head p { margin: 0; font-size: 14px; }
+.dec-pick { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-bottom: 14px; }
+.dec-sel { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 10px; row-gap: 6px; align-items: center; padding: 12px 14px; border-radius: 12px; background: var(--color-panel); border: 1px solid var(--color-border-line); border-top: 4px solid #2a78d6; }
+.dec-sel.b { border-top-color: #2e8b57; }
+.dec-num { grid-row: 1 / span 2; width: 26px; height: 26px; border-radius: 50%; background: #2a78d6; color: #fff; font-weight: 700; font-size: 13px; text-align: center; line-height: 26px; }
+.dec-sel.b .dec-num { background: #2e8b57; }
+.dec-lbl { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--color-fg-muted); font-weight: 600; }
+.dec-sel .dash-select { font-size: 14px; }
+.dec-card { padding: 18px 18px 14px; }
+.dec .duelo-cifra { font-size: 48px; }
+.dec .sim-duelo { margin-top: 10px; }
+.dec .sim-verdict { font-size: 15px; margin-bottom: 0; }
+.dec-grid { display: grid; gap: 12px; grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr); }
+@media (max-width: 820px) { .dec-grid { grid-template-columns: 1fr; } }
+.lab .dec-h { font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: var(--color-fg-muted); font-weight: 600; margin: 0 0 10px; }
+.dec .sim-claves ul { grid-template-columns: 1fr; gap: 12px; }
+.dec-caut ul { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.5; }
+.dec-caut li { margin-bottom: 6px; }
+@media (max-width: 640px) { .lab-tabs .tab-grupo { flex-basis: 100%; border-left: 0; margin: 6px 0 0; padding: 0 0 2px 10px; } }
+.dec .sim-claves details { margin-top: 10px; }
+.dec .sim-claves summary { font-size: 12.5px; color: #2a78d6; }
+.dec-next { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin: 4px 0 10px; }
+.dec-next .lab-btn { font-size: 14px; padding: 10px 16px; border-radius: 999px; }
+.dec .sim-claves { margin-top: 0; }
 [data-dash-source-state=refreshing] { opacity: .5; }
 </style>
 
@@ -243,19 +276,55 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   <div class="lab-banner ilus" id="aviso-estatico"><span lang="es"><b>Versión estática publicada en GitHub.</b> Los datos de EvidencIA son una copia del 11 nov 2026 (corte de la base: 16 oct 2026) y no se actualizan solos. La versión con datos en vivo está en el panel de Claude Data.</span><span lang="en"><b>Static version published on GitHub.</b> EvidencIA data are a copy from 11 Nov 2026 (database cutoff: 16 Oct 2026) and do not update on their own. The version with live data is the Claude Data dashboard.</span><span lang="pt"><b>Versão estática publicada no GitHub.</b> Os dados da EvidencIA são uma cópia de 11 nov 2026 (corte da base: 16 out 2026) e não se atualizam sozinhos. A versão com dados ao vivo está no painel do Claude Data.</span></div>
 
   <nav class="lab-tabs" role="tablist">
-    <button class="lab-tab" role="tab" data-tab="inicio" aria-selected="true"><span lang="es">Simulador</span><span lang="en">Simulator</span><span lang="pt">Simulador</span></button>
-    <button class="lab-tab" role="tab" data-tab="explorador" aria-selected="false"><span lang="es">Explorador de evidencia</span><span lang="en">Evidence explorer</span><span lang="pt">Explorador de evidências</span></button>
-    <button class="lab-tab" role="tab" data-tab="impacto" aria-selected="false"><span lang="es">Impacto en el aprendizaje</span><span lang="en">Learning impact</span><span lang="pt">Impacto na aprendizagem</span></button>
-    <button class="lab-tab" role="tab" data-tab="calculadora" aria-selected="false"><span lang="es">Calculadora de inversión</span><span lang="en">Investment calculator</span><span lang="pt">Calculadora de investimento</span></button>
-    <button class="lab-tab" role="tab" data-tab="simulador" aria-selected="false"><span lang="es">Costos y escala</span><span lang="en">Cost and scale</span><span lang="pt">Custos e escala</span></button>
-    <button class="lab-tab" role="tab" data-tab="brechas" aria-selected="false"><span lang="es">Brechas de investigación</span><span lang="en">Research gaps</span><span lang="pt">Lacunas de pesquisa</span></button>
-    <button class="lab-tab" role="tab" data-tab="metodologia" aria-selected="false"><span lang="es">Fuentes y metodología</span><span lang="en">Sources and methodology</span><span lang="pt">Fontes e metodologia</span></button>
+    <button class="lab-tab pri" role="tab" data-tab="decidir" aria-selected="true"><span lang="es">Decidir</span><span lang="en">Decide</span><span lang="pt">Decidir</span></button>
+    <button class="lab-tab pri" role="tab" data-tab="inicio" aria-selected="false"><span lang="es">Probar supuestos</span><span lang="en">Try assumptions</span><span lang="pt">Testar suposições</span></button>
+    <span class="tab-grupo"><span lang="es">Análisis técnico</span><span lang="en">Technical analysis</span><span lang="pt">Análise técnica</span></span>
+    <button class="lab-tab sec" role="tab" data-tab="explorador" aria-selected="false"><span lang="es">Evidencia</span><span lang="en">Evidence</span><span lang="pt">Evidências</span></button>
+    <button class="lab-tab sec" role="tab" data-tab="impacto" aria-selected="false"><span lang="es">Impacto</span><span lang="en">Impact</span><span lang="pt">Impacto</span></button>
+    <button class="lab-tab sec" role="tab" data-tab="calculadora" aria-selected="false"><span lang="es">Calculadora</span><span lang="en">Calculator</span><span lang="pt">Calculadora</span></button>
+    <button class="lab-tab sec" role="tab" data-tab="simulador" aria-selected="false"><span lang="es">Costos y escala</span><span lang="en">Cost and scale</span><span lang="pt">Custos e escala</span></button>
+    <button class="lab-tab sec" role="tab" data-tab="brechas" aria-selected="false"><span lang="es">Brechas</span><span lang="en">Gaps</span><span lang="pt">Lacunas</span></button>
+    <button class="lab-tab sec" role="tab" data-tab="metodologia" aria-selected="false"><span lang="es">Metodología</span><span lang="en">Methodology</span><span lang="pt">Metodologia</span></button>
   </nav>
 
-  <!-- 0. PORTADA: SIMULADOR -->
-  <section id="inicio" class="lab-section">
+  <!-- D. DECIDIR: vista mínima para tomadores de decisiones -->
+  <section id="decidir" class="lab-section dec">
+    <div class="dec-head">
+      <h2><span lang="es">¿Cuál compra más aprendizaje por cada dólar?</span><span lang="en">Which one buys more learning per dollar?</span><span lang="pt">Qual compra mais aprendizado por dólar?</span></h2>
+      <p class="lab-muted"><span lang="es">Compara dos intervenciones evaluadas con ensayos aleatorizados. Datos de EvidencIA.</span><span lang="en">Compare two interventions evaluated with randomized trials. Data from EvidencIA.</span><span lang="pt">Compare duas intervenções avaliadas com ensaios randomizados. Dados da EvidencIA.</span></p>
+    </div>
+    <div class="dec-pick">
+      <label class="dec-sel a"><span class="dec-num">1</span><span class="dec-lbl"><span lang="es">Elige una intervención (A)</span><span lang="en">Choose an intervention (A)</span><span lang="pt">Escolha uma intervenção (A)</span></span><select class="dash-select" data-draw="decSel" data-side="a" aria-label="A"></select></label>
+      <label class="dec-sel b"><span class="dec-num">2</span><span class="dec-lbl"><span lang="es">Compárala con otra (B)</span><span lang="en">Compare it with another (B)</span><span lang="pt">Compare com outra (B)</span></span><select class="dash-select" data-draw="decSel" data-side="b" aria-label="B"></select></label>
+    </div>
+
+    <div class="lab-card dec-card sim-res">
+      <div class="sim-duelo" data-draw="simDuelo" data-source="evidencia_es simulador"></div>
+      <p class="sim-verdict" data-draw="simVeredicto">—</p>
+    </div>
+
+    <div class="dec-grid">
+      <div class="lab-card dec-claves sim-claves">
+        <h3 class="dec-h"><span lang="es">Qué mirar además del costo</span><span lang="en">What to look at besides cost</span><span lang="pt">O que observar além do custo</span></h3>
+        <div data-draw="simClaves" data-modo="compacto" data-source="contexto"></div>
+      </div>
+      <div class="lab-card dec-caut">
+        <h3 class="dec-h"><span lang="es">Cautelas</span><span lang="en">Cautions</span><span lang="pt">Cuidados</span></h3>
+        <div data-draw="decCautelas"></div>
+      </div>
+    </div>
+
+    <div class="dec-next">
+      <button type="button" class="lab-btn destacado dec-ir" data-tab-ir="inicio"><span lang="es">Probar mis propios supuestos →</span><span lang="en">Try my own assumptions →</span><span lang="pt">Testar minhas próprias suposições →</span></button>
+      <span class="lab-small lab-muted"><span lang="es">Cambia ganancias y costos, mira el mapa de estudios y cuántos estudiantes alcanza tu presupuesto.</span><span lang="en">Change gains and costs, see the study map and how many students your budget reaches.</span><span lang="pt">Mude ganhos e custos, veja o mapa de estudos e quantos estudantes seu orçamento alcança.</span></span>
+    </div>
+    <p class="lab-small lab-muted"><span lang="es">Datos copiados del conector EvidencIA el 11 nov 2026 (núcleo verificado, corte 16 oct 2026). Cada estudio calculó su costo de forma distinta: úsalo como orden de magnitud.</span><span lang="en">Data copied from the EvidencIA connector on 11 Nov 2026 (verified core, cutoff 16 Oct 2026). Each study computed its cost differently: treat it as an order of magnitude.</span><span lang="pt">Dados copiados do conector EvidencIA em 11 nov 2026 (núcleo verificado, corte 16 out 2026). Cada estudo calculou o custo de um jeito: use como ordem de grandeza.</span></p>
+  </section>
+
+  <!-- 0. PROBAR SUPUESTOS -->
+  <section id="inicio" class="lab-section" hidden>
     <div class="sim-hero">
-      <h2><span lang="es">¿Cuánto aprendizaje compra cada dólar?</span><span lang="en">How much learning does each dollar buy?</span><span lang="pt">Quanto aprendizado cada dólar compra?</span></h2>
+      <h2><span lang="es">Probar supuestos: cambia los valores y compara</span><span lang="en">Try assumptions: change the values and compare</span><span lang="pt">Testar suposições: mude os valores e compare</span></h2>
       <ol class="sim-steps">
         <li><span class="n">1</span><span><span lang="es"><b>Elige</b> una intervención para A y otra para B. Los valores vienen de evaluaciones verificadas por EvidencIA.</span><span lang="en"><b>Pick</b> one intervention for A and another for B. Values come from evaluations verified by EvidencIA.</span><span lang="pt"><b>Escolha</b> uma intervenção para A e outra para B. Os valores vêm de avaliações verificadas pela EvidencIA.</span></span></li>
         <li><span class="n">2</span><span><span lang="es"><b>Prueba otros valores</b> con los controles o arrastrando A y B en el mapa. Los estudios con resultados parecidos se iluminan.</span><span lang="en"><b>Try other values</b> with the sliders or by dragging A and B on the map. Studies with similar results light up.</span><span lang="pt"><b>Teste outros valores</b> com os controles ou arrastando A e B no mapa. Os estudos com resultados parecidos se destacam.</span></span></li>
