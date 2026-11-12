@@ -36,7 +36,7 @@
     const f = FUENTES[id];
     if (!f || estado[id]) return;
     estado[id] = { status: 'loading', data: [] };
-    fetch(f.url)
+    fetch(f.url, { cache: 'no-cache' })
       .then((r) => { if (!r.ok) throw new Error(r.status + ' ' + f.url); return f.tipo === 'json' ? r.json() : r.text(); })
       .then((respuesta) => {
         let filas = respuesta;
