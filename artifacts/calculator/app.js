@@ -320,6 +320,19 @@ const D = {
   riesgo0: ['Sin riesgo alto de sesgo', 'No high risk of bias', 'Sem risco alto de viés'],
   riesgoN: [(n, l) => 'Riesgo alto de sesgo en ' + (n === 1 ? '1 aspecto' : n + ' aspectos') + ': ' + l, (n, l) => 'High risk of bias in ' + (n === 1 ? '1 area' : n + ' areas') + ': ' + l, (n, l) => 'Risco alto de viés em ' + (n === 1 ? '1 aspecto' : n + ' aspectos') + ': ' + l],
   evComun: ['EvidencIA con la regla común', 'EvidencIA under the common rule', 'EvidencIA com a regra comum'],
+  lecFuerza_moderada: ['Evidencia causal moderada', 'Moderate causal evidence', 'Evidência causal moderada'],
+  lecFuerza_parcial: ['Parcial: sobre todo descriptiva', 'Partial: mostly descriptive', 'Parcial: sobretudo descritiva'],
+  lecFuerza_guias: ['Solo guías y políticas', 'Guides and policies only', 'Só guias e políticas'],
+  lecFuerza_pendiente: ['En preparación', 'In preparation', 'Em preparação'],
+  lecTema: [(n) => 'Tema ' + n, (n) => 'Theme ' + n, (n) => 'Tema ' + n],
+  lecHacer: ['Qué hacer', 'What to do', 'O que fazer'], lecMedicion: ['Cómo se midió', 'How it was measured', 'Como foi medido'],
+  lecNoSabe: ['Lo que no sabemos', 'What we do not know', 'O que não sabemos'],
+  lecTier_causal: ['Lo que muestran los estudios causales', 'What causal studies show', 'O que mostram os estudos causais'],
+  lecTier_contexto: ['Lo que sugieren los estudios descriptivos (contexto, no prueba de efecto)', 'What descriptive studies suggest (context, not proof of effect)', 'O que sugerem os estudos descritivos (contexto, não prova de efeito)'],
+  lecTier_guia: ['Lo que recomiendan guías y políticas (orientación, no evidencia de efecto)', 'What guides and policies recommend (guidance, not evidence of effect)', 'O que recomendam guias e políticas (orientação, não evidência de efeito)'],
+  lecTierVacio: ['No encontramos estudios de este tipo para este tema.', 'We found no studies of this kind for this theme.', 'Não encontramos estudos deste tipo para este tema.'],
+  lecNivel: [(n) => n === 'pol' ? 'Política o guía oficial' : 'Nivel ' + n, (n) => n === 'pol' ? 'Official policy or guide' : 'Level ' + n, (n) => n === 'pol' ? 'Política ou guia oficial' : 'Nível ' + n],
+  lecPendiente: ['Este tema está en preparación. Se completará con la misma búsqueda en las tres fuentes.', 'This theme is in preparation. It will be completed with the same search across the three sources.', 'Este tema está em preparação. Será completado com a mesma busca nas três fontes.'],
   fCampos: [['Conector', 'Estado', 'Cobertura declarada', 'Consultada'], ['Connector', 'Status', 'Declared coverage', 'Consulted'], ['Conector', 'Status', 'Cobertura declarada', 'Consultada']],
 };
 const T = (k, ...a) => { const e = D[k]; if (!e) return k; const v = e[{ es: 0, en: 1, pt: 2 }[L]] ?? e[0]; return typeof v === 'function' ? v(...a) : v; };
@@ -1647,4 +1660,56 @@ reg('cotejoBody', (tb) => {
     const tdL = el('td'); tdL.append(lect); row.append(tdL);
     return row;
   }));
+});
+
+/* ===================== Lecciones para implementar ===================== */
+
+const LEC = { sel: 'infra' };
+const LEC_COL = { moderada: '#2e8b57', parcial: '#d08a1e', guias: '#8a6fd1', pendiente: '#b8b8b8' };
+reg('lecTiles', (box) => {
+  const ts = rows('lecciones');
+  if (!ts.length) { failMsg(box, dash.data('lecciones').status); return; }
+  box.replaceChildren(...ts.map((t, i) => {
+    const pend = !t.piloto;
+    const b = el('button', { type: 'button', class: 'lec-tile', 'aria-pressed': String(LEC.sel === t.id) });
+    if (pend) b.disabled = true;
+    b.style.setProperty('--fc', LEC_COL[t.fuerza] || '#999');
+    b.append(el('span', { class: 'n' }, T('lecTema', i + 1) + ' · ' + T('lecFuerza_' + t.fuerza)), el('span', { class: 't' }, tr(t, 'titulo')), el('span', { class: 'l' }, pend ? tr(t, 'pregunta') : tr(t, 'leccion')));
+    b.onclick = () => { LEC.sel = t.id; dash.draw('lecTiles'); dash.draw('lecDetalle'); const d = document.getElementById('lec-detalle'); if (d && d.scrollIntoView) setTimeout(() => d.scrollIntoView({ behavior: 'smooth', block: 'start' }), 40); };
+    return b;
+  }));
+});
+reg('lecDetalle', (box) => {
+  const ts = rows('lecciones');
+  box.replaceChildren();
+  const t = ts.find((x) => x.id === LEC.sel) || ts.find((x) => x.piloto);
+  if (!t) return;
+  const c = el('article', { class: 'lec-card' });
+  c.style.setProperty('--fc', LEC_COL[t.fuerza] || '#999');
+  const top = el('p', { class: 'q' }, tr(t, 'titulo') + ' · ' + tr(t, 'pregunta'));
+  c.append(top);
+  if (!t.piloto) { c.append(el('p', { class: 'res' }, T('lecPendiente'))); box.append(c); return; }
+  c.append(el('h3', { class: 'h' }, tr(t, 'leccion')));
+  const pf = el('p', { style: 'margin:0 0 10px' }); pf.append(pill(t.fuerza === 'moderada' ? 'ver' : t.fuerza === 'parcial' ? 'pro' : 'sup', T('lecFuerza_' + t.fuerza))); c.append(pf);
+  c.append(el('p', { class: 'res' }, tr(t, 'resumen')));
+  const grid = el('div', { class: 'lec-grid' });
+  const acc = el('div', { class: 'lec-box lec-acc' }); acc.append(el('h4', null, T('lecHacer')));
+  const ul = el('ul'); (t.acciones || []).forEach((x) => ul.append(el('li', null, tr(x, 't')))); acc.append(ul);
+  const ns = el('div', { class: 'lec-box' }); ns.append(el('h4', null, T('lecNoSabe')), el('p', { style: 'margin:0;font-size:13.5px;line-height:1.5' }, tr(t, 'noSabemos')), el('p', { class: 'lec-med' }, T('lecMedicion') + ': ' + tr(t, 'medicion')));
+  grid.append(acc, ns); c.append(grid);
+  const TCOL = { causal: '#2e8b57', contexto: '#d08a1e', guia: '#8a6fd1' };
+  ['causal', 'contexto', 'guia'].forEach((tier) => {
+    const items = (t.evidencia || []).filter((e) => e.tier === tier);
+    const sec = el('section', { class: 'lec-tier' });
+    const h = el('h4'); const i = el('i'); i.style.background = TCOL[tier]; h.append(i, document.createTextNode(T('lecTier_' + tier) + (items.length ? ' (' + items.length + ')' : ''))); sec.append(h);
+    if (!items.length) { sec.append(el('p', { class: 'vacio' }, T('lecTierVacio'))); c.append(sec); return; }
+    const l = el('ul', { class: 'lec-ev' });
+    items.forEach((e) => {
+      const li = el('li');
+      li.append(el('a', { class: 'ref', href: e.url, target: '_blank', rel: 'noopener' }, e.ref), pill(e.nivel === '1' ? 'ver' : e.nivel === '2' ? 'pro' : e.nivel === 'pol' ? 'sup' : '', T('lecNivel', e.nivel)), document.createTextNode(tr(e, 'texto')));
+      l.append(li);
+    });
+    sec.append(l); c.append(sec);
+  });
+  box.append(c);
 });
