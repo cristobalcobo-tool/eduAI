@@ -254,6 +254,35 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 .lec-nosabe { margin-top: 14px; font-size: 13.5px; padding: 10px 12px; border-radius: 8px; border: 1px dashed var(--color-border-line); }
 .lec-med { font-size: 12.5px; color: var(--color-fg-muted); margin: 10px 0 0; }
 .lec-nota { margin-top: 14px; }
+.exp-paso { display: flex; align-items: center; gap: 8px; margin: 14px 0 8px; font-size: 14px; flex-wrap: wrap; }
+.exp-n { width: 22px; height: 22px; border-radius: 50%; background: var(--color-fg); color: var(--color-panel); font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+.exp-chips { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.exp-grupo { border: 1px solid var(--color-border-line); border-radius: 10px; padding: 8px 10px; }
+.exp-grupo .g { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--color-fg-muted); font-weight: 600; margin-bottom: 6px; }
+.exp-chip { font: inherit; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; margin: 0 6px 6px 0; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--color-border-line); background: var(--color-panel); color: var(--color-fg); cursor: pointer; }
+.exp-chip small { color: var(--color-fg-muted); font-size: 11px; }
+.exp-chip[aria-pressed="true"] { background: color-mix(in srgb, #2a78d6 12%, var(--color-panel)); border-color: #2a78d6; color: #1f5fae; font-weight: 600; }
+.exp-filtros { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: flex-end; }
+.exp-filtros label { display: flex; flex-direction: column; gap: 3px; font-size: 11.5px; color: var(--color-fg-muted); }
+.exp-filtros select, .exp-filtros input[type=search] { font: inherit; font-size: 13px; padding: 5px 8px; border-radius: 8px; border: 1px solid var(--color-border-line); background: var(--color-panel); color: var(--color-fg); max-width: 210px; }
+.exp-filtros .exp-tog { flex-direction: row; align-items: center; gap: 6px; font-size: 12.5px; color: var(--color-fg); }
+.exp-lista { display: grid; gap: 10px; margin-top: 8px; }
+.exp-est { border: 1px solid var(--color-border-line); border-radius: 12px; padding: 12px 14px; background: var(--color-panel); }
+.exp-est-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin-bottom: 6px; }
+.exp-est-h a { font-weight: 700; font-size: 14.5px; }
+.exp-meta { font-size: 12px; color: var(--color-fg-muted); }
+.exp-ef { font-size: 12.5px; margin: 2px 0 8px; }
+.exp-el { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 4px 12px; font-size: 13.5px; line-height: 1.45; padding: 6px 0; border-top: 1px dashed var(--color-border-line); }
+.exp-el .k { font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--color-fg-muted); font-weight: 600; padding-top: 2px; }
+.exp-el .pg { color: var(--color-fg-muted); font-size: 11.5px; margin-left: 4px; }
+.exp-el .ni { color: var(--color-fg-muted); font-style: italic; }
+@media (max-width: 560px) { .exp-el { grid-template-columns: 1fr; } }
+.exp-pick { font-size: 12px; display: inline-flex; align-items: center; gap: 4px; margin-left: auto; }
+.exp-cmp table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.exp-cmp th, .exp-cmp td { border: 1px solid var(--color-border-line); padding: 6px 8px; vertical-align: top; text-align: left; }
+.exp-cmp th { background: color-mix(in srgb, #2a78d6 6%, var(--color-panel)); }
+.exp-cmp .lab-tablewrap { margin-bottom: 10px; }
+.exp-mas { font: inherit; font-size: 13px; margin-top: 6px; }
 .std-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 0 0 12px; }
 .std-btn { display: inline-flex; align-items: center; gap: 8px; font: inherit; font-size: 13px; font-weight: 600; color: var(--color-fg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: 999px; padding: 6px 12px 6px 6px; cursor: pointer; }
 .std-knob { width: 30px; height: 18px; border-radius: 999px; background: var(--color-border-line); position: relative; flex: none; transition: background .15s; }
@@ -501,7 +530,19 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       <span><i class="f-pendiente"></i><span lang="es">En preparación</span><span lang="en">In preparation</span><span lang="pt">Em preparação</span></span>
     </div>
     <div class="lec-tiles" data-draw="lecTiles" data-source="lecciones"></div>
-    <div class="lec-detalle" id="lec-detalle" data-draw="lecDetalle" data-source="lecciones"></div>
+    <div class="lec-detalle" id="lec-detalle" data-draw="lecDetalle" data-source="lecciones estudiosElementos"></div>
+    <div class="lab-card exp" id="explorar">
+      <h2 style="margin-top:0"><span lang="es">Explorar los estudios por elemento</span><span lang="en">Explore the studies by element</span><span lang="pt">Explorar os estudos por elemento</span></h2>
+      <p class="lab-small lab-muted"><span lang="es">Elige qué quieres entender (por ejemplo, la formación docente) y verás, estudio por estudio, cómo se hizo según el registro de EvidencIA, con la página del paper. Ensayos verificados de nivel 1.</span><span lang="en">Choose what you want to understand (for example, teacher training) and you will see, study by study, how it was done according to the EvidencIA record, with the paper's page. Verified level 1 trials.</span><span lang="pt">Escolha o que você quer entender (por exemplo, a formação docente) e verá, estudo por estudo, como foi feito segundo o registro da EvidencIA, com a página do paper. Ensaios verificados de nível 1.</span></p>
+      <div class="exp-paso"><span class="exp-n">1</span><b><span lang="es">Qué quieres entender</span><span lang="en">What you want to understand</span><span lang="pt">O que você quer entender</span></b></div>
+      <div class="exp-chips" data-draw="expChips" data-source="estudiosElementos"></div>
+      <div class="exp-paso"><span class="exp-n">2</span><b><span lang="es">Filtra si quieres</span><span lang="en">Filter if you like</span><span lang="pt">Filtre se quiser</span></b></div>
+      <div class="exp-filtros" data-draw="expFiltros" data-source="estudiosElementos"></div>
+      <div class="exp-paso"><span class="exp-n">3</span><b><span lang="es">Lee y compara</span><span lang="en">Read and compare</span><span lang="pt">Leia e compare</span></b> <span class="lab-small lab-muted" data-draw="expConteo">—</span></div>
+      <div class="exp-cmp" data-draw="expComparar"></div>
+      <div class="exp-lista" data-draw="expLista" data-source="estudiosElementos"></div>
+      <p class="lab-small lab-muted"><span lang="es">Los textos resumen el registro de cada estudio en EvidencIA (consultado el 12 nov 2026); la extracción la hizo Claude con agentes auxiliares y puede tener errores: verifica en el paper antes de citar. «No informado» significa que el registro no lo menciona, no que no haya ocurrido.</span><span lang="en">The texts summarize each study's EvidencIA record (consulted 12 Nov 2026); Claude did the extraction with helper agents and it may contain errors: check the paper before citing. "Not reported" means the record does not mention it, not that it did not happen.</span><span lang="pt">Os textos resumem o registro de cada estudo na EvidencIA (consultado em 12 nov 2026); a extração foi feita pelo Claude com agentes auxiliares e pode ter erros: verifique no paper antes de citar. «Não informado» significa que o registro não o menciona, não que não tenha ocorrido.</span></p>
+    </div>
     <p class="lab-small lab-muted lec-nota"><span lang="es"><b>Nota:</b> las lecciones, acciones y resúmenes los destiló Claude a partir de EvidencIA (que incluye la colección del Stanford SCALE AI Hub) y del AI and Human Skill Atlas, consultados el 12 nov 2026. Las lecciones curadas de EvidencIA son un prototipo (versión 0.2.0) pendiente de revisión por su comité. La evidencia tiene distinta confiabilidad: son insumos para decidir y deben corroborarse en el contexto local antes de ampliar un programa.</span><span lang="en"><b>Note:</b> the lessons, actions and summaries were distilled by Claude from EvidencIA (which includes the Stanford SCALE AI Hub collection) and the AI and Human Skill Atlas, consulted on 12 Nov 2026. EvidencIA's curated lessons are a prototype (version 0.2.0) pending review by its committee. The evidence varies in reliability: these are inputs for deciding and should be corroborated in the local context before expanding a program.</span><span lang="pt"><b>Nota:</b> as lições, ações e resumos foram destilados pelo Claude a partir da EvidencIA (que inclui a coleção do Stanford SCALE AI Hub) e do AI and Human Skill Atlas, consultados em 12 nov 2026. As lições curadas da EvidencIA são um protótipo (versão 0.2.0) pendente de revisão por seu comitê. A evidência tem confiabilidade distinta: são insumos para decidir e devem ser corroborados no contexto local antes de ampliar um programa.</span></p>
   </section>
 
