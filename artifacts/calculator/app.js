@@ -311,6 +311,15 @@ const D = {
   ejeAtlas: ['Efecto (DE)', 'Effect (SD)', 'Efeito (DP)'],
   ar_estudios: ['Estudios en la versión', 'Studies in the release', 'Estudos na versão'], ar_estimaciones: ['Estimaciones en total', 'Total estimates', 'Estimativas no total'], ar_conDE: ['Con cifra en DE', 'With an SD figure', 'Com número em DP'], ar_subgrupos: ['De subgrupos', 'Subgroup estimates', 'De subgrupos'], ar_conIA: ['Medidas con IA disponible en la prueba', 'Measured with AI available during the test', 'Medidas com IA disponível no teste'], ar_diferidas: ['Medidas diferidas (no inmediatas)', 'Delayed measures (not immediate)', 'Medidas posteriores (não imediatas)'], ar_observacionales: ['De diseños observacionales', 'From observational designs', 'De desenhos observacionais'], ar_compActiva: ['Frente a otra intervención activa', 'Against another active intervention', 'Contra outra intervenção ativa'], ar_escolar: ['En primaria o secundaria', 'In primary or secondary school', 'No fundamental ou médio'], ar_sinRevisar: ['Sin revisión de procedencia', 'Provenance not reviewed', 'Sem revisão de procedência'],
   calcStd: [(n) => '⚠ ' + n + ': este efecto no usa la regla común de estandarización; puede no ser comparable con los demás.', (n) => '⚠ ' + n + ': this effect does not use the common standardization rule; it may not be comparable with the others.', (n) => '⚠ ' + n + ': este efeito não usa a regra comum de padronização; pode não ser comparável com os demais.'],
+  costoFalta: ['Costo no reportado', 'Cost not reported', 'Custo não reportado'],
+  costoFaltaMover: ['Mueve el control para poner un costo supuesto.', 'Move the slider to set an assumed cost.', 'Mova o controle para definir um custo suposto.'],
+  faltaCostoT: [(n) => n + ' no reporta su costo por estudiante. Para comparar, escribe un costo supuesto:', (n) => n + ' does not report its cost per student. To compare, type an assumed cost:', (n) => n + ' não reporta seu custo por estudante. Para comparar, escreva um custo suposto:'],
+  usarCosto: ['Comparar con este costo', 'Compare with this cost', 'Comparar com este custo'],
+  faltaCostoVer: ['Falta un costo por estudiante para comparar: escribe un supuesto arriba.', 'A cost per student is missing: type an assumption above.', 'Falta um custo por estudante para comparar: escreva uma suposição acima.'],
+  costoSupuesto: ['Costo: supuesto tuyo (el estudio no lo reporta)', 'Cost: your assumption (the study does not report it)', 'Custo: suposição sua (o estudo não o reporta)'],
+  riesgo0: ['Sin riesgo alto de sesgo', 'No high risk of bias', 'Sem risco alto de viés'],
+  riesgoN: [(n, l) => 'Riesgo alto de sesgo en ' + (n === 1 ? '1 aspecto' : n + ' aspectos') + ': ' + l, (n, l) => 'High risk of bias in ' + (n === 1 ? '1 area' : n + ' areas') + ': ' + l, (n, l) => 'Risco alto de viés em ' + (n === 1 ? '1 aspecto' : n + ' aspectos') + ': ' + l],
+  evComun: ['EvidencIA con la regla común', 'EvidencIA under the common rule', 'EvidencIA com a regra comum'],
   fCampos: [['Conector', 'Estado', 'Cobertura declarada', 'Consultada'], ['Connector', 'Status', 'Declared coverage', 'Consulted'], ['Conector', 'Status', 'Cobertura declarada', 'Consultada']],
 };
 const T = (k, ...a) => { const e = D[k]; if (!e) return k; const v = e[{ es: 0, en: 1, pt: 2 }[L]] ?? e[0]; return typeof v === 'function' ? v(...a) : v; };
@@ -454,6 +463,7 @@ function opcionesSim() {
   return out;
 }
 function setSlider(side, k, v) {
+  if (!Number.isFinite(v)) return;
   document.querySelectorAll('#inicio input[data-side="' + side + '"][data-k="' + k + '"]').forEach((i) => { i.value = String(k === 'cost' ? cost2pos(v) : v); });
 }
 function elegir(side, id) {
@@ -463,7 +473,7 @@ function elegir(side, id) {
   s.id = id;
   s.gain = o.gain; s.gSrc = o.gainHip ? 'hip' : o.tipo === 'sintesis' ? 'sint' : 'estudio';
   if (typeof o.cost === 'number') { s.cost = o.cost; s.cSrc = o.costHip ? 'hip' : 'estudio'; }
-  else { s.cost = Number.isFinite(s.cost) ? s.cost : 20; s.cSrc = 'usuario'; }
+  else { s.cost = NaN; s.cSrc = 'falta'; }
   setSlider(side, 'gain', s.gain); setSlider(side, 'cost', s.cost);
 }
 const SIM_DRAWS = ['stdNota', 'decSel', 'decCautelas', 'simResumen', 'simDuelo', 'chips', 'simVal', 'simOrigen', 'simPct', 'simCerca', 'simNota', 'simVeredicto', 'simClaves', 'simBarras', 'simUmbral', 'simAlcance', 'simOjo'];
@@ -524,7 +534,7 @@ reg('simOrigen', (span) => {
   const src = k === 'gain' ? s.gSrc : s.cSrc;
   span.replaceChildren();
   if (!s.id) return;
-  const map = { estudio: ['ver', T('delEstudio')], sint: ['sup', T('tipo_sintesis')], hip: ['sup', T('hipot')], usuario: ['sup', T('tuSupuesto')] };
+  const map = { estudio: ['ver', T('delEstudio')], sint: ['sup', T('tipo_sintesis')], hip: ['sup', T('hipot')], usuario: ['sup', T('tuSupuesto')], falta: ['fal', T('costoFalta')] };
   const [cls, txt] = map[src] || ['', ''];
   span.append(pill(cls, txt));
   const o = opcionesSim().find((x) => x.id === s.id);
@@ -537,7 +547,7 @@ reg('simOrigen', (span) => {
     };
     span.append(r);
   }
-  if (k === 'cost' && o && typeof o.cost !== 'number') span.append(el('div', { class: 'lab-small lab-muted' }, T('sinCostoSup')));
+  if (k === 'cost' && o && typeof o.cost !== 'number') span.append(el('div', { class: 'lab-small lab-muted' }, src === 'falta' ? T('costoFaltaMover') : T('sinCostoSup')));
 });
 
 reg('simNota', (box) => {
@@ -561,10 +571,47 @@ function simCalc() {
 }
 const nombreDe = (side) => { const o = opcionesSim().find((x) => x.id === SIM[side].id); return side.toUpperCase() + (o ? ' (' + o.nombre + ')' : ''); };
 
+function riesgoInfo(o) {
+  if (!o || !o.ev || !o.ev.riesgoAlto) return null;
+  const txt = String(o.ev.riesgoAlto).trim();
+  const lista = /^(ninguno|none|nenhum)$/i.test(txt) ? [] : txt.split(/,\s*/).filter(Boolean);
+  return { n: lista.length, lista };
+}
+function badgeRiesgo(o) {
+  const ri = riesgoInfo(o);
+  if (!ri) return null;
+  const w = el('div', { class: 'duelo-riesgo' });
+  w.append(pill(ri.n === 0 ? 'ver' : ri.n === 1 ? 'pro' : 'fal', ri.n === 0 ? T('riesgo0') : T('riesgoN', ri.n, ri.lista.join(', '))));
+  const q = el('button', { type: 'button', class: 'lab-q', 'aria-label': '?' }, '?');
+  q.onclick = (ev) => { ev.preventDefault(); verGlosario('riesgo'); };
+  w.append(q);
+  return w;
+}
+function pedirCosto(box) {
+  const ops = opcionesSim();
+  ['a', 'b'].filter((sd) => !Number.isFinite(SIM[sd].cost)).forEach((sd) => {
+    const o = ops.find((x) => x.id === SIM[sd].id);
+    const c = el('div', { class: 'duelo-falta' });
+    c.style.setProperty('--c', sd === 'a' ? AZUL : VERDE);
+    const p = el('p');
+    p.append(el('span', { class: 'sim-badge ' + sd }, sd.toUpperCase()), document.createTextNode(' ' + T('faltaCostoT', o ? o.corto || o.nombre : sd.toUpperCase())));
+    const f = el('form', { class: 'duelo-falta-f' });
+    const inp = el('input', { type: 'number', min: '0.01', step: '0.01', inputmode: 'decimal', placeholder: 'USD', 'aria-label': T('detCosto') + ' ' + sd.toUpperCase() });
+    const b = el('button', { type: 'submit', class: 'lab-btn destacado' }, T('usarCosto'));
+    f.append(el('span', null, 'USD'), inp, b);
+    f.onsubmit = (ev) => { ev.preventDefault(); const v = Number(inp.value); if (!(v > 0)) { inp.focus(); return; } SIM[sd].cost = v; SIM[sd].cSrc = 'usuario'; setSlider(sd, 'cost', v); redibujarSim(); };
+    c.append(p, f);
+    box.append(c);
+  });
+}
 reg('simDuelo', (box) => {
   const r = simCalc();
   box.replaceChildren();
-  if (!r) { box.textContent = rows(evId()).length ? '—' : T('cargando'); return; }
+  if (!r) {
+    if (rows(evId()).length && SIM.a.id && SIM.b.id && (!Number.isFinite(SIM.a.cost) || !Number.isFinite(SIM.b.cost))) { box.classList.add('pide'); pedirCosto(box); return; }
+    box.textContent = rows(evId()).length ? '—' : T('cargando'); return;
+  }
+  box.classList.remove('pide');
   const ops = opcionesSim();
   const pos = SIM.a.gain > 0 && SIM.b.gain > 0;
   const gana = pos ? (r.aiEffectiveness >= r.alternativeEffectiveness ? 'a' : 'b') : null;
@@ -579,6 +626,9 @@ reg('simDuelo', (box) => {
     const fila = (k, v) => { const x = el('div'); x.append(document.createTextNode(k + ' '), el('b', null, v)); return x; };
     det.append(fila(T('detGan'), (s.gain > 0 ? '+' : '') + f2(s.gain) + ' ' + T('DE')), fila(T('detCosto'), usd(s.cost)));
     d.append(top, el('div', { class: 'duelo-nombre' }, o ? o.corto || o.nombre : T('tuSupuesto')), el('div', { class: 'duelo-cifra' }, f2(eff)), el('div', { class: 'duelo-unidad' }, T('por100')), det);
+    const br = badgeRiesgo(o);
+    if (br) d.append(br);
+    if (s.cSrc === 'usuario' && o && o.ev && typeof o.cost !== 'number') d.append(el('div', { class: 'duelo-sup' }, T('costoSupuesto')));
     return d;
   };
   const vs = el('div', { class: 'duelo-vs' });
@@ -593,7 +643,7 @@ reg('simVeredicto', (p) => {
   const r = simCalc();
   p.replaceChildren();
   p.style.removeProperty('--vc');
-  if (!r) { p.textContent = rows(evId()).length ? '—' : T('cargando'); return; }
+  if (!r) { p.textContent = !rows(evId()).length ? T('cargando') : (!Number.isFinite(SIM.a.cost) || !Number.isFinite(SIM.b.cost)) ? T('faltaCostoVer') : '—'; return; }
   if (!(SIM.a.gain > 0 && SIM.b.gain > 0) || r.threshold == null) { p.textContent = T('verdNoInterp'); return; }
   const aGana = r.aiEffectiveness >= r.alternativeEffectiveness;
   p.style.setProperty('--vc', aGana ? AZUL : VERDE);
@@ -602,7 +652,7 @@ reg('simVeredicto', (p) => {
 
 reg('simResumen', (p) => {
   const r = simCalc();
-  if (!r || !(SIM.a.gain > 0 && SIM.b.gain > 0)) { p.textContent = r ? T('verdNoInterp') : T('resumenNo'); return; }
+  if (!r || !(SIM.a.gain > 0 && SIM.b.gain > 0)) { p.textContent = r ? T('verdNoInterp') : (SIM.a.id && SIM.b.id && (!Number.isFinite(SIM.a.cost) || !Number.isFinite(SIM.b.cost))) ? T('faltaCostoVer') : T('resumenNo'); return; }
   const aGana = r.aiEffectiveness >= r.alternativeEffectiveness;
   const v = LOC.format(',.1f')(aGana ? r.aiEffectiveness / r.alternativeEffectiveness : r.alternativeEffectiveness / r.aiEffectiveness);
   p.replaceChildren(el('b', null, aGana ? 'A' : 'B'), document.createTextNode(' ' + T('resumen', '', v, f2(aGana ? r.aiEffectiveness : r.alternativeEffectiveness), f2(aGana ? r.alternativeEffectiveness : r.aiEffectiveness)).trim()));
@@ -791,7 +841,8 @@ reg('decSel', (sel) => {
   const grupos = [['ia_generativa', 'ia_docentes', 'ia_adaptativa'], ['sin_ia', 'tutoria'], ['sintesis', 'hipotetica']];
   const etiquetas = [T('grpIA'), T('grpSinIA'), T('grpRef')];
   const items = [];
-  const propio = s.gSrc === 'usuario' || s.cSrc === 'usuario';
+  const oSel = opcionesSim().find((x) => x.id === s.id);
+  const propio = s.gSrc === 'usuario' || (s.cSrc === 'usuario' && !(oSel && oSel.ev && typeof oSel.cost !== 'number'));
   if (propio) items.push(new Option(T('valoresPropios'), '__propio'));
   grupos.forEach((g, k) => {
     const og = document.createElement('optgroup'); og.label = etiquetas[k];
@@ -1046,6 +1097,12 @@ reg('forestPlot', (box) => {
   svg.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).ticks(nt).tickFormat(axisFmt(',.2~f')));
   svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', m.t).attr('y2', H - m.b).style('stroke', 'var(--cds-chart-reference)').style('stroke-dasharray', '3 3');
   const tt = tip(box);
+  // Cifra de EvidencIA (regla común): se marca en el resultado del mismo estudio más cercano a ella
+  const evTab = new Map(rows(evId()).map((x) => [x.id, x]));
+  const evDe = new Map();
+  rows('estudios').forEach((e) => { const mm = String(e.enEvidencia || '').match(/fichas? ([a-z0-9-]+)/); const ev = mm ? evTab.get(mm[1]) : null; if (ev && ev.efecto != null && reglaDe(mm[1]) === 'comun') evDe.set(e.id, ev.efecto); });
+  const marcaEv = new Map();
+  evDe.forEach((v, est) => { const cand = data.filter((r) => r.estudio === est && !r.agrupado); if (!cand.length) return; const best = cand.reduce((p, q) => (Math.abs(q.efecto - v) < Math.abs(p.efecto - v) ? q : p)); marcaEv.set(best.id, v); });
   data.forEach((r, i) => {
     const g = svg.append('g').attr('transform', `translate(0,${m.t + i * rowH + (r.agrupado ? 10 : 0)})`);
     g.append('text').attr('x', m.l).attr('y', 12).style('font-size', '12px').style('fill', 'var(--color-fg)').text(r.etiqueta + ' · ' + tr(r.R, 'resultado') + (r.icInf == null ? ' (' + T('sinIC') + ')' : '')).each(function () { recortar(this, W - m.l - m.r); });
@@ -1053,10 +1110,11 @@ reg('forestPlot', (box) => {
     if (r.icInf != null) g.append('line').attr('x1', x(r.icInf)).attr('x2', x(r.icSup)).attr('y1', cy).attr('y2', cy).style('stroke', r.agrupado ? LILA : AZUL).style('stroke-width', 2);
     if (r.agrupado) g.append('path').attr('d', d3.symbol(d3.symbolDiamond, 110)()).attr('transform', `translate(${x(r.efecto)},${cy})`).style('fill', LILA);
     else g.append('circle').attr('cx', x(r.efecto)).attr('cy', cy).attr('r', 5).style('fill', r.verificacion === 'Verificado' ? AZUL : 'var(--color-panel)').style('stroke', AZUL).style('stroke-width', 2);
-    g.append('text').attr('x', x(r.icSup ?? r.efecto) + 9).attr('y', cy + 4).style('font-size', '11px').style('fill', 'var(--cds-text-secondary)').text(f3(r.efecto))
+    if (marcaEv.has(r.id)) g.append('path').attr('d', d3.symbol(d3.symbolDiamond, 90)()).attr('transform', `translate(${x(marcaEv.get(r.id))},${cy})`).style('fill', 'none').style('stroke', '#d08a1e').style('stroke-width', 2);
+    g.append('text').attr('x', x(Math.max(r.icSup ?? r.efecto, marcaEv.has(r.id) ? marcaEv.get(r.id) : -Infinity)) + 9).attr('y', cy + 4).style('font-size', '11px').style('fill', 'var(--cds-text-secondary)').text(f3(r.efecto) + (marcaEv.has(r.id) ? ' · EvidencIA ' + f2(marcaEv.get(r.id)) : ''))
       .each(function () { if (x(r.icSup ?? r.efecto) + 9 + this.getComputedTextLength() > W) d3.select(this).attr('x', x(r.icInf ?? r.efecto) - 9).attr('text-anchor', 'end'); });
     g.append('rect').attr('width', W).attr('height', rowH).style('fill', 'transparent')
-      .on('mousemove', (ev) => tt.show(ev, [r.etiqueta, tr(r.R, 'resultado'), T('efecto') + ': ' + f3(r.efecto) + ' ' + T('DE'), r.icInf != null ? T('ic') + ': ' + f3(r.icInf) + ' – ' + f3(r.icSup) : T('sinEE'), tr(r.E, 'tipoComparacion'), tr(r.R, 'verificacion')]))
+      .on('mousemove', (ev) => tt.show(ev, [r.etiqueta, tr(r.R, 'resultado'), T('efecto') + ': ' + f3(r.efecto) + ' ' + T('DE') + (marcaEv.has(r.id) ? ' · ' + T('evComun') + ': ' + f2(marcaEv.get(r.id)) : ''), r.icInf != null ? T('ic') + ': ' + f3(r.icInf) + ' – ' + f3(r.icSup) : T('sinEE'), tr(r.E, 'tipoComparacion'), tr(r.R, 'verificacion')]))
       .on('mouseleave', () => tt.hide());
   });
 });
