@@ -254,14 +254,27 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 .lec-nosabe { margin-top: 14px; font-size: 13.5px; padding: 10px 12px; border-radius: 8px; border: 1px dashed var(--color-border-line); }
 .lec-med { font-size: 12.5px; color: var(--color-fg-muted); margin: 10px 0 0; }
 .lec-nota { margin-top: 14px; }
+.lec-blk { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: 14px; padding: 4px 16px 14px; margin-bottom: 14px; }
+.lec-blk > summary { list-style: none; cursor: pointer; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 12px 0 8px; }
+.lec-blk > summary::-webkit-details-marker { display: none; }
+.lec-blk > summary::after { content: "▾"; margin-left: auto; color: var(--color-fg-muted); transition: transform .15s; }
+.lec-blk:not([open]) > summary::after { transform: rotate(-90deg); }
+.lec-blk:not([open]) { padding-bottom: 4px; }
+.lec-blk-n { width: 24px; height: 24px; border-radius: 50%; background: var(--color-fg); color: var(--color-panel); font-size: 12.5px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+.lec-blk-t { font-size: 18px; font-weight: 700; color: var(--color-fg); }
+.lec-blk > summary small { color: var(--color-fg-muted); font-size: 12.5px; flex: 1 1 200px; }
+.lec-card .lec-cerrar { float: right; font: inherit; font-size: 12.5px; background: none; border: 1px solid var(--color-border-line); border-radius: 999px; padding: 3px 10px; cursor: pointer; color: var(--color-fg-muted); }
+.lec-tile .abrir { font-size: 12px; color: var(--fc); font-weight: 600; margin-top: auto; }
 .exp-paso { display: flex; align-items: center; gap: 8px; margin: 14px 0 8px; font-size: 14px; flex-wrap: wrap; }
-.exp-n { width: 22px; height: 22px; border-radius: 50%; background: var(--color-fg); color: var(--color-panel); font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+.exp-n { width: 22px; height: 22px; border-radius: 50%; background: transparent; border: 1.5px solid var(--color-fg-muted); color: var(--color-fg-muted); font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
 .exp-chips { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-.exp-grupo { border: 1px solid var(--color-border-line); border-radius: 10px; padding: 8px 10px; }
-.exp-grupo .g { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--color-fg-muted); font-weight: 600; margin-bottom: 6px; }
+.exp-grupo { border: 1px solid var(--color-border-line); border-top: 4px solid var(--dc); border-radius: 10px; padding: 8px 10px; background: color-mix(in srgb, var(--dc) 4%, var(--color-panel)); }
+.exp-grupo .g { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--dc); font-weight: 700; margin-bottom: 6px; }
 .exp-chip { font: inherit; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; margin: 0 6px 6px 0; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--color-border-line); background: var(--color-panel); color: var(--color-fg); cursor: pointer; }
 .exp-chip small { color: var(--color-fg-muted); font-size: 11px; }
-.exp-chip[aria-pressed="true"] { background: color-mix(in srgb, #2a78d6 12%, var(--color-panel)); border-color: #2a78d6; color: #1f5fae; font-weight: 600; }
+.exp-chip { border-color: color-mix(in srgb, var(--dc) 35%, var(--color-border-line)); }
+.exp-chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--dc); flex: none; }
+.exp-chip[aria-pressed="true"] { background: color-mix(in srgb, var(--dc) 16%, var(--color-panel)); border-color: var(--dc); color: var(--color-fg); font-weight: 700; box-shadow: inset 0 0 0 1px var(--dc); }
 .exp-filtros { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: flex-end; }
 .exp-filtros label { display: flex; flex-direction: column; gap: 3px; font-size: 11.5px; color: var(--color-fg-muted); }
 .exp-filtros select, .exp-filtros input[type=search] { font: inherit; font-size: 13px; padding: 5px 8px; border-radius: 8px; border: 1px solid var(--color-border-line); background: var(--color-panel); color: var(--color-fg); max-width: 210px; }
@@ -273,7 +286,9 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 .exp-meta { font-size: 12px; color: var(--color-fg-muted); }
 .exp-ef { font-size: 12.5px; margin: 2px 0 8px; }
 .exp-el { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 4px 12px; font-size: 13.5px; line-height: 1.45; padding: 6px 0; border-top: 1px dashed var(--color-border-line); }
-.exp-el .k { font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--color-fg-muted); font-weight: 600; padding-top: 2px; }
+.exp-el { border-left: 3px solid var(--dc, transparent); padding-left: 10px; margin-top: 4px; background: color-mix(in srgb, var(--dc, transparent) 4%, transparent); }
+.exp-el .k { font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--dc, var(--color-fg-muted)); font-weight: 700; padding-top: 2px; }
+.exp-cmp th.dim { border-left: 4px solid var(--dc); color: var(--dc); }
 .exp-el .pg { color: var(--color-fg-muted); font-size: 11.5px; margin-left: 4px; }
 .exp-el .ni { color: var(--color-fg-muted); font-style: italic; }
 @media (max-width: 560px) { .exp-el { grid-template-columns: 1fr; } }
@@ -523,6 +538,8 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       <h2><span lang="es">Lecciones para implementar tutoría con IA</span><span lang="en">Lessons for deploying AI tutoring</span><span lang="pt">Lições para implementar tutoria com IA</span></h2>
       <p class="lab-muted"><span lang="es">Ocho temas que pesan en una decisión. Cada lección separa lo que muestran los estudios causales, lo que sugieren los estudios descriptivos y lo que recomiendan las guías y políticas. Elige un tema.</span><span lang="en">Eight themes that weigh on a decision. Each lesson separates what causal studies show, what descriptive studies suggest and what guides and policies recommend. Pick a theme.</span><span lang="pt">Oito temas que pesam numa decisão. Cada lição separa o que mostram os estudos causais, o que sugerem os estudos descritivos e o que recomendam os guias e políticas. Escolha um tema.</span></p>
     </div>
+    <details class="lec-blk" id="lec-bloque" open>
+    <summary><span class="lec-blk-n">1</span><span class="lec-blk-t"><span lang="es">Las 8 lecciones</span><span lang="en">The 8 lessons</span><span lang="pt">As 8 lições</span></span><small><span lang="es">Abre un tema para ver su detalle; vuelve a tocarlo para cerrarlo.</span><span lang="en">Open a theme to see its detail; tap it again to close it.</span><span lang="pt">Abra um tema para ver seu detalhe; toque de novo para fechá lo.</span></small></summary>
     <div class="lec-leyenda lab-small">
       <span><i class="f-consistente"></i><span lang="es">Evidencia causal consistente</span><span lang="en">Consistent causal evidence</span><span lang="pt">Evidência causal consistente</span></span>
       <span><i class="f-moderada"></i><span lang="es">Evidencia causal moderada</span><span lang="en">Moderate causal evidence</span><span lang="pt">Evidência causal moderada</span></span>
@@ -531,9 +548,10 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     </div>
     <div class="lec-tiles" data-draw="lecTiles" data-source="lecciones"></div>
     <div class="lec-detalle" id="lec-detalle" data-draw="lecDetalle" data-source="lecciones estudiosElementos"></div>
-    <div class="lab-card exp" id="explorar">
-      <h2 style="margin-top:0"><span lang="es">Explorar los estudios por elemento</span><span lang="en">Explore the studies by element</span><span lang="pt">Explorar os estudos por elemento</span></h2>
-      <p class="lab-small lab-muted"><span lang="es">Elige qué quieres entender (por ejemplo, la formación docente) y verás, estudio por estudio, cómo se hizo según el registro de EvidencIA, con la página del paper. Ensayos verificados de nivel 1.</span><span lang="en">Choose what you want to understand (for example, teacher training) and you will see, study by study, how it was done according to the EvidencIA record, with the paper's page. Verified level 1 trials.</span><span lang="pt">Escolha o que você quer entender (por exemplo, a formação docente) e verá, estudo por estudo, como foi feito segundo o registro da EvidencIA, com a página do paper. Ensaios verificados de nível 1.</span></p>
+    </details>
+    <details class="lec-blk exp" id="explorar" open>
+      <summary><span class="lec-blk-n">2</span><span class="lec-blk-t"><span lang="es">Explorar los estudios por dimensión</span><span lang="en">Explore the studies by dimension</span><span lang="pt">Explorar os estudos por dimensão</span></span><small><span lang="es">95 ensayos verificados de nivel 1</span><span lang="en">95 verified level 1 trials</span><span lang="pt">95 ensaios verificados de nível 1</span></small></summary>
+      <p class="lab-small lab-muted"><span lang="es">Elige qué dimensión quieres entender (por ejemplo, la formación docente) y verás, estudio por estudio, cómo se hizo según el registro de EvidencIA, con la página del paper. Cada color corresponde a un grupo de dimensiones.</span><span lang="en">Choose which dimension you want to understand (for example, teacher training) and you will see, study by study, how it was done according to the EvidencIA record, with the paper's page. Each color matches a group of dimensions.</span><span lang="pt">Escolha que dimensão você quer entender (por exemplo, a formação docente) e verá, estudo por estudo, como foi feito segundo o registro da EvidencIA, com a página do paper. Cada cor corresponde a um grupo de dimensões.</span></p>
       <div class="exp-paso"><span class="exp-n">1</span><b><span lang="es">Qué quieres entender</span><span lang="en">What you want to understand</span><span lang="pt">O que você quer entender</span></b></div>
       <div class="exp-chips" data-draw="expChips" data-source="estudiosElementos"></div>
       <div class="exp-paso"><span class="exp-n">2</span><b><span lang="es">Filtra si quieres</span><span lang="en">Filter if you like</span><span lang="pt">Filtre se quiser</span></b></div>
@@ -541,8 +559,8 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       <div class="exp-paso"><span class="exp-n">3</span><b><span lang="es">Lee y compara</span><span lang="en">Read and compare</span><span lang="pt">Leia e compare</span></b> <span class="lab-small lab-muted" data-draw="expConteo">—</span></div>
       <div class="exp-cmp" data-draw="expComparar"></div>
       <div class="exp-lista" data-draw="expLista" data-source="estudiosElementos"></div>
-      <p class="lab-small lab-muted"><span lang="es">Los textos resumen el registro de cada estudio en EvidencIA (consultado el 12 nov 2026); la extracción la hizo Claude con agentes auxiliares y puede tener errores: verifica en el paper antes de citar. «No informado» significa que el registro no lo menciona, no que no haya ocurrido.</span><span lang="en">The texts summarize each study's EvidencIA record (consulted 12 Nov 2026); Claude did the extraction with helper agents and it may contain errors: check the paper before citing. "Not reported" means the record does not mention it, not that it did not happen.</span><span lang="pt">Os textos resumem o registro de cada estudo na EvidencIA (consultado em 12 nov 2026); a extração foi feita pelo Claude com agentes auxiliares e pode ter erros: verifique no paper antes de citar. «Não informado» significa que o registro não o menciona, não que não tenha ocorrido.</span></p>
-    </div>
+      <p class="lab-small lab-muted" style="margin-bottom:0"><span lang="es">Los textos resumen el registro de cada estudio en EvidencIA (consultado el 12 nov 2026); la extracción la hizo Claude con agentes auxiliares y puede tener errores: verifica en el paper antes de citar. «No informado» significa que el registro no lo menciona, no que no haya ocurrido.</span><span lang="en">The texts summarize each study's EvidencIA record (consulted 12 Nov 2026); Claude did the extraction with helper agents and it may contain errors: check the paper before citing. "Not reported" means the record does not mention it, not that it did not happen.</span><span lang="pt">Os textos resumem o registro de cada estudo na EvidencIA (consultado em 12 nov 2026); a extração foi feita pelo Claude com agentes auxiliares e pode ter erros: verifique no paper antes de citar. «Não informado» significa que o registro não o menciona, não que não tenha ocorrido.</span></p>
+    </details>
     <p class="lab-small lab-muted lec-nota"><span lang="es"><b>Nota:</b> las lecciones, acciones y resúmenes los destiló Claude a partir de EvidencIA (que incluye la colección del Stanford SCALE AI Hub) y del AI and Human Skill Atlas, consultados el 12 nov 2026. Las lecciones curadas de EvidencIA son un prototipo (versión 0.2.0) pendiente de revisión por su comité. La evidencia tiene distinta confiabilidad: son insumos para decidir y deben corroborarse en el contexto local antes de ampliar un programa.</span><span lang="en"><b>Note:</b> the lessons, actions and summaries were distilled by Claude from EvidencIA (which includes the Stanford SCALE AI Hub collection) and the AI and Human Skill Atlas, consulted on 12 Nov 2026. EvidencIA's curated lessons are a prototype (version 0.2.0) pending review by its committee. The evidence varies in reliability: these are inputs for deciding and should be corroborated in the local context before expanding a program.</span><span lang="pt"><b>Nota:</b> as lições, ações e resumos foram destilados pelo Claude a partir da EvidencIA (que inclui a coleção do Stanford SCALE AI Hub) e do AI and Human Skill Atlas, consultados em 12 nov 2026. As lições curadas da EvidencIA são um protótipo (versão 0.2.0) pendente de revisão por seu comitê. A evidência tem confiabilidade distinta: são insumos para decidir e devem ser corroborados no contexto local antes de ampliar um programa.</span></p>
   </section>
 
@@ -785,8 +803,8 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 
 
 </div>
-<script src="dash-static.js?v=202611121606"></script>
-<script src="app.js?v=202611121606"></script>
+<script src="dash-static.js?v=202611121616"></script>
+<script src="app.js?v=202611121616"></script>
 <script>dash.iniciar();</script>
 </body>
 </html>
