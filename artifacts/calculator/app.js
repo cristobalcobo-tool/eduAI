@@ -325,6 +325,7 @@ const D = {
   lecFuerza_parcial: ['Parcial: sobre todo descriptiva', 'Partial: mostly descriptive', 'Parcial: sobretudo descritiva'],
   lecFuerza_guias: ['Solo guías y políticas', 'Guides and policies only', 'Só guias e políticas'],
   lecFuerza_pendiente: ['En preparación', 'In preparation', 'Em preparação'],
+  lecAbrir: ['Ver detalle ▾', 'See detail ▾', 'Ver detalhe ▾'], lecCerrar: ['Cerrar', 'Close', 'Fechar'],
   lecTema: [(n) => 'Tema ' + n, (n) => 'Theme ' + n, (n) => 'Tema ' + n],
   lecHacer: ['Qué hacer', 'What to do', 'O que fazer'], lecMedicion: ['Cómo se midió', 'How it was measured', 'Como foi medido'],
   lecNoSabe: ['Lo que no sabemos', 'What we do not know', 'O que não sabemos'],
@@ -354,14 +355,14 @@ const D = {
   exDe: [(n, m) => n + ' de ' + m, (n, m) => n + ' of ' + m, (n, m) => n + ' de ' + m],
   exConteo: [(n, m) => n + ' de ' + m + ' estudios', (n, m) => n + ' of ' + m + ' studies', (n, m) => n + ' de ' + m + ' estudos'],
   exNoInf: ['No informado en el registro', 'Not reported in the record', 'Não informado no registro'],
-  exSolo: ['Solo estudios que informan lo elegido', 'Only studies that report the chosen elements', 'Só estudos que informam o escolhido'],
+  exSolo: ['Solo estudios que informan lo elegido', 'Only studies that report the chosen dimensions', 'Só estudos que informam o escolhido'],
   exBuscar: ['Buscar', 'Search', 'Buscar'], exTodos: ['Todos', 'All', 'Todos'],
   exF_nivel: ['Nivel educativo', 'Education level', 'Nível educacional'], exF_ingreso: ['Ingreso del país', 'Country income', 'Renda do país'], exF_tipo: ['Tipo de intervención', 'Type of intervention', 'Tipo de intervenção'], exF_lugar: ['Dónde', 'Where', 'Onde'], exF_veredicto: ['Resultado', 'Result', 'Resultado'], exF_orden: ['Ordenar', 'Sort', 'Ordenar'],
   exOrd_efecto: ['Mayor efecto', 'Largest effect', 'Maior efeito'], exOrd_cita: ['Autor', 'Author', 'Autor'], exOrd_info: ['Más información', 'Most information', 'Mais informação'],
   exComparar: ['Comparar', 'Compare', 'Comparar'], exCmpTit: [(n) => 'Comparando ' + n + (n === 1 ? ' estudio' : ' estudios'), (n) => 'Comparing ' + n + (n === 1 ? ' study' : ' studies'), (n) => 'Comparando ' + n + (n === 1 ? ' estudo' : ' estudos')], exCmpQuitar: ['Quitar todos', 'Clear all', 'Remover todos'],
   exCmpAyuda: ['Marca «Comparar» en hasta 3 estudios para verlos lado a lado.', 'Tick "Compare" on up to 3 studies to see them side by side.', 'Marque «Comparar» em até 3 estudos para vê los lado a lado.'],
   exVerMas: [(n) => 'Ver ' + n + ' más', (n) => 'Show ' + n + ' more', (n) => 'Ver mais ' + n],
-  exElegir: ['Elige al menos un elemento arriba.', 'Pick at least one element above.', 'Escolha pelo menos um elemento acima.'],
+  exElegir: ['Elige al menos una dimensión arriba.', 'Pick at least one dimension above.', 'Escolha pelo menos uma dimensão acima.'],
   exNada: ['Ningún estudio cumple estos filtros.', 'No study meets these filters.', 'Nenhum estudo cumpre estes filtros.'],
   exVer_positive: ['positivo', 'positive', 'positivo'], exVer_mixed: ['mixto', 'mixed', 'misto'], exVer_no_effect: ['sin efecto claro', 'no clear effect', 'sem efeito claro'], exVer_negative: ['negativo', 'negative', 'negativo'],
   exNiv_early_childhood: ['Primera infancia', 'Early childhood', 'Primeira infância'], exNiv_primary: ['Primaria', 'Primary', 'Fundamental I'], exNiv_lower_secondary: ['Secundaria baja', 'Lower secondary', 'Fundamental II'], exNiv_upper_secondary: ['Secundaria alta', 'Upper secondary', 'Ensino médio'], exNiv_higher_education: ['Superior', 'Higher education', 'Superior'], exNiv_adults: ['Adultos', 'Adults', 'Adultos'], exNiv_teachers: ['Docentes', 'Teachers', 'Docentes'],
@@ -1703,7 +1704,7 @@ reg('cotejoBody', (tb) => {
 
 /* ===================== Lecciones para implementar ===================== */
 
-const LEC = { sel: 'infra' };
+const LEC = { sel: null };
 const LEC_COL = { consistente: '#1b5e3b', moderada: '#2e8b57', parcial: '#d08a1e', guias: '#8a6fd1', pendiente: '#b8b8b8' };
 reg('lecTiles', (box) => {
   const ts = rows('lecciones');
@@ -1714,19 +1715,22 @@ reg('lecTiles', (box) => {
     if (pend) b.disabled = true;
     b.style.setProperty('--fc', LEC_COL[t.fuerza] || '#999');
     b.append(el('span', { class: 'n' }, T('lecTema', i + 1) + ' · ' + T('lecFuerza_' + t.fuerza)), el('span', { class: 't' }, tr(t, 'titulo')), el('span', { class: 'l' }, pend ? tr(t, 'pregunta') : tr(t, 'leccion')));
-    b.onclick = () => { LEC.sel = t.id; dash.draw('lecTiles'); dash.draw('lecDetalle'); const d = document.getElementById('lec-detalle'); if (d && d.scrollIntoView) setTimeout(() => d.scrollIntoView({ behavior: 'smooth', block: 'start' }), 40); };
+    if (!pend) b.append(el('span', { class: 'abrir' }, LEC.sel === t.id ? T('lecCerrar') : T('lecAbrir')));
+    b.onclick = () => { const abre = LEC.sel !== t.id; LEC.sel = abre ? t.id : null; dash.draw('lecTiles'); dash.draw('lecDetalle'); const d = document.getElementById('lec-detalle'); if (abre && d && d.scrollIntoView) setTimeout(() => d.scrollIntoView({ behavior: 'smooth', block: 'start' }), 40); };
     return b;
   }));
 });
 reg('lecDetalle', (box) => {
   const ts = rows('lecciones');
   box.replaceChildren();
-  const t = ts.find((x) => x.id === LEC.sel) || ts.find((x) => x.piloto);
+  const t = ts.find((x) => x.id === LEC.sel);
   if (!t) return;
   const c = el('article', { class: 'lec-card' });
   c.style.setProperty('--fc', LEC_COL[t.fuerza] || '#999');
+  const cerrar = el('button', { type: 'button', class: 'lec-cerrar' }, '✕ ' + T('lecCerrar'));
+  cerrar.onclick = () => { LEC.sel = null; dash.draw('lecTiles'); dash.draw('lecDetalle'); const g = document.getElementById('lec-bloque'); if (g && g.scrollIntoView) g.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
   const top = el('p', { class: 'q' }, tr(t, 'titulo') + ' · ' + tr(t, 'pregunta'));
-  c.append(top);
+  c.append(cerrar, top);
   if (!t.piloto) { c.append(el('p', { class: 'res' }, T('lecPendiente'))); box.append(c); return; }
   c.append(el('h3', { class: 'h' }, tr(t, 'leccion')));
   const pf = el('p', { style: 'margin:0 0 10px' }); pf.append(pill(t.fuerza === 'moderada' || t.fuerza === 'consistente' ? 'ver' : t.fuerza === 'parcial' ? 'pro' : 'sup', T('lecFuerza_' + t.fuerza))); c.append(pf);
@@ -1753,7 +1757,7 @@ reg('lecDetalle', (box) => {
   const MAP = { infra: ['infraestructura', 'lugar'], docentes: ['docentes'], equidad: ['equidad'], privacidad: ['privacidad'], implementacion: ['dosis', 'costo'], estudiantes: ['diseno', 'equidad'], diseno: ['diseno', 'dosis'], contexto: ['lugar'] };
   if (MAP[t.id] && expEstudios().length) {
     const b = el('button', { type: 'button', class: 'lab-btn destacado', style: 'margin-top:14px' }, T('exExplorar'));
-    b.onclick = () => { EXP.els = MAP[t.id].slice(); EXP.max = 12; expRedibujar(); const x = document.getElementById('explorar'); if (x && x.scrollIntoView) x.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+    b.onclick = () => { EXP.els = MAP[t.id].slice(); EXP.max = 12; expRedibujar(); const x = document.getElementById('explorar'); if (x) x.open = true; if (x && x.scrollIntoView) x.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
     c.append(b);
   }
   box.append(c);
@@ -1763,6 +1767,9 @@ reg('lecDetalle', (box) => {
 
 const EXP_GRUPOS = [['personas', ['docentes']], ['infra', ['infraestructura', 'lugar']], ['uso', ['dosis', 'diseno']], ['pedagogia', ['pedagogia']], ['eq', ['equidad', 'privacidad', 'costo']]];
 const EXP_EXTRA = ['comparacion', 'medicion', 'cautelas'];
+const EXP_GCOL = { personas: '#178a8a', infra: '#c97a12', uso: '#2a78d6', pedagogia: '#7b61c9', eq: '#c4466b' };
+const EXP_DCOL = {};
+EXP_GRUPOS.forEach(([g, ks]) => ks.forEach((k) => { EXP_DCOL[k] = EXP_GCOL[g]; }));
 const EXP_COND = { formacion: (c) => c.formacionDocente === 'yes', adulto: (c) => c.adultoPresente === 'yes', compartido: (c) => c.dispositivo === 'shared', conect: (c) => c.conectividad === 'low_bandwidth' || c.conectividad === 'offline', curriculo: (c) => c.alineadoCurriculo === 'yes', equidad: (c) => !!c.equidadReportada, costo: (c) => !!c.costoReportado, privacidad: (c) => !!c.privacidadReportada };
 const MATERIA = { mathematics: ['matemática', 'mathematics', 'matemática'], math: ['matemática', 'math', 'matemática'], physics: ['física', 'physics', 'física'], english: ['inglés', 'English', 'inglês'], reading: ['lectura', 'reading', 'leitura'], writing: ['escritura', 'writing', 'escrita'], science: ['ciencias', 'science', 'ciências'], programming: ['programación', 'programming', 'programação'], economics: ['economía', 'economics', 'economia'] };
 const materiaTr = (m) => { const k = String(m || '').toLowerCase(); const e = MATERIA[k]; return e ? e[{ es: 0, en: 1, pt: 2 }[L]] : m; };
@@ -1796,6 +1803,7 @@ reg('expChips', (box) => {
   if (!all.length) { failMsg(box, dash.data('estudiosElementos').status); return; }
   box.replaceChildren(...EXP_GRUPOS.map(([g, ks]) => {
     const d = el('div', { class: 'exp-grupo' });
+    d.style.setProperty('--dc', EXP_GCOL[g]);
     d.append(el('div', { class: 'g' }, T('exGrp_' + g)));
     ks.forEach((k) => {
       const n = all.filter((s) => s.elementos && s.elementos[k]).length;
@@ -1841,6 +1849,7 @@ reg('expFiltros', (box) => {
 reg('expConteo', (span) => { span.textContent = expEstudios().length ? T('exConteo', expFiltrados().length, expEstudios().length) : ''; });
 function expElemento(s, k) {
   const r = el('div', { class: 'exp-el' });
+  if (EXP_DCOL[k]) r.style.setProperty('--dc', EXP_DCOL[k]);
   r.append(el('span', { class: 'k' }, T('exEl_' + k)));
   const v = s.elementos && s.elementos[k];
   const c = el('span');
@@ -1893,9 +1902,9 @@ reg('expComparar', (box) => {
   const t = el('table'); const tr0 = el('tr'); tr0.append(el('th'));
   sel.forEach((s) => { const th = el('th'); th.append(el('a', { href: s.url, target: '_blank', rel: 'noopener' }, s.cita), el('div', { class: 'exp-meta' }, [s.pais, s.herramienta].filter(Boolean).join(' · '))); tr0.append(th); });
   t.append(tr0);
-  const fila = (lab, f) => { const r = el('tr'); r.append(el('th', null, lab)); sel.forEach((s) => { const td = el('td'); f(s, td); r.append(td); }); t.append(r); };
+  const fila = (lab, f, k) => { const r = el('tr'); const th = el('th', k && EXP_DCOL[k] ? { class: 'dim' } : null, lab); if (k && EXP_DCOL[k]) th.style.setProperty('--dc', EXP_DCOL[k]); r.append(th); sel.forEach((s) => { const td = el('td'); f(s, td); r.append(td); }); t.append(r); };
   fila(T('efecto'), (s, td) => td.append(expEfecto(s)));
-  EXP.els.concat(EXP_EXTRA.slice(0, 2)).forEach((k) => fila(T('exEl_' + k), (s, td) => { const v = s.elementos && s.elementos[k]; if (v) { td.append(document.createTextNode(txt(v))); if (v.pag) td.append(el('span', { class: 'exp-meta' }, ' [' + v.pag + ']')); } else td.append(el('span', { class: 'exp-meta' }, T('exNoInf'))); }));
+  EXP.els.concat(EXP_EXTRA.slice(0, 2)).forEach((k) => fila(T('exEl_' + k), (s, td) => { const v = s.elementos && s.elementos[k]; if (v) { td.append(document.createTextNode(txt(v))); if (v.pag) td.append(el('span', { class: 'exp-meta' }, ' [' + v.pag + ']')); } else td.append(el('span', { class: 'exp-meta' }, T('exNoInf'))); }, k));
   const w = el('div', { class: 'lab-tablewrap' }); w.append(t);
   box.append(head, w);
 });
