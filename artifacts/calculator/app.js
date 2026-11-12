@@ -263,6 +263,11 @@ const D = {
   detGan: ['Ganancia', 'Gain', 'Ganho'], detCosto: ['Costo por estudiante', 'Cost per student', 'Custo por estudante'],
   verdB: [(th, now) => [['Para igualar a B por dólar, A tendría que costar como máximo ', null], [th, 'b'], [' por estudiante. Hoy cuesta ' + now + '.', null]], (th, now) => [['To match B per dollar, A would have to cost at most ', null], [th, 'b'], [' per student. It costs ' + now + ' now.', null]], (th, now) => [['Para igualar B por dólar, A teria de custar no máximo ', null], [th, 'b'], [' por estudante. Hoje custa ' + now + '.', null]]],
   verdA: [(th, now) => [['A ya rinde más por dólar: podría costar hasta ', null], [th, 'b'], [' por estudiante y seguir igualando a B. Hoy cuesta ' + now + '.', null]], (th, now) => [['A already does better per dollar: it could cost up to ', null], [th, 'b'], [' per student and still match B. It costs ' + now + ' now.', null]], (th, now) => [['A já rende mais por dólar: poderia custar até ', null], [th, 'b'], [' por estudante e continuar igualando B. Hoje custa ' + now + '.', null]]],
+  grpIA: ['Con IA', 'With AI', 'Com IA'], grpSinIA: ['Sin IA generativa (referencia)', 'No generative AI (benchmark)', 'Sem IA generativa (referência)'], grpRef: ['Promedio o supuesto', 'Average or assumption', 'Média ou suposição'],
+  valoresPropios: ['Valores propios (desde Probar supuestos)', 'My own values (from Try assumptions)', 'Valores próprios (de Testar suposições)'],
+  verMasCautelas: [(n) => 'Ver ' + n + ' cautela' + (n > 1 ? 's' : '') + ' más →', (n) => 'See ' + n + ' more caution' + (n > 1 ? 's' : '') + ' →', (n) => 'Ver mais ' + n + ' cuidado' + (n > 1 ? 's' : '') + ' →'],
+  masContexto: ['Más contexto: intensidad, uso, docentes e infraestructura', 'More context: intensity, use, teachers and infrastructure', 'Mais contexto: intensidade, uso, professores e infraestrutura'],
+  baseNoInd: ['base no indicada en la tabla de EvidencIA', 'basis not stated in the EvidencIA table', 'base não indicada na tabela da EvidencIA'],
   fCampos: [['Conector', 'Estado', 'Cobertura declarada', 'Consultada'], ['Connector', 'Status', 'Declared coverage', 'Consulted'], ['Conector', 'Status', 'Cobertura declarada', 'Consultada']],
 };
 const T = (k, ...a) => { const e = D[k]; if (!e) return k; const v = e[{ es: 0, en: 1, pt: 2 }[L]] ?? e[0]; return typeof v === 'function' ? v(...a) : v; };
@@ -340,6 +345,7 @@ function abrir(id) {
   dash.setLink(id);
 }
 document.querySelectorAll('.lab-tab').forEach((b) => b.addEventListener('click', () => abrir(b.dataset.tab)));
+document.querySelectorAll('[data-tab-ir]').forEach((b) => b.addEventListener('click', () => { abrir(b.dataset.tabIr); const t = document.getElementById(b.dataset.tabIr); if (t && t.scrollIntoView) setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60); }));
 if (location.hash) abrir(location.hash.slice(1));
 
 function verGlosario(key) {
@@ -397,7 +403,7 @@ function elegir(side, id) {
   else { s.cost = Number.isFinite(s.cost) ? s.cost : 20; s.cSrc = 'usuario'; }
   setSlider(side, 'gain', s.gain); setSlider(side, 'cost', s.cost);
 }
-const SIM_DRAWS = ['simResumen', 'simDuelo', 'chips', 'simVal', 'simOrigen', 'simPct', 'simCerca', 'simNota', 'simVeredicto', 'simClaves', 'simBarras', 'simUmbral', 'simAlcance', 'simOjo'];
+const SIM_DRAWS = ['decSel', 'decCautelas', 'simResumen', 'simDuelo', 'chips', 'simVal', 'simOrigen', 'simPct', 'simCerca', 'simNota', 'simVeredicto', 'simClaves', 'simBarras', 'simUmbral', 'simAlcance', 'simOjo'];
 const redibujarSim = () => { SIM_DRAWS.forEach((n) => dash.draw(n)); dash.draw('simMapa'); };
 const esCerca = (o, s) => Number.isFinite(s.gain) && Math.abs(o.gain - s.gain) <= 0.06 && (typeof o.cost !== 'number' || !Number.isFinite(s.cost) || Math.abs(Math.log(o.cost / s.cost)) <= Math.log(2));
 
@@ -572,8 +578,30 @@ reg('simClaves', (box) => {
   const ca = ctx.get(SIM.a.id), cb = ctx.get(SIM.b.id);
   box.replaceChildren();
   if (!ca && !cb) return;
+  const compacto = box.dataset.modo === 'compacto';
+  const filas = [['dosis', 'uso', 'cl_dosis'], ['personas', null, 'cl_personas'], ['clave', null, 'cl_clave']];
+  const hacerLista = (lista) => {
+    const ul = el('ul');
+    lista.forEach(([f1, f2, k]) => {
+      const li = el('li');
+      li.append(el('b', null, T(k)));
+      [['a', ca], ['b', cb]].forEach(([side, c]) => {
+        const d = el('div', { class: 'cl-lado' });
+        d.append(el('span', { class: 'sim-badge ' + side }, side.toUpperCase()), document.createTextNode(c ? tr(c, f1) + (f2 ? '. ' + tr(c, f2) : '') + '.' : T('cl_sup')));
+        li.append(d);
+      });
+      ul.append(li);
+    });
+    return ul;
+  };
+  if (compacto) {
+    const det = el('details');
+    det.append(el('summary', null, T('masContexto')), hacerLista(filas.slice(0, 2)));
+    box.append(hacerLista(filas.slice(2)), det, el('p', { class: 'lab-small lab-muted', style: 'margin:8px 0 0' }, T('cl_fuente')));
+    return;
+  }
   const ul = el('ul');
-  [['dosis', 'uso', 'cl_dosis'], ['personas', null, 'cl_personas'], ['clave', null, 'cl_clave']].forEach(([f1, f2, k]) => {
+  filas.forEach(([f1, f2, k]) => {
     const li = el('li');
     li.append(el('b', null, T(k)));
     [['a', ca], ['b', cb]].forEach(([side, c]) => {
@@ -656,23 +684,58 @@ reg('simAlcance', (box) => {
   });
 });
 
-reg('simOjo', (box) => {
-  box.replaceChildren();
+function ojoItems() {
   const ops = opcionesSim();
   const oa = ops.find((x) => x.id === SIM.a.id), ob = ops.find((x) => x.id === SIM.b.id);
-  if (!oa || !ob) return;
+  if (!oa || !ob) return [];
   const items = [];
   if (oa.ev && ob.ev && oa.ev.queMidio !== ob.ev.queMidio) items.push(T('ojoMidio', oa.ev.queMidio, ob.ev.queMidio));
-  if (oa.ev && ob.ev && oa.ev.costo != null && ob.ev.costo != null && (oa.ev.basePor100 || oa.ev.costoTexto) !== (ob.ev.basePor100 || ob.ev.costoTexto)) items.push(T('ojoBase', oa.ev.basePor100 || '—', ob.ev.basePor100 || '—'));
+  if (oa.ev && ob.ev && oa.ev.costo != null && ob.ev.costo != null && oa.ev.basePor100 !== ob.ev.basePor100) items.push(T('ojoBase', oa.ev.basePor100 || T('baseNoInd'), ob.ev.basePor100 || T('baseNoInd')));
   [oa, ob].forEach((o) => { if (o.ev && o.ev.riesgoAlto && !/^(ninguno|none)$/i.test(o.ev.riesgoAlto)) items.push(T('ojoRiesgo', o.nombre, o.ev.riesgoAlto)); });
   [oa, ob].forEach((o) => { if (o.ev && o.ev.noGenerativa) items.push(T('ojoNoGen', o.nombre)); });
   if ([SIM.a.gSrc, SIM.a.cSrc, SIM.b.gSrc, SIM.b.cSrc].some((s) => s === 'usuario' || s === 'hip')) items.push(T('ojoSup'));
   if (SIM.a.gSrc === 'sint' || SIM.b.gSrc === 'sint') items.push(T('ojoSint'));
   if (!(SIM.a.gain > 0 && SIM.b.gain > 0)) items.push(T('ojoNeg'));
   items.push(T('ojoContexto'));
+  return items;
+}
+reg('simOjo', (box) => {
+  box.replaceChildren();
+  const items = ojoItems();
+  if (!items.length) return;
   const ul = el('ul');
   items.forEach((t) => ul.append(el('li', null, t)));
   box.append(el('b', null, T('ojoT')), ul);
+});
+reg('decCautelas', (box) => {
+  box.replaceChildren();
+  const items = ojoItems();
+  if (!items.length) return;
+  const ul = el('ul');
+  items.slice(0, 2).forEach((t) => ul.append(el('li', null, t)));
+  box.append(ul);
+  if (items.length > 2) {
+    const b = el('button', { type: 'button', class: 'sim-reset' }, T('verMasCautelas', items.length - 2));
+    b.onclick = () => { abrir('inicio'); const o = document.querySelector('#inicio .sim-ojo'); if (o && o.scrollIntoView) setTimeout(() => o.scrollIntoView({ behavior: 'smooth', block: 'center' }), 60); };
+    box.append(b);
+  }
+});
+reg('decSel', (sel) => {
+  const side = sel.dataset.side, s = SIM[side];
+  const ops = opcionesSim().filter((o) => !(side === 'a' && o.id === 'hipotetica') && !(side === 'b' && o.id === 'sintesis'));
+  const grupos = [['ia_generativa', 'ia_docentes', 'ia_adaptativa'], ['sin_ia', 'tutoria'], ['sintesis', 'hipotetica']];
+  const etiquetas = [T('grpIA'), T('grpSinIA'), T('grpRef')];
+  const items = [];
+  const propio = s.gSrc === 'usuario' || s.cSrc === 'usuario';
+  if (propio) items.push(new Option(T('valoresPropios'), '__propio'));
+  grupos.forEach((g, k) => {
+    const og = document.createElement('optgroup'); og.label = etiquetas[k];
+    ops.filter((o) => g.includes(o.tipo)).forEach((o) => og.append(new Option((o.corto || o.nombre) + ' · ' + (o.gain > 0 ? '+' : '') + fmt.g(o.gain) + ' ' + T('DE') + ' · ' + (typeof o.cost === 'number' ? usd(o.cost) : T('sinCostoCorto')), o.id)));
+    if (og.children.length) items.push(og);
+  });
+  sel.replaceChildren(...items);
+  sel.value = propio ? '__propio' : (s.id || '');
+  sel.onchange = () => { if (sel.value === '__propio') return; elegir(side, sel.value); redibujarSim(); dash.draw('decSel'); dash.draw('decCautelas'); };
 });
 
 document.querySelectorAll('#sim-a-calc').forEach((b) => b.addEventListener('click', () => {
