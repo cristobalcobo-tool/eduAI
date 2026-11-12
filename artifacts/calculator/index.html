@@ -218,6 +218,42 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 .dec-head { margin: 6px 0 16px; }
 .dec-head h2 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 4px; }
 .dec-head p { margin: 0; font-size: 14px; }
+.lec-teaser { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0 0 12px; padding: 12px 16px; border-radius: 12px; background: color-mix(in srgb, #d08a1e 7%, var(--color-panel)); border: 1px solid color-mix(in srgb, #d08a1e 30%, transparent); font-size: 14px; }
+.lec-teaser > span:nth-child(2) { flex: 1 1 280px; }
+.lec-teaser-k { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: #a0661a; }
+.lec-leyenda { display: flex; flex-wrap: wrap; gap: 6px 16px; color: var(--color-fg-muted); margin: 0 0 10px; }
+.lec-leyenda i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.f-moderada { background: #2e8b57; } .f-parcial { background: #d08a1e; } .f-guias { background: #8a6fd1; } .f-pendiente { background: #b8b8b8; }
+.lec-tiles { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin-bottom: 16px; }
+@media (max-width: 520px) { .lec-tiles { grid-template-columns: 1fr 1fr; gap: 8px; } .lec-tile { padding: 10px; } .lec-tile .t { font-size: 13.5px; } .lec-tile .l { display: none; } .lec-tile[aria-pressed="true"] .l { display: block; } }
+.lec-tile { text-align: left; font: inherit; color: var(--color-fg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-top: 4px solid var(--fc); border-radius: 12px; padding: 12px 14px; cursor: pointer; display: flex; flex-direction: column; gap: 6px; }
+.lec-tile[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--fc); }
+.lec-tile[disabled] { cursor: default; opacity: .7; }
+.lec-tile .n { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-fg-muted); font-weight: 600; }
+.lec-tile .t { font-weight: 700; font-size: 14.5px; line-height: 1.3; }
+.lec-tile .l { font-size: 13px; line-height: 1.4; color: var(--color-fg-muted); }
+.lec-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-left: 5px solid var(--fc); border-radius: 12px; padding: 18px 20px; }
+.lec-card .q { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--color-fg-muted); font-weight: 600; margin: 0 0 6px; }
+.lec-card .h { font-family: var(--font-anthropic-serif, Georgia, serif); font-size: 24px; line-height: 1.25; margin: 0 0 10px; }
+.lec-card .res { font-size: 14.5px; line-height: 1.55; margin: 0 0 14px; }
+.lec-grid { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); margin-bottom: 12px; }
+@media (max-width: 760px) { .lec-grid { grid-template-columns: 1fr; } }
+.lec-box { border-radius: 10px; padding: 12px 14px; background: color-mix(in srgb, var(--fc) 6%, var(--color-panel)); }
+.lec-box h4 { margin: 0 0 8px; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-fg-muted); }
+.lec-box ul { margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.5; }
+.lec-box li { margin-bottom: 6px; }
+.lec-acc li::marker { content: "☐  "; }
+.lec-tier { margin-top: 14px; }
+.lec-tier h4 { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font-size: 13px; }
+.lec-tier h4 i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.lec-tier .vacio { font-size: 13px; color: var(--color-fg-muted); margin: 0; }
+.lec-ev { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.lec-ev li { font-size: 13.5px; line-height: 1.45; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--color-border-line); }
+.lec-ev .ref { font-weight: 600; margin-right: 6px; }
+.lec-ev .lab-pill { margin-right: 6px; }
+.lec-nosabe { margin-top: 14px; font-size: 13.5px; padding: 10px 12px; border-radius: 8px; border: 1px dashed var(--color-border-line); }
+.lec-med { font-size: 12.5px; color: var(--color-fg-muted); margin: 10px 0 0; }
+.lec-nota { margin-top: 14px; }
 .std-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 0 0 12px; }
 .std-btn { display: inline-flex; align-items: center; gap: 8px; font: inherit; font-size: 13px; font-weight: 600; color: var(--color-fg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: 999px; padding: 6px 12px 6px 6px; cursor: pointer; }
 .std-knob { width: 30px; height: 18px; border-radius: 999px; background: var(--color-border-line); position: relative; flex: none; transition: background .15s; }
@@ -297,6 +333,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   <nav class="lab-tabs" role="tablist">
     <button class="lab-tab pri" role="tab" data-tab="decidir" aria-selected="true"><span lang="es">Decidir</span><span lang="en">Decide</span><span lang="pt">Decidir</span></button>
     <button class="lab-tab pri" role="tab" data-tab="inicio" aria-selected="false"><span lang="es">Probar supuestos</span><span lang="en">Try assumptions</span><span lang="pt">Testar suposições</span></button>
+    <button class="lab-tab pri" role="tab" data-tab="lecciones" aria-selected="false"><span lang="es">Lecciones para implementar</span><span lang="en">Lessons for deploying</span><span lang="pt">Lições para implementar</span></button>
     <span class="tab-grupo"><span lang="es">Análisis técnico</span><span lang="en">Technical analysis</span><span lang="pt">Análise técnica</span></span>
     <button class="lab-tab sec" role="tab" data-tab="explorador" aria-selected="false"><span lang="es">Evidencia</span><span lang="en">Evidence</span><span lang="pt">Evidências</span></button>
     <button class="lab-tab sec" role="tab" data-tab="impacto" aria-selected="false"><span lang="es">Impacto</span><span lang="en">Impact</span><span lang="pt">Impacto</span></button>
@@ -334,6 +371,11 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       </div>
     </div>
 
+    <div class="lec-teaser">
+      <span class="lec-teaser-k"><span lang="es">Antes de implementar</span><span lang="en">Before deploying</span><span lang="pt">Antes de implementar</span></span>
+      <span><span lang="es">Infraestructura, docentes, equidad y privacidad: qué dice la evidencia de tres fuentes, ordenada por confiabilidad.</span><span lang="en">Infrastructure, teachers, equity and privacy: what the evidence from three sources says, sorted by reliability.</span><span lang="pt">Infraestrutura, docentes, equidade e privacidade: o que diz a evidência de três fontes, ordenada por confiabilidade.</span></span>
+      <button type="button" class="lab-btn" data-tab-ir="lecciones"><span lang="es">Ver las lecciones →</span><span lang="en">See the lessons →</span><span lang="pt">Ver as lições →</span></button>
+    </div>
     <div class="dec-next">
       <button type="button" class="lab-btn destacado dec-ir" data-tab-ir="inicio"><span lang="es">Probar mis propios supuestos →</span><span lang="en">Try my own assumptions →</span><span lang="pt">Testar minhas próprias suposições →</span></button>
       <span class="lab-small lab-muted"><span lang="es">Cambia ganancias y costos, mira el mapa de estudios y cuántos estudiantes alcanza tu presupuesto.</span><span lang="en">Change gains and costs, see the study map and how many students your budget reaches.</span><span lang="pt">Mude ganhos e custos, veja o mapa de estudos e quantos estudantes seu orçamento alcança.</span></span>
@@ -446,6 +488,23 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   </section>
 
   <!-- 1. EXPLORADOR -->
+  <!-- L. LECCIONES PARA IMPLEMENTAR -->
+  <section id="lecciones" class="lab-section lec" hidden>
+    <div class="dec-head">
+      <h2><span lang="es">Lecciones para implementar tutoría con IA</span><span lang="en">Lessons for deploying AI tutoring</span><span lang="pt">Lições para implementar tutoria com IA</span></h2>
+      <p class="lab-muted"><span lang="es">Ocho temas que pesan en una decisión. Cada lección separa lo que muestran los estudios causales, lo que sugieren los estudios descriptivos y lo que recomiendan las guías y políticas. Elige un tema.</span><span lang="en">Eight themes that weigh on a decision. Each lesson separates what causal studies show, what descriptive studies suggest and what guides and policies recommend. Pick a theme.</span><span lang="pt">Oito temas que pesam numa decisão. Cada lição separa o que mostram os estudos causais, o que sugerem os estudos descritivos e o que recomendam os guias e políticas. Escolha um tema.</span></p>
+    </div>
+    <div class="lec-leyenda lab-small">
+      <span><i class="f-moderada"></i><span lang="es">Evidencia causal moderada</span><span lang="en">Moderate causal evidence</span><span lang="pt">Evidência causal moderada</span></span>
+      <span><i class="f-parcial"></i><span lang="es">Parcial: causal escasa, sobre todo descriptiva</span><span lang="en">Partial: little causal, mostly descriptive</span><span lang="pt">Parcial: pouca causal, sobretudo descritiva</span></span>
+      <span><i class="f-guias"></i><span lang="es">Solo guías y políticas</span><span lang="en">Guides and policies only</span><span lang="pt">Só guias e políticas</span></span>
+      <span><i class="f-pendiente"></i><span lang="es">En preparación</span><span lang="en">In preparation</span><span lang="pt">Em preparação</span></span>
+    </div>
+    <div class="lec-tiles" data-draw="lecTiles" data-source="lecciones"></div>
+    <div class="lec-detalle" id="lec-detalle" data-draw="lecDetalle" data-source="lecciones"></div>
+    <p class="lab-small lab-muted lec-nota"><span lang="es"><b>Nota:</b> las lecciones, acciones y resúmenes los destiló Claude a partir de EvidencIA (que incluye la colección del Stanford SCALE AI Hub) y del AI and Human Skill Atlas, consultados el 12 nov 2026. Las lecciones curadas de EvidencIA son un prototipo (versión 0.2.0) pendiente de revisión por su comité. La evidencia tiene distinta confiabilidad: son insumos para decidir y deben corroborarse en el contexto local antes de ampliar un programa.</span><span lang="en"><b>Note:</b> the lessons, actions and summaries were distilled by Claude from EvidencIA (which includes the Stanford SCALE AI Hub collection) and the AI and Human Skill Atlas, consulted on 12 Nov 2026. EvidencIA's curated lessons are a prototype (version 0.2.0) pending review by its committee. The evidence varies in reliability: these are inputs for deciding and should be corroborated in the local context before expanding a program.</span><span lang="pt"><b>Nota:</b> as lições, ações e resumos foram destilados pelo Claude a partir da EvidencIA (que inclui a coleção do Stanford SCALE AI Hub) e do AI and Human Skill Atlas, consultados em 12 nov 2026. As lições curadas da EvidencIA são um protótipo (versão 0.2.0) pendente de revisão por seu comitê. A evidência tem confiabilidade distinta: são insumos para decidir e devem ser corroborados no contexto local antes de ampliar um programa.</span></p>
+  </section>
+
   <section id="explorador" class="lab-section" hidden>
     <div class="lab-banner cifras"><span lang="es"><b>Estas son las cifras de cada publicación (lote 1).</b> Decidir, Probar supuestos y la calculadora usan las cifras de EvidencIA, calculadas con una misma regla para que sean comparables; a veces difieren porque se elige otro resultado u otra desviación estándar.</span><span lang="en"><b>These are the figures from each publication (batch 1).</b> Decide, Try assumptions and the calculator use EvidencIA's figures, computed with the same rule so they are comparable; they sometimes differ because another outcome or another standard deviation is chosen.</span><span lang="pt"><b>Estes são os números de cada publicação (lote 1).</b> Decidir, Testar suposições e a calculadora usam os números da EvidencIA, calculados com a mesma regra para serem comparáveis; às vezes diferem porque se escolhe outro resultado ou outro desvio padrão.</span> <button type="button" class="sim-reset" data-tab-ir="metodologia"><span lang="es">Ver el cotejo de cifras →</span><span lang="en">See the figure cross check →</span><span lang="pt">Ver a conferência de números →</span></button></div>
     <p class="lab-take"><span lang="es">Este lote reúne</span><span lang="en">This batch holds</span><span lang="pt">Este lote reúne</span> <b data-draw="tNum" data-f="nEstudios" data-source="resumen" data-field="nEstudios" data-row="0">—</b> <span lang="es">registros extraídos de las publicaciones originales:</span><span lang="en">records extracted from the original publications:</span><span lang="pt">registros extraídos das publicações originais:</span> <b data-draw="tNum" data-f="nVerificados" data-source="resumen" data-field="nVerificados" data-row="0">—</b> <span lang="es">verificados y</span><span lang="en">verified and</span><span lang="pt">verificados e</span> <b data-draw="tNum" data-f="nProvisionales" data-source="resumen" data-field="nProvisionales" data-row="0">—</b> <span lang="es">provisionales. Todos tienen ficha en EvidencIA.</span><span lang="en">provisional. All of them have an EvidencIA record.</span><span lang="pt">provisórios. Todos têm ficha na EvidencIA.</span></p>

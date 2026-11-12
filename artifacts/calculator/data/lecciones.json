@@ -1,0 +1,556 @@
+[
+ {
+  "id": "infra",
+  "orden": 1,
+  "piloto": true,
+  "fuerza": "parcial",
+  "titulo": "Infraestructura y conectividad",
+  "tituloEn": "Infrastructure and connectivity",
+  "tituloPt": "Infraestrutura e conectividade",
+  "pregunta": "¿Cuánto importan los dispositivos, internet y la electricidad?",
+  "preguntaEn": "How much do devices, internet and electricity matter?",
+  "preguntaPt": "Quanto importam dispositivos, internet e eletricidade?",
+  "leccion": "Diagnostica primero y diseña para la conectividad que realmente tienes.",
+  "leccionEn": "Diagnose first and design for the connectivity you actually have.",
+  "leccionPt": "Diagnostique primeiro e desenhe para a conectividade que você realmente tem.",
+  "resumen": "Los ensayos con buenos resultados se hicieron donde ya había dispositivos e internet; cuando fallaron, el programa se resintió. Algunos programas funcionaron con teléfonos básicos o con un dispositivo compartido por dos estudiantes. Los diagnósticos del Banco Mundial muestran poca preparación en países de ingreso bajo. Ningún ensayo probó la infraestructura en sí: la evidencia es indirecta.",
+  "resumenEn": "The trials with good results took place where devices and internet already existed; when they failed, the program suffered. Some programs worked on basic phones or with one device shared by two students. World Bank diagnostics show low readiness in low income countries. No trial tested infrastructure itself: the evidence is indirect.",
+  "resumenPt": "Os ensaios com bons resultados foram feitos onde já havia dispositivos e internet; quando falharam, o programa sofreu. Alguns programas funcionaram com celulares básicos ou com um dispositivo compartilhado por dois estudantes. Os diagnósticos do Banco Mundial mostram pouca preparação em países de renda baixa. Nenhum ensaio testou a infraestrutura em si: a evidência é indireta.",
+  "medicion": "Ningún ensayo asignó al azar la infraestructura; lo que hay son condiciones de los ensayos y diagnósticos descriptivos.",
+  "medicionEn": "No trial randomized infrastructure; what exists are trial conditions and descriptive diagnostics.",
+  "medicionPt": "Nenhum ensaio sorteou a infraestrutura; o que há são condições dos ensaios e diagnósticos descritivos.",
+  "noSabemos": "Ningún ensayo comparó la misma herramienta con y sin mejor conectividad, ni cuál es la infraestructura mínima necesaria.",
+  "noSabemosEn": "No trial compared the same tool with and without better connectivity, or what minimum infrastructure is needed.",
+  "noSabemosPt": "Nenhum ensaio comparou a mesma ferramenta com e sem melhor conectividade, nem qual é a infraestrutura mínima necessária.",
+  "acciones": [
+   {
+    "t": "Haz un diagnóstico de preparación antes de elegir la herramienta (por ejemplo, el índice ETRI del Banco Mundial).",
+    "tEn": "Run a readiness diagnostic before choosing the tool (for example, the World Bank ETRI index).",
+    "tPt": "Faça um diagnóstico de preparação antes de escolher a ferramenta (por exemplo, o índice ETRI do Banco Mundial)."
+   },
+   {
+    "t": "Presupuesta dispositivos, conectividad y soporte técnico, no solo licencias.",
+    "tEn": "Budget for devices, connectivity and technical support, not only licenses.",
+    "tPt": "Orce dispositivos, conectividade e suporte técnico, não só licenças."
+   },
+   {
+    "t": "Prefiere herramientas que funcionen con poco ancho de banda, sin conexión o en dispositivos compartidos.",
+    "tEn": "Prefer tools that work on low bandwidth, offline or on shared devices.",
+    "tPt": "Prefira ferramentas que funcionem com pouca banda, sem conexão ou em dispositivos compartilhados."
+   },
+   {
+    "t": "Define quién resuelve los problemas técnicos en cada escuela.",
+    "tEn": "Decide who fixes technical problems at each school.",
+    "tPt": "Defina quem resolve os problemas técnicos em cada escola."
+   }
+  ],
+  "evidencia": [
+   {
+    "tier": "causal",
+    "ref": "Oreopoulos et al., 2026",
+    "url": "https://www.nber.org/papers/w34683",
+    "nivel": "1",
+    "texto": "India: 7 escuelas sin infraestructura digital suficiente se excluyeron antes del sorteo, y 5 de las 28 escuelas tratadas abandonaron por problemas de dispositivos, internet o apoyo.",
+    "textoEn": "India: 7 schools without enough digital infrastructure were excluded before the lottery, and 5 of the 28 treated schools dropped out because of device, internet or support problems.",
+    "textoPt": "Índia: 7 escolas sem infraestrutura digital suficiente foram excluídas antes do sorteio, e 5 das 28 escolas tratadas abandonaram por problemas de dispositivos, internet ou apoio."
+   },
+   {
+    "tier": "causal",
+    "ref": "Henkel et al., 2024",
+    "url": "https://doi.org/10.1007/978-3-031-64315-6_34",
+    "nivel": "2",
+    "texto": "Ghana: tutor por WhatsApp que funciona en teléfonos básicos con datos de bajo ancho de banda; la escuela entregaba el teléfono en la hora de estudio.",
+    "textoEn": "Ghana: a WhatsApp tutor that runs on basic phones with low bandwidth data; the school provided the phone during study hour.",
+    "textoPt": "Gana: tutor por WhatsApp que funciona em celulares básicos com dados de baixa banda; a escola entregava o celular na hora de estudo."
+   },
+   {
+    "tier": "causal",
+    "ref": "LearnLM Team & Fab AI, 2026",
+    "url": "https://storage.googleapis.com/deepmind-media/LearnLM/learnLM_sierraleone_may26.pdf",
+    "nivel": "1",
+    "texto": "Sierra Leona: dos estudiantes por dispositivo, formación docente y un monitor en cada escuela.",
+    "textoEn": "Sierra Leone: two students per device, teacher training and a monitor at each school.",
+    "textoPt": "Serra Leoa: dois estudantes por dispositivo, formação docente e um monitor em cada escola."
+   },
+   {
+    "tier": "contexto",
+    "ref": "Chinen, 2024",
+    "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099903501142641092",
+    "nivel": "3",
+    "texto": "Uganda: preparación baja en docentes, estudiantes, dispositivos y conectividad; el uso de TIC en la enseñanza obtuvo 1,45 de 5.",
+    "textoEn": "Uganda: low readiness in teachers, students, devices and connectivity; ICT use in teaching scored 1.45 out of 5.",
+    "textoPt": "Uganda: preparação baixa em docentes, estudantes, dispositivos e conectividade; o uso de TIC no ensino teve 1,45 de 5."
+   },
+   {
+    "tier": "contexto",
+    "ref": "World Bank, 2024",
+    "url": "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099719402182543471",
+    "nivel": "3",
+    "texto": "Sierra Leona: preparación baja en los seis pilares del índice ETRI, con muy poco uso de TIC en 300 escuelas primarias.",
+    "textoEn": "Sierra Leone: low readiness across the six ETRI pillars, with very little ICT use in 300 primary schools.",
+    "textoPt": "Serra Leoa: preparação baixa nos seis pilares do índice ETRI, com muito pouco uso de TIC em 300 escolas primárias."
+   },
+   {
+    "tier": "contexto",
+    "ref": "Walusimbi et al., 2026",
+    "url": "https://arxiv.org/abs/2603.03339v7",
+    "nivel": "3",
+    "texto": "Uganda: tutor de IA sin conexión en computadoras básicas, piloteado con 120 estudiantes; funcionó de forma estable, pero no midió aprendizaje.",
+    "textoEn": "Uganda: an offline AI tutor on basic computers, piloted with 120 students; it ran stably, but learning was not measured.",
+    "textoPt": "Uganda: tutor de IA sem conexão em computadores básicos, pilotado com 120 estudantes; funcionou de forma estável, mas não mediu aprendizagem."
+   },
+   {
+    "tier": "contexto",
+    "ref": "Michel et al., 2026",
+    "url": "https://arxiv.org/abs/2604.03542v1",
+    "nivel": "3",
+    "texto": "Escuelas rurales de EE.UU.: los docentes señalan brechas de infraestructura y falta de formación como límites.",
+    "textoEn": "Rural US schools: teachers cite infrastructure gaps and lack of training as limits.",
+    "textoPt": "Escolas rurais dos EUA: os docentes apontam lacunas de infraestrutura e falta de formação como limites."
+   },
+   {
+    "tier": "guia",
+    "ref": "World Bank Education Global Practice & Futures, 2023",
+    "url": "https://www.worldbank.org/en/topic/education/brief/edtech-readiness-index",
+    "nivel": "4",
+    "texto": "Índice ETRI: instrumento gratuito para que los países evalúen las condiciones para usar tecnología educativa.",
+    "textoEn": "ETRI index: a free instrument for countries to assess the conditions for using education technology.",
+    "textoPt": "Índice ETRI: instrumento gratuito para que os países avaliem as condições para usar tecnologia educacional."
+   }
+  ]
+ },
+ {
+  "id": "implementacion",
+  "orden": 2,
+  "piloto": false,
+  "fuerza": "pendiente",
+  "titulo": "Capacidad de implementación, costo y escala",
+  "tituloEn": "Implementation capacity, cost and scale",
+  "tituloPt": "Capacidade de implementação, custo e escala",
+  "pregunta": "¿Qué estructura y qué presupuesto hacen falta?",
+  "preguntaEn": "What structure and budget are needed?",
+  "preguntaPt": "Que estrutura e que orçamento são necessários?",
+  "acciones": [],
+  "evidencia": []
+ },
+ {
+  "id": "docentes",
+  "orden": 3,
+  "piloto": true,
+  "fuerza": "moderada",
+  "titulo": "Docentes, directivos y familias",
+  "tituloEn": "Teachers, school leaders and families",
+  "tituloPt": "Docentes, gestores e famílias",
+  "pregunta": "¿Qué apoyo necesitan los docentes?",
+  "preguntaEn": "What support do teachers need?",
+  "preguntaPt": "De que apoio os docentes precisam?",
+  "leccion": "Apoya a los docentes para enseñar mejor, no solo para preparar más rápido.",
+  "leccionEn": "Support teachers to teach better, not only to prepare faster.",
+  "leccionPt": "Apoie os docentes para ensinar melhor, não só para preparar mais rápido.",
+  "resumen": "La IA que acompaña a los docentes mejoró prácticas y algunos resultados de estudiantes. Pero cuando se usó para delegar la preparación de clases, bajó la motivación de los estudiantes, sobre todo con docentes de menor desempeño. Los efectos en pruebas estandarizadas fueron pequeños o nulos, salvo la corrección automática de redacción en Brasil. EvidencIA califica esta lección como moderada.",
+  "resumenEn": "AI that supports teachers improved practices and some student outcomes. But when it was used to offload lesson preparation, student motivation fell, especially with lower performing teachers. Effects on standardized tests were small or null, except automated essay scoring in Brazil. EvidencIA rates this lesson as moderate.",
+  "resumenPt": "A IA que acompanha os docentes melhorou práticas e alguns resultados dos estudantes. Mas quando foi usada para delegar a preparação das aulas, a motivação dos estudantes caiu, sobretudo com docentes de menor desempenho. Os efeitos em testes padronizados foram pequenos ou nulos, exceto a correção automática de redação no Brasil. A EvidencIA classifica esta lição como moderada.",
+  "medicion": "Varios efectos se midieron en prácticas docentes o en pruebas cortas de la sesión; en pruebas estandarizadas los efectos fueron pequeños o nulos. Varios estudios los evaluaron los propios desarrolladores.",
+  "medicionEn": "Several effects were measured on teaching practices or short session tests; on standardized tests effects were small or null. Several studies were evaluated by the developers themselves.",
+  "medicionPt": "Vários efeitos foram medidos em práticas docentes ou em testes curtos da sessão; em testes padronizados os efeitos foram pequenos ou nulos. Vários estudos foram avaliados pelos próprios desenvolvedores.",
+  "noSabemos": "Falta la medición final de Bogotá y hay pocos ensayos en la región. Casi no hay evidencia sobre el papel de directivos y familias.",
+  "noSabemosEn": "The Bogotá endline is still missing and there are few trials in the region. There is almost no evidence on the role of school leaders and families.",
+  "noSabemosPt": "Falta a medição final de Bogotá e há poucos ensaios na região. Quase não há evidência sobre o papel de gestores e famílias.",
+  "acciones": [
+   {
+    "t": "Forma a los docentes para juzgar las respuestas de la IA y proteger datos, no solo para usarla.",
+    "tEn": "Train teachers to judge AI output and protect data, not only to use it.",
+    "tPt": "Forme os docentes para julgar as respostas da IA e proteger dados, não só para usá la."
+   },
+   {
+    "t": "Acompaña la herramienta con coaching: en Bogotá, el acompañamiento fue cerca del 76 % del costo.",
+    "tEn": "Pair the tool with coaching: in Bogotá, coaching was about 76% of the cost.",
+    "tPt": "Acompanhe a ferramenta com coaching: em Bogotá, o acompanhamento foi cerca de 76% do custo."
+   },
+   {
+    "t": "Da más apoyo a los docentes con menos experiencia y vigila los efectos en ellos.",
+    "tEn": "Give more support to less experienced teachers and monitor the effects on them.",
+    "tPt": "Dê mais apoio aos docentes com menos experiência e acompanhe os efeitos neles."
+   },
+   {
+    "t": "Mide el efecto en los estudiantes, no solo el tiempo que ahorra el docente.",
+    "tEn": "Measure the effect on students, not only the time teachers save.",
+    "tPt": "Meça o efeito nos estudantes, não só o tempo que o docente economiza."
+   }
+  ],
+  "evidencia": [
+   {
+    "tier": "causal",
+    "ref": "Copur-Gencturk et al., 2024",
+    "url": "https://doi.org/10.1016/j.compedu.2023.104963",
+    "nivel": "1",
+    "texto": "EE.UU.: un curso en línea para docentes con un facilitador automático subió 0,18 DE el puntaje de sus estudiantes en razones y proporciones. Lo evaluaron sus desarrolladores.",
+    "textoEn": "US: an online course for teachers with an automated facilitator raised their students' scores on ratios and proportions by 0.18 SD. Evaluated by its developers.",
+    "textoPt": "EUA: um curso online para docentes com um facilitador automático aumentou 0,18 DP a nota dos estudantes em razões e proporções. Avaliado pelos desenvolvedores."
+   },
+   {
+    "tier": "causal",
+    "ref": "Wang et al., 2025",
+    "url": "https://arxiv.org/abs/2410.03017",
+    "nivel": "1",
+    "texto": "EE.UU.: sugerencias de IA en tiempo real a tutores subieron 4 puntos porcentuales la aprobación de la prueba de cierre de sesión (9 puntos con los tutores peor evaluados), sin efecto en la prueba estandarizada MAP.",
+    "textoEn": "US: real time AI suggestions to tutors raised the session exit ticket pass rate by 4 percentage points (9 with the lowest rated tutors), with no effect on the standardized MAP test.",
+    "textoPt": "EUA: sugestões de IA em tempo real a tutores aumentaram 4 pontos percentuais a aprovação no teste de fim de sessão (9 com os tutores pior avaliados), sem efeito no teste padronizado MAP."
+   },
+   {
+    "tier": "causal",
+    "ref": "Sungu et al., 2026",
+    "url": "https://ssrn.com/abstract=7007339",
+    "nivel": "1",
+    "texto": "Turquía: un asistente GPT‑4o para preparar clases bajó 0,11 DE la motivación intrínseca de los estudiantes y, con docentes de menor desempeño previo, bajó los puntajes.",
+    "textoEn": "Turkey: a GPT‑4o assistant for preparing lessons lowered students' intrinsic motivation by 0.11 SD and, with lower performing teachers, lowered scores.",
+    "textoPt": "Turquia: um assistente GPT‑4o para preparar aulas reduziu 0,11 DP a motivação intrínseca dos estudantes e, com docentes de menor desempenho prévio, reduziu as notas."
+   },
+   {
+    "tier": "causal",
+    "ref": "Ferman et al., 2021",
+    "url": "https://osf.io/preprints/socarxiv/qw249",
+    "nivel": "1",
+    "texto": "Brasil: una plataforma de corrección automática de redacciones subió 0,094 DE la nota de redacción del ENEM; los estudiantes discutieron un 35 % más de redacciones con sus docentes.",
+    "textoEn": "Brazil: an automated essay scoring platform raised ENEM essay scores by 0.094 SD; students discussed 35% more essays with their teachers.",
+    "textoPt": "Brasil: uma plataforma de correção automática de redações aumentou 0,094 DP a nota de redação do ENEM; os estudantes discutiram 35% mais redações com seus docentes."
+   },
+   {
+    "tier": "causal",
+    "ref": "Barrera-Osorio & Muñoz-Morales, 2026",
+    "url": "https://juansmunoz.github.io/AI_Evaluation_Bogota.pdf",
+    "nivel": "1",
+    "texto": "Bogotá: una plataforma de IA para planificar clases, con formación, se asocia con 0,2 DE más en matemática a los tres meses; resultado preliminar, menor (0,13, no significativo) donde el sorteo se cumplió.",
+    "textoEn": "Bogotá: an AI platform for planning lessons, with training, is associated with 0.2 SD more in math after three months; preliminary, smaller (0.13, not significant) where the lottery held.",
+    "textoPt": "Bogotá: uma plataforma de IA para planejar aulas, com formação, associa se a 0,2 DP a mais em matemática aos três meses; resultado preliminar, menor (0,13, não significativo) onde o sorteio se cumpriu."
+   },
+   {
+    "tier": "causal",
+    "ref": "Glave et al., 2026",
+    "url": "https://documents1.worldbank.org/curated/en/099309210012625906/pdf/IDU-c261aadb-6c32-48af-a07c-9cff5e86c716.pdf",
+    "nivel": "2",
+    "texto": "Lima: formación, licencia de Copilot y mensajes semanales no ahorraron tiempo a los docentes, pero mejoraron la calidad de sus instrucciones a la IA. No midió aprendizaje. Documento de la propia red de EvidencIA.",
+    "textoEn": "Lima: training, a Copilot license and weekly messages saved teachers no time, but improved the quality of their prompts. Learning was not measured. A document from EvidencIA's own network.",
+    "textoPt": "Lima: formação, licença do Copilot e mensagens semanais não economizaram tempo dos docentes, mas melhoraram a qualidade das instruções à IA. Não mediu aprendizagem. Documento da própria rede da EvidencIA."
+   },
+   {
+    "tier": "contexto",
+    "ref": "Liu et al., 2025",
+    "url": "https://arxiv.org/pdf/2507.17985v3",
+    "nivel": "3",
+    "texto": "En 13.071 conversaciones de docentes con una plataforma de IA, la planificación apareció en el 63,8 % de los pedidos.",
+    "textoEn": "In 13,071 teacher conversations with an AI platform, planning appeared in 63.8% of requests.",
+    "textoPt": "Em 13.071 conversas de docentes com uma plataforma de IA, o planejamento apareceu em 63,8% dos pedidos."
+   },
+   {
+    "tier": "contexto",
+    "ref": "Aisyah et al., 2026",
+    "url": "https://arxiv.org/abs/2604.01630v1",
+    "nivel": "3",
+    "texto": "Indonesia: 349 docentes usan la IA sobre todo para reducir la carga de preparación; señalan respuestas genéricas e infraestructura como obstáculos.",
+    "textoEn": "Indonesia: 349 teachers use AI mainly to reduce preparation workload; they cite generic outputs and infrastructure as obstacles.",
+    "textoPt": "Indonésia: 349 docentes usam a IA sobretudo para reduzir a carga de preparação; apontam respostas genéricas e infraestrutura como obstáculos."
+   },
+   {
+    "tier": "guia",
+    "ref": "Welsh Government, 2025",
+    "url": "https://hwb.gov.wales/school-improvement-and-leadership/education-digital-standards/generative-artificial-intelligence-in-education",
+    "nivel": "pol",
+    "texto": "Gales (orientación): la formación docente debe enfatizar cómo evaluar las respuestas de la IA y cómo asegurar la protección de datos.",
+    "textoEn": "Wales (guidance): teacher professional learning should emphasize how to evaluate AI output and ensure data protection.",
+    "textoPt": "País de Gales (orientação): a formação docente deve enfatizar como avaliar as respostas da IA e garantir a proteção de dados."
+   }
+  ]
+ },
+ {
+  "id": "estudiantes",
+  "orden": 4,
+  "piloto": false,
+  "fuerza": "pendiente",
+  "titulo": "Habilidades y preparación de los estudiantes",
+  "tituloEn": "Student skills and readiness",
+  "tituloPt": "Habilidades e preparação dos estudantes",
+  "pregunta": "¿Qué necesitan saber los estudiantes para aprovecharla?",
+  "preguntaEn": "What do students need to know to benefit?",
+  "preguntaPt": "O que os estudantes precisam saber para aproveitá la?",
+  "acciones": [],
+  "evidencia": []
+ },
+ {
+  "id": "diseno",
+  "orden": 5,
+  "piloto": false,
+  "fuerza": "pendiente",
+  "titulo": "Diseño de la herramienta y cuánto usarla",
+  "tituloEn": "Tool design and how much to use it",
+  "tituloPt": "Desenho da ferramenta e quanto usá la",
+  "pregunta": "¿Guiada o abierta? ¿Cuánto tiempo?",
+  "preguntaEn": "Guided or open? How much time?",
+  "preguntaPt": "Guiada ou aberta? Quanto tempo?",
+  "acciones": [],
+  "evidencia": []
+ },
+ {
+  "id": "contexto",
+  "orden": 6,
+  "piloto": false,
+  "fuerza": "pendiente",
+  "titulo": "Dónde se usa",
+  "tituloEn": "Setting",
+  "tituloPt": "Onde se usa",
+  "pregunta": "¿En la escuela, después de clases, en casa o en línea?",
+  "preguntaEn": "In school, after school, at home or online?",
+  "preguntaPt": "Na escola, depois das aulas, em casa ou online?",
+  "acciones": [],
+  "evidencia": []
+ },
+ {
+  "id": "equidad",
+  "orden": 7,
+  "piloto": true,
+  "fuerza": "parcial",
+  "titulo": "Inclusión y equidad",
+  "tituloEn": "Inclusion and equity",
+  "tituloPt": "Inclusão e equidade",
+  "pregunta": "¿Quién se beneficia? ¿Se cierran o se abren brechas?",
+  "preguntaEn": "Who benefits? Do gaps close or widen?",
+  "preguntaPt": "Quem se beneficia? As lacunas se fecham ou se abrem?",
+  "leccion": "No supongas que la IA cierra brechas: mide desde el inicio quién gana.",
+  "leccionEn": "Do not assume AI closes gaps: measure who gains from the start.",
+  "leccionPt": "Não suponha que a IA fecha lacunas: meça desde o início quem ganha.",
+  "resumen": "Los ensayos apuntan en ambas direcciones. En Nigeria y Sierra Leona ganaron más quienes ya iban mejor; en Taipéi, una secuencia adaptativa ayudó sobre todo a principiantes. Entre niñas y niños no hubo diferencias claras en Sierra Leona. Para estudiantes con discapacidad hay reportes positivos, pero ningún estudio con bajo riesgo de sesgo. Y casi no hay evidencia rigurosa de países de ingreso bajo ni de América Latina.",
+  "resumenEn": "The trials point both ways. In Nigeria and Sierra Leone, students already doing better gained more; in Taipei, an adaptive sequence helped mostly beginners. Between girls and boys there were no clear differences in Sierra Leone. For students with disabilities there are positive reports, but no study with low risk of bias. And there is almost no rigorous evidence from low income countries or Latin America.",
+  "resumenPt": "Os ensaios apontam nas duas direções. Na Nigéria e em Serra Leoa ganharam mais os que já iam melhor; em Taipé, uma sequência adaptativa ajudou sobretudo iniciantes. Entre meninas e meninos não houve diferenças claras em Serra Leoa. Para estudantes com deficiência há relatos positivos, mas nenhum estudo com baixo risco de viés. E quase não há evidência rigorosa de países de renda baixa nem da América Latina.",
+  "medicion": "Las diferencias por grupo vienen de análisis de subgrupos, con menos precisión que el efecto promedio.",
+  "medicionEn": "Differences by group come from subgroup analyses, which are less precise than the average effect.",
+  "medicionPt": "As diferenças por grupo vêm de análises de subgrupos, com menos precisão que o efeito médio.",
+  "noSabemos": "Ningún ensayo se diseñó para probar si la IA cierra brechas. Faltan ensayos con estudiantes con discapacidad y en países de ingreso bajo y América Latina.",
+  "noSabemosEn": "No trial was designed to test whether AI closes gaps. Trials with students with disabilities and in low income countries and Latin America are missing.",
+  "noSabemosPt": "Nenhum ensaio foi desenhado para testar se a IA fecha lacunas. Faltam ensaios com estudantes com deficiência e em países de renda baixa e na América Latina.",
+  "acciones": [
+   {
+    "t": "Desagrega los resultados por nivel inicial, género, discapacidad, zona y lengua desde el diseño.",
+    "tEn": "Break down results by starting level, gender, disability, area and language from the design stage.",
+    "tPt": "Desagregue os resultados por nível inicial, gênero, deficiência, região e língua desde o desenho."
+   },
+   {
+    "t": "Da apoyo adicional a quienes empiezan más atrás, para que la herramienta no amplíe la distancia.",
+    "tEn": "Give extra support to students who start behind, so the tool does not widen the gap.",
+    "tPt": "Dê apoio adicional a quem começa mais atrás, para que a ferramenta não amplie a distância."
+   },
+   {
+    "t": "Exige accesibilidad y contenidos en la lengua de los estudiantes.",
+    "tEn": "Require accessibility and content in the students' language.",
+    "tPt": "Exija acessibilidade e conteúdos na língua dos estudantes."
+   },
+   {
+    "t": "No escales herramientas para estudiantes con discapacidad sin una evaluación rigurosa.",
+    "tEn": "Do not scale tools for students with disabilities without a rigorous evaluation.",
+    "tPt": "Não escale ferramentas para estudantes com deficiência sem uma avaliação rigorosa."
+   }
+  ],
+  "evidencia": [
+   {
+    "tier": "causal",
+    "ref": "De Simone et al., 2025",
+    "url": "https://documents.worldbank.org/curated/en/099548105192529324/pdf/IDU-c09f40d8-9ff8-42dc-b315-591157499be7.pdf",
+    "nivel": "1",
+    "texto": "Nigeria: el efecto fue positivo en toda la distribución, pero mayor para quienes tenían mejor rendimiento previo y mayor nivel socioeconómico.",
+    "textoEn": "Nigeria: the effect was positive across the distribution, but larger for students with higher prior achievement and higher socioeconomic status.",
+    "textoPt": "Nigéria: o efeito foi positivo em toda a distribuição, mas maior para quem tinha melhor desempenho prévio e maior nível socioeconômico."
+   },
+   {
+    "tier": "causal",
+    "ref": "LearnLM Team & Fab AI, 2026",
+    "url": "https://storage.googleapis.com/deepmind-media/LearnLM/learnLM_sierraleone_may26.pdf",
+    "nivel": "1",
+    "texto": "Sierra Leona: ganaron más quienes ya iban mejor; la diferencia entre niñas y niños no fue significativa.",
+    "textoEn": "Sierra Leone: students already doing better gained more; the difference between girls and boys was not significant.",
+    "textoPt": "Serra Leoa: ganharam mais os que já iam melhor; a diferença entre meninas e meninos não foi significativa."
+   },
+   {
+    "tier": "causal",
+    "ref": "Chung et al., 2026",
+    "url": "https://arxiv.org/abs/2608.16907",
+    "nivel": "2",
+    "texto": "Taipéi: elegir los ejercicios de forma adaptativa subió 0,15 DE el examen final, concentrado en principiantes (0,215 DE).",
+    "textoEn": "Taipei: choosing exercises adaptively raised the final exam by 0.15 SD, concentrated among beginners (0.215 SD).",
+    "textoPt": "Taipé: escolher os exercícios de forma adaptativa aumentou 0,15 DP a prova final, concentrado em iniciantes (0,215 DP)."
+   },
+   {
+    "tier": "causal",
+    "ref": "Pitchford et al., 2019",
+    "url": "https://doi.org/10.1111/desc.12864",
+    "nivel": "1",
+    "texto": "Malaui: una aplicación de lectura mejoró la lectura de niñas (d = 0,46) y niños (d = 0,33), aunque las ganancias absolutas fueron pequeñas.",
+    "textoEn": "Malawi: a reading app improved reading for girls (d = 0.46) and boys (d = 0.33), though absolute gains were small.",
+    "textoPt": "Malawi: um aplicativo de leitura melhorou a leitura de meninas (d = 0,46) e meninos (d = 0,33), embora os ganhos absolutos tenham sido pequenos."
+   },
+   {
+    "tier": "causal",
+    "ref": "Thomas et al., 2024",
+    "url": "https://dl.acm.org/doi/abs/10.1007/978-3-031-64302-6_29",
+    "nivel": "2",
+    "texto": "EE.UU.: tutoría híbrida humano e IA con efectos positivos para todos, incluidos estudiantes con discapacidad. Cuasi experimento; EvidencIA leyó solo el resumen.",
+    "textoEn": "US: hybrid human and AI tutoring with positive effects for all, including students with disabilities. Quasi experiment; EvidencIA read only the abstract.",
+    "textoPt": "EUA: tutoria híbrida humano e IA com efeitos positivos para todos, incluindo estudantes com deficiência. Quase experimento; a EvidencIA leu só o resumo."
+   },
+   {
+    "tier": "causal",
+    "ref": "Burneo et al., 2026",
+    "url": "https://thedocs.worldbank.org/en/doc/2fba81cd6cd60d2f54532fc7062395fb-0050062026/original/Can-EdTech-Close-Learning-Gaps.pdf",
+    "nivel": "1",
+    "texto": "Metaanálisis de 14 ensayos: ninguno es de un país de ingreso bajo. Documento de la propia red de EvidencIA.",
+    "textoEn": "Meta analysis of 14 trials: none is from a low income country. A document from EvidencIA's own network.",
+    "textoPt": "Meta análise de 14 ensaios: nenhum é de um país de renda baixa. Documento da própria rede da EvidencIA."
+   },
+   {
+    "tier": "contexto",
+    "ref": "Paglialunga & Melogno, 2025",
+    "url": "https://doi.org/10.3390/brainsci15080806",
+    "nivel": "3",
+    "texto": "Revisión de 11 estudios sobre IA para estudiantes con dificultades de aprendizaje: todos reportan resultados positivos, pero ninguno tiene bajo riesgo de sesgo.",
+    "textoEn": "Review of 11 studies on AI for students with learning difficulties: all report positive results, but none has low risk of bias.",
+    "textoPt": "Revisão de 11 estudos sobre IA para estudantes com dificuldades de aprendizagem: todos relatam resultados positivos, mas nenhum tem baixo risco de viés."
+   },
+   {
+    "tier": "guia",
+    "ref": "OCDE, 2025",
+    "url": "https://doi.org/10.1787/1e3dffa9-en",
+    "nivel": "4",
+    "texto": "OCDE: la IA puede apoyar a estudiantes con necesidades especiales, pero falta evidencia empírica; pide codiseño, docentes en el circuito y protección de datos.",
+    "textoEn": "OECD: AI can support students with special needs, but empirical evidence is lacking; it calls for co design, teachers in the loop and data protection.",
+    "textoPt": "OCDE: a IA pode apoiar estudantes com necessidades especiais, mas falta evidência empírica; pede codesenho, docentes no circuito e proteção de dados."
+   }
+  ]
+ },
+ {
+  "id": "privacidad",
+  "orden": 8,
+  "piloto": true,
+  "fuerza": "guias",
+  "titulo": "Privacidad, seguridad y gobernanza",
+  "tituloEn": "Privacy, safety and governance",
+  "tituloPt": "Privacidade, segurança e governança",
+  "pregunta": "¿Cómo proteger los datos de estudiantes y docentes?",
+  "preguntaEn": "How to protect student and teacher data?",
+  "preguntaPt": "Como proteger os dados de estudantes e docentes?",
+  "leccion": "Protege los datos antes de desplegar: ningún estudio lo pone a prueba, pero casi todas las políticas lo exigen.",
+  "leccionEn": "Protect data before deploying: no study tests it, but almost every policy requires it.",
+  "leccionPt": "Proteja os dados antes de implantar: nenhum estudo testa isso, mas quase todas as políticas exigem.",
+  "resumen": "No encontramos estudios causales sobre privacidad. Lo que hay son políticas y guías: 130 de los 166 documentos de política en la base de EvidencIA tratan datos y privacidad. Piden evaluar el impacto antes de usar una herramienta, firmar acuerdos de tratamiento de datos, informar a estudiantes y familias, minimizar los datos y preferir herramientas que no usen esos datos para entrenar modelos.",
+  "resumenEn": "We found no causal studies on privacy. What exists are policies and guides: 130 of the 166 policy documents in the EvidencIA base address data and privacy. They ask for an impact assessment before using a tool, data processing agreements, informing students and families, minimizing data and preferring tools that do not use that data to train models.",
+  "resumenPt": "Não encontramos estudos causais sobre privacidade. O que há são políticas e guias: 130 dos 166 documentos de política na base da EvidencIA tratam de dados e privacidade. Pedem avaliar o impacto antes de usar uma ferramenta, firmar acordos de tratamento de dados, informar estudantes e famílias, minimizar os dados e preferir ferramentas que não usem esses dados para treinar modelos.",
+  "medicion": "Son políticas y guías: orientan, no prueban que algo funcione. Cada una dice si es obligatoria u orientativa.",
+  "medicionEn": "These are policies and guides: they guide, they do not prove that something works. Each says whether it is mandatory or guidance.",
+  "medicionPt": "São políticas e guias: orientam, não provam que algo funciona. Cada uma diz se é obrigatória ou orientativa.",
+  "noSabemos": "Ningún estudio midió si estas protecciones reducen riesgos o cambian la confianza de familias y docentes.",
+  "noSabemosEn": "No study measured whether these protections reduce risks or change the trust of families and teachers.",
+  "noSabemosPt": "Nenhum estudo mediu se essas proteções reduzem riscos ou mudam a confiança de famílias e docentes.",
+  "acciones": [
+   {
+    "t": "Haz una evaluación de impacto en protección de datos antes de adoptar una herramienta.",
+    "tEn": "Run a data protection impact assessment before adopting a tool.",
+    "tPt": "Faça uma avaliação de impacto em proteção de dados antes de adotar uma ferramenta."
+   },
+   {
+    "t": "Firma acuerdos que dejen los datos en manos de la escuela y prohíban usarlos para entrenar modelos.",
+    "tEn": "Sign agreements that keep data with the school and forbid using it to train models.",
+    "tPt": "Assine acordos que deixem os dados com a escola e proíbam usá los para treinar modelos."
+   },
+   {
+    "t": "Informa a estudiantes y familias qué datos se procesan y pide su acuerdo.",
+    "tEn": "Tell students and families what data is processed and seek their agreement.",
+    "tPt": "Informe estudantes e famílias sobre quais dados são processados e peça sua concordância."
+   },
+   {
+    "t": "Enseña a los estudiantes a no compartir datos personales y nombra a alguien que vigile las herramientas y los incidentes.",
+    "tEn": "Teach students not to share personal data and name someone to monitor tools and incidents.",
+    "tPt": "Ensine os estudantes a não compartilhar dados pessoais e nomeie alguém para acompanhar as ferramentas e os incidentes."
+   }
+  ],
+  "evidencia": [
+   {
+    "tier": "contexto",
+    "ref": "Qu et al., 2025",
+    "url": "https://arxiv.org/pdf/2509.18020v1",
+    "nivel": "3",
+    "texto": "Docentes que probaron una herramienta de IA para observar clases la encontraron útil, pero plantearon preocupaciones de privacidad.",
+    "textoEn": "Teachers who tried an AI tool for classroom observation found it useful, but raised privacy concerns.",
+    "textoPt": "Docentes que testaram uma ferramenta de IA para observar aulas a acharam útil, mas levantaram preocupações de privacidade."
+   },
+   {
+    "tier": "contexto",
+    "ref": "Shouli et al., 2026",
+    "url": "https://arxiv.org/pdf/2503.11947v4",
+    "nivel": "4",
+    "texto": "Propone un marco de gobernanza de la IA centrado en la privacidad de los jóvenes, con lista de verificación.",
+    "textoEn": "Proposes an AI governance framework centered on youth privacy, with a checklist.",
+    "textoPt": "Propõe um marco de governança da IA centrado na privacidade dos jovens, com lista de verificação."
+   },
+   {
+    "tier": "guia",
+    "ref": "Utdanningsdirektoratet (Udir), 2025",
+    "url": "https://www.udir.no/kvalitet-og-kompetanse/digitalisering-skole/kunstig-intelligens-i-skolen/rad-om-kunstig-intelligens-skolen/",
+    "nivel": "pol",
+    "texto": "Noruega (obligatorio): si se procesan datos personales en IA, el responsable debe mostrar que el valor pedagógico supera las consecuencias para la privacidad.",
+    "textoEn": "Norway (mandatory): if personal data is processed in AI, the school owner must show that the pedagogical value outweighs the privacy consequences.",
+    "textoPt": "Noruega (obrigatório): se dados pessoais são processados em IA, o responsável deve mostrar que o valor pedagógico supera as consequências para a privacidade."
+   },
+   {
+    "tier": "guia",
+    "ref": "Department for Education (DfE), 2023",
+    "url": "https://www.gov.uk/government/publications/generative-artificial-intelligence-in-education",
+    "nivel": "pol",
+    "texto": "Reino Unido: la escuela debe proteger los datos personales que use en estas herramientas (obligatorio) e informar a estudiantes y familias y pedir su acuerdo (orientación).",
+    "textoEn": "United Kingdom: the school must protect any personal data used in these tools (mandatory) and inform pupils and families and seek agreement (guidance).",
+    "textoPt": "Reino Unido: a escola deve proteger os dados pessoais usados nessas ferramentas (obrigatório) e informar estudantes e famílias e pedir sua concordância (orientação)."
+   },
+   {
+    "tier": "guia",
+    "ref": "Welsh Government, 2025",
+    "url": "https://hwb.gov.wales/school-improvement-and-leadership/education-digital-standards/generative-artificial-intelligence-in-education",
+    "nivel": "pol",
+    "texto": "Gales (orientación): antes de usar cualquier producto de IA generativa, hacer una evaluación de impacto y consultar al delegado de protección de datos.",
+    "textoEn": "Wales (guidance): before using any generative AI product, run an impact assessment and consult the Data Protection Officer.",
+    "textoPt": "País de Gales (orientação): antes de usar qualquer produto de IA generativa, fazer uma avaliação de impacto e consultar o encarregado de proteção de dados."
+   },
+   {
+    "tier": "guia",
+    "ref": "Department of Education, Victoria State Government, 2024",
+    "url": "https://www2.education.vic.gov.au/pal/generative-artificial-intelligence/policy",
+    "nivel": "pol",
+    "texto": "Victoria, Australia (orientación): preferir herramientas que no compartan los datos con terceros, no los usen para entrenar modelos y no los guarden.",
+    "textoEn": "Victoria, Australia (guidance): prefer tools that do not share data with third parties, do not use it to train models and do not store it.",
+    "textoPt": "Victoria, Austrália (orientação): preferir ferramentas que não compartilhem os dados com terceiros, não os usem para treinar modelos e não os guardem."
+   },
+   {
+    "tier": "guia",
+    "ref": "Ministerio de Educación, Ciencia y Deporte de Lituania y Agencia Nacional de Educación, 2026",
+    "url": "https://www.nsa.smsm.lt/2026/01/16/parengtos-dirbtinio-intelekto-naudojimo-gaires-tai-pades-kiekvienai-mokyklai-nusistatyti-savo-di-naudojimo-taisykles-rengiama-didaktika-ir-metodai/",
+    "nivel": "pol",
+    "texto": "Lituania (orientación): si una herramienta usa datos de estudiantes, pedir licencia escolar, acuerdo de tratamiento de datos y control de acceso; nombrar a un responsable que vigile las herramientas.",
+    "textoEn": "Lithuania (guidance): if a tool uses student data, require a school license, a data processing agreement and access control; name someone to monitor the tools.",
+    "textoPt": "Lituânia (orientação): se uma ferramenta usa dados de estudantes, exigir licença escolar, acordo de tratamento de dados e controle de acesso; nomear um responsável para acompanhar as ferramentas."
+   },
+   {
+    "tier": "guia",
+    "ref": "U.S. Department of Education (PTAC), 2016",
+    "url": "https://studentprivacy.ed.gov/resources/protecting-student-privacy-while-using-online-educational-services-model-terms-service",
+    "nivel": "pol",
+    "texto": "EE.UU. (orientación): términos modelo en que los derechos sobre los datos quedan en la escuela y el proveedor solo tiene una licencia limitada.",
+    "textoEn": "US (guidance): model terms in which data rights stay with the school and the provider has only a limited license.",
+    "textoPt": "EUA (orientação): termos modelo em que os direitos sobre os dados ficam com a escola e o fornecedor tem só uma licença limitada."
+   },
+   {
+    "tier": "guia",
+    "ref": "Ministerio de Educación de la Ciudad Autónoma de Buenos Aires, 2025",
+    "url": "https://buenosaires.gob.ar/educacion/inteligencia-artificial-en-la-escuela",
+    "nivel": "pol",
+    "texto": "Ciudad de Buenos Aires (orientación): evitar que los estudiantes compartan nombre completo, documento, fotos o ubicación con herramientas de IA.",
+    "textoEn": "Buenos Aires City (guidance): prevent students from sharing full name, ID number, photos or location with AI tools.",
+    "textoPt": "Cidade de Buenos Aires (orientação): evitar que os estudantes compartilhem nome completo, documento, fotos ou localização com ferramentas de IA."
+   }
+  ]
+ }
+]
