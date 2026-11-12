@@ -213,7 +213,18 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 .lab-tabs { align-items: flex-end; }
 .lab-tab.pri { font-size: 15px; font-weight: 600; color: var(--color-fg); padding: 10px 16px; }
 .lab-tab.pri[aria-selected="true"] { border-bottom-width: 3px; }
-.lab-tab.sec { font-size: 12.5px; padding: 8px 10px; }
+.anexo { margin-top: 28px; border-top: 1px solid var(--color-border-line); padding-top: 14px; }
+.anexo > details > summary { list-style: none; cursor: pointer; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; padding: 10px 14px; border-radius: 12px; background: color-mix(in srgb, var(--color-fg) 4%, var(--color-panel)); border: 1px solid var(--color-border-line); }
+.anexo > details > summary::-webkit-details-marker { display: none; }
+.anexo > details > summary::after { content: "▾"; margin-left: auto; color: var(--color-fg-muted); }
+.anexo > details:not([open]) > summary::after { transform: rotate(-90deg); }
+.anexo-k { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: var(--color-fg); }
+.anexo-s { font-size: 13px; color: var(--color-fg-muted); flex: 1 1 260px; }
+.anexo-tabs { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin: 12px 0 14px; }
+.anexo-tab { font: inherit; text-align: left; display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--color-border-line); background: var(--color-panel); color: var(--color-fg); cursor: pointer; }
+.anexo-tab small { color: var(--color-fg-muted); font-size: 12px; }
+.anexo-tab[aria-pressed="true"] { border-color: #2a78d6; box-shadow: inset 0 0 0 1px #2a78d6; }
+.lab-section.anx { margin-bottom: 18px; }
 .lab-tabs .tab-grupo { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-fg-muted); padding: 0 4px 10px 18px; margin-left: 6px; border-left: 1px solid var(--color-border-line); align-self: center; }
 .dec-head { margin: 6px 0 16px; }
 .dec-head h2 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 4px; }
@@ -378,13 +389,6 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     <button class="lab-tab pri" role="tab" data-tab="decidir" aria-selected="true"><span lang="es">Decidir</span><span lang="en">Decide</span><span lang="pt">Decidir</span></button>
     <button class="lab-tab pri" role="tab" data-tab="inicio" aria-selected="false"><span lang="es">Probar supuestos</span><span lang="en">Try assumptions</span><span lang="pt">Testar suposições</span></button>
     <button class="lab-tab pri" role="tab" data-tab="lecciones" aria-selected="false"><span lang="es">Lecciones para implementar</span><span lang="en">Lessons for deploying</span><span lang="pt">Lições para implementar</span></button>
-    <span class="tab-grupo"><span lang="es">Análisis técnico</span><span lang="en">Technical analysis</span><span lang="pt">Análise técnica</span></span>
-    <button class="lab-tab sec" role="tab" data-tab="explorador" aria-selected="false"><span lang="es">Evidencia</span><span lang="en">Evidence</span><span lang="pt">Evidências</span></button>
-    <button class="lab-tab sec" role="tab" data-tab="impacto" aria-selected="false"><span lang="es">Impacto</span><span lang="en">Impact</span><span lang="pt">Impacto</span></button>
-    <button class="lab-tab sec" role="tab" data-tab="calculadora" aria-selected="false"><span lang="es">Calculadora</span><span lang="en">Calculator</span><span lang="pt">Calculadora</span></button>
-    <button class="lab-tab sec" role="tab" data-tab="simulador" aria-selected="false"><span lang="es">Costos y escala</span><span lang="en">Cost and scale</span><span lang="pt">Custos e escala</span></button>
-    <button class="lab-tab sec" role="tab" data-tab="brechas" aria-selected="false"><span lang="es">Brechas</span><span lang="en">Gaps</span><span lang="pt">Lacunas</span></button>
-    <button class="lab-tab sec" role="tab" data-tab="metodologia" aria-selected="false"><span lang="es">Metodología</span><span lang="en">Methodology</span><span lang="pt">Metodologia</span></button>
   </nav>
 
   <!-- D. DECIDIR: vista mínima para tomadores de decisiones -->
@@ -417,7 +421,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 
     <div class="lec-teaser">
       <span class="lec-teaser-k"><span lang="es">Antes de implementar</span><span lang="en">Before deploying</span><span lang="pt">Antes de implementar</span></span>
-      <span><span lang="es">Infraestructura, docentes, equidad y privacidad: qué dice la evidencia de tres fuentes, ordenada por confiabilidad.</span><span lang="en">Infrastructure, teachers, equity and privacy: what the evidence from three sources says, sorted by reliability.</span><span lang="pt">Infraestrutura, docentes, equidade e privacidade: o que diz a evidência de três fontes, ordenada por confiabilidade.</span></span>
+      <span><span lang="es">Ocho lecciones (infraestructura, costo, docentes, estudiantes, diseño, lugar, equidad y privacidad) y un explorador de 95 ensayos por dimensión.</span><span lang="en">Eight lessons (infrastructure, cost, teachers, students, design, setting, equity and privacy) and an explorer of 95 trials by dimension.</span><span lang="pt">Oito lições (infraestrutura, custo, docentes, estudantes, desenho, lugar, equidade e privacidade) e um explorador de 95 ensaios por dimensão.</span></span>
       <button type="button" class="lab-btn" data-tab-ir="lecciones"><span lang="es">Ver las lecciones →</span><span lang="en">See the lessons →</span><span lang="pt">Ver as lições →</span></button>
     </div>
     <div class="dec-next">
@@ -564,7 +568,16 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     <p class="lab-small lab-muted lec-nota"><span lang="es"><b>Nota:</b> las lecciones, acciones y resúmenes los destiló Claude a partir de EvidencIA (que incluye la colección del Stanford SCALE AI Hub) y del AI and Human Skill Atlas, consultados el 12 nov 2026. Las lecciones curadas de EvidencIA son un prototipo (versión 0.2.0) pendiente de revisión por su comité. La evidencia tiene distinta confiabilidad: son insumos para decidir y deben corroborarse en el contexto local antes de ampliar un programa.</span><span lang="en"><b>Note:</b> the lessons, actions and summaries were distilled by Claude from EvidencIA (which includes the Stanford SCALE AI Hub collection) and the AI and Human Skill Atlas, consulted on 12 Nov 2026. EvidencIA's curated lessons are a prototype (version 0.2.0) pending review by its committee. The evidence varies in reliability: these are inputs for deciding and should be corroborated in the local context before expanding a program.</span><span lang="pt"><b>Nota:</b> as lições, ações e resumos foram destilados pelo Claude a partir da EvidencIA (que inclui a coleção do Stanford SCALE AI Hub) e do AI and Human Skill Atlas, consultados em 12 nov 2026. As lições curadas da EvidencIA são um protótipo (versão 0.2.0) pendente de revisão por seu comitê. A evidência tem confiabilidade distinta: são insumos para decidir e devem ser corroborados no contexto local antes de ampliar um programa.</span></p>
   </section>
 
-  <section id="explorador" class="lab-section" hidden>
+  <!-- ANEXO TÉCNICO -->
+  <div class="anexo" id="anexo">
+    <details id="anexo-d">
+      <summary><span class="anexo-k"><span lang="es">Anexo técnico</span><span lang="en">Technical annex</span><span lang="pt">Anexo técnico</span></span><span class="anexo-s"><span lang="es">Para quien quiere ver los datos, los cálculos y el método detrás de las lecciones.</span><span lang="en">For those who want to see the data, the calculations and the method behind the lessons.</span><span lang="pt">Para quem quer ver os dados, os cálculos e o método por trás das lições.</span></span></summary>
+      <div class="anexo-tabs" role="tablist">
+        <button type="button" class="anexo-tab" data-anx="calc" aria-pressed="false"><b><span lang="es">Calculadora avanzada</span><span lang="en">Advanced calculator</span><span lang="pt">Calculadora avançada</span></b><small><span lang="es">Umbral de costo, sensibilidad e incertidumbre</span><span lang="en">Cost threshold, sensitivity and uncertainty</span><span lang="pt">Limiar de custo, sensibilidade e incerteza</span></small></button>
+        <button type="button" class="anexo-tab" data-anx="datos" aria-pressed="false"><b><span lang="es">Datos y gráficos</span><span lang="en">Data and charts</span><span lang="pt">Dados e gráficos</span></b><small><span lang="es">Estudios del lote 1, efectos con intervalos y AI Skill Atlas</span><span lang="en">Batch 1 studies, effects with intervals and AI Skill Atlas</span><span lang="pt">Estudos do lote 1, efeitos com intervalos e AI Skill Atlas</span></small></button>
+        <button type="button" class="anexo-tab" data-anx="metodo" aria-pressed="false"><b><span lang="es">Fuentes y método</span><span lang="en">Sources and method</span><span lang="pt">Fontes e método</span></b><small><span lang="es">Fuentes, regla de estandarización, cotejo y lo que falta saber</span><span lang="en">Sources, standardization rule, cross check and what is still unknown</span><span lang="pt">Fontes, regra de padronização, conferência e o que falta saber</span></small></button>
+      </div>
+  <section id="explorador" class="lab-section anx" data-panel="datos" hidden>
     <div class="lab-banner cifras"><span lang="es"><b>Estas son las cifras de cada publicación (lote 1).</b> Decidir, Probar supuestos y la calculadora usan las cifras de EvidencIA, calculadas con una misma regla para que sean comparables; a veces difieren porque se elige otro resultado u otra desviación estándar.</span><span lang="en"><b>These are the figures from each publication (batch 1).</b> Decide, Try assumptions and the calculator use EvidencIA's figures, computed with the same rule so they are comparable; they sometimes differ because another outcome or another standard deviation is chosen.</span><span lang="pt"><b>Estes são os números de cada publicação (lote 1).</b> Decidir, Testar suposições e a calculadora usam os números da EvidencIA, calculados com a mesma regra para serem comparáveis; às vezes diferem porque se escolhe outro resultado ou outro desvio padrão.</span> <button type="button" class="sim-reset" data-tab-ir="metodologia"><span lang="es">Ver el cotejo de cifras →</span><span lang="en">See the figure cross check →</span><span lang="pt">Ver a conferência de números →</span></button></div>
     <p class="lab-take"><span lang="es">Este lote reúne</span><span lang="en">This batch holds</span><span lang="pt">Este lote reúne</span> <b data-draw="tNum" data-f="nEstudios" data-source="resumen" data-field="nEstudios" data-row="0">—</b> <span lang="es">registros extraídos de las publicaciones originales:</span><span lang="en">records extracted from the original publications:</span><span lang="pt">registros extraídos das publicações originais:</span> <b data-draw="tNum" data-f="nVerificados" data-source="resumen" data-field="nVerificados" data-row="0">—</b> <span lang="es">verificados y</span><span lang="en">verified and</span><span lang="pt">verificados e</span> <b data-draw="tNum" data-f="nProvisionales" data-source="resumen" data-field="nProvisionales" data-row="0">—</b> <span lang="es">provisionales. Todos tienen ficha en EvidencIA.</span><span lang="en">provisional. All of them have an EvidencIA record.</span><span lang="pt">provisórios. Todos têm ficha na EvidencIA.</span></p>
     <div class="lab-filters" id="filtros">
@@ -598,7 +611,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   </section>
 
   <!-- 2. IMPACTO -->
-  <section id="impacto" class="lab-section" hidden>
+  <section id="impacto" class="lab-section anx" data-panel="datos" hidden>
     <div class="lab-banner cifras"><span lang="es"><b>Estas son las cifras de cada publicación (lote 1).</b> Decidir, Probar supuestos y la calculadora usan las cifras de EvidencIA, calculadas con una misma regla para que sean comparables; a veces difieren porque se elige otro resultado u otra desviación estándar.</span><span lang="en"><b>These are the figures from each publication (batch 1).</b> Decide, Try assumptions and the calculator use EvidencIA's figures, computed with the same rule so they are comparable; they sometimes differ because another outcome or another standard deviation is chosen.</span><span lang="pt"><b>Estes são os números de cada publicação (lote 1).</b> Decidir, Testar suposições e a calculadora usam os números da EvidencIA, calculados com a mesma regra para serem comparáveis; às vezes diferem porque se escolhe outro resultado ou outro desvio padrão.</span> <button type="button" class="sim-reset" data-tab-ir="metodologia"><span lang="es">Ver el cotejo de cifras →</span><span lang="en">See the figure cross check →</span><span lang="pt">Ver a conferência de números →</span></button></div>
     <div class="lab-tiles" id="disponibilidad">
       <div class="lab-tile"><span class="v" data-draw="tNum" data-f="nIndividuales" data-source="resumen" data-field="nIndividuales" data-row="0">—</span><span class="l"><span lang="es">estudios individuales</span><span lang="en">individual studies</span><span lang="pt">estudos individuais</span></span></div>
@@ -643,7 +656,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   </section>
 
   <!-- 3. CALCULADORA -->
-  <section id="calculadora" class="lab-section" hidden>
+  <section id="calculadora" class="lab-section anx" data-panel="calc" hidden>
     <div class="lab-banner ilus" id="aviso-ilustrativo"><span lang="es"><b>Escenario ilustrativo por defecto.</b> La ganancia de 0,125 DE viene de una síntesis del Banco Mundial (Burneo et al., 2026) que agrupa 14 estudios; no es el efecto de una intervención concreta. Los otros tres valores son supuestos hipotéticos.</span><span lang="en"><b>Illustrative default scenario.</b> The 0.125 SD gain comes from a World Bank synthesis (Burneo et al., 2026) pooling 14 studies; it is not the effect of a specific intervention. The other three values are hypothetical assumptions.</span><span lang="pt"><b>Cenário ilustrativo padrão.</b> O ganho de 0,125 DP vem de uma síntese do Banco Mundial (Burneo et al., 2026) que agrupa 14 estudos; não é o efeito de uma intervenção específica. Os outros três valores são suposições hipotéticas.</span></div>
     <div class="std-row"><button type="button" class="std-btn" data-std aria-pressed="true"><span class="std-knob" aria-hidden="true"></span><span lang="es">Solo efectos estandarizados con la misma regla</span><span lang="en">Only effects standardized with the same rule</span><span lang="pt">Só efeitos padronizados com a mesma regra</span></button><button type="button" class="lab-q" data-glos="estandar" aria-label="?">?</button><span class="lab-small lab-muted" data-draw="stdNota" data-modo="calc"></span></div>
     <div class="lab-grid2">
@@ -700,48 +713,10 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     <div class="lab-card" id="tornado"><h3><span lang="es">Sensibilidad determinista: costo efectividad relativa con cada supuesto ± 20%</span><span lang="en">Deterministic sensitivity: relative cost effectiveness with each assumption ± 20%</span><span lang="pt">Sensibilidade determinística: custo efetividade relativa com cada suposição ± 20%</span></h3><div class="lab-chart" data-draw="tornadoChart"></div></div>
   </section>
 
-  <!-- 4. COSTOS Y ESCALA -->
-  <section id="simulador" class="lab-section" hidden>
-    <div class="lab-banner ilus"><span lang="es"><b>Todo lo de esta sección es proyectado.</b> Los valores iniciales son supuestos ilustrativos editables, no costos observados.</span><span lang="en"><b>Everything in this section is projected.</b> Starting values are editable illustrative assumptions, not observed costs.</span><span lang="pt"><b>Tudo nesta seção é projetado.</b> Os valores iniciais são suposições ilustrativas editáveis, não custos observados.</span></div>
-    <div class="lab-card" id="modelo-costos">
-      <h2 style="margin-top:0"><span lang="es">Modelo de costos de una intervención de IA</span><span lang="en">Cost model for an AI intervention</span><span lang="pt">Modelo de custos de uma intervenção de IA</span></h2>
-      <div class="lab-inputs">
-        <label><span lang="es">Estudiantes atendidos</span><span lang="en">Students served</span><span lang="pt">Estudantes atendidos</span><input type="number" min="1" step="1" value="1000" data-s="nEst"></label>
-        <label><span lang="es">Sesiones por estudiante al mes</span><span lang="en">Sessions per student per month</span><span lang="pt">Sessões por estudante por mês</span><input type="number" min="0" step="1" value="8" data-s="sesMes"></label>
-        <label><span lang="es">Meses de implementación</span><span lang="en">Months of implementation</span><span lang="pt">Meses de implementação</span><input type="number" min="1" step="1" value="6" data-s="meses"></label>
-        <label><span lang="es">Costo por sesión de IA (USD)</span><span lang="en">Cost per AI session (USD)</span><span lang="pt">Custo por sessão de IA (USD)</span><input type="number" min="0" step="0.01" value="0.05" data-s="costoSesion"></label>
-        <label><span lang="es">Licencias anuales (USD, total)</span><span lang="en">Annual licenses (USD, total)</span><span lang="pt">Licenças anuais (USD, total)</span><input type="number" min="0" step="100" value="0" data-s="licencia"></label>
-        <label><span lang="es">Conectividad, soporte y mantenimiento (USD por estudiante al mes)</span><span lang="en">Connectivity, support and maintenance (USD per student per month)</span><span lang="pt">Conectividade, suporte e manutenção (USD por estudante por mês)</span><input type="number" min="0" step="0.1" value="0" data-s="varEst"></label>
-        <label><span lang="es">Costos fijos de implementación (USD)</span><span lang="en">Fixed implementation costs (USD)</span><span lang="pt">Custos fixos de implementação (USD)</span><input type="number" min="0" step="100" value="5000" data-s="fijo"></label>
-        <label><span lang="es">Formación y apoyo docente (USD, total)</span><span lang="en">Teacher training and support (USD, total)</span><span lang="pt">Formação e apoio docente (USD, total)</span><input type="number" min="0" step="100" value="2000" data-s="docente"></label>
-      </div>
-      <div class="lab-out" data-draw="costosOut"></div>
-      <div class="lab-btnrow"><button class="lab-btn" id="btn-usar-costo" type="button"><span lang="es">Usar este costo en la calculadora</span><span lang="en">Use this cost in the calculator</span><span lang="pt">Usar este custo na calculadora</span></button></div>
-      <p class="lab-small lab-muted"><span lang="es">Costo total = fijos (implementación y formación) + variables (sesiones, licencias prorrateadas, conectividad y soporte). Costo por estudiante = total ÷ estudiantes.</span><span lang="en">Total cost = fixed (implementation and training) + variable (sessions, prorated licenses, connectivity and support). Cost per student = total ÷ students.</span><span lang="pt">Custo total = fixos (implementação e formação) + variáveis (sessões, licenças proporcionais, conectividade e suporte). Custo por estudante = total ÷ estudantes.</span></p>
-    </div>
-    <div class="lab-card" id="presupuesto">
-      <h2 style="margin-top:0"><span lang="es">Simulación de presupuesto y escala</span><span lang="en">Budget and scale simulation</span><span lang="pt">Simulação de orçamento e escala</span></h2>
-      <div class="lab-btnrow">
-        <button class="lab-btn" type="button" data-preset="piloto"><span lang="es">Piloto pequeño</span><span lang="en">Small pilot</span><span lang="pt">Piloto pequeno</span></button>
-        <button class="lab-btn" type="button" data-preset="distrito"><span lang="es">Implementación distrital</span><span lang="en">District rollout</span><span lang="pt">Implementação distrital</span></button>
-        <button class="lab-btn" type="button" data-preset="nacional"><span lang="es">Escala nacional</span><span lang="en">National scale</span><span lang="pt">Escala nacional</span></button>
-      </div>
-      <div class="lab-inputs">
-        <label><span lang="es">Presupuesto disponible (USD)</span><span lang="en">Available budget (USD)</span><span lang="pt">Orçamento disponível (USD)</span><input type="number" min="0" step="1000" value="100000" data-b="presupuesto"></label>
-        <label><span lang="es">Población estudiantil elegible</span><span lang="en">Eligible student population</span><span lang="pt">População estudantil elegível</span><input type="number" min="1" step="1" value="10000" data-b="poblacion"></label>
-        <label><span lang="es">Costo por estudiante de la IA (USD)</span><span lang="en">AI cost per student (USD)</span><span lang="pt">Custo por estudante da IA (USD)</span><input type="number" min="0" step="0.5" value="15" data-b="costoIA"></label>
-        <label><span lang="es">Costo por estudiante del comparador (USD)</span><span lang="en">Comparator cost per student (USD)</span><span lang="pt">Custo por estudante do comparador (USD)</span><input type="number" min="0" step="0.5" value="20" data-b="costoAlt"></label>
-        <label><span lang="es">Ganancia esperada de la IA (DE)</span><span lang="en">Expected AI gain (SD)</span><span lang="pt">Ganho esperado da IA (DP)</span><input type="number" step="0.001" value="0.125" data-b="ganIA"></label>
-        <label><span lang="es">Ganancia esperada del comparador (DE)</span><span lang="en">Expected comparator gain (SD)</span><span lang="pt">Ganho esperado do comparador (DP)</span><input type="number" step="0.001" value="0.25" data-b="ganAlt"></label>
-      </div>
-      <div class="lab-btnrow"><button class="lab-btn" id="btn-desde-calc" type="button"><span lang="es">Copiar valores de la calculadora</span><span lang="en">Copy values from the calculator</span><span lang="pt">Copiar valores da calculadora</span></button></div>
-      <div class="lab-tablewrap" data-draw="presupuestoOut"></div>
-      <p class="lab-small lab-muted"><span lang="es">Supuesto explícito: el efecto se mantiene constante al crecer la escala. No hay evidencia de que así sea.</span><span lang="en">Explicit assumption: the effect stays constant as scale grows. There is no evidence that it does.</span><span lang="pt">Suposição explícita: o efeito se mantém constante ao crescer a escala. Não há evidência de que isso aconteça.</span></p>
-    </div>
-  </section>
+
 
   <!-- 5. BRECHAS -->
-  <section id="brechas" class="lab-section" hidden>
+  <section id="brechas" class="lab-section anx" data-panel="metodo" hidden>
     <p class="lab-take"><span lang="es">Ausencia de evidencia no es evidencia de ausencia de efecto. Los conteos del lote van primero; abajo, el panorama de toda la base EvidencIA (copia del 11 nov 2026).</span><span lang="en">Absence of evidence is not evidence of no effect. Batch counts come first; below, the picture for the whole EvidencIA base (copy of 11 Nov 2026).</span><span lang="pt">Ausência de evidência não é evidência de ausência de efeito. Primeiro, as contagens do lote; abaixo, o panorama de toda a base EvidencIA (cópia de 11 nov 2026).</span></p>
     <div class="lab-card" id="tabla-brechas">
       <div class="lab-tablewrap"><table data-source="brechas" data-row-key="clave">
@@ -763,7 +738,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   </section>
 
   <!-- 6. METODOLOGÍA -->
-  <section id="metodologia" class="lab-section" hidden>
+  <section id="metodologia" class="lab-section anx" data-panel="metodo" hidden>
     <div class="lab-card" id="registro-fuentes"><h2 style="margin-top:0"><span lang="es">Fuentes registradas</span><span lang="en">Registered sources</span><span lang="pt">Fontes registradas</span></h2><div data-draw="fuentesList" data-source="fuentes"></div></div>
     <div class="lab-card" id="mapeo-fuentes">
       <h2 style="margin-top:0"><span lang="es">Mapeo entre fuentes (un registro canónico por estudio)</span><span lang="en">Cross source mapping (one canonical record per study)</span><span lang="pt">Mapeamento entre fontes (um registro canônico por estudo)</span></h2>
@@ -799,12 +774,14 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       </details>
     </div>
   </section>
+    </details>
+  </div>
 </div>
 
 
 </div>
-<script src="dash-static.js?v=202611121616"></script>
-<script src="app.js?v=202611121616"></script>
+<script src="dash-static.js?v=202611121621"></script>
+<script src="app.js?v=202611121621"></script>
 <script>dash.iniciar();</script>
 </body>
 </html>
