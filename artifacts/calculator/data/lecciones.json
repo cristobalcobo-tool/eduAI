@@ -122,16 +122,113 @@
  {
   "id": "implementacion",
   "orden": 2,
-  "piloto": false,
-  "fuerza": "pendiente",
+  "piloto": true,
+  "fuerza": "moderada",
   "titulo": "Capacidad de implementación, costo y escala",
   "tituloEn": "Implementation capacity, cost and scale",
   "tituloPt": "Capacidade de implementação, custo e escala",
   "pregunta": "¿Qué estructura y qué presupuesto hacen falta?",
   "preguntaEn": "What structure and budget are needed?",
   "preguntaPt": "Que estrutura e que orçamento são necessários?",
-  "acciones": [],
-  "evidencia": []
+  "leccion": "Paga por la estructura, no solo por la herramienta: tiempo protegido y alguien a cargo de que ocurra.",
+  "leccionEn": "Pay for the structure, not only the tool: protected time and someone in charge of making it happen.",
+  "leccionPt": "Pague pela estrutura, não só pela ferramenta: tempo protegido e alguém encarregado de que aconteça.",
+  "resumen": "La tecnología rindió cuando estuvo dentro de una estructura: sesiones en el horario, una persona responsable y seguimiento. En India, lo que se sorteó fue esa estructura, no la plataforma, y gran parte del costo fueron personas. Al escalar en Rajastán, cuando el coordinador pasó a compartirse entre escuelas, bajaron el uso y el efecto. Más dosis no siempre suma, y la tutoría humana intensiva funciona pero cuesta mucho más. EvidencIA califica la lección sobre estructura como moderada.",
+  "resumenEn": "Technology paid off when it sat inside a structure: sessions in the timetable, a person in charge and follow up. In India, what was randomized was that structure, not the platform, and most of the cost was people. When scaling in Rajasthan, once the coordinator was shared across schools, use and the effect fell. More dose does not always add up, and intensive human tutoring works but costs much more. EvidencIA rates the lesson on structure as moderate.",
+  "resumenPt": "A tecnologia rendeu quando esteve dentro de uma estrutura: sessões no horário, uma pessoa responsável e acompanhamento. Na Índia, o que se sorteou foi essa estrutura, não a plataforma, e grande parte do custo foram pessoas. Ao escalar no Rajastão, quando o coordenador passou a ser compartilhado entre escolas, o uso e o efeito caíram. Mais dose nem sempre soma, e a tutoria humana intensiva funciona mas custa muito mais. A EvidencIA classifica a lição sobre estrutura como moderada.",
+  "medicion": "La mayoría de los efectos se midieron al terminar el programa. Solo 26 de los 95 ensayos de nivel 1 informan costo, y cada uno lo calcula distinto.",
+  "medicionEn": "Most effects were measured at the end of the program. Only 26 of the 95 level 1 trials report cost, and each computes it differently.",
+  "medicionPt": "A maioria dos efeitos foi medida ao final do programa. Só 26 dos 95 ensaios de nível 1 informam custo, e cada um o calcula de um jeito.",
+  "noSabemos": "Pocos ensayos separan el aporte de la estructura del de la herramienta, y casi ninguno sigue a las escuelas después de que termina el apoyo externo.",
+  "noSabemosEn": "Few trials separate the contribution of the structure from that of the tool, and almost none follow schools after external support ends.",
+  "noSabemosPt": "Poucos ensaios separam a contribuição da estrutura da contribuição da ferramenta, e quase nenhum acompanha as escolas depois que o apoio externo termina.",
+  "acciones": [
+   {
+    "t": "Reserva sesiones fijas en el horario escolar, no uso a demanda.",
+    "tEn": "Reserve fixed sessions in the school timetable, not on demand use.",
+    "tPt": "Reserve sessões fixas no horário escolar, não uso sob demanda."
+   },
+   {
+    "t": "Presupuesta personas: alguien en cada escuela que asegure las sesiones y resuelva problemas.",
+    "tEn": "Budget for people: someone at each school who ensures sessions happen and fixes problems.",
+    "tPt": "Orce pessoas: alguém em cada escola que garanta as sessões e resolva problemas."
+   },
+   {
+    "t": "Al escalar, no diluyas el apoyo: vigila el uso real escuela por escuela.",
+    "tEn": "When scaling, do not dilute support: monitor actual use school by school.",
+    "tPt": "Ao escalar, não dilua o apoio: acompanhe o uso real escola por escola."
+   },
+   {
+    "t": "Calcula el costo por estudiante con todo incluido y compáralo con alternativas en la calculadora.",
+    "tEn": "Compute the all in cost per student and compare it with alternatives in the calculator.",
+    "tPt": "Calcule o custo por estudante com tudo incluído e compare com alternativas na calculadora."
+   }
+  ],
+  "evidencia": [
+   {
+    "tier": "causal",
+    "ref": "Oreopoulos et al., 2026",
+    "url": "https://www.nber.org/papers/w34683",
+    "nivel": "1",
+    "texto": "India: con encargados de laboratorio, los estudiantes practicaron 47,4 minutos por semana frente a 7,2 en las escuelas de control, y matemática subió 0,33 a 0,44 DE. Costo: USD 14 por estudiante en siete meses, 61 % en salarios y formación de esos encargados.",
+    "textoEn": "India: with lab managers, students practiced 47.4 minutes a week versus 7.2 in control schools, and math rose 0.33 to 0.44 SD. Cost: USD 14 per student over seven months, 61% on those managers' salaries and training.",
+    "textoPt": "Índia: com encarregados de laboratório, os estudantes praticaram 47,4 minutos por semana contra 7,2 nas escolas de controle, e matemática subiu 0,33 a 0,44 DP. Custo: USD 14 por estudante em sete meses, 61% em salários e formação desses encarregados."
+   },
+   {
+    "tier": "causal",
+    "ref": "Muralidharan & Singh, 2025",
+    "url": "https://www.nber.org/papers/w34205",
+    "nivel": "1",
+    "texto": "Rajastán, India, a escala: software adaptativo en el horario escolar subió matemática 0,22 DE a los 18 meses; cuando el coordinador se compartió entre escuelas en el tercer año, bajaron el uso y el efecto.",
+    "textoEn": "Rajasthan, India, at scale: adaptive software in the school timetable raised math 0.22 SD at 18 months; when the coordinator was shared across schools in year three, use and the effect fell.",
+    "textoPt": "Rajastão, Índia, em escala: software adaptativo no horário escolar subiu matemática 0,22 DP aos 18 meses; quando o coordenador foi compartilhado entre escolas no terceiro ano, o uso e o efeito caíram."
+   },
+   {
+    "tier": "causal",
+    "ref": "Oreopoulos & Low, 2026",
+    "url": "https://www.nber.org/papers/w35620",
+    "nivel": "1",
+    "texto": "Tennessee: los autores atribuyen la pequeña ganancia (0,04 DE por trimestre) a la práctica estructurada en bloques de refuerzo, no al chat con el tutor de IA. Costo marginal: unos USD 15 por estudiante al año en licencias.",
+    "textoEn": "Tennessee: the authors attribute the small gain (0.04 SD per term) to structured practice in remediation blocks, not to chatting with the AI tutor. Marginal cost: about USD 15 per student a year in licenses.",
+    "textoPt": "Tennessee: os autores atribuem o pequeno ganho (0,04 DP por trimestre) à prática estruturada em blocos de reforço, não ao chat com o tutor de IA. Custo marginal: cerca de USD 15 por estudante por ano em licenças."
+   },
+   {
+    "tier": "causal",
+    "ref": "Bettinger et al., 2023",
+    "url": "https://doi.org/10.1002/pam.22442",
+    "nivel": "1",
+    "texto": "Rusia: tareas en computadora (unos 20 a 25 minutos por semana y materia) subieron matemática 0,108 DE; duplicar la dosis no agregó nada.",
+    "textoEn": "Russia: computer homework (about 20 to 25 minutes a week per subject) raised math 0.108 SD; doubling the dose added nothing.",
+    "textoPt": "Rússia: tarefas no computador (cerca de 20 a 25 minutos por semana e matéria) subiram matemática 0,108 DP; dobrar a dose não acrescentou nada."
+   },
+   {
+    "tier": "causal",
+    "ref": "Muralidharan et al., 2019",
+    "url": "https://doi.org/10.1257/aer.20171112",
+    "nivel": "1",
+    "texto": "Delhi: centros Mindspark después de clases subieron matemática 0,37 DE en 4,5 meses, pero la asistencia promedio fue 58 % y los centros cerraron después porque las familias no quisieron pagar.",
+    "textoEn": "Delhi: after school Mindspark centers raised math 0.37 SD in 4.5 months, but average attendance was 58% and the centers later closed because families were unwilling to pay.",
+    "textoPt": "Délhi: centros Mindspark depois das aulas subiram matemática 0,37 DP em 4,5 meses, mas a frequência média foi 58% e os centros fecharam depois porque as famílias não quiseram pagar."
+   },
+   {
+    "tier": "causal",
+    "ref": "Bhatt et al., 2024",
+    "url": "https://www.nber.org/papers/w32510",
+    "nivel": "1",
+    "texto": "Chicago y Nueva York: tutoría en grupos de cuatro alternando tutor humano y software adaptativo subió 0,19 DE la prueba estandarizada, a unos USD 2.200 por estudiante.",
+    "textoEn": "Chicago and New York: tutoring in groups of four alternating a human tutor and adaptive software raised the standardized test 0.19 SD, at about USD 2,200 per student.",
+    "textoPt": "Chicago e Nova York: tutoria em grupos de quatro alternando tutor humano e software adaptativo subiu 0,19 DP no teste padronizado, a cerca de USD 2.200 por estudante."
+   },
+   {
+    "tier": "causal",
+    "ref": "Guryan et al., 2023",
+    "url": "https://doi.org/10.1257/aer.20210434",
+    "nivel": "1",
+    "texto": "Chicago: tutoría humana diaria subió 0,12 DE para todos los asignados (0,28 entre quienes asistieron), a unos 3.500 dólares por estudiante al año; solo 37 a 40 % asistió alguna vez.",
+    "textoEn": "Chicago: daily human tutoring raised scores 0.12 SD for all assigned students (0.28 among attenders), at about 3,500 dollars per student a year; only 37 to 40% ever attended.",
+    "textoPt": "Chicago: tutoria humana diária subiu 0,12 DP para todos os designados (0,28 entre os que frequentaram), a cerca de 3.500 dólares por estudante por ano; só 37 a 40% frequentou alguma vez."
+   }
+  ]
  },
  {
   "id": "docentes",
@@ -265,44 +362,312 @@
  {
   "id": "estudiantes",
   "orden": 4,
-  "piloto": false,
-  "fuerza": "pendiente",
+  "piloto": true,
+  "fuerza": "moderada",
   "titulo": "Habilidades y preparación de los estudiantes",
   "tituloEn": "Student skills and readiness",
   "tituloPt": "Habilidades e preparação dos estudantes",
   "pregunta": "¿Qué necesitan saber los estudiantes para aprovecharla?",
   "preguntaEn": "What do students need to know to benefit?",
   "preguntaPt": "O que os estudantes precisam saber para aproveitá la?",
-  "acciones": [],
-  "evidencia": []
+  "leccion": "Enseña a usar la IA como tutor: pedir explicaciones y pasos, no respuestas.",
+  "leccionEn": "Teach students to use AI as a tutor: ask for explanations and steps, not answers.",
+  "leccionPt": "Ensine a usar a IA como tutor: pedir explicações e passos, não respostas.",
+  "resumen": "Dar acceso no basta: cómo se usa decide el efecto. En Chile, orientar a los estudiantes a usar la IA como tutor subió la nota del examen final; en otros experimentos, una guía breve no cambió nada. Pedir soluciones se asocia con entender menos y pedir explicaciones con entender más, aunque esto es exploratorio. Quienes ya saben más suelen sacar más provecho. Casi toda esta evidencia viene de universitarios y adultos. EvidencIA califica la lección sobre orientación de uso como moderada.",
+  "resumenEn": "Providing access is not enough: how it is used decides the effect. In Chile, guiding students to use AI as a tutor raised the final exam grade; in other experiments, a brief guide changed nothing. Asking for solutions is linked to understanding less and asking for explanations to understanding more, though this is exploratory. Students who already know more usually benefit more. Almost all of this evidence comes from university students and adults. EvidencIA rates the lesson on use guidance as moderate.",
+  "resumenPt": "Dar acesso não basta: como se usa decide o efeito. No Chile, orientar os estudantes a usar a IA como tutor subiu a nota da prova final; em outros experimentos, um guia breve não mudou nada. Pedir soluções se associa a entender menos e pedir explicações a entender mais, embora isso seja exploratório. Quem já sabe mais costuma aproveitar mais. Quase toda esta evidência vem de universitários e adultos. A EvidencIA classifica a lição sobre orientação de uso como moderada.",
+  "medicion": "Varios estudios son experimentos de laboratorio de una sola sesión con prueba inmediata. En el AI Skill Atlas, solo 17 de 43 estudios son con estudiantes escolares.",
+  "medicionEn": "Several studies are single session lab experiments with an immediate test. In the AI Skill Atlas, only 17 of 43 studies involve school students.",
+  "medicionPt": "Vários estudos são experimentos de laboratório de uma sessão com teste imediato. No AI Skill Atlas, só 17 de 43 estudos são com estudantes escolares.",
+  "noSabemos": "Ningún estudio verificado midió por separado el pensamiento crítico con una prueba, y hay muy poca evidencia con estudiantes de primaria.",
+  "noSabemosEn": "No verified study measured critical thinking separately with a test, and there is very little evidence with primary school students.",
+  "noSabemosPt": "Nenhum estudo verificado mediu separadamente o pensamento crítico com um teste, e há muito pouca evidência com estudantes do ensino fundamental I.",
+  "acciones": [
+   {
+    "t": "Da instrucciones concretas de uso (por ejemplo, instrucciones listas para copiar que ponen a la IA en modo tutor).",
+    "tEn": "Give concrete usage instructions (for example, ready to copy prompts that put the AI in tutor mode).",
+    "tPt": "Dê instruções concretas de uso (por exemplo, instruções prontas para copiar que colocam a IA em modo tutor)."
+   },
+   {
+    "t": "Pide que intenten primero y consulten después.",
+    "tEn": "Ask students to try first and consult afterwards.",
+    "tPt": "Peça que tentem primeiro e consultem depois."
+   },
+   {
+    "t": "Da más andamiaje a quienes empiezan con menos conocimientos previos.",
+    "tEn": "Give more scaffolding to students who start with less prior knowledge.",
+    "tPt": "Dê mais andaimes a quem começa com menos conhecimento prévio."
+   },
+   {
+    "t": "Evalúa lo que pueden hacer sin la IA.",
+    "tEn": "Assess what students can do without AI.",
+    "tPt": "Avalie o que conseguem fazer sem a IA."
+   }
+  ],
+  "evidencia": [
+   {
+    "tier": "causal",
+    "ref": "Gallegos, 2026",
+    "url": "https://docs.iza.org/dp18513.pdf",
+    "nivel": "1",
+    "texto": "Chile, universidad: todos tenían el mismo asistente; correos con instrucciones para usarlo como tutor (paso a paso, sin respuestas finales) subieron 0,22 DE el examen final y 12,8 puntos la tasa de aprobación. El autor diseñó la herramienta.",
+    "textoEn": "Chile, university: everyone had the same assistant; emails with instructions to use it as a tutor (step by step, no final answers) raised the final exam 0.22 SD and the pass rate 12.8 points. The author designed the tool.",
+    "textoPt": "Chile, universidade: todos tinham o mesmo assistente; mensagens por email com instruções para usá lo como tutor (passo a passo, sem respostas finais) subiram 0,22 DP a prova final e 12,8 pontos a taxa de aprovação. O autor desenhou a ferramenta."
+   },
+   {
+    "tier": "causal",
+    "ref": "Franco et al., 2026",
+    "url": "https://doi.org/10.2139/ssrn.6425840",
+    "nivel": "1",
+    "texto": "Reino Unido, laboratorio: ChatGPT con o sin una guía de uso no cambió el examen sin IA; los análisis por subgrupo, con poca potencia, sugieren efectos distintos según el promedio previo.",
+    "textoEn": "United Kingdom, lab: ChatGPT with or without a usage guide did not change the exam without AI; underpowered subgroup analyses suggest different effects by prior grades.",
+    "textoPt": "Reino Unido, laboratório: ChatGPT com ou sem um guia de uso não mudou a prova sem IA; as análises por subgrupo, com pouca potência, sugerem efeitos diferentes segundo a média prévia."
+   },
+   {
+    "tier": "causal",
+    "ref": "Lehmann et al., 2025",
+    "url": "https://doi.org/10.48550/arXiv.2409.09047",
+    "nivel": "1",
+    "texto": "Alemania, laboratorio: con ChatGPT sin restricciones la prueba sin IA no cambió; quienes tenían más conocimiento previo se beneficiaron más y quienes estaban bajo la mediana entendieron menos (exploratorio).",
+    "textoEn": "Germany, lab: with unrestricted ChatGPT the test without AI did not change; students with more prior knowledge benefited more and those below the median understood less (exploratory).",
+    "textoPt": "Alemanha, laboratório: com ChatGPT sem restrições o teste sem IA não mudou; quem tinha mais conhecimento prévio se beneficiou mais e quem estava abaixo da mediana entendeu menos (exploratório)."
+   },
+   {
+    "tier": "causal",
+    "ref": "Shen & Tamkin, 2026",
+    "url": "https://arxiv.org/abs/2601.20245",
+    "nivel": "1",
+    "texto": "Programadores adultos: con un asistente de IA puntuaron peor en un cuestionario sin IA (−0,70 DE); en un análisis exploratorio, quienes pedían explicaciones puntuaron más alto. Autores de Anthropic; el asistente era de otra empresa.",
+    "textoEn": "Adult programmers: with an AI assistant they scored lower on a quiz without AI (−0.70 SD); in an exploratory analysis, those who asked for explanations scored higher. Authors from Anthropic; the assistant was from another company.",
+    "textoPt": "Programadores adultos: com um assistente de IA pontuaram pior num questionário sem IA (−0,70 DP); numa análise exploratória, quem pedia explicações pontuou mais alto. Autores da Anthropic; o assistente era de outra empresa."
+   },
+   {
+    "tier": "causal",
+    "ref": "De Simone et al., 2025",
+    "url": "https://documents.worldbank.org/curated/en/099548105192529324/pdf/IDU-c09f40d8-9ff8-42dc-b315-591157499be7.pdf",
+    "nivel": "1",
+    "texto": "Nigeria: el efecto fue mayor para quienes tenían mejor rendimiento previo.",
+    "textoEn": "Nigeria: the effect was larger for students with higher prior achievement.",
+    "textoPt": "Nigéria: o efeito foi maior para quem tinha melhor desempenho prévio."
+   },
+   {
+    "tier": "contexto",
+    "ref": "AI and Human Skill Atlas, 2026",
+    "url": "https://aiskillatlas.org/",
+    "nivel": "atlas",
+    "texto": "De sus 43 estudios con acceso a IA sorteado, 13 son con universitarios, 9 con secundaria alta, 7 con secundaria baja y 1 con primaria.",
+    "textoEn": "Of its 43 studies with randomized AI access, 13 involve undergraduates, 9 high school, 7 middle school and 1 elementary school.",
+    "textoPt": "Dos seus 43 estudos com acesso à IA sorteado, 13 são com universitários, 9 com ensino médio, 7 com fundamental II e 1 com fundamental I."
+   }
+  ]
  },
  {
   "id": "diseno",
   "orden": 5,
-  "piloto": false,
-  "fuerza": "pendiente",
+  "piloto": true,
+  "fuerza": "consistente",
   "titulo": "Diseño de la herramienta y cuánto usarla",
   "tituloEn": "Tool design and how much to use it",
   "tituloPt": "Desenho da ferramenta e quanto usá la",
   "pregunta": "¿Guiada o abierta? ¿Cuánto tiempo?",
   "preguntaEn": "Guided or open? How much time?",
   "preguntaPt": "Guiada ou aberta? Quanto tempo?",
-  "acciones": [],
-  "evidencia": []
+  "leccion": "Evita los chatbots abiertos para aprender: elige herramientas que exijan esfuerzo.",
+  "leccionEn": "Avoid open chatbots for learning: choose tools that demand effort.",
+  "leccionPt": "Evite chatbots abertos para aprender: escolha ferramentas que exijam esforço.",
+  "resumen": "El acceso abierto a chatbots mejora lo que se hace con la IA, pero empeora lo que se aprende sin ella; EvidencIA califica esta lección como consistente. Las barreras (pistas en vez de respuestas) evitan el daño, pero no garantizan aprendizaje. Lo que más ayudó fue estructura: reglas de dominio para avanzar y práctica adaptativa. Hasta ahora, la IA generativa no muestra una ventaja clara sobre la práctica adaptativa anterior, y duplicar la dosis no siempre suma.",
+  "resumenEn": "Open access to chatbots improves what is done with the AI, but worsens what is learned without it; EvidencIA rates this lesson as consistent. Guardrails (hints instead of answers) prevent harm but do not guarantee learning. What helped most was structure: mastery rules to advance and adaptive practice. So far, generative AI shows no clear advantage over earlier adaptive practice, and doubling the dose does not always add up.",
+  "resumenPt": "O acesso aberto a chatbots melhora o que se faz com a IA, mas piora o que se aprende sem ela; a EvidencIA classifica esta lição como consistente. As barreiras (pistas em vez de respostas) evitam o dano, mas não garantem aprendizagem. O que mais ajudou foi estrutura: regras de domínio para avançar e prática adaptativa. Até agora, a IA generativa não mostra vantagem clara sobre a prática adaptativa anterior, e dobrar a dose nem sempre soma.",
+  "medicion": "La mayoría de estos ensayos miden en la misma sesión o pocos días después; ninguno mide lo que se retiene meses más tarde.",
+  "medicionEn": "Most of these trials measure in the same session or a few days later; none measures what is retained months later.",
+  "medicionPt": "A maioria destes ensaios mede na mesma sessão ou poucos dias depois; nenhum mede o que se retém meses depois.",
+  "noSabemos": "No se sabe qué combinación de diseño y dosis rinde más en escuelas de ingreso bajo, ni si los efectos duran.",
+  "noSabemosEn": "It is not known which combination of design and dose pays off most in low income schools, or whether effects last.",
+  "noSabemosPt": "Não se sabe que combinação de desenho e dose rende mais em escolas de renda baixa, nem se os efeitos duram.",
+  "acciones": [
+   {
+    "t": "Exige que la herramienta dé pistas y pasos, no la respuesta final.",
+    "tEn": "Require the tool to give hints and steps, not the final answer.",
+    "tPt": "Exija que a ferramenta dê pistas e passos, não a resposta final."
+   },
+   {
+    "t": "Combina la IA con reglas de avance por dominio y con práctica adaptada al nivel.",
+    "tEn": "Combine AI with mastery rules for advancing and practice adapted to each level.",
+    "tPt": "Combine a IA com regras de avanço por domínio e prática adaptada ao nível."
+   },
+   {
+    "t": "Compara con opciones adaptativas más baratas antes de pagar por IA generativa.",
+    "tEn": "Compare with cheaper adaptive options before paying for generative AI.",
+    "tPt": "Compare com opções adaptativas mais baratas antes de pagar por IA generativa."
+   },
+   {
+    "t": "Empieza con una dosis moderada y mide antes de aumentarla.",
+    "tEn": "Start with a moderate dose and measure before increasing it.",
+    "tPt": "Comece com uma dose moderada e meça antes de aumentá la."
+   }
+  ],
+  "evidencia": [
+   {
+    "tier": "causal",
+    "ref": "Bastani et al., 2025",
+    "url": "https://doi.org/10.1073/pnas.2422633122",
+    "nivel": "1",
+    "texto": "Turquía: GPT 4 abierto mejoró la práctica, pero el examen sin IA cayó 17 %; con pistas en vez de respuestas desapareció el daño, sin ganancia.",
+    "textoEn": "Turkey: open GPT 4 improved practice, but the exam without AI fell 17%; with hints instead of answers the harm disappeared, with no gain.",
+    "textoPt": "Turquia: GPT 4 aberto melhorou a prática, mas a prova sem IA caiu 17%; com pistas em vez de respostas o dano desapareceu, sem ganho."
+   },
+   {
+    "tier": "causal",
+    "ref": "Kreijkes et al., 2026",
+    "url": "https://doi.org/10.1016/j.compedu.2025.105514",
+    "nivel": "1",
+    "texto": "Inglaterra: tres días después, los estudiantes entendieron menos lo que estudiaron solo con un chatbot que lo que estudiaron tomando notas (0,95 de 12 puntos menos).",
+    "textoEn": "England: three days later, students understood less of what they studied with a chatbot alone than of what they studied by taking notes (0.95 of 12 points less).",
+    "textoPt": "Inglaterra: três dias depois, os estudantes entenderam menos o que estudaram só com um chatbot do que o que estudaram fazendo anotações (0,95 de 12 pontos a menos)."
+   },
+   {
+    "tier": "causal",
+    "ref": "Liu et al., 2026",
+    "url": "https://arxiv.org/abs/2604.04721v6",
+    "nivel": "1",
+    "texto": "EE.UU., en línea: practicar fracciones con un asistente que daba respuestas bajó la precisión al quitarlo (0,71 frente a 0,77).",
+    "textoEn": "US, online: practicing fractions with an assistant that gave answers lowered accuracy once it was removed (0.71 versus 0.77).",
+    "textoPt": "EUA, online: praticar frações com um assistente que dava respostas reduziu a precisão ao retirá lo (0,71 contra 0,77)."
+   },
+   {
+    "tier": "causal",
+    "ref": "Oreopoulos et al., 2026",
+    "url": "https://www.nber.org/papers/w35621",
+    "nivel": "1",
+    "texto": "Tennessee: un tutor de IA que nunca da la respuesta final no mejoró por sí solo la prueba diferida; con una regla de dominio, la mejora fue marginal (40,2 % frente a 37,0 %).",
+    "textoEn": "Tennessee: an AI tutor that never gives the final answer did not improve the delayed test on its own; with a mastery rule, the gain was marginal (40.2% versus 37.0%).",
+    "textoPt": "Tennessee: um tutor de IA que nunca dá a resposta final não melhorou sozinho o teste posterior; com uma regra de domínio, a melhora foi marginal (40,2% contra 37,0%)."
+   },
+   {
+    "tier": "causal",
+    "ref": "Bettinger et al., 2023",
+    "url": "https://doi.org/10.1002/pam.22442",
+    "nivel": "1",
+    "texto": "Rusia: duplicar el tiempo de práctica en computadora no agregó nada en matemática y borró la pequeña ganancia en lenguaje.",
+    "textoEn": "Russia: doubling computer practice time added nothing in math and erased the small language gain.",
+    "textoPt": "Rússia: dobrar o tempo de prática no computador não acrescentou nada em matemática e apagou o pequeno ganho em linguagem."
+   },
+   {
+    "tier": "causal",
+    "ref": "Burneo et al., 2026",
+    "url": "https://thedocs.worldbank.org/en/doc/2fba81cd6cd60d2f54532fc7062395fb-0050062026/original/Can-EdTech-Close-Learning-Gaps.pdf",
+    "nivel": "1",
+    "texto": "Metaanálisis de 14 ensayos: la tecnología adaptativa y con IA sube el aprendizaje 0,125 DE en promedio; la IA generativa no muestra una ventaja detectable sobre la adaptativa. Documento de la propia red de EvidencIA.",
+    "textoEn": "Meta analysis of 14 trials: adaptive and AI technology raises learning 0.125 SD on average; generative AI shows no detectable advantage over adaptive technology. A document from EvidencIA's own network.",
+    "textoPt": "Meta análise de 14 ensaios: a tecnologia adaptativa e com IA sobe a aprendizagem 0,125 DP em média; a IA generativa não mostra vantagem detectável sobre a adaptativa. Documento da própria rede da EvidencIA."
+   }
+  ]
  },
  {
   "id": "contexto",
   "orden": 6,
-  "piloto": false,
-  "fuerza": "pendiente",
+  "piloto": true,
+  "fuerza": "parcial",
   "titulo": "Dónde se usa",
   "tituloEn": "Setting",
   "tituloPt": "Onde se usa",
   "pregunta": "¿En la escuela, después de clases, en casa o en línea?",
   "preguntaEn": "In school, after school, at home or online?",
   "preguntaPt": "Na escola, depois das aulas, em casa ou online?",
-  "acciones": [],
-  "evidencia": []
+  "leccion": "Prefiere el horario escolar con supervisión: fuera de la escuela la asistencia cae.",
+  "leccionEn": "Prefer the school timetable with supervision: outside school, attendance drops.",
+  "leccionPt": "Prefira o horário escolar com supervisão: fora da escola a frequência cai.",
+  "resumen": "Los programas con mejores resultados en escuelas se usaron dentro del horario o en sesiones supervisadas. Fuera de la escuela funcionaron, pero con menos asistencia: en Delhi fue 58 % y los centros cerraron después. Mucha de la evidencia con IA generativa viene de laboratorios o plataformas en línea con adultos, lo que dice poco de una escuela real. En tutoría humana, los efectos fueron mayores durante el horario escolar. Ningún ensayo comparó el mismo programa dentro y fuera de la escuela.",
+  "resumenEn": "The programs with the best results in schools were used within the timetable or in supervised sessions. Outside school they worked, but with lower attendance: in Delhi it was 58% and the centers later closed. Much of the generative AI evidence comes from labs or online platforms with adults, which says little about a real school. In human tutoring, effects were larger during the school day. No trial compared the same program inside and outside school.",
+  "resumenPt": "Os programas com melhores resultados em escolas foram usados dentro do horário ou em sessões supervisionadas. Fora da escola funcionaram, mas com menor frequência: em Délhi foi 58% e os centros fecharam depois. Muita da evidência com IA generativa vem de laboratórios ou plataformas online com adultos, o que diz pouco de uma escola real. Na tutoria humana, os efeitos foram maiores durante o horário escolar. Nenhum ensaio comparou o mesmo programa dentro e fora da escola.",
+  "medicion": "De los 95 ensayos de nivel 1, 25 se usaron en clase, 11 en la escuela en otro horario, 6 después de clases, 10 en casa, 23 en línea y 16 en laboratorio (algunos en más de un lugar). En el AI Skill Atlas, 28 de 43 estudios son de campo.",
+  "medicionEn": "Of the 95 level 1 trials, 25 were used in class, 11 at school at another time, 6 after school, 10 at home, 23 online and 16 in a lab (some in more than one place). In the AI Skill Atlas, 28 of 43 studies are field studies.",
+  "medicionPt": "Dos 95 ensaios de nível 1, 25 foram usados em aula, 11 na escola em outro horário, 6 depois das aulas, 10 em casa, 23 online e 16 em laboratório (alguns em mais de um lugar). No AI Skill Atlas, 28 de 43 estudos são de campo.",
+  "noSabemos": "No hay ensayos que comparen el mismo programa en distintos lugares, ni evidencia sobre el uso en el hogar en países de ingreso bajo.",
+  "noSabemosEn": "There are no trials comparing the same program in different settings, and no evidence on home use in low income countries.",
+  "noSabemosPt": "Não há ensaios que comparem o mesmo programa em lugares diferentes, nem evidência sobre o uso em casa em países de renda baixa.",
+  "acciones": [
+   {
+    "t": "Integra las sesiones al horario escolar cuando sea posible.",
+    "tEn": "Build sessions into the school timetable when possible.",
+    "tPt": "Integre as sessões ao horário escolar quando possível."
+   },
+   {
+    "t": "Si es después de clases o en casa, planifica cómo sostener la asistencia y mídela.",
+    "tEn": "If it is after school or at home, plan how to sustain attendance and measure it.",
+    "tPt": "Se for depois das aulas ou em casa, planeje como sustentar a frequência e meça a."
+   },
+   {
+    "t": "No extrapoles resultados de laboratorio o con adultos a una escuela sin probarlo.",
+    "tEn": "Do not extrapolate lab or adult results to a school without testing it.",
+    "tPt": "Não extrapole resultados de laboratório ou com adultos para uma escola sem testar."
+   }
+  ],
+  "evidencia": [
+   {
+    "tier": "causal",
+    "ref": "Muralidharan & Singh, 2025",
+    "url": "https://www.nber.org/papers/w34205",
+    "nivel": "1",
+    "texto": "Rajastán: en el laboratorio de la escuela, dentro del horario, reemplazando parte del tiempo de matemática y lengua; matemática subió 0,22 DE.",
+    "textoEn": "Rajasthan: in the school computer lab, within the timetable, replacing part of math and language time; math rose 0.22 SD.",
+    "textoPt": "Rajastão: no laboratório da escola, dentro do horário, substituindo parte do tempo de matemática e língua; matemática subiu 0,22 DP."
+   },
+   {
+    "tier": "causal",
+    "ref": "De Simone et al., 2025",
+    "url": "https://documents.worldbank.org/curated/en/099548105192529324/pdf/IDU-c09f40d8-9ff8-42dc-b315-591157499be7.pdf",
+    "nivel": "1",
+    "texto": "Nigeria: sesiones después de clases en el laboratorio de la escuela, en parejas y con docentes supervisando; inglés subió 0,238 DE.",
+    "textoEn": "Nigeria: after school sessions in the school computer lab, in pairs with teachers supervising; English rose 0.238 SD.",
+    "textoPt": "Nigéria: sessões depois das aulas no laboratório da escola, em duplas e com docentes supervisionando; inglês subiu 0,238 DP."
+   },
+   {
+    "tier": "causal",
+    "ref": "Muralidharan et al., 2019",
+    "url": "https://doi.org/10.1257/aer.20171112",
+    "nivel": "1",
+    "texto": "Delhi: centros después de clases; asistencia promedio de 58 % entre los ganadores del sorteo, y 13 % asistió un día o menos.",
+    "textoEn": "Delhi: after school centers; average attendance of 58% among lottery winners, and 13% attended one day or less.",
+    "textoPt": "Délhi: centros depois das aulas; frequência média de 58% entre os sorteados, e 13% frequentou um dia ou menos."
+   },
+   {
+    "tier": "causal",
+    "ref": "Bettinger et al., 2023",
+    "url": "https://doi.org/10.1002/pam.22442",
+    "nivel": "1",
+    "texto": "Rusia: tareas en computadora en casa en lugar de en papel; matemática subió 0,108 DE.",
+    "textoEn": "Russia: computer homework at home instead of on paper; math rose 0.108 SD.",
+    "textoPt": "Rússia: tarefas no computador em casa em vez de papel; matemática subiu 0,108 DP."
+   },
+   {
+    "tier": "causal",
+    "ref": "Kestin et al., 2025",
+    "url": "https://doi.org/10.1038/s41598-025-97652-6",
+    "nivel": "1",
+    "texto": "Harvard: una lección en casa con un tutor de IA superó a la misma lección en clase (0,63 DE), pero en una prueba inmediata tras una sola lección; no dice qué pasa en un curso completo.",
+    "textoEn": "Harvard: one lesson at home with an AI tutor beat the same lesson in class (0.63 SD), but on an immediate test after a single lesson; it says nothing about a full course.",
+    "textoPt": "Harvard: uma lição em casa com um tutor de IA superou a mesma lição em aula (0,63 DP), mas num teste imediato após uma única lição; não diz o que acontece num curso completo."
+   },
+   {
+    "tier": "contexto",
+    "ref": "Nickow et al., 2020",
+    "url": "https://doi.org/10.3386/w27476",
+    "nivel": "2",
+    "texto": "Metaanálisis de 96 ensayos de tutoría humana: en comparaciones descriptivas, el efecto es mayor durante el horario escolar.",
+    "textoEn": "Meta analysis of 96 human tutoring trials: in descriptive comparisons, the effect is larger during the school day.",
+    "textoPt": "Meta análise de 96 ensaios de tutoria humana: em comparações descritivas, o efeito é maior durante o horário escolar."
+   },
+   {
+    "tier": "contexto",
+    "ref": "AI and Human Skill Atlas, 2026",
+    "url": "https://aiskillatlas.org/",
+    "nivel": "atlas",
+    "texto": "De sus 43 estudios, 28 son de campo, 8 en línea, 6 de laboratorio y 1 mixto.",
+    "textoEn": "Of its 43 studies, 28 are field studies, 8 online, 6 lab and 1 mixed.",
+    "textoPt": "Dos seus 43 estudos, 28 são de campo, 8 online, 6 de laboratório e 1 misto."
+   }
+  ]
  },
  {
   "id": "equidad",

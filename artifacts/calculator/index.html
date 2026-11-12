@@ -223,7 +223,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 .lec-teaser-k { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: #a0661a; }
 .lec-leyenda { display: flex; flex-wrap: wrap; gap: 6px 16px; color: var(--color-fg-muted); margin: 0 0 10px; }
 .lec-leyenda i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
-.f-moderada { background: #2e8b57; } .f-parcial { background: #d08a1e; } .f-guias { background: #8a6fd1; } .f-pendiente { background: #b8b8b8; }
+.f-consistente { background: #1b5e3b; } .f-moderada { background: #2e8b57; } .f-parcial { background: #d08a1e; } .f-guias { background: #8a6fd1; } .f-pendiente { background: #b8b8b8; }
 .lec-tiles { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin-bottom: 16px; }
 @media (max-width: 520px) { .lec-tiles { grid-template-columns: 1fr 1fr; gap: 8px; } .lec-tile { padding: 10px; } .lec-tile .t { font-size: 13.5px; } .lec-tile .l { display: none; } .lec-tile[aria-pressed="true"] .l { display: block; } }
 .lec-tile { text-align: left; font: inherit; color: var(--color-fg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-top: 4px solid var(--fc); border-radius: 12px; padding: 12px 14px; cursor: pointer; display: flex; flex-direction: column; gap: 6px; }
@@ -524,10 +524,10 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       <p class="lab-muted"><span lang="es">Ocho temas que pesan en una decisión. Cada lección separa lo que muestran los estudios causales, lo que sugieren los estudios descriptivos y lo que recomiendan las guías y políticas. Elige un tema.</span><span lang="en">Eight themes that weigh on a decision. Each lesson separates what causal studies show, what descriptive studies suggest and what guides and policies recommend. Pick a theme.</span><span lang="pt">Oito temas que pesam numa decisão. Cada lição separa o que mostram os estudos causais, o que sugerem os estudos descritivos e o que recomendam os guias e políticas. Escolha um tema.</span></p>
     </div>
     <div class="lec-leyenda lab-small">
+      <span><i class="f-consistente"></i><span lang="es">Evidencia causal consistente</span><span lang="en">Consistent causal evidence</span><span lang="pt">Evidência causal consistente</span></span>
       <span><i class="f-moderada"></i><span lang="es">Evidencia causal moderada</span><span lang="en">Moderate causal evidence</span><span lang="pt">Evidência causal moderada</span></span>
       <span><i class="f-parcial"></i><span lang="es">Parcial: causal escasa, sobre todo descriptiva</span><span lang="en">Partial: little causal, mostly descriptive</span><span lang="pt">Parcial: pouca causal, sobretudo descritiva</span></span>
       <span><i class="f-guias"></i><span lang="es">Solo guías y políticas</span><span lang="en">Guides and policies only</span><span lang="pt">Só guias e políticas</span></span>
-      <span><i class="f-pendiente"></i><span lang="es">En preparación</span><span lang="en">In preparation</span><span lang="pt">Em preparação</span></span>
     </div>
     <div class="lec-tiles" data-draw="lecTiles" data-source="lecciones"></div>
     <div class="lec-detalle" id="lec-detalle" data-draw="lecDetalle" data-source="lecciones estudiosElementos"></div>

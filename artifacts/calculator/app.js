@@ -320,6 +320,7 @@ const D = {
   riesgo0: ['Sin riesgo alto de sesgo', 'No high risk of bias', 'Sem risco alto de viés'],
   riesgoN: [(n, l) => 'Riesgo alto de sesgo en ' + (n === 1 ? '1 aspecto' : n + ' aspectos') + ': ' + l, (n, l) => 'High risk of bias in ' + (n === 1 ? '1 area' : n + ' areas') + ': ' + l, (n, l) => 'Risco alto de viés em ' + (n === 1 ? '1 aspecto' : n + ' aspectos') + ': ' + l],
   evComun: ['EvidencIA con la regla común', 'EvidencIA under the common rule', 'EvidencIA com a regra comum'],
+  lecFuerza_consistente: ['Evidencia causal consistente', 'Consistent causal evidence', 'Evidência causal consistente'],
   lecFuerza_moderada: ['Evidencia causal moderada', 'Moderate causal evidence', 'Evidência causal moderada'],
   lecFuerza_parcial: ['Parcial: sobre todo descriptiva', 'Partial: mostly descriptive', 'Parcial: sobretudo descritiva'],
   lecFuerza_guias: ['Solo guías y políticas', 'Guides and policies only', 'Só guias e políticas'],
@@ -331,7 +332,7 @@ const D = {
   lecTier_contexto: ['Lo que sugieren los estudios descriptivos (contexto, no prueba de efecto)', 'What descriptive studies suggest (context, not proof of effect)', 'O que sugerem os estudos descritivos (contexto, não prova de efeito)'],
   lecTier_guia: ['Lo que recomiendan guías y políticas (orientación, no evidencia de efecto)', 'What guides and policies recommend (guidance, not evidence of effect)', 'O que recomendam guias e políticas (orientação, não evidência de efeito)'],
   lecTierVacio: ['No encontramos estudios de este tipo para este tema.', 'We found no studies of this kind for this theme.', 'Não encontramos estudos deste tipo para este tema.'],
-  lecNivel: [(n) => n === 'pol' ? 'Política o guía oficial' : 'Nivel ' + n, (n) => n === 'pol' ? 'Official policy or guide' : 'Level ' + n, (n) => n === 'pol' ? 'Política ou guia oficial' : 'Nível ' + n],
+  lecNivel: [(n) => n === 'pol' ? 'Política o guía oficial' : n === 'atlas' ? 'AI Skill Atlas' : 'Nivel ' + n, (n) => n === 'pol' ? 'Official policy or guide' : n === 'atlas' ? 'AI Skill Atlas' : 'Level ' + n, (n) => n === 'pol' ? 'Política ou guia oficial' : n === 'atlas' ? 'AI Skill Atlas' : 'Nível ' + n],
   lecPendiente: ['Este tema está en preparación. Se completará con la misma búsqueda en las tres fuentes.', 'This theme is in preparation. It will be completed with the same search across the three sources.', 'Este tema está em preparação. Será completado com a mesma busca nas três fontes.'],
   exGrp_personas: ['Docentes y otros adultos', 'Teachers and other adults', 'Docentes e outros adultos'],
   exGrp_infra: ['Infraestructura y lugar', 'Infrastructure and setting', 'Infraestrutura e lugar'],
@@ -1703,7 +1704,7 @@ reg('cotejoBody', (tb) => {
 /* ===================== Lecciones para implementar ===================== */
 
 const LEC = { sel: 'infra' };
-const LEC_COL = { moderada: '#2e8b57', parcial: '#d08a1e', guias: '#8a6fd1', pendiente: '#b8b8b8' };
+const LEC_COL = { consistente: '#1b5e3b', moderada: '#2e8b57', parcial: '#d08a1e', guias: '#8a6fd1', pendiente: '#b8b8b8' };
 reg('lecTiles', (box) => {
   const ts = rows('lecciones');
   if (!ts.length) { failMsg(box, dash.data('lecciones').status); return; }
@@ -1728,7 +1729,7 @@ reg('lecDetalle', (box) => {
   c.append(top);
   if (!t.piloto) { c.append(el('p', { class: 'res' }, T('lecPendiente'))); box.append(c); return; }
   c.append(el('h3', { class: 'h' }, tr(t, 'leccion')));
-  const pf = el('p', { style: 'margin:0 0 10px' }); pf.append(pill(t.fuerza === 'moderada' ? 'ver' : t.fuerza === 'parcial' ? 'pro' : 'sup', T('lecFuerza_' + t.fuerza))); c.append(pf);
+  const pf = el('p', { style: 'margin:0 0 10px' }); pf.append(pill(t.fuerza === 'moderada' || t.fuerza === 'consistente' ? 'ver' : t.fuerza === 'parcial' ? 'pro' : 'sup', T('lecFuerza_' + t.fuerza))); c.append(pf);
   c.append(el('p', { class: 'res' }, tr(t, 'resumen')));
   const grid = el('div', { class: 'lec-grid' });
   const acc = el('div', { class: 'lec-box lec-acc' }); acc.append(el('h4', null, T('lecHacer')));
@@ -1749,7 +1750,7 @@ reg('lecDetalle', (box) => {
     });
     sec.append(l); c.append(sec);
   });
-  const MAP = { infra: ['infraestructura', 'lugar'], docentes: ['docentes'], equidad: ['equidad'], privacidad: ['privacidad'], implementacion: ['dosis', 'costo'], estudiantes: ['equidad'], diseno: ['diseno', 'dosis'], contexto: ['lugar'] };
+  const MAP = { infra: ['infraestructura', 'lugar'], docentes: ['docentes'], equidad: ['equidad'], privacidad: ['privacidad'], implementacion: ['dosis', 'costo'], estudiantes: ['diseno', 'equidad'], diseno: ['diseno', 'dosis'], contexto: ['lugar'] };
   if (MAP[t.id] && expEstudios().length) {
     const b = el('button', { type: 'button', class: 'lab-btn destacado', style: 'margin-top:14px' }, T('exExplorar'));
     b.onclick = () => { EXP.els = MAP[t.id].slice(); EXP.max = 12; expRedibujar(); const x = document.getElementById('explorar'); if (x && x.scrollIntoView) x.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
