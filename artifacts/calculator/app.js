@@ -104,15 +104,17 @@ dash.calc('cobertura', {
 });
 
 dash.calc('mapeo', {
-  inputs: ['estudios'],
-  title: 'Mapeo entre EvidencIA y Stanford SCALE',
-  description: 'Un registro canónico por estudio con su presencia en cada fuente (códigos).',
-  fn: (estudios) => estudios.map((e) => {
+  inputs: ['estudios', 'atlas_estudios'],
+  title: 'Mapeo entre EvidencIA, Stanford SCALE y AI Skill Atlas',
+  description: 'Un registro canónico por estudio con su presencia en cada fuente (códigos). Atlas: el estudio figura si su clave atlasKey está en la lista de estudios del Atlas.',
+  fn: (estudios, atlasEst) => estudios.map((e) => {
+    const nAt = (atlasEst.find((p) => p.paper_key === e.atlasKey) || {}).n_estimates;
+    const atlas = e.atlasKey && nAt != null ? 'incluido' : 'no_figura';
     const ev = String(e.enEvidencia || ''), sc = String(e.enScale || '');
     const evidencia = ev.startsWith('Sí') ? 'confirmado' : 'no_verificado';
     const scale = sc.startsWith('Incluido') ? 'revision' : sc.startsWith('Solo en el repositorio') ? 'repositorio' : 'no_verificado';
     const categoria = evidencia === 'confirmado' ? (scale === 'revision' ? 'ambas_revision' : scale === 'repositorio' ? 'evidencia_repo' : 'solo_evidencia') : (scale === 'revision' ? 'solo_scale' : 'sin_confirmar');
-    return { id: e.id, estudio: String(e.autores).split(',')[0] + ' (' + e.anio + ')', evidencia, scale, categoria };
+    return { id: e.id, estudio: String(e.autores).split(',')[0] + ' (' + e.anio + ')', evidencia, scale, atlas, atlasN: nAt != null ? nAt : null, categoria };
   }),
 });
 
@@ -135,6 +137,28 @@ dash.calc('brechas', {
       g('latam', ind.filter((e) => e.region === 'América Latina y el Caribe')),
       g('primaria', ind.filter((e) => /Primaria/.test(e.nivelEducativo))),
       g('provisional', ind.filter((e) => e.verificacion !== 'Verificado')),
+    ];
+  },
+});
+
+dash.calc('atlasResumen', {
+  inputs: ['atlas_estimaciones', 'atlas_estudios'],
+  title: 'Resumen del AI and Human Skill Atlas (versión 2026-11-11.1)',
+  description: 'Conteos sobre las estimaciones del Atlas: cuántas tienen cifra en DE, son de subgrupos, midieron con IA disponible, son diferidas, vienen de diseños observacionales o no tienen revisión de procedencia.',
+  fn: (est, papers) => {
+    const N = est.length, P = papers.length;
+    const c = (f) => est.filter(f).length;
+    return [
+      { clave: 'estudios', n: P, base: P },
+      { clave: 'estimaciones', n: N, base: N },
+      { clave: 'conDE', n: c((r) => typeof r.effect_size_sd === 'number'), base: N },
+      { clave: 'subgrupos', n: c((r) => r.is_subgroup), base: N },
+      { clave: 'conIA', n: c((r) => r.outcome_with_ai), base: N },
+      { clave: 'diferidas', n: c((r) => r.outcome_timing === 'delayed'), base: N },
+      { clave: 'observacionales', n: c((r) => r.design_class === 'observational'), base: N },
+      { clave: 'compActiva', n: c((r) => r.comparison_type === 'ai_vs_active'), base: N },
+      { clave: 'escolar', n: c((r) => ['Elementary', 'Middle school', 'High school'].includes(r.population_category)), base: N },
+      { clave: 'sinRevisar', n: c((r) => r.provenance_review_status === 'unreviewed'), base: N },
     ];
   },
 });
@@ -268,6 +292,25 @@ const D = {
   verMasCautelas: [(n) => 'Ver ' + n + ' cautela' + (n > 1 ? 's' : '') + ' más →', (n) => 'See ' + n + ' more caution' + (n > 1 ? 's' : '') + ' →', (n) => 'Ver mais ' + n + ' cuidado' + (n > 1 ? 's' : '') + ' →'],
   masContexto: ['Más contexto: intensidad, uso, docentes e infraestructura', 'More context: intensity, use, teachers and infrastructure', 'Mais contexto: intensidade, uso, professores e infraestrutura'],
   baseNoInd: ['base no indicada en la tabla de EvidencIA', 'basis not stated in the EvidencIA table', 'base não indicada na tabela da EvidencIA'],
+  stdOcultos: [(l) => 'Se ocultan: ' + l + '.', (l) => 'Hidden: ' + l + '.', (l) => 'Ocultos: ' + l + '.'],
+  stdTodos: ['Todos los efectos usan la misma regla.', 'All effects use the same rule.', 'Todos os efeitos usam a mesma regra.'],
+  stdVisibles: [(n) => 'Se muestran todos; ' + n + ' marcados con ⚠ no usan la regla común.', (n) => 'Showing all; ' + n + ' marked ⚠ do not use the common rule.', (n) => 'Mostrando todos; ' + n + ' marcados com ⚠ não usam a regra comum.'],
+  stdExc: ['cifra del paper', 'paper figure', 'número do paper'], stdSinRev: ['sin revisar', 'not reviewed', 'sem revisão'],
+  stdLote: [(n) => n + ' cifras del lote 1 (tomadas de cada paper)', (n) => n + ' batch 1 figures (taken from each paper)', (n) => n + ' números do lote 1 (tirados de cada paper)'],
+  ojoStd: [(n, d) => n + ': ' + d, (n, d) => n + ': ' + d, (n, d) => n + ': ' + d],
+  ojoStdGen: [(n) => n + ': la estandarización de este efecto no está revisada aquí; puede no ser comparable.', (n) => n + ': this effect\'s standardization is not reviewed here; it may not be comparable.', (n) => n + ': a padronização deste efeito não foi revisada aqui; pode não ser comparável.'],
+  reglaComun: ['Regla común', 'Common rule', 'Regra comum'], reglaExc: ['Cifra del paper', 'Paper figure', 'Número do paper'], reglaSin: ['Sin revisar', 'Not reviewed', 'Sem revisão'],
+  cotCoinciden: ['Coinciden (±0,02)', 'Match (±0.02)', 'Coincidem (±0,02)'], cotDifieren: ['Difieren', 'Differ', 'Diferem'], cotUna: ['Una sola cifra', 'Only one figure', 'Um só número'],
+  otraUnidad: ['otra unidad', 'other unit', 'outra unidade'], fueraTabla: ['no está en la tabla de costos', 'not in the cost table', 'não está na tabela de custos'],
+  at_incluido: [(n) => 'Incluido (' + n + ' estimaciones)', (n) => 'Included (' + n + ' estimates)', (n) => 'Incluído (' + n + ' estimativas)'], at_no_figura: ['No figura', 'Not listed', 'Não consta'],
+  atlasConteo: [(e, p, t, s) => 'Se muestran ' + e + ' estimaciones de ' + p + ' estudios (de ' + t + ' en la versión; ' + s + ' sin cifra en DE no se grafican). En negrita, los estudios que también están en este sitio.', (e, p, t, s) => 'Showing ' + e + ' estimates from ' + p + ' studies (of ' + t + ' in the release; ' + s + ' without an SD figure are not plotted). In bold, studies also on this site.', (e, p, t, s) => 'Mostrando ' + e + ' estimativas de ' + p + ' estudos (de ' + t + ' na versão; ' + s + ' sem número em DP não aparecem). Em negrito, os estudos que também estão neste site.'],
+  atlasVacio: ['Ninguna estimación cumple estos filtros.', 'No estimate meets these filters.', 'Nenhuma estimativa cumpre estes filtros.'],
+  cmp_ai_vs_bau: ['IA frente a práctica habitual', 'AI versus business as usual', 'IA versus prática habitual'], cmp_ai_vs_active: ['IA frente a otra intervención activa', 'AI versus another active intervention', 'IA versus outra intervenção ativa'], cmp_ai_design: ['Dos diseños de IA', 'Two AI designs', 'Dois desenhos de IA'], cmp_ai_bundled: ['IA dentro de un paquete', 'AI within a bundle', 'IA dentro de um pacote'],
+  tim_immediate: ['inmediato', 'immediate', 'imediato'], tim_delayed: ['diferido', 'delayed', 'posterior'],
+  prov_reviewed: ['procedencia revisada', 'provenance reviewed', 'procedência revisada'], prov_unreviewed: ['procedencia sin revisar', 'provenance unreviewed', 'procedência sem revisão'],
+  ejeAtlas: ['Efecto (DE)', 'Effect (SD)', 'Efeito (DP)'],
+  ar_estudios: ['Estudios en la versión', 'Studies in the release', 'Estudos na versão'], ar_estimaciones: ['Estimaciones en total', 'Total estimates', 'Estimativas no total'], ar_conDE: ['Con cifra en DE', 'With an SD figure', 'Com número em DP'], ar_subgrupos: ['De subgrupos', 'Subgroup estimates', 'De subgrupos'], ar_conIA: ['Medidas con IA disponible en la prueba', 'Measured with AI available during the test', 'Medidas com IA disponível no teste'], ar_diferidas: ['Medidas diferidas (no inmediatas)', 'Delayed measures (not immediate)', 'Medidas posteriores (não imediatas)'], ar_observacionales: ['De diseños observacionales', 'From observational designs', 'De desenhos observacionais'], ar_compActiva: ['Frente a otra intervención activa', 'Against another active intervention', 'Contra outra intervenção ativa'], ar_escolar: ['En primaria o secundaria', 'In primary or secondary school', 'No fundamental ou médio'], ar_sinRevisar: ['Sin revisión de procedencia', 'Provenance not reviewed', 'Sem revisão de procedência'],
+  calcStd: [(n) => '⚠ ' + n + ': este efecto no usa la regla común de estandarización; puede no ser comparable con los demás.', (n) => '⚠ ' + n + ': this effect does not use the common standardization rule; it may not be comparable with the others.', (n) => '⚠ ' + n + ': este efeito não usa a regra comum de padronização; pode não ser comparável com os demais.'],
   fCampos: [['Conector', 'Estado', 'Cobertura declarada', 'Consultada'], ['Connector', 'Status', 'Declared coverage', 'Consulted'], ['Conector', 'Status', 'Cobertura declarada', 'Consultada']],
 };
 const T = (k, ...a) => { const e = D[k]; if (!e) return k; const v = e[{ es: 0, en: 1, pt: 2 }[L]] ?? e[0]; return typeof v === 'function' ? v(...a) : v; };
@@ -364,6 +407,26 @@ reg('tNum', (box) => {
   box.textContent = d.status === 'ok' && d.data && d.data[0] ? f0(d.data[0][box.dataset.f]) : '—';
 });
 
+/* ===================== Estandarización ===================== */
+
+const STD = { solo: true };
+const estdMap = () => new Map(rows('estandarizacion').map((r) => [r.id, r]));
+const reglaDe = (id) => { const r = estdMap().get(id); return r ? r.regla : 'sin_revisar'; };
+const verStd = (ops, keep) => (STD.solo ? ops.filter((o) => o.std || keep.includes(o.id)) : ops);
+const marcaStd = (o) => (o.std ? '' : '⚠ ');
+document.querySelectorAll('[data-std]').forEach((b) => b.addEventListener('click', () => {
+  STD.solo = !STD.solo;
+  document.querySelectorAll('[data-std]').forEach((x) => x.setAttribute('aria-pressed', String(STD.solo)));
+  redibujarSim(); dash.draw('selCalc');
+}));
+reg('stdNota', (span) => {
+  const calc = span.dataset.modo === 'calc';
+  const em = estdMap();
+  const fuera = opcionesSim().filter((o) => o.ev && !o.std).map((o) => (o.corto || o.nombre) + ' (' + (em.has(o.id) ? T('stdExc') : T('stdSinRev')) + ')');
+  if (calc) { const nl = opcionesCalc().filter((o) => o.grupo === 'lote').length; if (nl) fuera.push(T('stdLote', nl)); }
+  span.textContent = !fuera.length ? T('stdTodos') : STD.solo ? T('stdOcultos', fuera.join('; ')) : T('stdVisibles', fuera.length);
+});
+
 /* ===================== Portada: simulador ===================== */
 
 const SIM = {
@@ -383,11 +446,11 @@ function opcionesSim() {
   sel.forEach((s) => {
     const r = ev.get(s.id);
     if (!r || r.efecto == null) return;
-    out.push({ id: s.id, nombre: tr(s, 'nombre'), corto: tr(s, 'corto'), tipo: s.tipo, gain: r.efecto, cost: r.costo, ev: r });
+    out.push({ id: s.id, nombre: tr(s, 'nombre'), corto: tr(s, 'corto'), tipo: s.tipo, gain: r.efecto, cost: r.costo, ev: r, std: reglaDe(s.id) === 'comun' });
   });
   const esc = new Map(rows('escenario').map((r) => [r.parametro, r]));
-  if (esc.get('aiGain')) out.push({ id: 'sintesis', nombre: T('sintesis'), corto: 'Burneo et al. 2026', tipo: 'sintesis', gain: Number(esc.get('aiGain').valor), cost: esc.get('aiCost') ? Number(esc.get('aiCost').valor) : null, costHip: true });
-  if (esc.get('alternativeGain')) out.push({ id: 'hipotetica', nombre: T('hipotetica'), corto: T('hipotetica'), tipo: 'hipotetica', gain: Number(esc.get('alternativeGain').valor), cost: esc.get('alternativeCost') ? Number(esc.get('alternativeCost').valor) : null, costHip: true, gainHip: true });
+  if (esc.get('aiGain')) out.push({ id: 'sintesis', nombre: T('sintesis'), corto: 'Burneo et al. 2026', tipo: 'sintesis', gain: Number(esc.get('aiGain').valor), cost: esc.get('aiCost') ? Number(esc.get('aiCost').valor) : null, costHip: true, std: true });
+  if (esc.get('alternativeGain')) out.push({ id: 'hipotetica', nombre: T('hipotetica'), corto: T('hipotetica'), tipo: 'hipotetica', gain: Number(esc.get('alternativeGain').valor), cost: esc.get('alternativeCost') ? Number(esc.get('alternativeCost').valor) : null, costHip: true, gainHip: true, std: true });
   return out;
 }
 function setSlider(side, k, v) {
@@ -403,7 +466,7 @@ function elegir(side, id) {
   else { s.cost = Number.isFinite(s.cost) ? s.cost : 20; s.cSrc = 'usuario'; }
   setSlider(side, 'gain', s.gain); setSlider(side, 'cost', s.cost);
 }
-const SIM_DRAWS = ['decSel', 'decCautelas', 'simResumen', 'simDuelo', 'chips', 'simVal', 'simOrigen', 'simPct', 'simCerca', 'simNota', 'simVeredicto', 'simClaves', 'simBarras', 'simUmbral', 'simAlcance', 'simOjo'];
+const SIM_DRAWS = ['stdNota', 'decSel', 'decCautelas', 'simResumen', 'simDuelo', 'chips', 'simVal', 'simOrigen', 'simPct', 'simCerca', 'simNota', 'simVeredicto', 'simClaves', 'simBarras', 'simUmbral', 'simAlcance', 'simOjo'];
 const redibujarSim = () => { SIM_DRAWS.forEach((n) => dash.draw(n)); dash.draw('simMapa'); };
 const esCerca = (o, s) => Number.isFinite(s.gain) && Math.abs(o.gain - s.gain) <= 0.06 && (typeof o.cost !== 'number' || !Number.isFinite(s.cost) || Math.abs(Math.log(o.cost / s.cost)) <= Math.log(2));
 
@@ -436,13 +499,13 @@ reg('chips', (box) => {
   const side = box.dataset.side;
   const d = dash.data(evId());
   if (d.status === 'loading' && !rows(evId()).length) { box.replaceChildren(el('span', { class: 'lab-small lab-muted' }, T('cargando'))); return; }
-  const ops = opcionesSim().filter((o) => !(side === 'a' && o.id === 'hipotetica') && !(side === 'b' && o.id === 'sintesis'));
+  const ops = verStd(opcionesSim(), [SIM[side].id]).filter((o) => !(side === 'a' && o.id === 'hipotetica') && !(side === 'b' && o.id === 'sintesis'));
   if (!ops.length) { failMsg(box, d.status); return; }
   box.replaceChildren(...ops.map((o) => {
     const esta = SIM[side].id === o.id, cerca = !esta && esCerca(o, SIM[side]);
     const btn = el('button', { type: 'button', class: 'sim-chip' + (cerca ? ' cerca' : ''), 'aria-pressed': String(esta), title: T('tipo_' + o.tipo) });
     btn.style.setProperty('--tc', TIPO_COL[o.tipo] || '#999');
-    btn.append(document.createTextNode(o.nombre));
+    btn.append(document.createTextNode(marcaStd(o) + o.nombre));
     if (cerca) btn.append(el('span', { class: 'near' }, '≈ ' + T('cercaTag')));
     btn.append(el('small', null, (o.gain > 0 ? '+' : '') + fmt.g(o.gain) + ' ' + T('DE') + ' · ' + (typeof o.cost === 'number' ? usd(o.cost) : T('sinCostoCorto'))));
     btn.onclick = () => { elegir(side, o.id); redibujarSim(); };
@@ -689,6 +752,8 @@ function ojoItems() {
   const oa = ops.find((x) => x.id === SIM.a.id), ob = ops.find((x) => x.id === SIM.b.id);
   if (!oa || !ob) return [];
   const items = [];
+  const em = estdMap();
+  [oa, ob].forEach((o) => { if (o.ev && !o.std) { const r = em.get(o.id); items.push(r ? T('ojoStd', o.nombre, tr(r, 'detalle')) : T('ojoStdGen', o.nombre)); } });
   if (oa.ev && ob.ev && oa.ev.queMidio !== ob.ev.queMidio) items.push(T('ojoMidio', oa.ev.queMidio, ob.ev.queMidio));
   if (oa.ev && ob.ev && oa.ev.costo != null && ob.ev.costo != null && oa.ev.basePor100 !== ob.ev.basePor100) items.push(T('ojoBase', oa.ev.basePor100 || T('baseNoInd'), ob.ev.basePor100 || T('baseNoInd')));
   [oa, ob].forEach((o) => { if (o.ev && o.ev.riesgoAlto && !/^(ninguno|none)$/i.test(o.ev.riesgoAlto)) items.push(T('ojoRiesgo', o.nombre, o.ev.riesgoAlto)); });
@@ -722,7 +787,7 @@ reg('decCautelas', (box) => {
 });
 reg('decSel', (sel) => {
   const side = sel.dataset.side, s = SIM[side];
-  const ops = opcionesSim().filter((o) => !(side === 'a' && o.id === 'hipotetica') && !(side === 'b' && o.id === 'sintesis'));
+  const ops = verStd(opcionesSim(), [SIM[side].id]).filter((o) => !(side === 'a' && o.id === 'hipotetica') && !(side === 'b' && o.id === 'sintesis'));
   const grupos = [['ia_generativa', 'ia_docentes', 'ia_adaptativa'], ['sin_ia', 'tutoria'], ['sintesis', 'hipotetica']];
   const etiquetas = [T('grpIA'), T('grpSinIA'), T('grpRef')];
   const items = [];
@@ -730,7 +795,7 @@ reg('decSel', (sel) => {
   if (propio) items.push(new Option(T('valoresPropios'), '__propio'));
   grupos.forEach((g, k) => {
     const og = document.createElement('optgroup'); og.label = etiquetas[k];
-    ops.filter((o) => g.includes(o.tipo)).forEach((o) => og.append(new Option((o.corto || o.nombre) + ' · ' + (o.gain > 0 ? '+' : '') + fmt.g(o.gain) + ' ' + T('DE') + ' · ' + (typeof o.cost === 'number' ? usd(o.cost) : T('sinCostoCorto')), o.id)));
+    ops.filter((o) => g.includes(o.tipo)).forEach((o) => og.append(new Option(marcaStd(o) + (o.corto || o.nombre) + ' · ' + (o.gain > 0 ? '+' : '') + fmt.g(o.gain) + ' ' + T('DE') + ' · ' + (typeof o.cost === 'number' ? usd(o.cost) : T('sinCostoCorto')), o.id)));
     if (og.children.length) items.push(og);
   });
   sel.replaceChildren(...items);
@@ -753,21 +818,21 @@ reg('simCerca', (box) => {
   const side = box.dataset.side, s = SIM[side];
   box.replaceChildren();
   if (!s.id) return;
-  const cerca = opcionesSim().filter((o) => o.id !== s.id && o.ev && esCerca(o, s));
+  const cerca = verStd(opcionesSim(), []).filter((o) => o.id !== s.id && o.ev && esCerca(o, s));
   const propio = opcionesSim().find((o) => o.id === s.id);
   const enValor = propio && propio.ev && esCerca(propio, s);
   if (!cerca.length && !enValor) { box.append(document.createTextNode(T('cercaNada') + ' ')); box.append(el('span', { class: 'lab-muted' }, T('cercaRegla'))); return; }
   if (!cerca.length) return;
   box.append(el('b', null, T('cercaT', '')));
   cerca.forEach((o, i) => {
-    const b = el('button', { type: 'button', class: 'sim-reset' }, o.nombre);
+    const b = el('button', { type: 'button', class: 'sim-reset' }, marcaStd(o) + o.nombre);
     b.onclick = () => { elegir(side, o.id); redibujarSim(); };
     box.append(b, document.createTextNode(i < cerca.length - 1 ? ' · ' : ' '));
   });
   box.append(el('span', { class: 'lab-muted' }, T('cercaRegla')));
 });
 reg('simMapa', (box) => {
-  const ops = opcionesSim();
+  const ops = verStd(opcionesSim(), [SIM.a.id, SIM.b.id]);
   if (!ops.length) { failMsg(box, dash.data(evId()).status); return; }
   box.replaceChildren();
   const W = Math.max(280, box.clientWidth), H = W < 500 ? 300 : 340, m = { t: 14, r: 64, b: 42, l: 44 }, colX = W - 30;
@@ -801,7 +866,8 @@ reg('simMapa', (box) => {
   const tt = tip(box);
   const px = (o) => (typeof o.cost === 'number' ? x(o.cost) : colX);
   const dots = svg.append('g').selectAll('g').data(ops).join('g').attr('transform', (o) => `translate(${px(o)},${y(o.gain)})`).style('cursor', 'pointer');
-  dots.append('circle').attr('r', 6).style('fill', (o) => TIPO_COL[o.tipo] || '#999').style('fill-opacity', (o) => (o.ev ? 0.9 : 0.5));
+  dots.append('circle').attr('r', 6).style('fill', (o) => (o.std ? TIPO_COL[o.tipo] || '#999' : 'var(--color-panel)')).style('fill-opacity', (o) => (o.ev ? 0.9 : 0.5))
+    .style('stroke', (o) => (o.std ? 'none' : TIPO_COL[o.tipo] || '#999')).style('stroke-width', 2).style('stroke-dasharray', (o) => (o.std ? null : '2 2'));
   dots.append('circle').attr('class', 'halo').attr('r', 10).style('fill', 'none').style('stroke-width', 2.5);
   dots.append('text').style('font-size', '10.5px').style('fill', 'var(--color-fg)').text((o) => o.corto || String(o.nombre).split(' (')[0]).each(function () { recortar(this, Math.max(70, W / 4)); });
   // Etiquetas sin superposición: se prueba a la derecha, izquierda, arriba y abajo; si no cabe, se oculta (queda el detalle al pasar el cursor)
@@ -823,7 +889,7 @@ reg('simMapa', (box) => {
   });
   const marcar = () => dots.select('.halo').style('stroke', (o) => (esCerca(o, SIM.a) && o.id !== SIM.a.id ? AZUL : esCerca(o, SIM.b) && o.id !== SIM.b.id ? VERDE : 'none')).style('stroke-opacity', 0.8);
   marcar();
-  dots.on('mousemove', (ev, o) => tt.show(ev, [o.nombre, (o.gain > 0 ? '+' : '') + f2(o.gain) + ' ' + T('DE') + ' · ' + (typeof o.cost === 'number' ? usd(o.cost) : T('sinCostoCorto')), T('tipo_' + o.tipo), T('clicA')]))
+  dots.on('mousemove', (ev, o) => tt.show(ev, [marcaStd(o) + o.nombre, (o.gain > 0 ? '+' : '') + f2(o.gain) + ' ' + T('DE') + ' · ' + (typeof o.cost === 'number' ? usd(o.cost) : T('sinCostoCorto')), T('tipo_' + o.tipo), T('clicA')]))
     .on('mouseleave', () => tt.hide())
     .on('click', (ev, o) => { tt.hide(); elegir('a', o.id); redibujarSim(); });
   ['b', 'a'].forEach((side) => {
@@ -1064,9 +1130,9 @@ function calculateInvestment({ aiGain, alternativeGain, aiCost, alternativeCost 
 
 const C = { init: false, v: { aiGain: NaN, aiCost: NaN, altGain: NaN, altCost: NaN }, st: { aiGain: 'Faltante', aiCost: 'Faltante', altGain: 'Faltante', altCost: 'Faltante' }, selA: 'escenario', selB: 'escenario', meta: { a: null, b: null } };
 function opcionesCalc() {
-  const lote = efectosCompletos().filter((r) => !r.agrupado).map((r) => ({ id: 'l:' + r.id, grupo: 'lote', etiqueta: r.etiqueta + ' · ' + tr(r.R, 'resultado'), gain: r.efecto, cost: r.costoPorEstudiante, st: r.verificacion, icInf: r.icInf, icSup: r.icSup, materia: tr(r.R, 'materia'), base: tr(r.E, 'costoPerspectiva') }));
+  const lote = efectosCompletos().filter((r) => !r.agrupado).map((r) => ({ id: 'l:' + r.id, grupo: 'lote', std: false, etiqueta: r.etiqueta + ' · ' + tr(r.R, 'resultado'), gain: r.efecto, cost: r.costoPorEstudiante, st: r.verificacion, icInf: r.icInf, icSup: r.icSup, materia: tr(r.R, 'materia'), base: tr(r.E, 'costoPerspectiva') }));
   const nombres = new Map(rows('simulador').map((s) => [s.id, tr(s, 'nombre')]));
-  const ev = rows(evId()).filter((r) => r.efecto != null).map((r) => ({ id: 'e:' + r.id, grupo: 'ev', etiqueta: (nombres.get(r.id) ? nombres.get(r.id) + ' · ' : '') + r.estudio, gain: r.efecto, cost: r.costo, st: 'EvidencIA', icInf: r.icInf, icSup: r.icSup, materia: r.queMidio, base: r.basePor100 || r.costoTexto }));
+  const ev = rows(evId()).filter((r) => r.efecto != null).map((r) => ({ id: 'e:' + r.id, grupo: 'ev', std: reglaDe(r.id) === 'comun', etiqueta: (nombres.get(r.id) ? nombres.get(r.id) + ' · ' : '') + r.estudio, gain: r.efecto, cost: r.costo, st: 'EvidencIA', icInf: r.icInf, icSup: r.icSup, materia: r.queMidio, base: r.basePor100 || r.costoTexto }));
   return ev.concat(lote);
 }
 function setInput(k, v) { document.querySelectorAll('#calculadora input[data-k="' + k + '"]').forEach((i) => { i.value = Number.isFinite(v) ? String(v) : ''; }); }
@@ -1101,14 +1167,14 @@ reg('selCalc', (sel) => {
   const otro = lado === 'a' ? C.selB : C.selA;
   const grp = (g, label) => {
     const og = document.createElement('optgroup'); og.label = label;
-    opcionesCalc().filter((o) => o.grupo === g).forEach((o) => {
-      const op = new Option(o.etiqueta + ' · ' + f3(o.gain) + ' ' + T('DE') + ' · ' + (o.cost == null ? T('sinCostoCorto') : usd(o.cost)), o.id);
+    verStd(opcionesCalc(), [C.selA, C.selB]).filter((o) => o.grupo === g).forEach((o) => {
+      const op = new Option(marcaStd(o) + o.etiqueta + ' · ' + f3(o.gain) + ' ' + T('DE') + ' · ' + (o.cost == null ? T('sinCostoCorto') : usd(o.cost)), o.id);
       if (o.id === otro) op.disabled = true;
       og.append(op);
     });
     return og;
   };
-  sel.replaceChildren(new Option(lado === 'a' ? T('escA') : T('escB'), 'escenario'), new Option(T('usuarioB'), 'usuario'), grp('ev', T('grpEv')), grp('lote', T('grpLote')));
+  sel.replaceChildren(...[new Option(lado === 'a' ? T('escA') : T('escB'), 'escenario'), new Option(T('usuarioB'), 'usuario'), grp('ev', T('grpEv')), grp('lote', T('grpLote'))].filter((n) => n.tagName !== 'OPTGROUP' || n.children.length));
   sel.value = lado === 'a' ? C.selA : C.selB;
   sel.onchange = () => {
     const v = sel.value;
@@ -1155,6 +1221,7 @@ reg('avisos', (box) => {
   if ((Number.isFinite(v.aiCost) && v.aiCost <= 0) || (Number.isFinite(v.altCost) && v.altCost <= 0)) add('bad', T('costoCero'));
   if ((Number.isFinite(v.aiGain) && v.aiGain <= 0) || (Number.isFinite(v.altGain) && v.altGain <= 0)) add('warn', T('ojoNeg'));
   const A = C.meta.a, B = C.meta.b;
+  [A, B].forEach((o) => { if (o && !o.std) add('warn', T('calcStd', o.etiqueta)); });
   if (A && B) {
     if (A.materia !== B.materia) add('warn', T('ojoMidio', A.materia, B.materia));
     if (A.cost != null && B.cost != null && A.base !== B.base) add('warn', T('ojoBase', A.base || '—', B.base || '—'));
@@ -1415,7 +1482,111 @@ reg('mapeoBody', (tb) => {
   if (d.status !== 'ok' || !d.data) { tb.replaceChildren(); return; }
   tb.replaceChildren(...d.data.map((r) => {
     const row = el('tr', { 'data-key': encodeURIComponent(r.id) });
-    row.append(el('td', null, r.estudio), el('td', null, T('ev_' + r.evidencia)), el('td', null, T('sc_' + r.scale)), el('td', null, T('cat_' + r.categoria)));
+    row.append(el('td', null, r.estudio), el('td', null, T('ev_' + r.evidencia)), el('td', null, T('sc_' + r.scale)), el('td', null, r.atlas === 'incluido' ? T('at_incluido', r.atlasN) : T('at_no_figura')), el('td', null, T('cat_' + r.categoria)));
+    return row;
+  }));
+});
+
+/* ===================== AI and Human Skill Atlas ===================== */
+
+const AF = { rct: true, sinIA: true, diferido: false, subgrupos: false };
+const CMP_COL = { ai_vs_bau: '#2a78d6', ai_vs_active: '#d08a1e', ai_design: '#7b61c9', ai_bundled: '#8a8a8a' };
+document.querySelectorAll('#atlas-filtros [data-af]').forEach((b) => b.addEventListener('click', () => {
+  AF[b.dataset.af] = !AF[b.dataset.af];
+  b.setAttribute('aria-pressed', String(AF[b.dataset.af]));
+  dash.draw('atlasForest'); dash.draw('atlasConteo');
+}));
+const atlasFiltradas = () => rows('atlas_estimaciones').filter((r) => typeof r.effect_size_sd === 'number'
+  && (!AF.rct || r.design_class !== 'observational') && (!AF.sinIA || !r.outcome_with_ai)
+  && (!AF.diferido || r.outcome_timing === 'delayed') && (AF.subgrupos || !r.is_subgroup));
+const clavesSitio = () => new Set(rows('estudios').map((e) => e.atlasKey).concat(rows('simulador').map((s) => s.atlasKey)).filter(Boolean));
+reg('atlasConteo', (p) => {
+  const todas = rows('atlas_estimaciones');
+  if (!todas.length) { failMsg(p, dash.data('atlas_estimaciones').status); return; }
+  const f = atlasFiltradas();
+  p.textContent = T('atlasConteo', f.length, new Set(f.map((r) => r.paper_key)).size, todas.length, todas.filter((r) => typeof r.effect_size_sd !== 'number').length);
+});
+reg('atlasForest', (box) => {
+  const f = atlasFiltradas();
+  box.replaceChildren();
+  if (!rows('atlas_estimaciones').length) { failMsg(box, dash.data('atlas_estimaciones').status); return; }
+  if (!f.length) { box.append(el('p', { class: 'lab-small lab-muted' }, T('atlasVacio'))); return; }
+  const papers = new Map(rows('atlas_estudios').map((p) => [p.paper_key, p]));
+  const enSitio = clavesSitio();
+  const grupos = d3.groups(f, (r) => r.paper_key).map(([k, v]) => ({ k, v, med: d3.median(v, (r) => r.effect_size_sd), p: papers.get(k) || {} })).sort((x, y) => y.med - x.med);
+  const W = Math.max(300, box.clientWidth), narrow = W < 560, lw = narrow ? 112 : 170, rh = 20;
+  const m = { t: 8, r: 14, b: 34, l: lw }, H = m.t + m.b + grupos.length * rh;
+  const lo = Math.max(-1.5, Math.min(-0.2, d3.min(f, (r) => (r.ci_lower ?? r.effect_size_sd)))), hi = Math.min(2.2, Math.max(0.6, d3.max(f, (r) => (r.ci_upper ?? r.effect_size_sd))));
+  const x = d3.scaleLinear().domain([lo, hi]).range([m.l, W - m.r]).clamp(true).nice();
+  const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'AI Skill Atlas');
+  svg.append('g').attr('class', 'grid').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).ticks(narrow ? 5 : 8).tickSize(-(H - m.b - m.t)).tickFormat('')).call((g) => g.select('.domain').remove());
+  svg.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).ticks(narrow ? 5 : 8).tickFormat(axisFmt(',.1~f')));
+  svg.append('text').attr('x', (m.l + W - m.r) / 2).attr('y', H - 4).attr('text-anchor', 'middle').style('font-size', '11px').style('fill', 'var(--cds-text-secondary)').text(T('ejeAtlas'));
+  svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', m.t).attr('y2', H - m.b).style('stroke', 'var(--cds-chart-reference)').style('stroke-dasharray', '3 3');
+  const tt = tip(box);
+  grupos.forEach((g, i) => {
+    const yc = m.t + i * rh + rh / 2;
+    if (i % 2 === 0) svg.append('rect').attr('x', 0).attr('y', yc - rh / 2).attr('width', W).attr('height', rh).style('fill', 'var(--color-fg)').style('fill-opacity', 0.025);
+    const lbl = svg.append('text').attr('x', m.l - 8).attr('y', yc + 4).attr('text-anchor', 'end').style('font-size', '11px').style('fill', 'var(--color-fg)')
+      .style('font-weight', enSitio.has(g.k) ? '700' : '400').text((g.p.authors_short || g.k) + ' ' + (g.p.year || ''));
+    recortar(lbl.node(), lw - 12);
+    g.v.forEach((r, j) => {
+      const yy = yc + (g.v.length > 1 ? (j - (g.v.length - 1) / 2) * Math.min(4, 12 / g.v.length) : 0), c = CMP_COL[r.comparison_type] || '#888';
+      if (r.ci_lower != null && r.ci_upper != null) svg.append('line').attr('x1', x(r.ci_lower)).attr('x2', x(r.ci_upper)).attr('y1', yy).attr('y2', yy).style('stroke', c).style('stroke-opacity', 0.45).style('stroke-width', 1.5);
+      svg.append('circle').attr('cx', x(r.effect_size_sd)).attr('cy', yy).attr('r', 3.6).style('fill', r.is_subgroup ? 'var(--color-panel)' : c).style('stroke', c).style('stroke-width', 1.5).style('cursor', 'default')
+        .on('mousemove', (ev) => tt.show(ev, [r.study_label || g.k, r.outcome + (r.subgroup ? ' · ' + r.subgroup : ''),
+          (r.effect_size_sd > 0 ? '+' : '') + f2(r.effect_size_sd) + ' ' + T('DE') + (r.ci_lower != null ? ' [' + f2(r.ci_lower) + '; ' + f2(r.ci_upper) + ']' : '') + (r.n_total ? ' · n = ' + f0(r.n_total) : ''),
+          T('cmp_' + r.comparison_type) + ' · ' + T('tim_' + r.outcome_timing) + ' · ' + (r.country || ''), T('prov_' + r.provenance_review_status)]))
+        .on('mouseleave', () => tt.hide());
+    });
+  });
+});
+reg('atlasBrechas', (tb) => {
+  const d = dash.data('atlasResumen');
+  if (d.status !== 'ok' || !d.data) { tb.replaceChildren(); return; }
+  tb.replaceChildren(...d.data.map((r) => {
+    const row = el('tr', { 'data-key': encodeURIComponent(r.clave) });
+    row.append(el('td', null, T('ar_' + r.clave)), el('td', { class: 'lab-num' }, f0(r.n)), el('td', { class: 'lab-num' }, f0(r.base)));
+    return row;
+  }));
+});
+reg('cotejoBody', (tb) => {
+  const E = rows('estudios'), R = rows('resultados'), A = rows('atlas_estimaciones'), S = rows('simulador');
+  if (!E.length || !A.length) { tb.replaceChildren(); return; }
+  const ev = new Map(rows(evId()).map((r) => [r.id, r])), em = estdMap();
+  const items = [];
+  E.filter((e) => e.atlasKey).forEach((e) => {
+    const m = String(e.enEvidencia).match(/fichas? ([a-z0-9-]+)/);
+    const r = R.find((x) => x.estudio === e.id && x.principal);
+    items.push({ nombre: corto(e), lote: r && r.unidad === 'DE' ? r.efecto : null, loteOtra: !!(r && r.unidad !== 'DE'), evid: m ? m[1] : null, atlasKey: e.atlasKey });
+  });
+  S.filter((s) => s.atlasKey && !items.some((i) => i.evid === s.id)).forEach((s) => items.push({ nombre: tr(s, 'nombre'), lote: null, evid: s.id, atlasKey: s.atlasKey }));
+  const near = (p, q) => Math.abs(p - q) <= 0.02 + 1e-9;
+  tb.replaceChildren(...items.map((it) => {
+    const evr = it.evid ? ev.get(it.evid) : null;
+    const evVal = evr && evr.efecto != null ? evr.efecto : null;
+    const at = A.filter((r) => r.paper_key === it.atlasKey && !r.is_subgroup && typeof r.effect_size_sd === 'number').map((r) => r.effect_size_sd);
+    const nums = [it.lote, evVal].filter((v) => v != null);
+    let lect;
+    if (nums.length + (at.length ? 1 : 0) < 2) lect = pill('', T('cotUna'));
+    else {
+      const base = nums.length ? nums : [at[0]];
+      const okBase = base.every((v) => near(v, base[0]));
+      const okAt = !at.length || base.every((v) => at.some((w) => near(v, w)));
+      lect = okBase && okAt ? pill('ver', T('cotCoinciden')) : pill('pro', T('cotDifieren'));
+    }
+    const reg_ = it.evid ? em.get(it.evid) : null;
+    const reglaTd = el('td');
+    if (reg_) { reglaTd.append(pill(reg_.regla === 'comun' ? 'ver' : 'fal', reg_.regla === 'comun' ? T('reglaComun') : T('reglaExc'))); reglaTd.title = tr(reg_, 'detalle'); }
+    else reglaTd.append(el('span', { class: 'lab-muted' }, T('reglaSin')));
+    const sgn = (v) => (v > 0 ? '+' : '') + f2(v);
+    const row = el('tr', { 'data-key': encodeURIComponent(it.atlasKey) });
+    row.append(el('td', null, it.nombre),
+      el('td', { class: 'lab-num' }, it.lote != null ? sgn(it.lote) : it.loteOtra ? T('otraUnidad') : '—'),
+      el('td', { class: evVal != null ? 'lab-num' : 'lab-muted' }, evVal != null ? sgn(evVal) : it.evid ? T('fueraTabla') : '—'),
+      el('td', { class: 'lab-num' }, at.length ? at.slice(0, 4).map(sgn).join(' · ') + (at.length > 4 ? ' +' + (at.length - 4) : '') : '—'),
+      reglaTd);
+    const tdL = el('td'); tdL.append(lect); row.append(tdL);
     return row;
   }));
 });

@@ -38,5 +38,25 @@
   "estadoPt": "Consultada na web: revisões de novembro e março de 2026, mais fichas do repositório",
   "coberturaEn": "52 causal studies in the total base (42 student facing, 12 educator facing per the page, which adds to 54); 32 new in November 2026; 20 in March 2026",
   "coberturaPt": "52 estudos causais na base total (42 de estudantes, 12 de professores segundo a página, que somam 54); 32 novos em novembro de 2026; 20 em março de 2026"
+ },
+ {
+  "id": "atlas",
+  "nombre": "The AI and Human Skill Atlas",
+  "nombreEn": "The AI and Human Skill Atlas",
+  "nombrePt": "The AI and Human Skill Atlas",
+  "rol": "Fuente complementaria (solo efectos)",
+  "rolEn": "Complementary source (effects only)",
+  "rolPt": "Fonte complementar (só efeitos)",
+  "enlace": "https://aiskillatlas.org/",
+  "conector": "Sin conector; descarga pública por versión (aiskillatlas.org/releases/index.json)",
+  "conectorEn": "No connector; public download by release (aiskillatlas.org/releases/index.json)",
+  "conectorPt": "Sem conector; download público por versão (aiskillatlas.org/releases/index.json)",
+  "estado": "Copia de la versión 2026-11-11.1 (archivo learning-estimates.csv del repositorio público germanr/ai-skill-atlas). Mantenido por Germán Reyes (Middlebury College). Sin licencia explícita; se usa con fines exploratorios y citando la fuente.",
+  "estadoEn": "Copy of release 2026-11-11.1 (learning-estimates.csv from the public germanr/ai-skill-atlas repository). Maintained by Germán Reyes (Middlebury College). No explicit license; used for exploratory purposes with attribution.",
+  "estadoPt": "Cópia da versão 2026-11-11.1 (arquivo learning-estimates.csv do repositório público germanr/ai-skill-atlas). Mantido por Germán Reyes (Middlebury College). Sem licença explícita; usado para fins exploratórios, citando a fonte.",
+  "cobertura": "43 estudios de aprendizaje y 184 estimaciones en DE (62 de subgrupos); no incluye costos. 101 estimaciones figuran sin revisión de procedencia.",
+  "coberturaEn": "43 learning studies and 184 SD estimates (62 subgroup); no costs. 101 estimates are marked as provenance unreviewed.",
+  "coberturaPt": "43 estudos de aprendizagem e 184 estimativas em DP (62 de subgrupos); não inclui custos. 101 estimativas aparecem sem revisão de procedência.",
+  "fechaConsulta": "2026-11-12"
  }
 ]

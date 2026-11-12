@@ -1,0 +1,90 @@
+[
+ {
+  "id": "kestin-harvard-2025",
+  "regla": "excepcion",
+  "efectoComun": null,
+  "efectoUsado": 0.63,
+  "detalle": "Efecto tomado del paper (0,63 DE): el paper no dice con qué DE lo estandarizó y no hay DE del control ni error estándar para aplicar la regla común. Con regresión cuantílica el paper reporta 0,73 a 1,3 DE.",
+  "detalleEn": "Effect taken from the paper (0.63 SD): the paper does not say which SD it used and there is no control SD or standard error to apply the common rule. With quantile regression the paper reports 0.73 to 1.3 SD.",
+  "detallePt": "Efeito tomado do paper (0,63 DP): o paper não diz com que DP o padronizou e não há DP do controle nem erro padrão para aplicar a regra comum. Com regressão quantílica o paper reporta 0,73 a 1,3 DP.",
+  "fuente": "EvidencIA view_study",
+  "consulta": "2026-11-12"
+ },
+ {
+  "id": "ghana-rori-2024",
+  "regla": "comun",
+  "efectoComun": 0.373,
+  "efectoUsado": 0.373,
+  "detalle": "Regla común: coeficiente dividido por la DE del grupo de control (0,373 DE). El paper reporta 0,36 (d de Cohen con DE combinada).",
+  "detalleEn": "Common rule: coefficient divided by the control group SD (0.373 SD). The paper reports 0.36 (Cohen's d with pooled SD).",
+  "detallePt": "Regra comum: coeficiente dividido pelo DP do grupo de controle (0,373 DP). O paper reporta 0,36 (d de Cohen com DP combinado).",
+  "fuente": "EvidencIA view_study",
+  "consulta": "2026-11-12"
+ },
+ {
+  "id": "nigeria-edo-2025",
+  "regla": "comun",
+  "efectoComun": 0.238,
+  "efectoUsado": 0.238,
+  "detalle": "Regla común: el resultado ya es un puntaje estandarizado (0,238 DE).",
+  "detalleEn": "Common rule: the outcome is already a standardized score (0.238 SD).",
+  "detallePt": "Regra comum: o resultado já é um escore padronizado (0,238 DP).",
+  "fuente": "EvidencIA view_study",
+  "consulta": "2026-11-12"
+ },
+ {
+  "id": "khanmigo-tennessee-2026",
+  "regla": "comun",
+  "efectoComun": 0.05,
+  "efectoUsado": 0.05,
+  "detalle": "Regla común: el paper lo reporta en DE del control (0,05 DE por trimestre). El paper también informa 0,084 DE en el año 2, con la DE de toda la población.",
+  "detalleEn": "Common rule: the paper reports it in control SD (0.05 SD per term). The paper also reports 0.084 SD in year 2, using the whole population SD.",
+  "detallePt": "Regra comum: o paper o reporta em DP do controle (0,05 DP por trimestre). O paper também informa 0,084 DP no ano 2, com o DP da população toda.",
+  "fuente": "EvidencIA view_study",
+  "consulta": "2026-11-12"
+ },
+ {
+  "id": "shaia-bogota-2026",
+  "regla": "comun",
+  "efectoComun": 0.207,
+  "efectoUsado": 0.207,
+  "detalle": "Regla común: el resultado ya es un puntaje estandarizado (0,207 DE).",
+  "detalleEn": "Common rule: the outcome is already a standardized score (0.207 SD).",
+  "detallePt": "Regra comum: o resultado já é um escore padronizado (0,207 DP).",
+  "fuente": "EvidencIA view_study",
+  "consulta": "2026-11-12"
+ },
+ {
+  "id": "khan-academy-uttar-pradesh-2026",
+  "regla": "comun",
+  "efectoComun": 0.44,
+  "efectoUsado": 0.44,
+  "detalle": "Regla común: el paper lo reporta en DE del control (0,44 DE, muestra con línea de base). Con la muestra completa el paper informa 0,326 DE.",
+  "detalleEn": "Common rule: the paper reports it in control SD (0.44 SD, sample with baseline). With the full sample the paper reports 0.326 SD.",
+  "detallePt": "Regra comum: o paper o reporta em DP do controle (0,44 DP, amostra com linha de base). Com a amostra completa o paper informa 0,326 DP.",
+  "fuente": "EvidencIA view_study",
+  "consulta": "2026-11-12"
+ },
+ {
+  "id": "gemini-sierra-leona-2026",
+  "regla": "comun",
+  "efectoComun": 0.3,
+  "efectoUsado": 0.3,
+  "detalle": "Regla común: coeficiente dividido por la DE del grupo de control (0,30 DE). El paper informa 0,258 DE ajustado por línea de base.",
+  "detalleEn": "Common rule: coefficient divided by the control group SD (0.30 SD). The paper reports 0.258 SD adjusted for baseline.",
+  "detallePt": "Regra comum: coeficiente dividido pelo DP do grupo de controle (0,30 DP). O paper informa 0,258 DP ajustado pela linha de base.",
+  "fuente": "EvidencIA view_study",
+  "consulta": "2026-11-12"
+ },
+ {
+  "id": "eeuu-saga-tutoria-tecnologia-2024",
+  "regla": "comun",
+  "efectoComun": 0.19,
+  "efectoUsado": 0.19,
+  "detalle": "Regla común: el paper lo reporta en DE del control (0,19 DE).",
+  "detalleEn": "Common rule: the paper reports it in control SD (0.19 SD).",
+  "detallePt": "Regra comum: o paper o reporta em DP do controle (0,19 DP).",
+  "fuente": "EvidencIA view_study",
+  "consulta": "2026-11-12"
+ }
+]

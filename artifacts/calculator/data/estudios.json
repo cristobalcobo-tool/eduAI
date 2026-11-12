@@ -86,7 +86,8 @@
   "tipoComparacionEn": "Business as usual or no intervention",
   "tipoComparacionPt": "Prática habitual ou sem intervenção",
   "publicacionEn": "World Bank Policy Research Working Paper 11125",
-  "publicacionPt": "World Bank Policy Research Working Paper 11125"
+  "publicacionPt": "World Bank Policy Research Working Paper 11125",
+  "atlasKey": "de_simone_etal_2025"
  },
  {
   "id": "henkel2024",
@@ -175,7 +176,8 @@
   "tipoComparacionEn": "Business as usual or no intervention",
   "tipoComparacionPt": "Prática habitual ou sem intervenção",
   "publicacionEn": "arXiv preprint 2402.09809 (publication year not stated in the document; 2023 data)",
-  "publicacionPt": "Preprint arXiv 2402.09809 (ano de publicação não declarado no documento; dados de 2023)"
+  "publicacionPt": "Preprint arXiv 2402.09809 (ano de publicação não declarado no documento; dados de 2023)",
+  "atlasKey": "henkel_etal_2024"
  },
  {
   "id": "wang2025",
@@ -264,7 +266,8 @@
   "tipoComparacionEn": "Business as usual or no intervention",
   "tipoComparacionPt": "Prática habitual ou sem intervenção",
   "publicacionEn": "arXiv preprint 2410.03017 v2",
-  "publicacionPt": "Preprint arXiv 2410.03017 v2"
+  "publicacionPt": "Preprint arXiv 2410.03017 v2",
+  "atlasKey": "wang_etal_2025"
  },
  {
   "id": "kestin2025",
@@ -351,7 +354,8 @@
   "tipoComparacionEn": "Another non AI intervention",
   "tipoComparacionPt": "Outra intervenção sem IA",
   "publicacionEn": "Scientific Reports 15, 17458. DOI 10.1038/s41598-025-97652-6",
-  "publicacionPt": "Scientific Reports 15, 17458. DOI 10.1038/s41598-025-97652-6"
+  "publicacionPt": "Scientific Reports 15, 17458. DOI 10.1038/s41598-025-97652-6",
+  "atlasKey": "kestin_etal_2025"
  },
  {
   "id": "oreopoulos2026",
@@ -438,7 +442,8 @@
   "tipoComparacionEn": "Another non AI intervention",
   "tipoComparacionPt": "Outra intervenção sem IA",
   "publicacionEn": "EdWorkingPaper 26-1552 (August 2026); also NBER w35621",
-  "publicacionPt": "EdWorkingPaper 26-1552 (agosto de 2026); também NBER w35621"
+  "publicacionPt": "EdWorkingPaper 26-1552 (agosto de 2026); também NBER w35621",
+  "atlasKey": "oreopoulos_etal_2026"
  },
  {
   "id": "learnlm2026",
@@ -525,7 +530,8 @@
   "tipoComparacionEn": "Not described in the source",
   "tipoComparacionPt": "Não descrito na fonte",
   "publicacionEn": "Google DeepMind technical report (May 2026); title taken from the SCALE repository record",
-  "publicacionPt": "Relatório técnico da Google DeepMind (maio de 2026); título retirado da ficha do repositório SCALE"
+  "publicacionPt": "Relatório técnico da Google DeepMind (maio de 2026); título retirado da ficha do repositório SCALE",
+  "atlasKey": "learnlm_team_2026"
  },
  {
   "id": "chung2026",
@@ -612,7 +618,8 @@
   "tipoComparacionEn": "Another AI variant",
   "tipoComparacionPt": "Outra variante de IA",
   "publicacionEn": "SSRN (March 2026)",
-  "publicacionPt": "SSRN (março de 2026)"
+  "publicacionPt": "SSRN (março de 2026)",
+  "atlasKey": "chung_etal_2025"
  },
  {
   "id": "bastani2025",
@@ -699,7 +706,8 @@
   "tipoComparacionEn": "Business as usual or no intervention",
   "tipoComparacionPt": "Prática habitual ou sem intervenção",
   "publicacionEn": "PNAS 122(26), 2025. DOI 10.1073/pnas.2422633122",
-  "publicacionPt": "PNAS 122(26), 2025. DOI 10.1073/pnas.2422633122"
+  "publicacionPt": "PNAS 122(26), 2025. DOI 10.1073/pnas.2422633122",
+  "atlasKey": "bastani_etal_2025"
  },
  {
   "id": "burneo2026",
@@ -788,6 +796,7 @@
   "tipoComparacionEn": "Business as usual or no intervention",
   "tipoComparacionPt": "Prática habitual ou sem intervenção",
   "publicacionEn": "World Bank background paper (1 Aug 2026)",
-  "publicacionPt": "Documento de referência do Banco Mundial (1 ago 2026)"
+  "publicacionPt": "Documento de referência do Banco Mundial (1 ago 2026)",
+  "atlasKey": ""
  }
 ]

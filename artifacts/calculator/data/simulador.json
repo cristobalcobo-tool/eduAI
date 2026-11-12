@@ -8,7 +8,8 @@
   "nombrePt": "Khan Academy com Khanmigo, Tennessee (EUA)",
   "corto": "Khanmigo, EE.UU.",
   "cortoEn": "Khanmigo, US",
-  "cortoPt": "Khanmigo, EUA"
+  "cortoPt": "Khanmigo, EUA",
+  "atlasKey": "oreopoulos_and_low_2026"
  },
  {
   "id": "nigeria-edo-2025",
@@ -19,7 +20,8 @@
   "nombrePt": "Copilot (GPT-4) como tutor de inglês, Nigéria",
   "corto": "Copilot, Nigeria",
   "cortoEn": "Copilot, Nigeria",
-  "cortoPt": "Copilot, Nigéria"
+  "cortoPt": "Copilot, Nigéria",
+  "atlasKey": "de_simone_etal_2025"
  },
  {
   "id": "shaia-bogota-2026",
@@ -30,7 +32,8 @@
   "nombrePt": "ShaIA para professores de matemática, Bogotá",
   "corto": "ShaIA docentes, Bogotá",
   "cortoEn": "ShaIA teachers, Bogotá",
-  "cortoPt": "ShaIA professores, Bogotá"
+  "cortoPt": "ShaIA professores, Bogotá",
+  "atlasKey": "barrera_osorio_and_munoz_morales_2026"
  },
  {
   "id": "gemini-sierra-leona-2026",
@@ -41,7 +44,8 @@
   "nombrePt": "Gemini Guided Learning, Serra Leoa",
   "corto": "Gemini, Sierra Leona",
   "cortoEn": "Gemini, Sierra Leone",
-  "cortoPt": "Gemini, Serra Leoa"
+  "cortoPt": "Gemini, Serra Leoa",
+  "atlasKey": "learnlm_team_2026"
  },
  {
   "id": "kestin-harvard-2025",
@@ -52,7 +56,8 @@
   "nombrePt": "Tutor de IA em física, Harvard",
   "corto": "Tutor IA física, Harvard",
   "cortoEn": "AI physics tutor, Harvard",
-  "cortoPt": "Tutor IA física, Harvard"
+  "cortoPt": "Tutor IA física, Harvard",
+  "atlasKey": "kestin_etal_2025"
  },
  {
   "id": "ghana-rori-2024",
@@ -63,7 +68,8 @@
   "nombrePt": "Rori, tutor de matemática pelo WhatsApp, Gana",
   "corto": "Rori, Ghana",
   "cortoEn": "Rori, Ghana",
-  "cortoPt": "Rori, Gana"
+  "cortoPt": "Rori, Gana",
+  "atlasKey": "henkel_etal_2024"
  },
  {
   "id": "khan-academy-uttar-pradesh-2026",
@@ -74,7 +80,8 @@
   "nombrePt": "Prática supervisionada na Khan Academy, Índia",
   "corto": "Khan Academy supervisado, India",
   "cortoEn": "Supervised Khan Academy, India",
-  "cortoPt": "Khan Academy supervisionado, Índia"
+  "cortoPt": "Khan Academy supervisionado, Índia",
+  "atlasKey": ""
  },
  {
   "id": "eeuu-saga-tutoria-tecnologia-2024",
@@ -85,6 +92,7 @@
   "nombrePt": "Tutoria Saga com software adaptativo, Chicago e Nova York",
   "corto": "Tutoría Saga, EE.UU.",
   "cortoEn": "Saga tutoring, US",
-  "cortoPt": "Tutoria Saga, EUA"
+  "cortoPt": "Tutoria Saga, EUA",
+  "atlasKey": ""
  }
 ]
