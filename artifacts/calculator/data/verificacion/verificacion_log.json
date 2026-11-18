@@ -1,0 +1,1313 @@
+{
+ "cambios": [
+  {
+   "id": "apuntes-urry-2021",
+   "field": "elementos.medicion",
+   "antes": {
+    "en": "Open factual and conceptual questions from the original study, in the same session, scored by trained raters. No AI.",
+    "es": "Preguntas abiertas factuales y conceptuales del estudio original, en la misma sesión, corregidas por evaluadores con pauta. Sin IA.",
+    "pt": "Questões abertas factuais e conceituais do estudo original, na mesma sessão, corrigidas por avaliadores com gabarito. Sem IA.",
+    "pag": "pp. 4 and 5 (printed 3 and 4)"
+   },
+   "despues": {
+    "en": "Open factual and conceptual questions from the original study, in the same session, scored by 12 to 15 raters using an answer key. No AI.",
+    "es": "Preguntas abiertas factuales y conceptuales del estudio original, en la misma sesión, corregidas por 12 a 15 evaluadores con pauta. Sin IA.",
+    "pt": "Questões abertas factuais e conceituais do estudo original, na mesma sessão, corrigidas por 12 a 15 avaliadores com gabarito. Sem IA.",
+    "pag": "pp. 4 and 5 (printed 3 and 4)"
+   },
+   "motivo": "Record says scored by 12 to 15 raters using an answer key; it does not say the raters were trained."
+  },
+  {
+   "id": "china-chatgpt-odontologia-realidad-virtual-2026",
+   "field": "elementos.equidad",
+   "antes": {
+    "en": "Self regulated learning rose more in the low (r = 0.42) and average (r = 0.36) prior achievement subgroups.",
+    "es": "El aprendizaje autorregulado subió más en los subgrupos de rendimiento previo bajo (r = 0,42) y medio (r = 0,36).",
+    "pt": "A aprendizagem autorregulada subiu mais nos subgrupos de desempenho prévio baixo (r = 0,42) e médio (r = 0,36).",
+    "pag": "web p."
+   },
+   "despues": {
+    "en": "Self reported self regulated learning was higher with ChatGPT in the low (r = 0.42) and average (r = 0.36) prior achievement subgroups; in the high subgroup the difference was not significant (r = 0.29).",
+    "es": "El aprendizaje autorregulado autorreportado fue mayor con ChatGPT en los subgrupos de rendimiento previo bajo (r = 0,42) y medio (r = 0,36); en el subgrupo alto la diferencia no fue significativa (r = 0,29).",
+    "pt": "A aprendizagem autorregulada autorrelatada foi maior com ChatGPT nos subgrupos de desempenho prévio baixo (r = 0,42) e médio (r = 0,36); no subgrupo alto a diferença não foi significativa (r = 0,29).",
+    "pag": "web p."
+   },
+   "motivo": "Record reports between group differences after the intervention by subgroup, not a rise; adds the non significant high subgroup."
+  },
+  {
+   "id": "estados-unidos-reading-plus-2019",
+   "field": "efecto.texto",
+   "antes": {
+    "en": "The abstract reports no effect sizes; authors claim larger gains in reading efficiency in grade 4 and in reading achievement in grade 5. The What Works Clearinghouse found no significant positive findings.",
+    "es": "El resumen no informa tamaños de efecto; los autores afirman mayores ganancias en eficiencia lectora en cuarto grado y en logro lector en quinto. El What Works Clearinghouse no halló resultados positivos significativos.",
+    "pt": "O resumo não informa tamanhos de efeito; os autores afirmam ganhos maiores em eficiência leitora no quarto ano e em desempenho leitor no quinto. O What Works Clearinghouse não achou resultados positivos significativos.",
+    "pag": null
+   },
+   "despues": {
+    "en": "EvidencIA calculates +0.112 SD on the GRADE reading test at the end of the year. The authors report larger gains in reading efficiency in grade 4 and in reading achievement in grade 5; the What Works Clearinghouse found no significant positive findings.",
+    "es": "EvidencIA calcula +0,112 DE en la prueba de lectura GRADE al final del año. Los autores informan mayores ganancias en eficiencia lectora en cuarto grado y en logro lector en quinto; el What Works Clearinghouse no halló resultados positivos significativos.",
+    "pt": "A EvidencIA calcula +0,112 DP na prova de leitura GRADE no fim do ano. Os autores relatam ganhos maiores em eficiência leitora no quarto ano e em desempenho leitor no quinto; o What Works Clearinghouse não achou resultados positivos significativos.",
+    "pag": "p. 17"
+   },
+   "motivo": "The record gives a Standardized effect of +0.112 SD on GRADE (p. 17), matching efecto.comun; the text omitted it."
+  },
+  {
+   "id": "lectura-onecourse-levesque-2020",
+   "field": "efecto.comun",
+   "antes": null,
+   "despues": 0.34,
+   "motivo": "The record has a Standardized effect line: +0.34 SD (report Cohen d, ITT, total literacy), source the paper."
+  },
+  {
+   "id": "lectura-onecourse-levesque-2020",
+   "field": "efecto.texto",
+   "antes": {
+    "en": "+0.34 SD (Cohen's d) in overall literacy on EGRA for the literacy app; the math app had no clear effect (0.07). At endline 77% of the literacy group still could not read a word of text.",
+    "es": "+0,34 DE (d de Cohen) en lectura total en EGRA con la app de lectura; la app de matemática no tuvo efecto claro (0,07). Al final, el 77% del grupo de lectura aún no podía leer una palabra de texto.",
+    "pt": "+0,34 DP (d de Cohen) em leitura total no EGRA com o app de leitura; o app de matemática não teve efeito claro (0,07). No fim, 77% do grupo de leitura ainda não lia uma palavra de texto.",
+    "pag": "p. 25"
+   },
+   "despues": {
+    "en": "+0.34 SD (Cohen's d) in overall literacy on EGRA for the literacy app; the math app had no clear effect (0.07). At endline 77% of the literacy group still could not read a word of text.",
+    "es": "+0,34 DE (d de Cohen) en lectura total en EGRA con la app de lectura; la app de matemática no tuvo efecto claro (0,07). Al final, el 77% del grupo de lectura aún no podía leer una palabra de texto.",
+    "pt": "+0,34 DP (d de Cohen) em leitura total no EGRA com o app de leitura; o app de matemática não teve efeito claro (0,07). No fim, 77% do grupo de leitura ainda não lia uma palavra de texto.",
+    "pag": "p. 25; p. 27; p. 31"
+   },
+   "motivo": "The 0.07 math figure is on p. 27 (Table 5) and the 77% non reader figure on p. 31 (Table 6)."
+  },
+  {
+   "id": "lectura-onecourse-levesque-2020",
+   "field": "elementos.equidad",
+   "antes": {
+    "en": "Effects did not differ by sex or age. By school, 0.40 at the peri urban school and 0.28 at the urban school; the difference was not significant.",
+    "es": "Los efectos no difirieron por sexo ni edad. Por escuela, 0,40 en la periurbana y 0,28 en la urbana; la diferencia no fue significativa.",
+    "pt": "Os efeitos não diferiram por sexo nem idade. Por escola, 0,40 na periurbana e 0,28 na urbana; a diferença não foi significativa.",
+    "pag": "p. 35"
+   },
+   "despues": {
+    "en": "Effects did not differ by sex or age. By school, 0.40 at the peri urban school and 0.28 at the urban school; the difference was not significant.",
+    "es": "Los efectos no difirieron por sexo ni edad. Por escuela, 0,40 en la periurbana y 0,28 en la urbana; la diferencia no fue significativa.",
+    "pt": "Os efeitos não diferiram por sexo nem idade. Por escola, 0,40 na periurbana e 0,28 na urbana; a diferença não foi significativa.",
+    "pag": "p. 35; p. 33"
+   },
+   "motivo": "The by school effects (0.40 and 0.28) are on p. 33 (Table 7, p. 34); p. 35 covers sex and age."
+  },
+  {
+   "id": "shaia-bogota-2026",
+   "field": "codigos.adultoPresente",
+   "antes": "yes",
+   "despues": "not_reported",
+   "motivo": "The AI is used by teachers to plan lessons; the record describes no adult supervising use, so presence is not reported (consistent with the other teacher facing tool in this batch)."
+  },
+  {
+   "id": "tutoria-gortazar-2024",
+   "field": "elementos.pedagogia",
+   "antes": null,
+   "despues": {
+    "en": "A complement to regular school, in fixed pairs of students from the same class or grade. Sessions combined math work with at least 10 minutes of socioemotional support, using a growth mindset approach and elements of the No Excuses methodology.",
+    "es": "Un complemento a la escuela regular, en parejas fijas de estudiantes de la misma clase o curso. Las sesiones combinaron trabajo de matemática con al menos 10 minutos de apoyo socioemocional, con un enfoque de mentalidad de crecimiento y elementos de la metodología No Excuses.",
+    "pt": "Um complemento à escola regular, em duplas fixas de estudantes da mesma turma ou série. As sessões combinaram trabalho de matemática com pelo menos 10 minutos de apoio socioemocional, com um enfoque de mentalidade de crescimento e elementos da metodologia No Excuses.",
+    "pag": "pp. 4 to 7, printed 3 to 6"
+   },
+   "motivo": "The record clearly describes the session structure (fixed pairs, socioemotional block, growth mindset, No Excuses) and its role as a complement to school; the element was null."
+  },
+  {
+   "id": "tutoria-gortazar-2024",
+   "field": "elementos.cautelas",
+   "antes": {
+    "en": "The test effect loses significance after adjusting for multiple tests. Grades come from parents, with fewer control parents answering, and were not preregistered.",
+    "es": "El efecto en la prueba pierde significancia tras ajustar por pruebas múltiples. Las notas vienen de los padres, respondieron menos padres del control, y no estaban preregistradas.",
+    "pt": "O efeito na prova perde significância após ajuste por testes múltiplos. As notas vêm dos pais, menos pais do controle responderam, e não estavam pré registradas.",
+    "pag": "p. 9 (printed 8)"
+   },
+   "despues": {
+    "en": "The test effect loses significance after adjusting for multiple tests. Grades come from parents, with fewer control parents answering, and were not preregistered.",
+    "es": "El efecto en la prueba pierde significancia tras ajustar por pruebas múltiples. Las notas vienen de los padres, respondieron menos padres del control, y no estaban preregistradas.",
+    "pt": "O efeito na prova perde significância após ajuste por testes múltiplos. As notas vêm dos pais, menos pais do controle responderam, e não estavam pré registradas.",
+    "pag": "p. 11 (printed 10); p. 9 (printed 8); p. 10 (printed 9)"
+   },
+   "motivo": "Loss of significance after multiple testing is on p. 11 (Table 4, p. 13); preregistration on p. 9; lower control response on p. 10."
+  },
+  {
+   "id": "eeuu-saga-tutoria-tecnologia-2024",
+   "field": "elementos.dosis.pag",
+   "antes": "Table 1, p. 50; pp. 32-33",
+   "despues": "pp. 11-12 and 32; Table 1, p. 50; pp. 32-33",
+   "motivo": "The planned 75 minutes per week and 45 hours on ALEKS come from the Dosage line, which the record cites at pp. 11-12 and 32; the old pag only covered actual use."
+  },
+  {
+   "id": "estados-unidos-retroalimentacion-ia-diapositivas-2025",
+   "field": "codigos.alineadoCurriculo",
+   "antes": "yes",
+   "despues": "not_reported",
+   "motivo": "Participants were Prolific adults, not students in a course; the record only says the test drew on course practice items, not that the activity was aligned to a curriculum they follow."
+  },
+  {
+   "id": "inglaterra-lexia-core5-2024",
+   "field": "elementos.dosis.pag",
+   "antes": "p. 9; Table 6, p. 10",
+   "despues": "pp. 4 and 7; p. 9; Table 6, p. 10",
+   "motivo": "The planned four 30 minute sessions for 24 weeks come from the Dosage line, cited at pp. 4 and 7; the old pag only covered actual use."
+  },
+  {
+   "id": "lectura-onecourse-pitchford-2019",
+   "field": "efecto.comun",
+   "antes": null,
+   "despues": 0.325,
+   "motivo": "The record has a Standardized effect line of +0.325 SD (the article's Cohen's d, source: the paper), so comun should not be null."
+  },
+  {
+   "id": "lectura-onecourse-pitchford-2019",
+   "field": "elementos.pedagogia",
+   "antes": {
+    "en": "Children in grades 1 to 3 worked through the app at their own level; the app group probably had more reading time than control.",
+    "es": "Niños de grados 1 a 3 avanzaban en la app según su nivel; el grupo con app probablemente tuvo más tiempo de lectura que el control.",
+    "pt": "Crianças dos anos 1 a 3 avançavam no app conforme seu nível; o grupo com app provavelmente teve mais tempo de leitura que o controle.",
+    "pag": null
+   },
+   "despues": {
+    "en": "Children in grades 1 to 3 were pooled, and results are not broken down by grade. The app group probably had more reading time than control.",
+    "es": "Se agrupó a niños de grados 1 a 3, y los resultados no se desglosan por grado. El grupo con app probablemente tuvo más tiempo de lectura que el control.",
+    "pt": "Crianças dos anos 1 a 3 foram agrupadas, e os resultados não são desagregados por ano. O grupo com app provavelmente teve mais tempo de leitura que o controle.",
+    "pag": null
+   },
+   "motivo": "The record does not say children worked 'at their own level'; it says grades 1 to 3 were pooled with no breakdown by grade, and that the app group probably had more reading time."
+  },
+  {
+   "id": "tutor-ia-vs-tutoria-humana-gre-2026",
+   "field": "efecto.texto.pag",
+   "antes": "p. 5",
+   "despues": "p. 5; p. 28",
+   "motivo": "The text cites the EvidencIA common rule figure (+0.32 SD), which the record sources to p. 28; the AI versus human and AI versus control figures are on p. 5."
+  },
+  {
+   "id": "tutoria-guryan-2023",
+   "field": "elementos.cautelas.pag",
+   "antes": "p. 7 (printed 744)",
+   "despues": "p. 11 (printed 748); pp. 7 and 17, printed 744 and 754",
+   "motivo": "Take up figures (about 4 in 10 attended) come from p. 11 (printed 748); the missing test score caveat is cited at pp. 7 and 17, printed 744 and 754, not p. 7 alone."
+  },
+  {
+   "id": "australia-instruccion-explicita-antes-de-resolver-problemas-2020",
+   "field": "efecto.texto.pag",
+   "antes": "p. 16",
+   "despues": "p. 16; p. 18",
+   "motivo": "Experiment 2 effects (d = 0.57 and 0.56) are on p. 18, not p. 16."
+  },
+  {
+   "id": "australia-instruccion-explicita-antes-de-resolver-problemas-2020",
+   "field": "elementos.pedagogia",
+   "antes": null,
+   "despues": {
+    "en": "Both groups got the same 25 minute interactive explicit instruction together; only the order changed, and the other block was a filler reading. Materials were high in element interactivity (eight elements in Experiment 1, twelve in Experiment 2).",
+    "es": "Ambos grupos recibieron juntos la misma instrucción explícita interactiva de 25 minutos; sólo cambió el orden, y el otro bloque fue una lectura de relleno. Los materiales tenían alta interactividad de elementos (ocho elementos en el Experimento 1, doce en el Experimento 2).",
+    "pt": "Os dois grupos receberam juntos a mesma instrução explícita interativa de 25 minutos; só mudou a ordem, e o outro bloco foi uma leitura de preenchimento. Os materiais tinham alta interatividade de elementos (oito elementos no Experimento 1, doze no Experimento 2).",
+    "pag": null
+   },
+   "motivo": "Record clearly reports lesson structure (Under what conditions); element was null."
+  },
+  {
+   "id": "china-ortopedia-chatgpt-2024",
+   "field": "efecto.texto.pag",
+   "antes": "Results, The Accuracy of the 2 Groups of Participants in the Orthopedics Examination",
+   "despues": "Results, The Accuracy of the 2 Groups of Participants in the Orthopedics Examination; Results, The Score of the Final Examination for the Semester’s Teaching Task",
+   "motivo": "The total semester final score (p = 0.31) is reported in the final examination section, which was missing."
+  },
+  {
+   "id": "china-ortopedia-chatgpt-2024",
+   "field": "elementos.dosis.pag",
+   "antes": "Results, Overview",
+   "despues": "Methods, Initial Study and Follow-Up Study; Results, Overview",
+   "motivo": "The seven days of review and unreported time of use come from the Dose line (Methods, Initial Study and Follow-Up Study); Results, Overview only supports the later use of language models."
+  },
+  {
+   "id": "coaching-cilliers-2020",
+   "field": "efecto.texto.pag",
+   "antes": "p. 17 (printed 16)",
+   "despues": "p. 17 (printed 16); p. 30",
+   "motivo": "The equality test (p = 0.181) and the training coefficient are read from Table 3, p. 30."
+  },
+  {
+   "id": "coaching-cilliers-2020",
+   "field": "elementos.dosis",
+   "antes": null,
+   "despues": {
+    "en": "Two school years with the same cohort. Training: two centralized two day workshops a year, about 34 hours in total. Coaching: monthly classroom visits, about 37 hours, with a median of ten visits.",
+    "es": "Dos años escolares con la misma cohorte. Formación: dos talleres centralizados de dos días por año, unas 34 horas en total. Acompañamiento: visitas mensuales al aula, unas 37 horas, con una mediana de diez visitas.",
+    "pt": "Dois anos letivos com a mesma coorte. Formação: duas oficinas centralizadas de dois dias por ano, cerca de 34 horas no total. Acompanhamento: visitas mensais à sala de aula, cerca de 37 horas, com mediana de dez visitas.",
+    "pag": "pp. 4, 6-7; printed 3, 5-6"
+   },
+   "motivo": "Record clearly reports planned exposure (hours, visits, two years); element was null."
+  },
+  {
+   "id": "coaching-cilliers-2020",
+   "field": "elementos.pedagogia.pag",
+   "antes": "p. 21 (printed 20)",
+   "despues": "pp. 4, 6-7; printed 3, 5-6; p. 21 (printed 20); p. 33",
+   "motivo": "Curriculum aligned lesson plans are on pp. 4, 6-7; small group reading aloud comes from Table 6, p. 33."
+  },
+  {
+   "id": "coaching-cilliers-2020",
+   "field": "elementos.equidad.pag",
+   "antes": "p. 24 (printed 23)",
+   "despues": "p. 24 (printed 23); p. 23 (printed 22)",
+   "motivo": "The class size result (peak at 38 students) is on p. 23 (printed 22)."
+  },
+  {
+   "id": "eeuu-escritura-coach-ia-2026",
+   "field": "efecto.texto.pag",
+   "antes": "p. 17, Table S7, GPT-4o column (main specification); p. 3",
+   "despues": "p. 17, Table S7, GPT-4o column (main specification); p. 3; p. 20, Table S12, GPT-4o column; p. 4",
+   "motivo": "The one day follow up effect (+0.41) comes from Table S12, p. 20 and p. 4, which were missing."
+  },
+  {
+   "id": "eeuu-escritura-coach-ia-2026",
+   "field": "elementos.dosis.pag",
+   "antes": "p. 4; Figure S4, p. 19",
+   "despues": "p. 3; p. 4; Figure S4, p. 19",
+   "motivo": "Practice length (a few minutes, 3.73 on average) is sourced at p. 3 in the Dosage line."
+  },
+  {
+   "id": "eeuu-escritura-coach-ia-2026",
+   "field": "elementos.costo",
+   "antes": null,
+   "despues": {
+    "en": "The paper does not report the cost of the AI tool. The professional editors in Study 3 were each paid 100 dollars to edit 20 letters.",
+    "es": "El artículo no informa el costo de la herramienta de IA. Los editores profesionales del Estudio 3 cobraron 100 dólares cada uno por editar 20 cartas.",
+    "pt": "O artigo não informa o custo da ferramenta de IA. Os editores profissionais do Estudo 3 receberam 100 dólares cada um para editar 20 cartas.",
+    "pag": "p. 25"
+   },
+   "motivo": "Record reports a cost figure (editor fee, p. 25); element was null."
+  },
+  {
+   "id": "eleccion-patall-2010",
+   "field": "elementos.pedagogia.pag",
+   "antes": "p. 17, printed 912",
+   "despues": "p. 17, printed 912; p. 10 (print 905)",
+   "motivo": "Effects on interest, competence, effort and value are reported on p. 10 (print 905); p. 17 only supports the two option rationale."
+  },
+  {
+   "id": "estados-unidos-evaluar-soluciones-ia-algoritmos-2026",
+   "field": "elementos.dosis.pag",
+   "antes": "p. 4",
+   "despues": "p. 4; p. 5",
+   "motivo": "That compliance rates are not reported comes from the Actual use line, sourced at p. 5."
+  },
+  {
+   "id": "khan-academy-uttar-pradesh-2026",
+   "field": "elementos.dosis.pag",
+   "antes": "p. 15; p. 14",
+   "despues": "p. 15; p. 14; pp. 10 and 11",
+   "motivo": "The 120 minutes per week target for control schools is sourced in the Dose line at pp. 10 and 11."
+  },
+  {
+   "id": "laptops-cristia-2017",
+   "field": "efecto.texto.pag",
+   "antes": "p. 5 (printed 3)",
+   "despues": "p. 5 (printed 3); p. 18 (printed 16)",
+   "motivo": "The upper bound (effects above 0.11 SD ruled out) is reported on p. 18 (printed 16)."
+  },
+  {
+   "id": "laptops-cristia-2017",
+   "field": "elementos.infraestructura.pag",
+   "antes": "p. 4 (printed 2)",
+   "despues": "p. 4 (printed 2); p. 10, printed 8",
+   "motivo": "Schools having electricity comes from the sample description (p. 10, printed 8)."
+  },
+  {
+   "id": "mentalidad-yeager-2019",
+   "field": "efecto.texto.pag",
+   "antes": "p. 3 (printed 366)",
+   "despues": "p. 3 (printed 366); p. 13 (Extended Data Table 1)",
+   "motivo": "The null effect for higher achieving students (0.01 SD) is sourced at p. 13, Extended Data Table 1."
+  },
+  {
+   "id": "pensamiento-stadler-2024",
+   "field": "elementos.infraestructura.pag",
+   "antes": null,
+   "despues": "pp. 3-4",
+   "motivo": "The record sources the intervention description (lab, tool, primed chat, task) at pp. 3-4; pag was null."
+  },
+  {
+   "id": "pensamiento-stadler-2024",
+   "field": "elementos.lugar.pag",
+   "antes": null,
+   "despues": "pp. 3-4",
+   "motivo": "The record sources the intervention description (lab, tool, primed chat, task) at pp. 3-4; pag was null."
+  },
+  {
+   "id": "pensamiento-stadler-2024",
+   "field": "elementos.diseno.pag",
+   "antes": null,
+   "despues": "pp. 3-4",
+   "motivo": "The record sources the intervention description (lab, tool, primed chat, task) at pp. 3-4; pag was null."
+  },
+  {
+   "id": "pensamiento-stadler-2024",
+   "field": "elementos.pedagogia.pag",
+   "antes": null,
+   "despues": "pp. 3-4",
+   "motivo": "The record sources the intervention description (lab, tool, primed chat, task) at pp. 3-4; pag was null."
+  },
+  {
+   "id": "tutoria-angrist-2022",
+   "field": "efecto.texto.pag",
+   "antes": "p. 4 (printed 944)",
+   "despues": "p. 4 (printed 944); p. 1 (printed 941)",
+   "motivo": "The SMS only result (+0.024 SD, not significant) is sourced at p. 1 (printed 941)."
+  },
+  {
+   "id": "tutoria-angrist-2022",
+   "field": "elementos.infraestructura",
+   "antes": {
+    "en": "Basic phones: fixed SMS sent through a bulk messaging platform and live voice calls on speakerphone. One phone number per household.",
+    "es": "Teléfonos básicos: SMS fijos enviados por una plataforma de mensajes masivos y llamadas de voz en altavoz. Un número por hogar.",
+    "pt": "Telefones básicos: SMS fixos enviados por uma plataforma de mensagens em massa e ligações de voz no viva voz. Um número por domicílio.",
+    "pag": "pp. 7 and 9, printed 947 and 949"
+   },
+   "despues": {
+    "en": "Basic technology: fixed SMS sent through a bulk messaging platform and live voice calls on speakerphone. One phone number per household.",
+    "es": "Tecnología básica: SMS fijos enviados por una plataforma de mensajes masivos y llamadas de voz en altavoz. Un número por hogar.",
+    "pt": "Tecnologia básica: SMS fixos enviados por uma plataforma de mensagens em massa e ligações de voz no viva voz. Um número por domicílio.",
+    "pag": "pp. 7 and 9, printed 947 and 949; p. 3 (printed 943)"
+   },
+   "motivo": "The record says 'basic technology', not 'basic phones'; one number per household is sourced at p. 3 (printed 943)."
+  },
+  {
+   "id": "tutoria-angrist-2022",
+   "field": "elementos.dosis.pag",
+   "antes": "pp. 1 and 5, printed 941 and 945",
+   "despues": "pp. 1 and 5, printed 941 and 945; p. 7 (printed 947); supplement, p. 3",
+   "motivo": "Call length (15 to 20 minutes) is also on p. 7, and the fall in weekly participation from 85% to 60% comes from supplement p. 3."
+  },
+  {
+   "id": "tutoria-angrist-2022",
+   "field": "elementos.pedagogia",
+   "antes": null,
+   "despues": {
+    "en": "Weekly problems of the week went to parents; on the call the facilitator went over them with the child and parent together. It worked as a substitute for school during closures, not a complement to class.",
+    "es": "Los problemas de la semana iban a los padres; en la llamada el facilitador los revisaba con el niño y el padre o la madre juntos. Funcionó como sustituto de la escuela durante el cierre, no como complemento de la clase.",
+    "pt": "Os problemas da semana iam para os pais; na ligação o facilitador os revisava com a criança e o responsável juntos. Funcionou como substituto da escola durante o fechamento, não como complemento da aula.",
+    "pag": "p. 7 (printed 947); pp. 1-2, printed 941-942"
+   },
+   "motivo": "Record clearly reports the lesson structure and parent role (Intervention; Under what conditions); element was null."
+  },
+  {
+   "id": "tutoria-intensiva-hamlin-2026",
+   "field": "elementos.dosis.pag",
+   "antes": "Table 3, p. 29",
+   "despues": "pp. 10-13; Table 3, p. 29",
+   "motivo": "The planned dose (a full period three times a week all year) is sourced in the intervention at pp. 10-13; Table 3 only gives the 2,822 minutes."
+  },
+  {
+   "id": "tutoria-intensiva-hamlin-2026",
+   "field": "elementos.diseno.pag",
+   "antes": "p. 20",
+   "despues": "pp. 10-13; p. 15; p. 20",
+   "motivo": "Group format and same tutor all year are at pp. 10-13, and the year 3 group size lottery is described at p. 15."
+  },
+  {
+   "id": "tutoria-intensiva-hamlin-2026",
+   "field": "elementos.cautelas.pag",
+   "antes": "p. 15",
+   "despues": "p. 15; p. 20; p. 33",
+   "motivo": "Year by year effects (year 3 significant, years 1 and 2 not) are on p. 20 and Table 7, p. 33."
+  },
+  {
+   "id": "coaching-virtual-cilliers-2022",
+   "field": "elementos.dosis",
+   "antes": null,
+   "despues": {
+    "en": "Three school years, one grade per year. In 2019 the on site coach made about 14 visits (12 required) and the virtual coach about 10 calls; 96.7% of virtual arm teachers opened the tablet plans in the third term.",
+    "es": "Tres años escolares, un grado por año. En 2019 el coach presencial hizo unas 14 visitas (12 exigidas) y el coach virtual unas 10 llamadas; el 96,7% de los docentes del brazo virtual abrió los planes en la tableta en el tercer trimestre.",
+    "pt": "Três anos letivos, uma série por ano. Em 2019 o coach presencial fez cerca de 14 visitas (12 exigidas) e o coach virtual cerca de 10 ligações; 96,7% dos professores do braço virtual abriram os planos no tablet no terceiro trimestre.",
+    "pag": "pp. 8-9, printed 7-8; p. 30 (printed 29)"
+   },
+   "motivo": "Record reports dose (visits, calls, tablet use) but element was null."
+  },
+  {
+   "id": "estados-unidos-informacion-irrelevante-graficos-barras-2013",
+   "field": "codigos.privacidadReportada",
+   "antes": false,
+   "despues": true,
+   "motivo": "Record mentions recruitment based on returned consent forms (a consent safeguard)."
+  },
+  {
+   "id": "estados-unidos-informacion-irrelevante-graficos-barras-2013",
+   "field": "elementos.privacidad",
+   "antes": null,
+   "despues": {
+    "en": "Children were recruited on the basis of returned consent forms.",
+    "es": "Los niños se reclutaron según los formularios de consentimiento devueltos.",
+    "pt": "As crianças foram recrutadas com base nos formulários de consentimento devolvidos.",
+    "pag": null
+   },
+   "motivo": "Record mentions consent forms; element was null."
+  },
+  {
+   "id": "estados-unidos-pistas-ia-algebra-universitaria-2024",
+   "field": "elementos.pedagogia.pag",
+   "antes": null,
+   "despues": "p. 17",
+   "motivo": "Record gives p. 17 for the 10 OpenStax College Algebra 2e lessons."
+  },
+  {
+   "id": "inicial-xu-2021",
+   "field": "codigos.privacidadReportada",
+   "antes": false,
+   "despues": true,
+   "motivo": "Record states 102 families gave consent (a consent safeguard)."
+  },
+  {
+   "id": "inicial-xu-2021",
+   "field": "elementos.privacidad",
+   "antes": null,
+   "despues": {
+    "en": "102 families gave consent for their children to take part.",
+    "es": "102 familias dieron su consentimiento para que sus hijos participaran.",
+    "pt": "102 famílias deram consentimento para que seus filhos participassem.",
+    "pag": null
+   },
+   "motivo": "Record mentions family consent; element was null."
+  },
+  {
+   "id": "khan-docentes-oreopoulos-2026",
+   "field": "elementos.costo",
+   "antes": null,
+   "despues": {
+    "en": "Cost per student is not reported. Khan Academy is free; teachers were paid 300 dollars to sign up and 300 more to start with the assistant.",
+    "es": "No se reporta el costo por estudiante. Khan Academy es gratuito; a los docentes se les pagaron 300 dólares por inscribirse y 300 más por empezar con el asistente.",
+    "pt": "O custo por estudante não é relatado. A Khan Academy é gratuita; os professores receberam 300 dólares para se inscrever e mais 300 para começar com o assistente.",
+    "pag": "pp. 10, 16 and 17"
+   },
+   "motivo": "Record states Khan Academy is free and the teacher payments; element was null."
+  },
+  {
+   "id": "mindspark-escala-rajastan-2026",
+   "field": "elementos.costo",
+   "antes": null,
+   "despues": {
+    "en": "Cost per student is not reported. The authors say the in school model was twice as cost effective, in learning gains per dollar, as the out of school pilot.",
+    "es": "No se reporta el costo por estudiante. Los autores dicen que el modelo en la escuela fue dos veces más costo efectivo, en aprendizaje por dólar, que el piloto fuera de la escuela.",
+    "pt": "O custo por estudante não é relatado. Os autores dizem que o modelo na escola foi duas vezes mais custo efetivo, em aprendizagem por dólar, que o piloto fora da escola.",
+    "pag": "p. 6 (printed 4)"
+   },
+   "motivo": "Record reports a cost effectiveness comparison; element was null."
+  },
+  {
+   "id": "mindspark-escala-rajastan-2026",
+   "field": "elementos.dosis.pag",
+   "antes": null,
+   "despues": "p. 6",
+   "motivo": "Record gives p. 6 for the shared coordinator and the fall in use and effect in year three."
+  },
+  {
+   "id": "recuperacion-karpicke-2011",
+   "field": "codigos.alineadoCurriculo",
+   "antes": "no",
+   "despues": "not_reported",
+   "motivo": "The record does not say the material was aligned or not aligned to a curriculum; it only calls the texts textbook like. 'no' was unsupported."
+  },
+  {
+   "id": "taiwan-cal-rural-2024",
+   "field": "lugar",
+   "antes": null,
+   "despues": [
+    "in_class"
+   ],
+   "motivo": "Record says practice was at school in the computer lab in weekly sessions organized by teachers; lugar was null."
+  },
+  {
+   "id": "taiwan-cal-rural-2024",
+   "field": "elementos.costo",
+   "antes": null,
+   "despues": {
+    "en": "No cost per student is reported. The 2020 working paper only mentions a payment of 300 Taiwanese dollars (about 10 USD) to each teacher in the program.",
+    "es": "No se reporta el costo por estudiante. El documento de trabajo de 2020 solo menciona un pago de 300 dólares taiwaneses (unos 10 USD) a cada docente del programa.",
+    "pt": "O custo por estudante não é relatado. O documento de trabalho de 2020 só menciona um pagamento de 300 dólares taiwaneses (cerca de 10 USD) a cada professor do programa.",
+    "pag": "2020 working paper, p. 7"
+   },
+   "motivo": "Record reports the teacher payment as the only cost information; element was null."
+  },
+  {
+   "id": "taiwan-cal-rural-2024",
+   "field": "elementos.equidad.pag",
+   "antes": null,
+   "despues": "Abstract of the published version (Journal of Research on Educational Effectiveness 17(4), 2024), reproduced by Stanford REAP",
+   "motivo": "Record gives the published abstract as the source of the xinzhumin result."
+  },
+  {
+   "id": "tutoria-carlana-2025",
+   "field": "codigos.privacidadReportada",
+   "antes": false,
+   "despues": true,
+   "motivo": "Record states ethics approval from Bocconi and Harvard."
+  },
+  {
+   "id": "tutoria-carlana-2025",
+   "field": "elementos.privacidad",
+   "antes": null,
+   "despues": {
+    "en": "The study had ethics approval from Bocconi and Harvard.",
+    "es": "El estudio tuvo aprobación ética de Bocconi y Harvard.",
+    "pt": "O estudo teve aprovação ética de Bocconi e Harvard.",
+    "pag": null
+   },
+   "motivo": "Record mentions ethics approval; element was null."
+  },
+  {
+   "id": "tutoria-kraft-2022",
+   "field": "codigos.privacidadReportada",
+   "antes": false,
+   "despues": true,
+   "motivo": "Record states the study was approved by the University of Chicago ethics board (p. 1)."
+  },
+  {
+   "id": "tutoria-kraft-2022",
+   "field": "elementos.privacidad",
+   "antes": null,
+   "despues": {
+    "en": "The study was approved by the University of Chicago ethics board.",
+    "es": "El estudio fue aprobado por el comité de ética de la Universidad de Chicago.",
+    "pt": "O estudo foi aprovado pelo comitê de ética da Universidade de Chicago.",
+    "pag": "p. 1"
+   },
+   "motivo": "Record mentions ethics approval; element was null."
+  },
+  {
+   "id": "tutoria-kraft-2022",
+   "field": "elementos.pedagogia",
+   "antes": null,
+   "despues": {
+    "en": "Tutors could use the school's digital textbooks (Carnegie Learning MATHia and My Perspectives) and resources such as Newsela, Quizlet and Khan Academy. The paper does not say how much they were used.",
+    "es": "Los tutores podían usar los textos digitales de la escuela (Carnegie Learning MATHia y My Perspectives) y recursos como Newsela, Quizlet y Khan Academy. El artículo no dice cuánto se usaron.",
+    "pt": "Os tutores podiam usar os livros digitais da escola (Carnegie Learning MATHia e My Perspectives) e recursos como Newsela, Quizlet e Khan Academy. O artigo não diz quanto foram usados.",
+    "pag": "p. 2 (printed 615)"
+   },
+   "motivo": "Record describes the materials tutors could use; element was null."
+  },
+  {
+   "id": "algebra-cognitive-tutor-pane-2014",
+   "field": "elementos.costo",
+   "antes": null,
+   "despues": {
+    "en": "The study does not report cost per student. According to the authors, the course is considerably more expensive than the control curricula.",
+    "es": "El estudio no reporta el costo por estudiante. Según los autores, el curso es bastante más caro que los currículos de control.",
+    "pt": "O estudo não informa o custo por estudante. Segundo os autores, o curso é consideravelmente mais caro que os currículos de controle.",
+    "pag": null
+   },
+   "motivo": "The record's caveats say the course is considerably more expensive than the control curricula; element was null."
+  },
+  {
+   "id": "china-pereza-metacognitiva-2024",
+   "field": "codigos.alineadoCurriculo",
+   "antes": "yes",
+   "despues": "not_reported",
+   "motivo": "Single lab session run by researchers, not part of a course; the record says nothing about alignment with a curriculum or program."
+  },
+  {
+   "id": "computadoras-carter-2017",
+   "field": "efecto.texto.pag",
+   "antes": "p. 1 (printed 118)",
+   "despues": "p. 1 (printed 118); p. 11 (printed 128)",
+   "motivo": "The 1.7 points out of 100 figure is given on p. 11 (printed 128), not p. 1."
+  },
+  {
+   "id": "eeuu-its-vocabulario-2021",
+   "field": "elementos.pedagogia.pag",
+   "antes": null,
+   "despues": "What Works Clearinghouse, study 91064",
+   "motivo": "The record attributes the unit progression (move to the next unit once completed) to the What Works Clearinghouse review, study 91064."
+  },
+  {
+   "id": "eeuu-its-vocabulario-2021",
+   "field": "elementos.lugar.pag",
+   "antes": null,
+   "despues": "p. 17",
+   "motivo": "'Sessions during the school day' appears only in the standardized effect line, which the record cites as p. 17."
+  },
+  {
+   "id": "estados-unidos-learn-your-way-2026",
+   "field": "codigos.adultoPresente",
+   "antes": "yes",
+   "despues": "not_reported",
+   "motivo": "The record says only that it was an in person lab session run by the researchers; it does not say an adult monitored students during use."
+  },
+  {
+   "id": "estados-unidos-learn-your-way-2026",
+   "field": "elementos.dosis.pag",
+   "antes": "p. 6; Table 1, p. 7",
+   "despues": "p. 6; Table 1, p. 7; p. 10, Table 5",
+   "motivo": "The fact that all 30 treated students used the immersive text with quizzes is cited to p. 10, Table 5."
+  },
+  {
+   "id": "gemini-sierra-leona-2026",
+   "field": "efecto.texto.pag",
+   "antes": "p. 3; Table C.4, col. 2, p. 17",
+   "despues": "p. 3; Table C.4, col. 2, p. 17; Table C.7, p. 21",
+   "motivo": "The +0.38 SD treatment on the treated figure is cited to p. 3 and Table C.7, p. 21."
+  },
+  {
+   "id": "khan-elsalvador-buchel-2022",
+   "field": "codigos.dispositivo",
+   "antes": "school_provided",
+   "despues": "individual",
+   "motivo": "The record says each child in the software arms had their own computer; the computers came from the implementing NGO (mostly donations), not from the school."
+  },
+  {
+   "id": "khan-elsalvador-buchel-2022",
+   "field": "elementos.infraestructura.pag",
+   "antes": "pp. 13-15, printed 12-14",
+   "despues": "pp. 10-12, printed 9-11; pp. 13-15, printed 12-14",
+   "motivo": "One computer per child is described in the intervention (pp. 10-12, printed 9-11); the electricity criterion is in the sample section (pp. 13-15, printed 12-14)."
+  },
+  {
+   "id": "khan-elsalvador-buchel-2022",
+   "field": "elementos.dosis.pag",
+   "antes": "p. 30, printed 29",
+   "despues": "pp. 10-12, printed 9-11; p. 30, printed 29",
+   "motivo": "The two weekly 90 minute classes are cited to pp. 10-12 (printed 9-11); attendance to p. 30 (printed 29)."
+  },
+  {
+   "id": "khan-elsalvador-buchel-2022",
+   "field": "efecto.texto.pag",
+   "antes": "p. 4 (printed 3)",
+   "despues": "p. 4 (printed 3); p. 21 (printed 20)",
+   "motivo": "The +0.15 SD figure for teacher classes without software is cited to p. 21 (printed 20)."
+  },
+  {
+   "id": "lectura-graphogame-eef-2018",
+   "field": "elementos.dosis.pag",
+   "antes": "p. 6 (printed 5)",
+   "despues": "p. 6 (printed 5); Table 8, p. 25 (printed 24)",
+   "motivo": "The 32 of 183 pupils above 10 hours figure is cited to Table 8, p. 25 (printed 24)."
+  },
+  {
+   "id": "mturk-pistas-chatgpt-algebra-estadistica-2024",
+   "field": "codigos.alineadoCurriculo",
+   "antes": "yes",
+   "despues": "not_reported",
+   "motivo": "Single online session with Mechanical Turk adults, not part of any course or program; the record only says items came from OpenStax textbooks, not that content was aligned to a curriculum."
+  },
+  {
+   "id": "recuperacion-roediger-2006",
+   "field": "codigos.adultoPresente",
+   "antes": "yes",
+   "despues": "not_reported",
+   "motivo": "The record does not say whether an adult was present or monitored students during the sessions."
+  },
+  {
+   "id": "recuperacion-roediger-2006",
+   "field": "codigos.alineadoCurriculo",
+   "antes": "no",
+   "despues": "not_reported",
+   "motivo": "The record says sessions were not part of a course but says nothing explicit about curriculum alignment."
+  },
+  {
+   "id": "recuperacion-roediger-2006",
+   "field": "elementos.dosis",
+   "antes": null,
+   "despues": {
+    "en": "A single learning session. In Experiment 2, students read once and took three tests, read three times and took one test, or read four times; after a week, testers had read the text 3.4 times versus 14.2 for rereaders.",
+    "es": "Una sola sesión de aprendizaje. En el Experimento 2, los estudiantes leyeron una vez e hicieron tres pruebas, leyeron tres veces e hicieron una prueba, o leyeron cuatro veces; quienes hicieron pruebas leyeron el texto 3,4 veces frente a 14,2 de quienes releyeron.",
+    "pt": "Uma única sessão de aprendizagem. No Experimento 2, os estudantes leram uma vez e fizeram três testes, leram três vezes e fizeram um teste, ou leram quatro vezes; quem fez testes leu o texto 3,4 vezes contra 14,2 de quem releu.",
+    "pag": "p. 5 (print 253)"
+   },
+   "motivo": "The record clearly reports the dose (single session; reading and test conditions; 3.4 versus 14.2 readings, p. 5) but the element was null."
+  },
+  {
+   "id": "sensacion-deslauriers-2019",
+   "field": "elementos.docentes",
+   "antes": null,
+   "despues": {
+    "en": "Both classes were taught by instructors experienced in well rated traditional lectures. In the active class the instructor circulated while small groups worked on the problems. Training is not described.",
+    "es": "Ambas clases las dieron docentes con experiencia en clases magistrales bien evaluadas. En la clase activa el docente circulaba mientras los grupos pequeños resolvían los problemas. No se describe formación.",
+    "pt": "As duas aulas foram dadas por professores com experiência em aulas expositivas bem avaliadas. Na aula ativa o professor circulava enquanto pequenos grupos resolviam os problemas. Não se descreve formação.",
+    "pag": null
+   },
+   "motivo": "The record describes the instructors and their role during the active class (circulating among groups); the element was null."
+  },
+  {
+   "id": "sensacion-deslauriers-2019",
+   "field": "elementos.pedagogia.pag",
+   "antes": "p. 5 (print 19255)",
+   "despues": "p. 2; p. 5 (print 19255)",
+   "motivo": "The detailed learning objectives are cited to p. 2; the effect of explaining that effort signals learning to p. 5 (print 19255)."
+  },
+  {
+   "id": "turquia-docentes-ia-2026",
+   "field": "efecto.texto.pag",
+   "antes": "p. 7; Table S14 (p. A10)",
+   "despues": "p. 7; Table S14 (p. A10); p. 6; Table S7 (p. A5); Table S19 (p. A15)",
+   "motivo": "The motivation figure is cited to p. 6 and Table S7 (p. A5); the below median teacher figure to Table S19 (p. A15)."
+  },
+  {
+   "id": "turquia-docentes-ia-2026",
+   "field": "elementos.docentes.pag",
+   "antes": null,
+   "despues": "pp. 4, 5 and 8",
+   "motivo": "The one hour training and weekly reminders are cited in the dose line to pp. 4, 5 and 8."
+  },
+  {
+   "id": "turquia-docentes-ia-2026",
+   "field": "elementos.dosis.pag",
+   "antes": "p. 11",
+   "despues": "pp. 4, 5 and 8; p. 11",
+   "motivo": "Access during the semester and the lack of hours of use are cited to pp. 4, 5 and 8; the messages per conversation to p. 11."
+  },
+  {
+   "id": "tutoria-fryer-2020",
+   "field": "efecto.texto.pag",
+   "antes": "p. 13 (printed 11)",
+   "despues": "p. 13 (printed 11); p. 14 (printed 12)",
+   "motivo": "The 1.2 percentage point attendance figure is cited to p. 14 (printed 12)."
+  },
+  {
+   "id": "tutoria-fryer-2020",
+   "field": "elementos.dosis.pag",
+   "antes": "Table 3, p. 25",
+   "despues": "pp. 7-9; Table 3, p. 25",
+   "motivo": "Session length (45 to 60 minutes) is cited to pp. 7-9; days attended to Table 3, p. 25."
+  },
+  {
+   "id": "tutoria-fryer-2020",
+   "field": "elementos.pedagogia",
+   "antes": null,
+   "despues": {
+    "en": "Guided reading (Fountas and Pinnell) in groups of four, with a curriculum developed by a team of teachers and reading experts. Within each school, students with the lowest DRP scores had priority.",
+    "es": "Lectura guiada (Fountas y Pinnell) en grupos de cuatro, con un currículo elaborado por un equipo de docentes y expertos en lectura. En cada escuela, los estudiantes con los puntajes DRP más bajos tenían prioridad.",
+    "pt": "Leitura guiada (Fountas e Pinnell) em grupos de quatro, com um currículo elaborado por uma equipe de professores e especialistas em leitura. Em cada escola, os estudantes com as menores pontuações DRP tinham prioridade.",
+    "pag": "p. 4; pp. 7-9"
+   },
+   "motivo": "The record clearly reports the lesson structure, curriculum origin and targeting (p. 4; pp. 7-9); the element was null."
+  },
+  {
+   "id": "tutoria-fryer-2020",
+   "field": "elementos.equidad.pag",
+   "antes": "p. 15 (printed 13)",
+   "despues": "p. 15 (printed 13); Table 5, p. 27",
+   "motivo": "The results for students born outside the United States and special education students are in Table 5, p. 27."
+  },
+  {
+   "id": "tutoria-fryer-2020",
+   "field": "elementos.cautelas.pag",
+   "antes": "p. 5 (printed 3)",
+   "despues": "pp. 3 and 7; p. 5 (printed 3); p. 17",
+   "motivo": "Not separating tutoring from the after school program is cited to pp. 3 and 7; the 36 clusters concern to p. 17; robustness tests to p. 5."
+  },
+  {
+   "id": "vietnam-tutor-inteligente-ciencia-datos-2022",
+   "field": "elementos.cautelas.pag",
+   "antes": null,
+   "despues": "p. 4; p. 7",
+   "motivo": "The 50 analyzed participants are cited to p. 4 and the completion rates by group to p. 7."
+  }
+ ],
+ "juicios": [
+  {
+   "id": "aleks-republica-dominicana-lopez-2026",
+   "field": "codigos.dispositivo",
+   "juicio": "school_provided inferred from the required school computer lab (p. 9); the record does not say explicitly who owns the devices."
+  },
+  {
+   "id": "aleks-republica-dominicana-lopez-2026",
+   "field": "lugar",
+   "juicio": "in_class: record says ALEKS replaced two weekly math hours within the school timetable; about 15% of use was outside school hours, not coded as home."
+  },
+  {
+   "id": "apuntes-urry-2021",
+   "field": "codigos.adultoPresente",
+   "juicio": "yes inferred from \"sessions run by the researchers\"; the record does not describe supervision explicitly."
+  },
+  {
+   "id": "apuntes-urry-2021",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "no inferred from \"not as part of a course\" and TED talk content."
+  },
+  {
+   "id": "bastani-turquia-2025-sin-guia",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes inferred from sessions covering about 15% of each grade math curriculum."
+  },
+  {
+   "id": "china-chatgpt-odontologia-realidad-virtual-2026",
+   "field": "codigos.dispositivo",
+   "juicio": "school_provided inferred from study sessions in a digital classroom with the simulator and separate computers."
+  },
+  {
+   "id": "china-chatgpt-odontologia-realidad-virtual-2026",
+   "field": "codigos.adultoPresente",
+   "juicio": "yes: research assistants reviewed AI responses throughout training."
+  },
+  {
+   "id": "china-retroalimentacion-ia-2025",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes inferred from use of daily physics homework problems from the school routine."
+  },
+  {
+   "id": "eeuu-middlebury-chatgpt-aprendizaje-2026",
+   "field": "codigos.equidadReportada",
+   "juicio": "true based on effects across the score distribution (p. 17) and a non experimental comparison by type of use; no demographic subgroups."
+  },
+  {
+   "id": "estados-unidos-chatbot-mensajes-cursos-universitarios-2026",
+   "field": "codigos.adultoPresente",
+   "juicio": "yes inferred from a teaching assistant who monitored messages daily and answered questions; not physically present."
+  },
+  {
+   "id": "estados-unidos-chatbot-mensajes-cursos-universitarios-2026",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes inferred from messages personalized to pending course assignments and quiz questions on the next exam material."
+  },
+  {
+   "id": "estados-unidos-maryland-tutor-ia-2026",
+   "field": "codigos.formacionDocente",
+   "juicio": "yes inferred from tutorials, sample text and weekly usage summaries the researchers gave instructors; no formal training described."
+  },
+  {
+   "id": "estados-unidos-maryland-tutor-ia-2026",
+   "field": "codigos.privacidadReportada",
+   "juicio": "true based on the record noting instructors and researchers could see conversations and that the tutor refused off topic questions; no explicit data safeguard."
+  },
+  {
+   "id": "estados-unidos-reading-plus-2019",
+   "field": "lugar",
+   "juicio": "school_other_time: supplementary 25 minute reading blocks during the school day."
+  },
+  {
+   "id": "india-mindspark-2019",
+   "field": "codigos.dispositivo",
+   "juicio": "kept not_reported: centers supplied equipment (cost covers equipment) but the record does not describe devices."
+  },
+  {
+   "id": "intercalado-rohrer-2020",
+   "field": "lugar",
+   "juicio": "in_class inferred: teachers administered the worksheets and the test was given in class; the record does not say practice was done in class."
+  },
+  {
+   "id": "lectura-onecourse-levesque-2020",
+   "field": "efecto.comun",
+   "juicio": "0.34 is the report Cohen d standardized with the whole sample SD, not the control group SD; the record lists it as the Standardized effect."
+  },
+  {
+   "id": "lectura-onecourse-levesque-2020",
+   "field": "lugar",
+   "juicio": "school_other_time: daily use in the school tablet learning center as a supplement to class."
+  },
+  {
+   "id": "nigeria-edo-2025",
+   "field": "elementos.lugar",
+   "juicio": "\"computer lab at the participating public schools\" inferred from after school sessions with teachers circulating in the lab; the record does not state the lab location explicitly."
+  },
+  {
+   "id": "tutor-copilot-eeuu-2025",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes based on sessions following the tutoring provider curriculum, not the school curriculum."
+  },
+  {
+   "id": "tutoria-gortazar-2024",
+   "field": "codigos.dispositivo",
+   "juicio": "own inferred: students needed their own device and connection; only 13 students (6% without a way to connect) were lent tablets."
+  },
+  {
+   "id": "tutoria-gortazar-2024",
+   "field": "codigos.costoReportado",
+   "juicio": "true: results report about 300 euros per student (p. 4), although the design section line says cost per student is not reported."
+  },
+  {
+   "id": "alemania-iris-tutor-2026",
+   "field": "lugar",
+   "juicio": "in_class inferred from 'supervised tutorial sessions' of the course; the record does not use the word class."
+  },
+  {
+   "id": "alemania-iris-tutor-2026",
+   "field": "codigos.conectividad",
+   "juicio": "online inferred from GPT 4 chat inside the Artemis platform and web resources; connectivity not stated."
+  },
+  {
+   "id": "australia-chatgpt-programacion-retencion-2026",
+   "field": "codigos.dispositivo",
+   "juicio": "school_provided inferred from 'same workstation' in lab sessions run by researchers; device provision not stated explicitly."
+  },
+  {
+   "id": "australia-chatgpt-programacion-retencion-2026",
+   "field": "codigos.privacidadReportada",
+   "juicio": "true based on 'memory disabled, a separate account for each participant'; the record does not frame it as a privacy safeguard."
+  },
+  {
+   "id": "brasil-chatgpt-retencion-2025",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes inferred from 'test on the syllabus content' and the course's AI topics; alignment of the task is not stated directly."
+  },
+  {
+   "id": "brasil-chatgpt-retencion-2025",
+   "field": "codigos.conectividad",
+   "juicio": "online inferred from use of the free ChatGPT web interface."
+  },
+  {
+   "id": "chipre-odontologia-chatgpt-2024",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes inferred from the assignment being built into the dentomaxillofacial radiology module and replacing the lecture."
+  },
+  {
+   "id": "eeuu-saga-tutoria-tecnologia-2024",
+   "field": "lugar",
+   "juicio": "school_other_time chosen for a dedicated daily 50 minute tutoring period during the school day; it could also be read as in_class."
+  },
+  {
+   "id": "estados-unidos-numi-2026",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes inferred from the topics being the grade's state test review topics."
+  },
+  {
+   "id": "estados-unidos-numi-2026",
+   "field": "lugar",
+   "juicio": "in_class inferred from 'in a class of fixed length' and the delayed test being given in class."
+  },
+  {
+   "id": "inglaterra-lexia-core5-2024",
+   "field": "lugar",
+   "juicio": "school_other_time chosen because the record says it was used outside the classroom as a targeted intervention on top of regular teaching; exact timing is not stated."
+  },
+  {
+   "id": "laptops-bando-2017",
+   "field": "lugar",
+   "juicio": "in_class inferred from 'used only at school' and the laptops replacing class textbooks; the record does not say lessons were the setting."
+  },
+  {
+   "id": "lectura-onecourse-pitchford-2019",
+   "field": "efecto.comun",
+   "juicio": "The 0.325 is the boys only d using the pooled SD of gains, not EvidencIA rule 1; girls were 0.460 and there is no pooled figure."
+  },
+  {
+   "id": "lectura-onecourse-pitchford-2019",
+   "field": "lugar",
+   "juicio": "school_other_time chosen because children left some lessons to attend a school learning centre."
+  },
+  {
+   "id": "tutor-ia-vs-tutoria-humana-gre-2026",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes read as alignment to GRE exam content ('test on course content'); participants were not in a course curriculum."
+  },
+  {
+   "id": "tutor-ia-vs-tutoria-humana-gre-2026",
+   "field": "lugar",
+   "juicio": "online inferred from text chat tutoring on the StudentBench platform and Zoom human tutoring; the record does not say where participants were."
+  },
+  {
+   "id": "tutoria-guryan-2023",
+   "field": "codigos.costoReportado",
+   "juicio": "true because the results report about 3,500 dollars per student per year (p. 22), although the record's summary cost line says the study does not report it."
+  },
+  {
+   "id": "tutoria-guryan-2023",
+   "field": "lugar",
+   "juicio": "school_other_time chosen for a separate daily tutoring period in the schedule that replaced a second algebra period or an elective."
+  },
+  {
+   "id": "australia-instruccion-explicita-antes-de-resolver-problemas-2020",
+   "field": "codigos.adultoPresente",
+   "juicio": "yes inferred from 'interactive lecture' / 'interactive explicit instruction' delivered to both groups; the record does not name the instructor."
+  },
+  {
+   "id": "brasil-letrus-awe-2021",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes inferred from practice for the ENEM essay and the record calling the main test 'a test of the program's content'; curriculum alignment is not stated in those words."
+  },
+  {
+   "id": "brasil-letrus-awe-2021",
+   "field": "codigos.costoReportado",
+   "juicio": "kept false: the record says no cost per student is reported; only the human grader fee (3.50 reais per essay) is given, which the costo element describes."
+  },
+  {
+   "id": "china-ortopedia-chatgpt-2024",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes inferred from the review covering the orthopedics course content and the record calling the main test a 'test on curriculum content'."
+  },
+  {
+   "id": "eeuu-escritura-coach-ia-2026",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes kept because the tool and the test apply the same five principles taught in the study's own lesson; there is no school curriculum (online lab task)."
+  },
+  {
+   "id": "eeuu-escritura-coach-ia-2026",
+   "field": "codigos.costoReportado",
+   "juicio": "kept false: the tool cost is not reported; only the editors' fee in a comparison arm is given."
+  },
+  {
+   "id": "eleccion-patall-2010",
+   "field": "lugar",
+   "juicio": "home inferred from the intervention being homework; the record does not say where homework was done."
+  },
+  {
+   "id": "eleccion-patall-2010",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes inferred from homework belonging to the regular course units and being tested with the regular unit test."
+  },
+  {
+   "id": "estados-unidos-persistencia-ia-2026",
+   "field": "codigos.adultoPresente",
+   "juicio": "no inferred from an online Prolific session where the final test was explicitly 'without supervision'; supervision during the practice phase is not described in those words."
+  },
+  {
+   "id": "inglaterra-llm-toma-de-notas-2026",
+   "field": "lugar",
+   "juicio": "in_class kept from 'sessions during school hours' at the schools; the record says sessions were run by the researchers, not as part of a course, so school_other_time is also possible."
+  },
+  {
+   "id": "khan-academy-uttar-pradesh-2026",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes inferred from content assignment coordinated with teachers (including bridge courses) and a test aligned with the CBSE and UP Board curricula; platform alignment to the curriculum is not stated directly."
+  },
+  {
+   "id": "khan-academy-uttar-pradesh-2026",
+   "field": "lugar",
+   "juicio": "in_class from 'two mandatory weekly sessions per section within the timetable' with in class supervision; home from 'home practice during the holidays'."
+  },
+  {
+   "id": "laptops-cristia-2017",
+   "field": "codigos.dispositivo",
+   "juicio": "school_provided kept: the program gave one XO laptop to every student and teacher; 'individual' would also fit."
+  },
+  {
+   "id": "mentalidad-yeager-2019",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "no kept because the content is a growth mindset message, not course content; the record does not state alignment explicitly either way."
+  },
+  {
+   "id": "reino-unido-retroalimentacion-metacognitiva-asistente-llm-2026",
+   "field": "codigos.dispositivo",
+   "juicio": "individual inferred from online Prolific participants restricted to 'desktop computers only'; the record does not say whose device it was ('own' would also fit)."
+  },
+  {
+   "id": "reino-unido-retroalimentacion-metacognitiva-asistente-llm-2026",
+   "field": "codigos.equidadReportada",
+   "juicio": "true based on moderation tests by perceived confidence, trust in AI and need for cognition (Table 13); no demographic subgroup results are reported."
+  },
+  {
+   "id": "sueno-giuntella-2024",
+   "field": "lugar",
+   "juicio": "home inferred because the target behavior is nightly sleep with bedtime reminders; the record does not name a place."
+  },
+  {
+   "id": "sueno-giuntella-2024",
+   "field": "codigos.adultoPresente",
+   "juicio": "no inferred from a sleep intervention delivered by reminders, messages and Fitbit; supervision is not discussed."
+  },
+  {
+   "id": "sueno-giuntella-2024",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "no kept because the intervention targets sleep, not course content; alignment is not discussed in the record."
+  },
+  {
+   "id": "tutoria-angrist-2022",
+   "field": "codigos.dispositivo",
+   "juicio": "own inferred from SMS and calls to one household phone number; the record does not say who owned the phone."
+  },
+  {
+   "id": "tutoria-angrist-2022",
+   "field": "codigos.conectividad",
+   "juicio": "low_bandwidth inferred from SMS and voice calls ('low tech', 'basic technology'); connectivity is not described in those terms."
+  },
+  {
+   "id": "alemania-tutor-lectura-ia-2025",
+   "field": "codigos.adultoPresente",
+   "juicio": "yes inferred from experimenters running the lab sessions and checking windows before the test; no explicit statement of supervision during study."
+  },
+  {
+   "id": "alemania-tutor-lectura-ia-2025",
+   "field": "codigos.dispositivo",
+   "juicio": "individual inferred from individual lab cubicles with PDF and chat on screen."
+  },
+  {
+   "id": "alemania-tutor-lectura-ia-2025",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes based on 'test on curriculum content' and course material RAG; the setting is a lab, not a course."
+  },
+  {
+   "id": "bangladesh-aprendizaje-remoto-informacion-datos-docentes-2021",
+   "field": "codigos.dispositivo",
+   "juicio": "own inferred from the eligibility rule (households with at least one smartphone)."
+  },
+  {
+   "id": "bangladesh-aprendizaje-remoto-informacion-datos-docentes-2021",
+   "field": "codigos.conectividad",
+   "juicio": "online inferred from YouTube, adaptive platform and data package; the record does not state connectivity explicitly."
+  },
+  {
+   "id": "china-pediatria-chatgpt-2024",
+   "field": "lugar",
+   "juicio": "in_class is an interpretation: use happened within a hospital rotation alongside bedside practice; the record does not name a classroom."
+  },
+  {
+   "id": "china-pediatria-chatgpt-2024",
+   "field": "codigos.adultoPresente",
+   "juicio": "yes based on teaching staff reviewing interns' work with ChatGPT and giving immediate feedback."
+  },
+  {
+   "id": "coaching-virtual-cilliers-2022",
+   "field": "codigos.dispositivo",
+   "juicio": "school_provided inferred from tablets being part of program costs (depreciation, purchase excluded); not stated explicitly who owned them."
+  },
+  {
+   "id": "coaching-virtual-cilliers-2022",
+   "field": "codigos.conectividad",
+   "juicio": "offline based on tablet resources available offline; coaching itself used phone calls and WhatsApp."
+  },
+  {
+   "id": "eeuu-guia-instruccional-ia-2026",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes based on the RAG platform answering from course material and the test being 'on program content'; it was a lab session outside a course."
+  },
+  {
+   "id": "estados-unidos-apoyo-humano-tutor-ia-2026",
+   "field": "lugar",
+   "juicio": "after_school reflects District A (after school program); for District B (two K to 8 schools) the record does not say when sessions took place."
+  },
+  {
+   "id": "estados-unidos-apoyo-humano-tutor-ia-2026",
+   "field": "generativa",
+   "juicio": "left null: the record does not say whether the unnamed AI reading platform is generative."
+  },
+  {
+   "id": "estados-unidos-informacion-irrelevante-graficos-barras-2013",
+   "field": "lugar",
+   "juicio": "lab follows the design label; the record says children were tested individually at school by an experimenter."
+  },
+  {
+   "id": "gallegos-chile-2026",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes based on GPT UAI being built on course materials and the test being the course final exam."
+  },
+  {
+   "id": "gallegos-chile-2026",
+   "field": "codigos.costoReportado",
+   "juicio": "false because no monetary cost is reported; the paper only calls the interventions low cost (p. 22)."
+  },
+  {
+   "id": "khan-docentes-oreopoulos-2026",
+   "field": "codigos.equidadReportada",
+   "juicio": "Kept false: results are split by grade band (3 to 6 versus 7 and 8), which the record treats as a main subgroup, not an equity breakdown by prior level, gender or SES."
+  },
+  {
+   "id": "learnlm-eedi-reino-unido-2026",
+   "field": "codigos.adultoPresente",
+   "juicio": "yes based on use during regular maths lessons and remote human tutors approving every message; teacher presence in the room is implied, not stated."
+  },
+  {
+   "id": "mindspark-escala-rajastan-2026",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "no inferred from content following each student's level rather than the grade (over 97% of grade 8 math items below grade level)."
+  },
+  {
+   "id": "recuperacion-karpicke-2011",
+   "field": "codigos.adultoPresente",
+   "juicio": "yes inferred from lab sessions run by the researchers; presence during study is not stated explicitly."
+  },
+  {
+   "id": "rusia-cal-dosis-2023",
+   "field": "codigos.dispositivo",
+   "juicio": "own inferred from 'students already had computers' and use at home as homework."
+  },
+  {
+   "id": "taiwan-cal-rural-2024",
+   "field": "lugar",
+   "juicio": "in_class chosen because sessions were teacher organized lab sessions at school; the record does not say whether they replaced class time."
+  },
+  {
+   "id": "taiwan-cal-rural-2024",
+   "field": "codigos.dispositivo",
+   "juicio": "school_provided inferred from use in the school computer lab."
+  },
+  {
+   "id": "tutoria-kraft-2022",
+   "field": "codigos.dispositivo",
+   "juicio": "school_provided inferred from laptops the district had already bought."
+  },
+  {
+   "id": "algebra-cognitive-tutor-pane-2014",
+   "field": "lugar",
+   "juicio": "in_class inferred from 'two days a week with the software and three in class'; the record says use outside class was not measured."
+  },
+  {
+   "id": "algebra-cognitive-tutor-pane-2014",
+   "field": "codigos.costoReportado",
+   "juicio": "Kept false: record says cost per student not reported, though it notes the course is more expensive than control curricula."
+  },
+  {
+   "id": "bastani-turquia-2025-con-guia",
+   "field": "lugar",
+   "juicio": "in_class inferred from 'four 90 minute sessions' at one school and 'class sessions' wording; the record does not say explicitly that sessions were in regular class time."
+  },
+  {
+   "id": "canada-tutoria-virtual-khan-academy-2026",
+   "field": "conIA",
+   "juicio": "Kept true: the record says the platform is Khan Academy with prewritten exercises (not generative) and what was randomized is a human volunteer tutor; whether this counts as an AI study is an interpretation."
+  },
+  {
+   "id": "computadoras-carter-2017",
+   "field": "codigos.adultoPresente",
+   "juicio": "yes inferred from classes of about 15 students where the instructor interacts with everyone; tablets lay flat so the instructor could see the screen."
+  },
+  {
+   "id": "eeuu-its-vocabulario-2021",
+   "field": "lugar",
+   "juicio": "Kept null: the record says sessions were 'during the school day' but does not say whether in class or in another school period."
+  },
+  {
+   "id": "estados-unidos-asistente-ia-patentes-abogados-2026",
+   "field": "lugar",
+   "juicio": "online inferred from 'a closed online platform' used by practicing attorneys in their work; the record does not name a physical setting."
+  },
+  {
+   "id": "estados-unidos-pistas-ia-diferida-ciencia-de-datos-2026",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes inferred: the hint writing activities were part of the course, worth 5% of the grade, and the final test covered course content."
+  },
+  {
+   "id": "gemini-sierra-leona-2026",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "Kept not_reported: Gemini was used in regular math periods and the test was curriculum aligned, but the record does not say the Gemini content itself was aligned to the curriculum."
+  },
+  {
+   "id": "khan-elsalvador-buchel-2022",
+   "field": "lugar",
+   "juicio": "after_school kept for classes 'before or after school hours'; the before school part could also fit school_other_time."
+  },
+  {
+   "id": "khan-elsalvador-buchel-2022",
+   "field": "elementos.costo",
+   "juicio": "The record lists costs per child as '44, 43 and 56 USD' without explicit arm order; the element's mapping (44 software with supervisor, 56 software with teacher, 43 teacher alone) is consistent with the reported SD per 100 USD."
+  },
+  {
+   "id": "khan-elsalvador-buchel-2022",
+   "field": "codigos.costoReportado",
+   "juicio": "Kept true: the record's cost line says not reported, but the cost effectiveness result gives cost per child (p. 40, printed 39)."
+  },
+  {
+   "id": "lectura-graphogame-eef-2018",
+   "field": "lugar",
+   "juicio": "in_class from use during literacy time; school_other_time from 'about a third of schools used it outside literacy time', which the record does not locate more precisely."
+  },
+  {
+   "id": "sensacion-deslauriers-2019",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "yes inferred: the classes were regular course sessions in week 12 based on the course's detailed learning objectives."
+  },
+  {
+   "id": "turquia-docentes-ia-2026",
+   "field": "codigos.adultoPresente",
+   "juicio": "Kept yes: the users are the teachers themselves; the record does not describe students using the tool."
+  },
+  {
+   "id": "tutoria-fryer-2020",
+   "field": "lugar",
+   "juicio": "after_school from the 2.5 hour after school program; school_other_time for years two and three, when most schools moved tutoring into the school day without saying in which period."
+  },
+  {
+   "id": "tutoria-fryer-2020",
+   "field": "codigos.costoReportado",
+   "juicio": "Kept true: the record's cost line says not reported, but a result gives a marginal cost of 2,200 dollars per student per year (p. 9, printed 7)."
+  }
+ ]
+}

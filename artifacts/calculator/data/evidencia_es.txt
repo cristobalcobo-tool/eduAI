@@ -1,8 +1,8 @@
-Copia de la herramienta compare_studies del conector EvidencIA (https://mcp.redevidencia.org/mcp), tomada el 2026-11-11. Corte de la base EvidencIA: 2026-10-16.
+Copia de la herramienta compare_studies del conector EvidencIA (https://mcp.redevidencia.org/mcp), tomada el 2026-11-18. Corte de la base EvidencIA: 2026-10-16.
 Argumentos: ids = nigeria-edo-2025, ghana-rori-2024, shaia-bogota-2026, khanmigo-tennessee-2026, khan-academy-uttar-pradesh-2026, eeuu-saga-tutoria-tecnologia-2024, gemini-sierra-leona-2026, kestin-harvard-2025.
 
 Efectos en desviaciones estándar. Instrumentos, poblaciones y duraciones distintas: la escala común ayuda a ordenar, no vuelve idénticos los estudios. La misma DE no es la misma ganancia si las pruebas miden habilidades distintas: mira la columna «Qué midió» antes de comparar.
-Costo: sólo 6 de 8 estudios de esta tabla reportan costo por estudiante (en todo el núcleo, 8 de 241), y cada uno lo calcula distinto: marginal, total del piloto o sólo licencias. Sirve como orden de magnitud, no como precio.
+Costo: sólo 6 de 8 estudios de esta tabla reportan costo por estudiante (en todo el núcleo, 8 de 247), y cada uno lo calcula distinto: marginal, total del piloto o sólo licencias. Sirve como orden de magnitud, no como precio.
 
 | Estudio | Efecto (DE) | Qué midió | Nivel de EvidencIA | Fuente | Medición | Costo USD/est. | DE por USD 100 | Independencia | Riesgo alto en |
 |---|---|---|---|---|---|---|---|---|---|
