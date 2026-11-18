@@ -353,6 +353,38 @@ const D = {
   exEl_medicion: ['Cómo se midió', 'How it was measured', 'Como foi medido'],
   exEl_cautelas: ['Cautelas', 'Cautions', 'Cuidados'],
   exDe: [(n, m) => n + ' de ' + m, (n, m) => n + ' of ' + m, (n, m) => n + ' de ' + m],
+  pdfSitio: ['Laboratorio de Impacto e Inversión en IA Educativa', 'AI Education Impact and Investment Lab', 'Laboratório de Impacto e Investimento em IA Educacional'],
+  pdfLecTema: [(t) => 'Descargar «' + t + '» en PDF', (t) => 'Download “' + t + '” as PDF', (t) => 'Baixar «' + t + '» em PDF'],
+  pdfLecTodo: ['Descargar las 8 lecciones en PDF', 'Download the 8 lessons as PDF', 'Baixar as 8 lições em PDF'],
+  pdfLecAyuda: ['Una página con la lección y el primer paso de cada tema. Abre un tema para descargar solo ese, con sus claves y fuentes.', 'One page with the lesson and first step of each theme. Open a theme to download just that one, with its key findings and sources.', 'Uma página com a lição e o primeiro passo de cada tema. Abra um tema para baixar só esse, com suas chaves e fontes.'],
+  pdfLecAyudaTema: ['1 o 2 páginas en lenguaje simple: la lección, qué hacer, las claves de los estudios y las fuentes al pie.', '1 or 2 pages in plain language: the lesson, what to do, key findings from the studies and the sources at the foot.', '1 ou 2 páginas em linguagem simples: a lição, o que fazer, as chaves dos estudos e as fontes no rodapé.'],
+  pdfExp: ['Descargar esta consulta en PDF', 'Download this query as PDF', 'Baixar esta consulta em PDF'],
+  pdfExpAyuda: ['1 o 2 páginas con lo que enseñan los estudios de tu consulta: los que marcaste para comparar o, si no marcas ninguno, los 6 primeros de la lista.', '1 or 2 pages on what the studies in your query teach: the ones you ticked to compare or, if you tick none, the first 6 in the list.', '1 ou 2 páginas com o que ensinam os estudos da sua consulta: os que você marcou para comparar ou, se não marcar nenhum, os 6 primeiros da lista.'],
+  pdfGenerando: ['Preparando el PDF…', 'Preparing the PDF…', 'Preparando o PDF…'],
+  pdfListo: ['PDF listo.', 'PDF ready.', 'PDF pronto.'],
+  pdfAbrir: ['Si la descarga no empezó, ábrelo aquí.', 'If the download did not start, open it here.', 'Se o download não começou, abra o aqui.'],
+  pdfError: ['No se pudo generar el PDF en esta vista. Prueba en el sitio público:', 'The PDF could not be generated in this view. Try the public site:', 'Não foi possível gerar o PDF nesta visualização. Tente no site público:'],
+  pdfLeccion: ['La lección', 'The lesson', 'A lição'],
+  pdfLoQue: ['Lo que muestra la evidencia', 'What the evidence shows', 'O que a evidência mostra'],
+  pdfHacer: ['Qué hacer primero', 'What to do first', 'O que fazer primeiro'],
+  pdfClaves: ['Claves de los estudios', 'Key findings from the studies', 'Chaves dos estudos'],
+  pdfTier_causal: ['Estudio causal', 'Causal study', 'Estudo causal'], pdfTier_contexto: ['Estudio descriptivo', 'Descriptive study', 'Estudo descritivo'], pdfTier_guia: ['Guía o política', 'Guide or policy', 'Guia ou política'],
+  pdfFuentes: ['Fuentes', 'Sources', 'Fontes'],
+  pdfLeccionesK: ['Lecciones para implementar', 'Lessons for deploying', 'Lições para implementar'],
+  pdfTodasTit: ['Las 8 lecciones para implementar tutoría con IA', 'The 8 lessons for deploying AI tutoring', 'As 8 lições para implementar tutoria com IA'],
+  pdfTodasSub: ['Qué aprendimos de los estudios y qué hacer primero en cada tema.', 'What we learned from the studies and what to do first in each theme.', 'O que aprendemos com os estudos e o que fazer primeiro em cada tema.'],
+  pdfPrimero: ['Primer paso', 'First step', 'Primeiro passo'],
+  pdfConsultaK: ['Explorar los estudios por dimensión', 'Explore the studies by dimension', 'Explorar os estudos por dimensão'],
+  pdfExpTit: ['Lo que enseñan estos estudios', 'What these studies teach', 'O que estes estudos ensinam'],
+  pdfDims: ['Dimensiones', 'Dimensions', 'Dimensões'], pdfFiltros: ['Filtros', 'Filters', 'Filtros'], pdfSinFiltros: ['ninguno', 'none', 'nenhum'],
+  pdfEnPocas: ['En pocas palabras', 'In a nutshell', 'Em poucas palavras'],
+  pdfConteo: [(n, c) => n + ' estudios coinciden con tu consulta: ' + c.positive + ' mejoraron el aprendizaje, ' + c.mixed + ' tuvieron resultados mixtos, ' + c.no_effect + ' no mostraron un efecto claro y ' + c.negative + ' lo empeoraron.', (n, c) => n + ' studies match your query: ' + c.positive + ' improved learning, ' + c.mixed + ' had mixed results, ' + c.no_effect + ' showed no clear effect and ' + c.negative + ' made it worse.', (n, c) => n + ' estudos coincidem com sua consulta: ' + c.positive + ' melhoraram a aprendizagem, ' + c.mixed + ' tiveram resultados mistos, ' + c.no_effect + ' não mostraram efeito claro e ' + c.negative + ' a pioraram.'],
+  pdfLecRel: ['Lecciones relacionadas', 'Related lessons', 'Lições relacionadas'],
+  pdfEstudios: [(k, n) => 'Qué nos enseña cada estudio (' + k + ' de ' + n + ')', (k, n) => 'What each study teaches us (' + k + ' of ' + n + ')', (k, n) => 'O que cada estudo nos ensina (' + k + ' de ' + n + ')'],
+  pdfVer_positive: ['Mejoró el aprendizaje', 'Improved learning', 'Melhorou a aprendizagem'], pdfVer_mixed: ['Resultados mixtos', 'Mixed results', 'Resultados mistos'], pdfVer_no_effect: ['Sin efecto claro', 'No clear effect', 'Sem efeito claro'], pdfVer_negative: ['Empeoró el aprendizaje', 'Made learning worse', 'Piorou a aprendizagem'], pdfVer_undefined: ['Sin veredicto', 'No verdict', 'Sem veredito'], pdfVer_null: ['Sin veredicto', 'No verdict', 'Sem veredito'],
+  pdfNotaLec: ['Síntesis exploratoria destilada por Claude a partir de EvidencIA (incluye la colección del Stanford SCALE AI Hub) y del AI and Human Skill Atlas. Las lecciones curadas de EvidencIA son un prototipo pendiente de revisión. Son insumos para decidir: corrobóralos en tu contexto y verifica en cada estudio antes de citar.', 'Exploratory synthesis distilled by Claude from EvidencIA (which includes the Stanford SCALE AI Hub collection) and the AI and Human Skill Atlas. EvidencIA\'s curated lessons are a prototype pending review. They are inputs for deciding: corroborate them in your context and check each study before citing.', 'Síntese exploratória destilada pelo Claude a partir da EvidencIA (inclui a coleção do Stanford SCALE AI Hub) e do AI and Human Skill Atlas. As lições curadas da EvidencIA são um protótipo pendente de revisão. São insumos para decidir: corrobore os no seu contexto e verifique cada estudo antes de citar.'],
+  pdfNotaExp: ['Ensayos aleatorios verificados de nivel 1 de EvidencIA (corte de la base 16 oct 2026). Claude escribió en lenguaje simple qué enseña cada estudio y extrajo cómo se hizo cada dimensión, cotejados con el registro de EvidencIA; verifica en el paper antes de citar. Los conteos cubren todos los estudios de la consulta; el detalle, solo los listados.', 'Verified level 1 randomized trials from EvidencIA (database cutoff 16 Oct 2026). Claude wrote in plain language what each study teaches and extracted how each dimension was done, checked against the EvidencIA record; check the paper before citing. Counts cover every study in the query; the detail covers only those listed.', 'Ensaios randomizados verificados de nível 1 da EvidencIA (corte da base 16 out 2026). O Claude escreveu em linguagem simples o que cada estudo ensina e extraiu como cada dimensão foi feita, conferidos com o registro da EvidencIA; verifique no paper antes de citar. As contagens cobrem todos os estudos da consulta; o detalhe, só os listados.'],
+  exAprende: ['Qué nos enseña', 'What it teaches us', 'O que nos ensina'],
   exConteo: [(n, m) => n + ' de ' + m + ' estudios', (n, m) => n + ' of ' + m + ' studies', (n, m) => n + ' de ' + m + ' estudos'],
   exNoInf: ['No informado en el registro', 'Not reported in the record', 'Não informado no registro'],
   exSolo: ['Solo estudios que informan lo elegido', 'Only studies that report the chosen dimensions', 'Só estudos que informam o escolhido'],
@@ -1730,7 +1762,7 @@ reg('lecTiles', (box) => {
     b.style.setProperty('--fc', LEC_COL[t.fuerza] || '#999');
     b.append(el('span', { class: 'n' }, T('lecTema', i + 1) + ' · ' + T('lecFuerza_' + t.fuerza)), el('span', { class: 't' }, tr(t, 'titulo')), el('span', { class: 'l' }, pend ? tr(t, 'pregunta') : tr(t, 'leccion')));
     if (!pend) b.append(el('span', { class: 'abrir' }, LEC.sel === t.id ? T('lecCerrar') : T('lecAbrir')));
-    b.onclick = () => { const abre = LEC.sel !== t.id; LEC.sel = abre ? t.id : null; dash.draw('lecTiles'); dash.draw('lecDetalle'); const d = document.getElementById('lec-detalle'); if (abre && d && d.scrollIntoView) setTimeout(() => d.scrollIntoView({ behavior: 'smooth', block: 'start' }), 40); };
+    b.onclick = () => { const abre = LEC.sel !== t.id; LEC.sel = abre ? t.id : null; dash.draw('lecTiles'); dash.draw('lecDetalle'); dash.draw('lecPdf'); const d = document.getElementById('lec-detalle'); if (abre && d && d.scrollIntoView) setTimeout(() => d.scrollIntoView({ behavior: 'smooth', block: 'start' }), 40); };
     return b;
   }));
 });
@@ -1742,7 +1774,7 @@ reg('lecDetalle', (box) => {
   const c = el('article', { class: 'lec-card' });
   c.style.setProperty('--fc', LEC_COL[t.fuerza] || '#999');
   const cerrar = el('button', { type: 'button', class: 'lec-cerrar' }, '✕ ' + T('lecCerrar'));
-  cerrar.onclick = () => { LEC.sel = null; dash.draw('lecTiles'); dash.draw('lecDetalle'); const g = document.getElementById('lec-bloque'); if (g && g.scrollIntoView) g.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+  cerrar.onclick = () => { LEC.sel = null; dash.draw('lecTiles'); dash.draw('lecDetalle'); dash.draw('lecPdf'); const g = document.getElementById('lec-bloque'); if (g && g.scrollIntoView) g.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
   const top = el('p', { class: 'q' }, tr(t, 'titulo') + ' · ' + tr(t, 'pregunta'));
   c.append(cerrar, top);
   if (!t.piloto) { c.append(el('p', { class: 'res' }, T('lecPendiente'))); box.append(c); return; }
@@ -1768,7 +1800,7 @@ reg('lecDetalle', (box) => {
     });
     sec.append(l); c.append(sec);
   });
-  const MAP = { infra: ['infraestructura', 'lugar'], docentes: ['docentes'], equidad: ['equidad'], privacidad: ['privacidad'], implementacion: ['dosis', 'costo'], estudiantes: ['diseno', 'equidad'], diseno: ['diseno', 'dosis'], contexto: ['lugar'] };
+  const MAP = LEC_MAP;
   if (MAP[t.id] && expEstudios().length) {
     const b = el('button', { type: 'button', class: 'lab-btn destacado', style: 'margin-top:14px' }, T('exExplorar'));
     b.onclick = () => { EXP.els = MAP[t.id].slice(); EXP.max = 12; expRedibujar(); const x = document.getElementById('explorar'); if (x) x.open = true; if (x && x.scrollIntoView) x.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
@@ -1899,6 +1931,7 @@ reg('expLista', (box) => {
   arr.slice(0, EXP.max).forEach((s) => {
     const c = el('article', { class: 'exp-est' });
     c.append(expCabecera(s, true), expEfecto(s));
+    if (s.aprendizaje) { const p = el('p', { class: 'exp-take' }); p.append(el('b', null, T('exAprende') + ': '), document.createTextNode(txt(s.aprendizaje))); c.append(p); }
     EXP.els.forEach((k) => c.append(expElemento(s, k)));
     const det = el('details'); det.append(el('summary', { class: 'lab-small' }, T('exEl_comparacion') + ', ' + T('exEl_medicion').toLowerCase() + ', ' + T('exEl_cautelas').toLowerCase()));
     EXP_EXTRA.forEach((k) => det.append(expElemento(s, k))); c.append(det);
@@ -1921,4 +1954,206 @@ reg('expComparar', (box) => {
   EXP.els.concat(EXP_EXTRA.slice(0, 2)).forEach((k) => fila(T('exEl_' + k), (s, td) => { const v = s.elementos && s.elementos[k]; if (v) { td.append(document.createTextNode(txt(v))); if (v.pag) td.append(el('span', { class: 'exp-meta' }, ' [' + v.pag + ']')); } else td.append(el('span', { class: 'exp-meta' }, T('exNoInf'))); }, k));
   const w = el('div', { class: 'lab-tablewrap' }); w.append(t);
   box.append(head, w);
+});
+
+/* ===================== Resúmenes en PDF (1 o 2 páginas) ===================== */
+
+const PDF_URL = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+const SITIO_URL = 'https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/';
+let pdfLib = null;
+function pdfCargar() {
+  if (window.jspdf && window.jspdf.jsPDF) return Promise.resolve(window.jspdf.jsPDF);
+  if (pdfLib) return pdfLib;
+  pdfLib = new Promise((ok, mal) => {
+    const s = document.createElement('script'); s.src = PDF_URL; s.async = true;
+    s.onload = () => (window.jspdf && window.jspdf.jsPDF ? ok(window.jspdf.jsPDF) : mal(new Error('jspdf')));
+    s.onerror = () => { pdfLib = null; mal(new Error('jspdf')); };
+    document.head.append(s);
+  });
+  return pdfLib;
+}
+const WIN_EXTRA = '€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ';
+const pdfTxt = (s) => String(s == null ? '' : s).normalize('NFC')
+  .replace(/[−‐‑‒]/g, '-').replace(/≈/g, '~').replace(/[→⟶]/g, '>').replace(/π/g, 'pi').replace(/≥/g, '>=').replace(/≤/g, '<=').replace(/[   ]/g, ' ')
+  .split('').filter((c) => c.charCodeAt(0) < 256 || WIN_EXTRA.includes(c)).join('');
+const hexRgb = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+const recorte = (s, n) => { s = String(s || '').trim(); if (s.length <= n) return s; const c = s.slice(0, n); const p = Math.max(c.lastIndexOf('. '), c.lastIndexOf('; ')); return (p > n * 0.5 ? c.slice(0, p + 1) : c.slice(0, c.lastIndexOf(' ')) + '…'); };
+const fechaHoy = () => { const d = new Date(); const m = { es: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'], en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], pt: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'] }[L]; return d.getDate() + ' ' + m[d.getMonth()] + ' ' + d.getFullYear(); };
+
+function pdfNuevo(JsPDF, color, kicker, titulo, subtitulo) {
+  const doc = new JsPDF({ unit: 'mm', format: 'a4' });
+  const W = 210, H = 297, M = 17, CW = W - 2 * M;
+  const col = hexRgb(color);
+  const P = { doc, W, H, M, CW, col, y: 0, refs: [] };
+  doc.setFillColor(...col); doc.rect(0, 0, W, 9, 'F');
+  doc.setFont('helvetica', 'normal'); doc.setFontSize(7.5); doc.setTextColor(255, 255, 255);
+  doc.text(pdfTxt(T('pdfSitio')), M, 6); doc.text(pdfTxt(fechaHoy()), W - M, 6, { align: 'right' });
+  P.y = 19;
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(8); doc.setTextColor(...col);
+  doc.text(pdfTxt(kicker).toUpperCase(), M, P.y); P.y += 7;
+  doc.setFontSize(18); doc.setTextColor(20, 24, 33);
+  const tl = doc.splitTextToSize(pdfTxt(titulo), CW); doc.text(tl, M, P.y); P.y += tl.length * 7.2;
+  if (subtitulo) { doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(90, 98, 110); const sl = doc.splitTextToSize(pdfTxt(subtitulo), CW); doc.text(sl, M, P.y); P.y += sl.length * 4.6; }
+  P.y += 2; doc.setDrawColor(...col); doc.setLineWidth(0.6); doc.line(M, P.y, M + 24, P.y); P.y += 7;
+  return P;
+}
+function pdfSalto(P, h) { if (P.y + h > P.H - 20) { P.doc.addPage(); P.y = 18; } }
+function pdfParrafo(P, s, o = {}) {
+  const { doc } = P; const size = o.size || 10, lh = size * 0.43, x = P.M + (o.indent || 0), w = P.CW - (o.indent || 0);
+  doc.setFont('helvetica', o.bold ? 'bold' : (o.italic ? 'italic' : 'normal')); doc.setFontSize(size); doc.setTextColor(...(o.color || [33, 37, 45]));
+  const lines = doc.splitTextToSize(pdfTxt(s), w);
+  lines.forEach((ln) => { pdfSalto(P, lh); doc.text(ln, x, P.y); P.y += lh; });
+  P.y += o.after == null ? 2 : o.after;
+}
+function pdfTitulo(P, s) { pdfSalto(P, 14); P.y += 2; P.doc.setFont('helvetica', 'bold'); P.doc.setFontSize(11.5); P.doc.setTextColor(...P.col); P.doc.text(pdfTxt(s), P.M, P.y); P.y += 6; }
+function pdfCaja(P, titulo, cuerpo) {
+  const { doc } = P; doc.setFont('helvetica', 'bold'); doc.setFontSize(12); const lines = doc.splitTextToSize(pdfTxt(cuerpo), P.CW - 12); const h = 9 + lines.length * 5.2 + 4;
+  pdfSalto(P, h);
+  const tint = P.col.map((c) => Math.round(c + (255 - c) * 0.9));
+  doc.setFillColor(...tint); doc.roundedRect(P.M, P.y, P.CW, h, 2, 2, 'F'); doc.setFillColor(...P.col); doc.rect(P.M, P.y, 1.4, h, 'F');
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(8); doc.setTextColor(...P.col); doc.text(pdfTxt(titulo).toUpperCase(), P.M + 6, P.y + 6.5);
+  doc.setFont('helvetica', 'bold'); doc.setFontSize(12); doc.setTextColor(20, 24, 33); doc.text(lines, P.M + 6, P.y + 12.5, { lineHeightFactor: 1.2 });
+  P.y += h + 5;
+}
+function pdfVinetas(P, items, o = {}) {
+  items.forEach((s) => {
+    const { doc } = P; const size = o.size || 10, lh = size * 0.43;
+    doc.setFont('helvetica', 'normal'); doc.setFontSize(size);
+    const lines = doc.splitTextToSize(pdfTxt(s), P.CW - 6);
+    pdfSalto(P, lh * Math.min(lines.length, 2));
+    doc.setFillColor(...P.col); doc.circle(P.M + 1.4, P.y - 1.2, 0.8, 'F');
+    doc.setTextColor(33, 37, 45);
+    lines.forEach((ln) => { pdfSalto(P, lh); doc.text(ln, P.M + 5, P.y); P.y += lh; });
+    P.y += 1.4;
+  });
+  P.y += 1;
+}
+const pdfRef = (P, cita, titulo, url) => { let i = P.refs.findIndex((r) => r.url === url && r.cita === cita); if (i < 0) { P.refs.push({ cita, titulo, url }); i = P.refs.length - 1; } return i + 1; };
+function pdfCerrar(P, nota) {
+  const { doc } = P;
+  pdfSalto(P, 20); P.y += 3; doc.setDrawColor(200, 205, 212); doc.setLineWidth(0.2); doc.line(P.M, P.y, P.W - P.M, P.y); P.y += 4.5;
+  if (P.refs.length) {
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.setTextColor(90, 98, 110); doc.text(pdfTxt(T('pdfFuentes')), P.M, P.y); P.y += 3.6;
+    P.refs.forEach((r, i) => {
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(7); doc.setTextColor(90, 98, 110);
+      const base = (i + 1) + '. ' + r.cita + (r.titulo ? '. ' + r.titulo : '') + '. ';
+      const lines = doc.splitTextToSize(pdfTxt(base + (r.url || '')), P.CW);
+      lines.forEach((ln) => { pdfSalto(P, 3.2); doc.text(ln, P.M, P.y); P.y += 3.1; });
+      if (r.url) { const n = lines.length; doc.link(P.M, P.y - n * 3.1 - 2.4, P.CW, n * 3.1, { url: r.url }); }
+    });
+    P.y += 1.5;
+  }
+  doc.setFont('helvetica', 'italic'); doc.setFontSize(6.8); doc.setTextColor(120, 126, 136);
+  doc.splitTextToSize(pdfTxt(nota), P.CW).forEach((ln) => { pdfSalto(P, 3); doc.text(ln, P.M, P.y); P.y += 3; });
+  const n = doc.getNumberOfPages();
+  for (let i = 1; i <= n; i++) { doc.setPage(i); doc.setFont('helvetica', 'normal'); doc.setFontSize(7); doc.setTextColor(140, 146, 156); doc.text(pdfTxt(SITIO_URL), P.M, P.H - 9); doc.text(i + ' / ' + n, P.W - P.M, P.H - 9, { align: 'right' }); doc.link(P.M, P.H - 12, 90, 4, { url: SITIO_URL }); }
+}
+async function pdfGuardar(doc, nombre, estado) {
+  const blob = doc.output('blob');
+  try {
+    if (window.claude && typeof window.claude.use === 'function') {
+      const dl = await Promise.race([window.claude.use('downloads'), new Promise((r) => setTimeout(() => r(null), 2500))]);
+      if (dl) { await dl.save({ filename: nombre, data: blob }); estado.replaceChildren(document.createTextNode(T('pdfListo'))); return; }
+    }
+  } catch (e) { if (e && e.code === 'declined') { estado.replaceChildren(); return; } }
+  const url = URL.createObjectURL(blob);
+  const a = el('a', { href: url, download: nombre }); document.body.append(a); a.click(); a.remove();
+  estado.replaceChildren(document.createTextNode(T('pdfListo') + ' '), el('a', { href: url, target: '_blank', rel: 'noopener' }, T('pdfAbrir')));
+}
+function pdfBoton(box, etiqueta, ayuda, armar, nombre) {
+  const b = el('button', { type: 'button', class: 'lab-btn pdf-btn' }, etiqueta);
+  const estado = el('span', { class: 'lab-small pdf-estado', 'aria-live': 'polite' });
+  b.onclick = async () => {
+    b.disabled = true; estado.textContent = T('pdfGenerando');
+    try { const JsPDF = await pdfCargar(); const doc = armar(JsPDF); await pdfGuardar(doc, nombre() + '.pdf', estado); }
+    catch (e) { estado.replaceChildren(document.createTextNode(T('pdfError') + ' '), el('a', { href: SITIO_URL, target: '_blank', rel: 'noopener' }, SITIO_URL)); }
+    b.disabled = false;
+  };
+  box.replaceChildren(b, el('span', { class: 'lab-small lab-muted pdf-ayuda' }, ayuda), estado);
+}
+const pdfArchivo = (base) => base + '_' + L + '_' + new Date().toISOString().slice(0, 10).replace(/-/g, '');
+
+function pdfLeccion(JsPDF, t, i) {
+  const P = pdfNuevo(JsPDF, '#1e3a8a', T('lecTema', i + 1) + ' · ' + T('lecFuerza_' + t.fuerza), tr(t, 'titulo'), tr(t, 'pregunta'));
+  pdfCaja(P, T('pdfLeccion'), tr(t, 'leccion'));
+  pdfTitulo(P, T('pdfLoQue')); pdfParrafo(P, String(tr(t, 'resumen') || '').replace(/^"|"$/g, ''), { after: 3 });
+  pdfTitulo(P, T('pdfHacer')); pdfVinetas(P, (t.acciones || []).map((x) => tr(x, 't')));
+  const ev = ['causal', 'contexto', 'guia'].flatMap((tier) => (t.evidencia || []).filter((e) => e.tier === tier)).slice(0, 7);
+  if (ev.length) {
+    pdfTitulo(P, T('pdfClaves'));
+    pdfVinetas(P, ev.map((e) => T('pdfTier_' + e.tier) + ': ' + recorte(tr(e, 'texto'), 260) + ' [' + pdfRef(P, e.ref, '', e.url) + ']'), { size: 9.2 });
+  }
+  pdfTitulo(P, T('lecNoSabe')); pdfParrafo(P, tr(t, 'noSabemos'), { size: 9.5 });
+  pdfCerrar(P, T('pdfNotaLec'));
+  return P.doc;
+}
+function pdfTodas(JsPDF) {
+  const ts = rows('lecciones').filter((t) => t.piloto);
+  const P = pdfNuevo(JsPDF, '#1e3a8a', T('pdfLeccionesK'), T('pdfTodasTit'), T('pdfTodasSub'));
+  ts.forEach((t, i) => {
+    pdfSalto(P, 26);
+    const c = hexRgb(LEC_COL[t.fuerza] || '#999999');
+    P.doc.setFillColor(...c); P.doc.circle(P.M + 2.4, P.y - 1.3, 2.4, 'F');
+    P.doc.setFont('helvetica', 'bold'); P.doc.setFontSize(7.5); P.doc.setTextColor(255, 255, 255); P.doc.text(String(i + 1), P.M + 2.4, P.y - 0.3, { align: 'center' });
+    P.doc.setFontSize(8); P.doc.setTextColor(...c); P.doc.text(pdfTxt(tr(t, 'titulo').toUpperCase() + '  ·  ' + T('lecFuerza_' + t.fuerza)), P.M + 7, P.y); P.y += 5;
+    pdfParrafo(P, tr(t, 'leccion'), { bold: true, size: 10.5, indent: 7, after: 1 });
+    const a = (t.acciones || [])[0];
+    if (a) pdfParrafo(P, T('pdfPrimero') + ': ' + tr(a, 't'), { size: 9.3, indent: 7, color: [70, 76, 88], after: 4 });
+  });
+  pdfCerrar(P, T('pdfNotaLec'));
+  return P.doc;
+}
+const LEC_MAP = { infra: ['infraestructura', 'lugar'], docentes: ['docentes'], equidad: ['equidad'], privacidad: ['privacidad'], implementacion: ['dosis', 'costo'], estudiantes: ['diseno', 'equidad'], diseno: ['diseno', 'dosis'], contexto: ['lugar'] };
+function expSeleccionPdf() {
+  const all = new Map(expEstudios().map((s) => [s.id, s]));
+  const marcados = EXP.cmp.map((id) => all.get(id)).filter(Boolean);
+  const resto = expOrdenar(expFiltrados()).filter((s) => !EXP.cmp.includes(s.id));
+  return marcados.concat(resto).slice(0, Math.max(marcados.length, 6));
+}
+function pdfConsulta(JsPDF) {
+  const lista = expFiltrados(); const sel = expSeleccionPdf();
+  const dims = EXP.els.map((k) => T('exEl_' + k));
+  const f = EXP.f; const fil = [];
+  if (f.cond) fil.push(T('exCond_' + f.cond)); if (f.nivel) fil.push(T('exNiv_' + f.nivel)); if (f.ingreso) fil.push(T('exIng_' + f.ingreso));
+  if (f.tipo) fil.push(T('exTipo_' + f.tipo)); if (f.lugar) fil.push(T('exLug_' + f.lugar)); if (f.veredicto) fil.push(T('exVer_' + f.veredicto)); if (EXP.q.trim()) fil.push('"' + EXP.q.trim() + '"');
+  const sub = T('pdfDims') + ': ' + (dims.join(', ') || '—') + '.  ' + T('pdfFiltros') + ': ' + (fil.join(', ') || T('pdfSinFiltros')) + '.';
+  const P = pdfNuevo(JsPDF, '#c2410c', T('pdfConsultaK'), T('pdfExpTit'), sub);
+  const cnt = { positive: 0, mixed: 0, no_effect: 0, negative: 0 }; lista.forEach((s) => { if (cnt[s.veredicto] != null) cnt[s.veredicto]++; });
+  pdfCaja(P, T('pdfEnPocas'), T('pdfConteo', lista.length, cnt));
+  const rel = rows('lecciones').filter((t) => t.piloto && (LEC_MAP[t.id] || []).some((k) => EXP.els.includes(k))).slice(0, 3);
+  if (rel.length) {
+    pdfTitulo(P, T('pdfLecRel'));
+    pdfVinetas(P, rel.map((t) => { const a = (t.acciones || [])[0]; return tr(t, 'titulo') + ': ' + tr(t, 'leccion') + (a ? ' ' + T('pdfPrimero') + ': ' + tr(a, 't') : ''); }), { size: 9.5 });
+  }
+  pdfTitulo(P, T('pdfEstudios', sel.length, lista.length));
+  const VCOL = { positive: [21, 128, 61], mixed: [180, 120, 0], no_effect: [100, 106, 116], negative: [185, 28, 28] };
+  const dimsPdf = EXP.els.slice(0, 3);
+  sel.forEach((s) => {
+    const n = pdfRef(P, s.cita, s.titulo, s.url);
+    pdfSalto(P, 22);
+    const { doc } = P;
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(10.5); doc.setTextColor(20, 24, 33);
+    const head = [s.herramienta, s.pais].filter(Boolean).join(' · ');
+    const hl = doc.splitTextToSize(pdfTxt(recorte(head, 120) + '  [' + n + ']'), P.CW);
+    hl.forEach((ln) => { doc.text(ln, P.M, P.y); P.y += 4.6; });
+    const meta = [(s.nivelEducativo || []).map((x) => T('exNiv_' + x)).join(', '), materiaTr(s.materia)].filter(Boolean).join(' · ');
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(8); doc.setTextColor(...(VCOL[s.veredicto] || [90, 98, 110]));
+    const vt = T('pdfVer_' + s.veredicto); doc.text(pdfTxt(vt.toUpperCase()), P.M, P.y);
+    doc.setFont('helvetica', 'normal'); doc.setTextColor(110, 116, 126); doc.text(pdfTxt('   ' + recorte(meta, 110)), P.M + doc.getTextWidth(pdfTxt(vt.toUpperCase())), P.y); P.y += 4.6;
+    if (s.aprendizaje) pdfParrafo(P, txt(s.aprendizaje), { size: 10, after: 1.2 });
+    dimsPdf.forEach((k) => { const v = s.elementos && s.elementos[k]; if (v) pdfParrafo(P, T('exEl_' + k) + ': ' + recorte(txt(v), 210), { size: 8.6, indent: 4, color: [80, 86, 98], after: 0.8 }); });
+    P.y += 3.2;
+  });
+  pdfCerrar(P, T('pdfNotaExp'));
+  return P.doc;
+}
+reg('lecPdf', (box) => {
+  const ts = rows('lecciones'); if (!ts.length) { box.replaceChildren(); return; }
+  const i = ts.findIndex((x) => x.id === LEC.sel); const t = ts[i];
+  if (t && t.piloto) pdfBoton(box, T('pdfLecTema', tr(t, 'titulo')), T('pdfLecAyudaTema'), (J) => pdfLeccion(J, t, i), () => pdfArchivo('leccion_' + t.id));
+  else pdfBoton(box, T('pdfLecTodo'), T('pdfLecAyuda'), (J) => pdfTodas(J), () => pdfArchivo('lecciones'));
+});
+reg('expPdf', (box) => {
+  if (!expEstudios().length) { box.replaceChildren(); return; }
+  pdfBoton(box, T('pdfExp'), T('pdfExpAyuda'), (J) => pdfConsulta(J), () => pdfArchivo('estudios'));
 });

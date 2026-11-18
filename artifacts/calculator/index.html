@@ -231,6 +231,13 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 .dec-head p { margin: 0; font-size: 14px; }
 .lec-teaser { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0 0 12px; padding: 12px 16px; border-radius: 12px; background: color-mix(in srgb, #d08a1e 7%, var(--color-panel)); border: 1px solid color-mix(in srgb, #d08a1e 30%, transparent); font-size: 14px; }
 .lec-teaser > span:nth-child(2) { flex: 1 1 280px; }
+.pdf-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 4px 0 12px; padding: 10px 12px; border-radius: 10px; background: color-mix(in srgb, #1e3a8a 6%, var(--color-panel)); border: 1px dashed color-mix(in srgb, #1e3a8a 35%, transparent); }
+.pdf-bar.exp { background: color-mix(in srgb, #c2410c 6%, var(--color-panel)); border-color: color-mix(in srgb, #c2410c 35%, transparent); }
+.pdf-bar .pdf-btn { font-weight: 600; }
+.pdf-bar .pdf-ayuda { flex: 1 1 260px; }
+.pdf-bar .pdf-estado:empty { display: none; }
+.exp-take { margin: 6px 0 8px; font-size: 14px; line-height: 1.5; }
+.exp-take b { color: #c2410c; }
 a.res-pdf { text-decoration: none; display: inline-flex; align-items: center; }
 .res-pdf-line { margin: 4px 0 0; }
 .res-pdf-a { font-weight: 600; }
@@ -392,8 +399,8 @@ a.res-pdf { text-decoration: none; display: inline-flex; align-items: center; }
 
   <nav class="lab-tabs" role="tablist">
     <button class="lab-tab pri" role="tab" data-tab="decidir" aria-selected="true"><span lang="es">Decidir</span><span lang="en">Decide</span><span lang="pt">Decidir</span></button>
-    <button class="lab-tab pri" role="tab" data-tab="inicio" aria-selected="false"><span lang="es">Probar supuestos</span><span lang="en">Try assumptions</span><span lang="pt">Testar suposições</span></button>
     <button class="lab-tab pri" role="tab" data-tab="lecciones" aria-selected="false"><span lang="es">Lecciones para implementar</span><span lang="en">Lessons for deploying</span><span lang="pt">Lições para implementar</span></button>
+    <button class="lab-tab pri" role="tab" data-tab="inicio" aria-selected="false"><span lang="es">Probar supuestos</span><span lang="en">Try assumptions</span><span lang="pt">Testar suposições</span></button>
   </nav>
 
   <!-- D. DECIDIR: vista mínima para tomadores de decisiones -->
@@ -557,6 +564,7 @@ a.res-pdf { text-decoration: none; display: inline-flex; align-items: center; }
       <span><i class="f-parcial"></i><span lang="es">Parcial: causal escasa, sobre todo descriptiva</span><span lang="en">Partial: little causal, mostly descriptive</span><span lang="pt">Parcial: pouca causal, sobretudo descritiva</span></span>
       <span><i class="f-guias"></i><span lang="es">Solo guías y políticas</span><span lang="en">Guides and policies only</span><span lang="pt">Só guias e políticas</span></span>
     </div>
+    <div class="pdf-bar" data-draw="lecPdf" data-source="lecciones"></div>
     <div class="lec-tiles" data-draw="lecTiles" data-source="lecciones"></div>
     <div class="lec-detalle" id="lec-detalle" data-draw="lecDetalle" data-source="lecciones estudiosElementos"></div>
     </details>
@@ -568,6 +576,7 @@ a.res-pdf { text-decoration: none; display: inline-flex; align-items: center; }
       <div class="exp-paso"><span class="exp-n">2</span><b><span lang="es">Filtra si quieres</span><span lang="en">Filter if you like</span><span lang="pt">Filtre se quiser</span></b></div>
       <div class="exp-filtros" data-draw="expFiltros" data-source="estudiosElementos"></div>
       <div class="exp-paso"><span class="exp-n">3</span><b><span lang="es">Lee y compara</span><span lang="en">Read and compare</span><span lang="pt">Leia e compare</span></b> <span class="lab-small lab-muted" data-draw="expConteo">—</span></div>
+      <div class="pdf-bar exp" data-draw="expPdf" data-source="estudiosElementos lecciones"></div>
       <div class="exp-cmp" data-draw="expComparar"></div>
       <div class="exp-lista" data-draw="expLista" data-source="estudiosElementos"></div>
       <p class="lab-small lab-muted" style="margin-bottom:0"><span lang="es">Los textos resumen el registro de cada estudio en EvidencIA (corte de la base 16 oct 2026). Claude hizo la extracción con agentes auxiliares y luego cotejó cada registro campo por campo con su ficha (18 nov 2026); algunos códigos de lugar y dispositivo siguen siendo una interpretación de la ficha. Verifica en el paper antes de citar. «No informado» significa que el registro no lo menciona, no que no haya ocurrido.</span><span lang="en">The texts summarize each study's EvidencIA record (database cutoff 16 Oct 2026). Claude did the extraction with helper agents and then checked every record field by field against its source (18 Nov 2026); some setting and device codes remain an interpretation of the record. Check the paper before citing. "Not reported" means the record does not mention it, not that it did not happen.</span><span lang="pt">Os textos resumem o registro de cada estudo na EvidencIA (corte da base 16 out 2026). O Claude fez a extração com agentes auxiliares e depois conferiu cada registro campo a campo com sua ficha (18 nov 2026); alguns códigos de lugar e dispositivo continuam sendo uma interpretação da ficha. Verifique no paper antes de citar. «Não informado» significa que o registro não o menciona, não que não tenha ocorrido.</span></p>
@@ -787,8 +796,8 @@ a.res-pdf { text-decoration: none; display: inline-flex; align-items: center; }
 
 
 </div>
-<script src="dash-static.js?v=202611181310"></script>
-<script src="app.js?v=202611181310"></script>
+<script src="dash-static.js?v=202611181348"></script>
+<script src="app.js?v=202611181348"></script>
 <script>dash.iniciar();</script>
 </body>
 </html>
