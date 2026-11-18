@@ -223,7 +223,7 @@ const D = {
   escA: ['Escenario ilustrativo (ganancia de síntesis y costo hipotético)', 'Illustrative scenario (synthesis gain and hypothetical cost)', 'Cenário ilustrativo (ganho de síntese e custo hipotético)'],
   escB: ['Escenario ilustrativo (valores hipotéticos)', 'Illustrative scenario (hypothetical values)', 'Cenário ilustrativo (valores hipotéticos)'],
   usuarioB: ['Valores definidos por mí (supuestos)', 'Values I define (assumptions)', 'Valores definidos por mim (suposições)'],
-  grpLote: ['Lote 1 (publicaciones originales)', 'Batch 1 (original publications)', 'Lote 1 (publicações originais)'], grpEv: ['EvidencIA (copia del 11 nov 2026)', 'EvidencIA (copy of 11 Nov 2026)', 'EvidencIA (cópia de 11 nov 2026)'],
+  grpLote: ['Lote 1 (publicaciones originales)', 'Batch 1 (original publications)', 'Lote 1 (publicações originais)'], grpEv: ['EvidencIA (copia del 18 nov 2026)', 'EvidencIA (copy of 18 Nov 2026)', 'EvidencIA (cópia de 18 nov 2026)'],
   st_Verificado: ['Extraído y verificado', 'Extracted and verified', 'Extraído e verificado'], st_Provisional: ['Extraído, provisional', 'Extracted, provisional', 'Extraído, provisório'],
   st_EvidencIA: ['EvidencIA (núcleo verificado)', 'EvidencIA (verified core)', 'EvidencIA (núcleo verificado)'],
   st_IlusGain: ['Síntesis (agrupado), ilustrativo', 'Synthesis (pooled), illustrative', 'Síntese (agrupado), ilustrativo'], st_Ilus: ['Hipotético, ilustrativo', 'Hypothetical, illustrative', 'Hipotético, ilustrativo'],

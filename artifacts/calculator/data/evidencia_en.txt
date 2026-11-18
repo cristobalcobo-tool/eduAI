@@ -1,8 +1,8 @@
-Copy of the compare_studies tool of the EvidencIA connector (https://mcp.redevidencia.org/mcp), taken on 2026-11-11 with language = en. EvidencIA database cutoff: 2026-10-16.
+Copy of the compare_studies tool of the EvidencIA connector (https://mcp.redevidencia.org/mcp), taken on 2026-11-18 with language = en. EvidencIA database cutoff: 2026-10-16.
 Arguments: ids = nigeria-edo-2025, ghana-rori-2024, shaia-bogota-2026, khanmigo-tennessee-2026, khan-academy-uttar-pradesh-2026, eeuu-saga-tutoria-tecnologia-2024, gemini-sierra-leona-2026, kestin-harvard-2025.
 
 Effects are in standard deviations. Instruments, populations and durations differ: the common scale helps rank studies but does not make them identical. The same SD is not the same gain if the tests measure different skills: check the «What it measured» column before comparing.
-Cost: only 6 of the 8 studies in this table report cost per student (8 of 241 across the whole core), and each calculates it differently: marginal, total pilot cost or licenses only. Treat it as an order of magnitude, not a price.
+Cost: only 6 of the 8 studies in this table report cost per student (8 of 247 across the whole core), and each calculates it differently: marginal, total pilot cost or licenses only. Treat it as an order of magnitude, not a price.
 
 | Study | Effect (SD) | What it measured | EvidencIA level | Source | Measurement | Cost USD/student | SD per USD 100 | Independence | High risk in |
 |---|---|---|---|---|---|---|---|---|---|
