@@ -238,6 +238,37 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 .pdf-bar .pdf-estado:empty { display: none; }
 .exp-take { margin: 6px 0 8px; font-size: 14px; line-height: 1.5; }
 .exp-take b { color: #c2410c; }
+.mf-intro { margin: 0 0 8px; }
+.mf-leyenda { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0 0 10px; color: var(--color-fg-muted); }
+.mf-leyenda i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.mf-crit { background: #1f8a5b; } .mf-mixto { background: #d99a1e; } .mf-menos { background: #7a8aa0; }
+.mf-tabla { display: grid; grid-template-columns: minmax(120px, 1.6fr) repeat(3, minmax(56px, 1fr)); gap: 4px; }
+.mf-h { font-size: 12px; font-weight: 700; color: var(--color-fg-muted); text-align: center; padding: 2px 0; }
+.mf-h:first-child { text-align: left; }
+.mf-fac { all: unset; box-sizing: border-box; cursor: pointer; font-size: 13.5px; font-weight: 600; color: var(--color-fg); padding: 8px 6px; border-radius: 8px; line-height: 1.25; }
+.mf-fac:hover, .mf-fac:focus-visible { background: color-mix(in srgb, var(--color-fg) 7%, transparent); outline: none; }
+.mf-fac.on { box-shadow: inset 3px 0 0 var(--color-fg); }
+.mf-c { all: unset; box-sizing: border-box; cursor: pointer; border-radius: 8px; min-height: 42px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; color: #fff; background: color-mix(in srgb, var(--mfc) calc(var(--mfa) * 100%), var(--color-panel)); }
+.mf-c small { font-size: 10.5px; font-weight: 600; opacity: .95; }
+.mf-c.vacio { cursor: default; color: var(--color-fg-muted); background: color-mix(in srgb, var(--color-fg) 5%, transparent); font-weight: 500; }
+.mf-c.claro { color: var(--color-fg); }
+.mf-c:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 1px; }
+.mf-c.on { outline: 3px solid var(--color-fg); outline-offset: 1px; }
+.mf-c.total { border: 1px dashed color-mix(in srgb, var(--color-fg) 30%, transparent); }
+.mf-resumen { margin: 12px 0 4px; font-size: 14px; line-height: 1.5; }
+.mf-resumen p { margin: 4px 0; }
+.mf-panel:empty { display: none; }
+.mf-panel { margin-top: 12px; border: 1px solid var(--color-border-line); border-radius: 12px; padding: 12px 14px; background: color-mix(in srgb, var(--color-fg) 3%, var(--color-panel)); }
+.mf-panel h4 { margin: 0 0 4px; font-size: 16px; }
+.mf-grupo { margin: 12px 0 4px; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+.mf-grupo i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.mf-est { padding: 8px 0; border-top: 1px solid var(--color-border-line); }
+.mf-est a { font-weight: 600; color: var(--color-fg); }
+.mf-est .meta { font-size: 12px; color: var(--color-fg-muted); margin: 2px 0; }
+.mf-est p { margin: 4px 0 0; font-size: 14px; line-height: 1.45; }
+.mf-badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 999px; margin-right: 4px; background: color-mix(in srgb, var(--color-fg) 9%, transparent); color: var(--color-fg); }
+.mf-badge.ev { background: #1e3a8a; color: #fff; }
+.mf-cerrar { float: right; }
 a.res-pdf { text-decoration: none; display: inline-flex; align-items: center; }
 .res-pdf-line { margin: 4px 0 0; }
 .res-pdf-a { font-weight: 600; }
@@ -556,8 +587,22 @@ a.res-pdf { text-decoration: none; display: inline-flex; align-items: center; }
       <p class="lab-muted"><span lang="es">Ocho temas que pesan en una decisión. Cada lección separa lo que muestran los estudios causales, lo que sugieren los estudios descriptivos y lo que recomiendan las guías y políticas. Elige un tema.</span><span lang="en">Eight themes that weigh on a decision. Each lesson separates what causal studies show, what descriptive studies suggest and what guides and policies recommend. Pick a theme.</span><span lang="pt">Oito temas que pesam numa decisão. Cada lição separa o que mostram os estudos causais, o que sugerem os estudos descritivos e o que recomendam os guias e políticas. Escolha um tema.</span></p>
       <p class="lab-small res-pdf-line"><span lang="es">Para ministerios e investigación, las conclusiones en 4 páginas:</span><span lang="en">For ministries and researchers, the conclusions in 4 pages:</span><span lang="pt">Para ministérios e pesquisa, as conclusões em 4 páginas:</span> <a lang="es" class="res-pdf-a" href="https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/resumen/resumen_ejecutivo_es.pdf" target="_blank" rel="noopener">Resumen ejecutivo (PDF, 4 págs.) ↓</a><a lang="en" class="res-pdf-a" href="https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/resumen/executive_summary_en.pdf" target="_blank" rel="noopener">Executive summary (PDF, 4 pp.) ↓</a><a lang="pt" class="res-pdf-a" href="https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/resumen/resumo_executivo_pt.pdf" target="_blank" rel="noopener">Resumo executivo (PDF, 4 págs.) ↓</a></p>
     </div>
+    <details class="lec-blk mf" id="mapa-factores" open>
+    <summary><span class="lec-blk-n">1</span><span class="lec-blk-t"><span lang="es">Qué factores pesan más: mapa de la evidencia 2025 y 2026</span><span lang="en">Which factors matter most: evidence map for 2025 and 2026</span><span lang="pt">Quais fatores pesam mais: mapa da evidência de 2025 e 2026</span></span><small><span lang="es">Toca un factor o una celda para ver los estudios que lo respaldan.</span><span lang="en">Tap a factor or a cell to see the studies behind it.</span><span lang="pt">Toque um fator ou uma célula para ver os estudos que o sustentam.</span></small></summary>
+    <p class="lab-small mf-intro"><span lang="es">Metaanálisis, revisiones sistemáticas, ensayos aleatorios y cuasi experimentos sobre IA en educación publicados desde 2025, buscados en Consensus. Cada celda resume si los estudios de ese año encontraron que el factor cambia cuánto se aprende.</span><span lang="en">Meta analyses, systematic reviews, randomized trials and quasi experiments on AI in education published since 2025, searched in Consensus. Each cell summarizes whether that year's studies found that the factor changes how much students learn.</span><span lang="pt">Meta análises, revisões sistemáticas, ensaios aleatórios e quase experimentos sobre IA na educação publicados desde 2025, buscados no Consensus. Cada célula resume se os estudos daquele ano encontraram que o fator muda quanto se aprende.</span></p>
+    <div class="mf-leyenda lab-small">
+      <span><i class="mf-crit"></i><span lang="es">Crítico: la mayoría encuentra que cambia el aprendizaje</span><span lang="en">Critical: most find it changes learning</span><span lang="pt">Crítico: a maioria encontra que muda a aprendizagem</span></span>
+      <span><i class="mf-mixto"></i><span lang="es">Mixto o condicional</span><span lang="en">Mixed or conditional</span><span lang="pt">Misto ou condicional</span></span>
+      <span><i class="mf-menos"></i><span lang="es">Menos decisivo: la mayoría no encuentra diferencia</span><span lang="en">Less decisive: most find no difference</span><span lang="pt">Menos decisivo: a maioria não encontra diferença</span></span>
+      <span><span lang="es">El número es la cantidad de estudios; el color más intenso indica más estudios.</span><span lang="en">The number is the count of studies; a stronger color means more studies.</span><span lang="pt">O número é a quantidade de estudos; a cor mais intensa indica mais estudos.</span></span>
+    </div>
+    <div class="mf-grid" data-draw="mfGrid" data-source="mapaFactores"></div>
+    <div class="mf-resumen" data-draw="mfResumen" data-source="mapaFactores"></div>
+    <div class="mf-panel" data-draw="mfPanel" data-source="mapaFactores"></div>
+    <p class="lab-small lab-muted lec-nota"><span lang="es"><b>Cómo se hizo:</b> tres búsquedas en Consensus el 19 nov 2026 (publicaciones desde 2025; ensayos aleatorios, cuasi experimentos, metaanálisis y revisiones sistemáticas) dieron 239 artículos. Claude leyó sus resúmenes y conservó 85 que miden aprendizaje con IA y dicen algo sobre un factor; los codificó a partir del resumen, no del texto completo. Un factor es crítico en un estudio cuando lo modera o cuando la versión con ese factor rinde más; menos decisivo cuando el estudio lo probó y no halló diferencia. Los metaanálisis pueden compartir estudios, la calidad es desigual y muchos efectos son de corto plazo. La marca de EvidencIA indica que el estudio está en su base verificada. Consensus solo informa el año de publicación, por eso la línea de tiempo va por año.</span><span lang="en"><b>How it was made:</b> three Consensus searches on 19 Nov 2026 (published since 2025; randomized trials, quasi experiments, meta analyses and systematic reviews) returned 239 articles. Claude read their abstracts and kept 85 that measure learning with AI and say something about a factor; it coded them from the abstract, not the full text. A factor is critical in a study when it moderates the effect or when the version with that factor does better; less decisive when the study tested it and found no difference. Meta analyses may share studies, quality is uneven and many effects are short term. The EvidencIA mark means the study is in its verified base. Consensus only reports the publication year, so the timeline goes by year.</span><span lang="pt"><b>Como foi feito:</b> três buscas no Consensus em 19 nov 2026 (publicações desde 2025; ensaios aleatórios, quase experimentos, meta análises e revisões sistemáticas) deram 239 artigos. O Claude leu seus resumos e manteve 85 que medem aprendizagem com IA e dizem algo sobre um fator; codificou a partir do resumo, não do texto completo. Um fator é crítico num estudo quando modera o efeito ou quando a versão com esse fator rende mais; menos decisivo quando o estudo o testou e não achou diferença. As meta análises podem compartilhar estudos, a qualidade é desigual e muitos efeitos são de curto prazo. A marca da EvidencIA indica que o estudo está em sua base verificada. O Consensus só informa o ano de publicação, por isso a linha do tempo vai por ano.</span></p>
+    </details>
     <details class="lec-blk" id="lec-bloque" open>
-    <summary><span class="lec-blk-n">1</span><span class="lec-blk-t"><span lang="es">Las 8 lecciones</span><span lang="en">The 8 lessons</span><span lang="pt">As 8 lições</span></span><small><span lang="es">Abre un tema para ver su detalle; vuelve a tocarlo para cerrarlo.</span><span lang="en">Open a theme to see its detail; tap it again to close it.</span><span lang="pt">Abra um tema para ver seu detalhe; toque de novo para fechá lo.</span></small></summary>
+    <summary><span class="lec-blk-n">2</span><span class="lec-blk-t"><span lang="es">Las 8 lecciones</span><span lang="en">The 8 lessons</span><span lang="pt">As 8 lições</span></span><small><span lang="es">Abre un tema para ver su detalle; vuelve a tocarlo para cerrarlo.</span><span lang="en">Open a theme to see its detail; tap it again to close it.</span><span lang="pt">Abra um tema para ver seu detalhe; toque de novo para fechá lo.</span></small></summary>
     <div class="lec-leyenda lab-small">
       <span><i class="f-consistente"></i><span lang="es">Evidencia causal consistente</span><span lang="en">Consistent causal evidence</span><span lang="pt">Evidência causal consistente</span></span>
       <span><i class="f-moderada"></i><span lang="es">Evidencia causal moderada</span><span lang="en">Moderate causal evidence</span><span lang="pt">Evidência causal moderada</span></span>
@@ -569,7 +614,7 @@ a.res-pdf { text-decoration: none; display: inline-flex; align-items: center; }
     <div class="lec-detalle" id="lec-detalle" data-draw="lecDetalle" data-source="lecciones estudiosElementos"></div>
     </details>
     <details class="lec-blk exp" id="explorar" open>
-      <summary><span class="lec-blk-n">2</span><span class="lec-blk-t"><span lang="es">Explorar los estudios por dimensión</span><span lang="en">Explore the studies by dimension</span><span lang="pt">Explorar os estudos por dimensão</span></span><small><span lang="es">99 ensayos verificados de nivel 1 (100 registros: un ensayo tiene dos brazos)</span><span lang="en">99 verified level 1 trials (100 records: one trial has two arms)</span><span lang="pt">99 ensaios verificados de nível 1 (100 registros: um ensaio tem dois braços)</span></small></summary>
+      <summary><span class="lec-blk-n">3</span><span class="lec-blk-t"><span lang="es">Explorar los estudios por dimensión</span><span lang="en">Explore the studies by dimension</span><span lang="pt">Explorar os estudos por dimensão</span></span><small><span lang="es">99 ensayos verificados de nivel 1 (100 registros: un ensayo tiene dos brazos)</span><span lang="en">99 verified level 1 trials (100 records: one trial has two arms)</span><span lang="pt">99 ensaios verificados de nível 1 (100 registros: um ensaio tem dois braços)</span></small></summary>
       <p class="lab-small lab-muted"><span lang="es">Elige qué dimensión quieres entender (por ejemplo, la formación docente) y verás, estudio por estudio, cómo se hizo según el registro de EvidencIA, con la página del paper. Cada color corresponde a un grupo de dimensiones.</span><span lang="en">Choose which dimension you want to understand (for example, teacher training) and you will see, study by study, how it was done according to the EvidencIA record, with the paper's page. Each color matches a group of dimensions.</span><span lang="pt">Escolha que dimensão você quer entender (por exemplo, a formação docente) e verá, estudo por estudo, como foi feito segundo o registro da EvidencIA, com a página do paper. Cada cor corresponde a um grupo de dimensões.</span></p>
       <div class="exp-paso"><span class="exp-n">1</span><b><span lang="es">Qué quieres entender</span><span lang="en">What you want to understand</span><span lang="pt">O que você quer entender</span></b></div>
       <div class="exp-chips" data-draw="expChips" data-source="estudiosElementos"></div>
@@ -796,8 +841,8 @@ a.res-pdf { text-decoration: none; display: inline-flex; align-items: center; }
 
 
 </div>
-<script src="dash-static.js?v=202611190847"></script>
-<script src="app.js?v=202611190847"></script>
+<script src="dash-static.js?v=202611191609"></script>
+<script src="app.js?v=202611191609"></script>
 <script>dash.iniciar();</script>
 </body>
 </html>
