@@ -116,6 +116,15 @@
     "texto": "Índice ETRI: instrumento gratuito para que los países evalúen las condiciones para usar tecnología educativa.",
     "textoEn": "ETRI index: a free instrument for countries to assess the conditions for using education technology.",
     "textoPt": "Índice ETRI: instrumento gratuito para que os países avaliem as condições para usar tecnologia educacional."
+   },
+   {
+    "tier": "causal",
+    "ref": "Acevedo Rebolledo et al., 2026",
+    "url": "https://doi.org/10.18235/0013975",
+    "nivel": "1",
+    "texto": "Paraguay: tutoría de lectura solo por llamadas y mensajes de texto, elegidos porque llegan donde la conexión es mala, subió la lectura 0,11 DE en ocho semanas; el piloto costó 190 dólares por estudiante.",
+    "textoEn": "Paraguay: reading tutoring by phone calls and text messages only, chosen because they reach places with poor connectivity, raised reading 0.11 SD in eight weeks; the pilot cost 190 dollars per student.",
+    "textoPt": "Paraguai: tutoria de leitura só por ligações e mensagens de texto, escolhidas porque chegam onde a conexão é ruim, subiu a leitura 0,11 DP em oito semanas; o piloto custou 190 dólares por estudante."
    }
   ]
  },
@@ -227,6 +236,33 @@
     "texto": "Chicago: tutoría humana diaria subió 0,12 DE para todos los asignados (0,28 entre quienes asistieron), a unos 3.500 dólares por estudiante al año; solo 37 a 40 % asistió alguna vez.",
     "textoEn": "Chicago: daily human tutoring raised scores 0.12 SD for all assigned students (0.28 among attenders), at about 3,500 dollars per student a year; only 37 to 40% ever attended.",
     "textoPt": "Chicago: tutoria humana diária subiu 0,12 DP para todos os designados (0,28 entre os que frequentaram), a cerca de 3.500 dólares por estudante por ano; só 37 a 40% frequentou alguma vez."
+   },
+   {
+    "tier": "causal",
+    "ref": "Kraft, Schueler & Falken, 2026",
+    "url": "https://doi.org/10.3102/00346543261446660",
+    "nivel": "2",
+    "texto": "Metaanálisis de 263 ensayos de tutoría humana: el efecto promedio de 0,40 DE baja a 0,22 DE en programas de 400 a 999 estudiantes y a 0,16 DE, una cifra imprecisa, con 1.000 o más, medidos con pruebas independientes. Es la referencia para comparar un tutor de IA a escala.",
+    "textoEn": "Meta analysis of 263 human tutoring trials: the average effect of 0.40 SD falls to 0.22 SD in programs of 400 to 999 students and to 0.16 SD, an imprecise figure, with 1,000 or more, measured with independent tests. It is the benchmark for comparing an AI tutor at scale.",
+    "textoPt": "Meta análise de 263 ensaios de tutoria humana: o efeito médio de 0,40 DP cai para 0,22 DP em programas de 400 a 999 estudantes e para 0,16 DP, um número impreciso, com 1.000 ou mais, medidos com testes independentes. É a referência para comparar um tutor de IA em escala."
+   },
+   {
+    "tier": "causal",
+    "ref": "Finseraas et al., 2026",
+    "url": "https://doi.org/10.1080/19345747.2026.2744641",
+    "nivel": "1",
+    "texto": "Noruega: un docente extra para grupos de 4 a 6 estudiantes, dentro del horario, subió matemática entre 0,07 y 0,10 DE a los cinco meses; tres años y medio después queda una señal más pequeña e incierta.",
+    "textoEn": "Norway: an extra teacher for groups of 4 to 6 students, within the school day, raised math by 0.07 to 0.10 SD after five months; three and a half years later a smaller, uncertain signal remains.",
+    "textoPt": "Noruega: um docente extra para grupos de 4 a 6 estudantes, dentro do horário, subiu matemática entre 0,07 e 0,10 DP aos cinco meses; três anos e meio depois resta um sinal menor e incerto."
+   },
+   {
+    "tier": "contexto",
+    "ref": "Dietrichson et al., 2026",
+    "url": "https://doi.org/10.1037/bul0000516",
+    "nivel": "3",
+    "texto": "Metaanálisis de 42 estudios con estudiantes en riesgo: el efecto promedio baja de 0,38 DE al terminar la intervención a 0,19 DE en el seguimiento, por lo general a un año o menos. Medir solo al final sobrestima lo que dura.",
+    "textoEn": "Meta analysis of 42 studies with at risk students: the average effect falls from 0.38 SD at the end of the intervention to 0.19 SD at follow up, usually a year or less later. Measuring only at the end overstates how long it lasts.",
+    "textoPt": "Meta análise de 42 estudos com estudantes em risco: o efeito médio cai de 0,38 DP ao fim da intervenção para 0,19 DP no acompanhamento, em geral a um ano ou menos. Medir só no final superestima quanto dura."
    }
   ]
  },
@@ -356,6 +392,24 @@
     "texto": "Gales (orientación): la formación docente debe enfatizar cómo evaluar las respuestas de la IA y cómo asegurar la protección de datos.",
     "textoEn": "Wales (guidance): teacher professional learning should emphasize how to evaluate AI output and ensure data protection.",
     "textoPt": "País de Gales (orientação): a formação docente deve enfatizar como avaliar as respostas da IA e garantir a proteção de dados."
+   },
+   {
+    "tier": "causal",
+    "ref": "Djaker et al., 2026",
+    "url": "https://doi.org/10.26300/g1xk-c907",
+    "nivel": "1",
+    "texto": "Bangladesh: informes impresos para docentes con los resultados de dos pruebas cortas y una guía de errores frecuentes, sin IA, subieron matemática 0,23 DE y lectura 0,17 DE, a 5,06 dólares por estudiante sin contar el tiempo docente. Documento de trabajo; los grupos no empezaron iguales.",
+    "textoEn": "Bangladesh: printed reports for teachers with results from two short tests and a guide to common errors, without AI, raised math 0.23 SD and reading 0.17 SD, at 5.06 dollars per student excluding teacher time. Working paper; the groups did not start out equal.",
+    "textoPt": "Bangladesh: relatórios impressos para docentes com os resultados de duas provas curtas e um guia de erros frequentes, sem IA, subiram matemática 0,23 DP e leitura 0,17 DP, a 5,06 dólares por estudante sem contar o tempo docente. Documento de trabalho; os grupos não começaram iguais."
+   },
+   {
+    "tier": "causal",
+    "ref": "Heinrich et al., 2025",
+    "url": "https://doi.org/10.1371/journal.pone.0328041",
+    "nivel": "2",
+    "texto": "EE.UU., universidad: GPT 4 calificó el 88 % de las respuestas cortas a partir de unas diez corregidas por el docente en cada pregunta, y ordenó a los estudiantes casi igual que el docente. No midió aprendizaje ni el tiempo ahorrado.",
+    "textoEn": "US, university: GPT 4 graded 88% of short answers using about ten graded by the instructor for each question, and ranked students almost exactly as the instructor did. It measured neither learning nor time saved.",
+    "textoPt": "EUA, universidade: o GPT 4 corrigiu 88% das respostas curtas a partir de umas dez corrigidas pelo docente em cada pergunta, e ordenou os estudantes quase igual ao docente. Não mediu aprendizagem nem o tempo economizado."
    }
   ]
  },
@@ -458,6 +512,24 @@
     "texto": "De sus 43 estudios con acceso a IA sorteado, 13 son con universitarios, 9 con secundaria alta, 7 con secundaria baja y 1 con primaria.",
     "textoEn": "Of its 43 studies with randomized AI access, 13 involve undergraduates, 9 high school, 7 middle school and 1 elementary school.",
     "textoPt": "Dos seus 43 estudos com acesso à IA sorteado, 13 são com universitários, 9 com ensino médio, 7 com fundamental II e 1 com fundamental I."
+   },
+   {
+    "tier": "causal",
+    "ref": "Saarela et al., 2026",
+    "url": "https://doi.org/10.1007/s10791-026-10015-1",
+    "nivel": "2",
+    "texto": "Metaanálisis de 51 estudios de IA generativa para aprender idiomas, casi todos con universitarios en Asia: la dirección es positiva, pero el tamaño no es confiable; en muestras de más de 200 personas el efecto es 0,15 DE.",
+    "textoEn": "Meta analysis of 51 studies of generative AI for language learning, nearly all with university students in Asia: the direction is positive, but the size is not reliable; in samples above 200 people the effect is 0.15 SD.",
+    "textoPt": "Meta análise de 51 estudos de IA generativa para aprender idiomas, quase todos com universitários na Ásia: a direção é positiva, mas o tamanho não é confiável; em amostras de mais de 200 pessoas o efeito é 0,15 DP."
+   },
+   {
+    "tier": "contexto",
+    "ref": "Hsu & Wang, 2026",
+    "url": "https://doi.org/10.1186/s40862-026-00421-9",
+    "nivel": "3",
+    "texto": "Metaanálisis de 16 estudios: estudiantes de inglés que usaron herramientas de IA dijeron sentirse más motivados, pero no se midió si aprendieron más y la novedad puede inflar el efecto.",
+    "textoEn": "Meta analysis of 16 studies: English learners who used AI tools said they felt more motivated, but whether they learned more was not measured and novelty may inflate the effect.",
+    "textoPt": "Meta análise de 16 estudos: estudantes de inglês que usaram ferramentas de IA disseram se sentir mais motivados, mas não se mediu se aprenderam mais e a novidade pode inflar o efeito."
    }
   ]
  },
@@ -560,6 +632,24 @@
     "texto": "Metaanálisis de 14 ensayos: la tecnología adaptativa y con IA sube el aprendizaje 0,125 DE en promedio; la IA generativa no muestra una ventaja detectable sobre la adaptativa. Documento de la propia red de EvidencIA.",
     "textoEn": "Meta analysis of 14 trials: adaptive and AI technology raises learning 0.125 SD on average; generative AI shows no detectable advantage over adaptive technology. A document from EvidencIA's own network.",
     "textoPt": "Meta análise de 14 ensaios: a tecnologia adaptativa e com IA sobe a aprendizagem 0,125 DP em média; a IA generativa não mostra vantagem detectável sobre a adaptativa. Documento da própria rede da EvidencIA."
+   },
+   {
+    "tier": "causal",
+    "ref": "Ruitenburg et al., 2026",
+    "url": "https://doi.org/10.1007/s10648-026-10225-5",
+    "nivel": "2",
+    "texto": "Metaanálisis de 53 estudios en aulas reales: la práctica de recuperación (0,37 DE), el espaciado (0,20) y el intercalado (0,40) mejoran el aprendizaje frente a alternativas con el mismo tiempo. Son principios que una herramienta puede incorporar.",
+    "textoEn": "Meta analysis of 53 studies in real classrooms: retrieval practice (0.37 SD), spacing (0.20) and interleaving (0.40) improve learning compared with alternatives taking the same time. They are principles a tool can build in.",
+    "textoPt": "Meta análise de 53 estudos em salas de aula reais: a prática de recuperação (0,37 DP), o espaçamento (0,20) e a intercalação (0,40) melhoram a aprendizagem frente a alternativas com o mesmo tempo. São princípios que uma ferramenta pode incorporar."
+   },
+   {
+    "tier": "causal",
+    "ref": "Zeng et al., 2026",
+    "url": "https://doi.org/10.1016/j.edurev.2026.100861",
+    "nivel": "2",
+    "texto": "Metaanálisis de 24 estudios, casi todos cuasi experimentales: sumar horas de clase en una materia sube el rendimiento solo 0,08 DE en promedio. Más tiempo sin cambiar lo que se hace rinde poco.",
+    "textoEn": "Meta analysis of 24 studies, nearly all quasi experimental: adding class hours in a subject raises achievement by only 0.08 SD on average. More time without changing what is done yields little.",
+    "textoPt": "Meta análise de 24 estudos, quase todos quase experimentais: somar horas de aula numa matéria sobe o desempenho só 0,08 DP em média. Mais tempo sem mudar o que se faz rende pouco."
    }
   ]
  },
@@ -666,6 +756,15 @@
     "texto": "De sus 43 estudios, 28 son de campo, 8 en línea, 6 de laboratorio y 1 mixto.",
     "textoEn": "Of its 43 studies, 28 are field studies, 8 online, 6 lab and 1 mixed.",
     "textoPt": "Dos seus 43 estudos, 28 são de campo, 8 online, 6 de laboratório e 1 misto."
+   },
+   {
+    "tier": "causal",
+    "ref": "Nergård-Nilssen et al., 2026",
+    "url": "https://doi.org/10.1037/edu0001017",
+    "nivel": "1",
+    "texto": "Noruega: un programa de lectura en grupos pequeños en la escuela, cuatro sesiones semanales de 45 minutos durante 24 semanas con un docente formado, subió la comprensión lectora 0,26 DE y el efecto seguía seis meses después. Los autores desarrollaron el programa.",
+    "textoEn": "Norway: a small group reading program at school, four 45 minute sessions a week for 24 weeks with a trained teacher, raised reading comprehension 0.26 SD and the effect held six months later. The authors developed the program.",
+    "textoPt": "Noruega: um programa de leitura em pequenos grupos na escola, quatro sessões semanais de 45 minutos durante 24 semanas com um docente formado, subiu a compreensão leitora 0,26 DP e o efeito continuava seis meses depois. Os autores desenvolveram o programa."
    }
   ]
  },
@@ -786,6 +885,33 @@
     "texto": "OCDE: la IA puede apoyar a estudiantes con necesidades especiales, pero falta evidencia empírica; pide codiseño, docentes en el circuito y protección de datos.",
     "textoEn": "OECD: AI can support students with special needs, but empirical evidence is lacking; it calls for co design, teachers in the loop and data protection.",
     "textoPt": "OCDE: a IA pode apoiar estudantes com necessidades especiais, mas falta evidência empírica; pede codesenho, docentes no circuito e proteção de dados."
+   },
+   {
+    "tier": "causal",
+    "ref": "Zhang et al., 2026",
+    "url": "https://doi.org/10.26300/x38n-mh30",
+    "nivel": "2",
+    "texto": "Metaanálisis de 68 ensayos de programas digitales de matemática y ciencias, sin IA generativa: el efecto es 0,28 DE en países de ingreso alto frente a 0,76 y 0,84 DE en países de ingreso bajo y medio. Documento de trabajo.",
+    "textoEn": "Meta analysis of 68 trials of digital math and science programs, without generative AI: the effect is 0.28 SD in high income countries versus 0.76 and 0.84 SD in low and middle income countries. Working paper.",
+    "textoPt": "Meta análise de 68 ensaios de programas digitais de matemática e ciências, sem IA generativa: o efeito é 0,28 DP em países de renda alta frente a 0,76 e 0,84 DP em países de renda baixa e média. Documento de trabalho."
+   },
+   {
+    "tier": "causal",
+    "ref": "Acevedo Rebolledo et al., 2026",
+    "url": "https://doi.org/10.18235/0013975",
+    "nivel": "1",
+    "texto": "Paraguay: la tutoría telefónica rindió parecido por sexo, lengua del hogar e ingreso; hay una señal de efecto menor cuando el adulto responsable no terminó la secundaria.",
+    "textoEn": "Paraguay: phone tutoring worked similarly across sex, home language and income; there is a sign of a smaller effect when the responsible adult did not finish secondary school.",
+    "textoPt": "Paraguai: a tutoria por telefone rendeu parecido por sexo, língua do lar e renda; há um sinal de efeito menor quando o adulto responsável não terminou o ensino médio."
+   },
+   {
+    "tier": "contexto",
+    "ref": "UNESCO IITE (Agius), 2025",
+    "url": "https://iite.unesco.org/publications/report-on-the-use-of-ai-and-ict-to-support-the-inclusion-of-children-with-autism-adhd-and-learning-disabilities/",
+    "nivel": "3",
+    "texto": "Informe cualitativo: la pedagogía, no el producto, decide si la IA y las TIC ayudan a incluir a estudiantes con autismo, TDAH o dificultades de aprendizaje; lo que más ayuda son las funciones de accesibilidad que ya traen los dispositivos. Es opinión de expertos, no medición de efectos.",
+    "textoEn": "Qualitative report: pedagogy, not the product, decides whether AI and ICT help include students with autism, ADHD or learning difficulties; what helps most are the accessibility features devices already have. It is expert opinion, not a measurement of effects.",
+    "textoPt": "Relatório qualitativo: a pedagogia, não o produto, decide se a IA e as TIC ajudam a incluir estudantes com autismo, TDAH ou dificuldades de aprendizagem; o que mais ajuda são as funções de acessibilidade que os dispositivos já trazem. É opinião de especialistas, não medição de efeitos."
    }
   ]
  },
@@ -803,9 +929,9 @@
   "leccion": "Protege los datos antes de desplegar: ningún estudio lo pone a prueba, pero casi todas las políticas lo exigen.",
   "leccionEn": "Protect data before deploying: no study tests it, but almost every policy requires it.",
   "leccionPt": "Proteja os dados antes de implantar: nenhum estudo testa isso, mas quase todas as políticas exigem.",
-  "resumen": "No encontramos estudios causales sobre privacidad. Lo que hay son políticas y guías: 130 de los 166 documentos de política en la base de EvidencIA tratan datos y privacidad. Piden evaluar el impacto antes de usar una herramienta, firmar acuerdos de tratamiento de datos, informar a estudiantes y familias, minimizar los datos y preferir herramientas que no usen esos datos para entrenar modelos.",
-  "resumenEn": "We found no causal studies on privacy. What exists are policies and guides: 130 of the 166 policy documents in the EvidencIA base address data and privacy. They ask for an impact assessment before using a tool, data processing agreements, informing students and families, minimizing data and preferring tools that do not use that data to train models.",
-  "resumenPt": "Não encontramos estudos causais sobre privacidade. O que há são políticas e guias: 130 dos 166 documentos de política na base da EvidencIA tratam de dados e privacidade. Pedem avaliar o impacto antes de usar uma ferramenta, firmar acordos de tratamento de dados, informar estudantes e famílias, minimizar os dados e preferir ferramentas que não usem esses dados para treinar modelos.",
+  "resumen": "No encontramos estudios causales sobre privacidad. Lo que hay son políticas y guías: 135 de los 171 documentos de política en la base de EvidencIA tratan datos y privacidad. Piden evaluar el impacto antes de usar una herramienta, firmar acuerdos de tratamiento de datos, informar a estudiantes y familias, minimizar los datos y preferir herramientas que no usen esos datos para entrenar modelos.",
+  "resumenEn": "We found no causal studies on privacy. What exists are policies and guides: 135 of the 171 policy documents in the EvidencIA base address data and privacy. They ask for an impact assessment before using a tool, data processing agreements, informing students and families, minimizing data and preferring tools that do not use that data to train models.",
+  "resumenPt": "Não encontramos estudos causais sobre privacidade. O que há são políticas e guias: 135 dos 171 documentos de política na base da EvidencIA tratam de dados e privacidade. Pedem avaliar o impacto antes de usar uma ferramenta, firmar acordos de tratamento de dados, informar estudantes e famílias, minimizar os dados e preferir ferramentas que não usem esses dados para treinar modelos.",
   "medicion": "Son políticas y guías: orientan, no prueban que algo funcione. Cada una dice si es obligatoria u orientativa.",
   "medicionEn": "These are policies and guides: they guide, they do not prove that something works. Each says whether it is mandatory or guidance.",
   "medicionPt": "São políticas e guias: orientam, não provam que algo funciona. Cada uma diz se é obrigatória ou orientativa.",
@@ -915,6 +1041,24 @@
     "texto": "Ciudad de Buenos Aires (orientación): evitar que los estudiantes compartan nombre completo, documento, fotos o ubicación con herramientas de IA.",
     "textoEn": "Buenos Aires City (guidance): prevent students from sharing full name, ID number, photos or location with AI tools.",
     "textoPt": "Cidade de Buenos Aires (orientação): evitar que os estudantes compartilhem nome completo, documento, fotos ou localização com ferramentas de IA."
+   },
+   {
+    "tier": "guia",
+    "ref": "Higher Education Authority (HEA), 2025",
+    "url": "https://hea.ie/assets/uploads/2025/12/hea-genai-policy-framework.pdf",
+    "nivel": "pol",
+    "texto": "Irlanda, educación superior (orientación): los contratos con proveedores deberían fijar la propiedad de los datos, impedir entrenar modelos externos sin consentimiento explícito e incluir cláusulas de borrado exigibles.",
+    "textoEn": "Ireland, higher education (guidance): contracts with providers should set data ownership, prevent training external models without explicit consent and include enforceable deletion clauses.",
+    "textoPt": "Irlanda, ensino superior (orientação): os contratos com fornecedores deveriam fixar a propriedade dos dados, impedir treinar modelos externos sem consentimento explícito e incluir cláusulas de exclusão exigíveis."
+   },
+   {
+    "tier": "guia",
+    "ref": "Conselho Nacional de Educação (CNE), 2026",
+    "url": "https://abmes.org.br/arquivos/legislacoes/legislacoes-2026-10-07-64052ff6.pdf",
+    "nivel": "pol",
+    "texto": "Brasil (proyecto de resolución del CNE): prohíbe usar la IA para publicidad dirigida, perfilamiento comercial o explotación comercial de los datos de estudiantes y docentes, y usar contenidos de niños y adolescentes para entrenar modelos de terceros.",
+    "textoEn": "Brazil (CNE draft resolution): bans using AI for targeted advertising, commercial profiling or commercial exploitation of student and teacher data, and using content produced by children and adolescents to train third party models.",
+    "textoPt": "Brasil (projeto de resolução do CNE): proíbe usar a IA para publicidade direcionada, perfilização mercadológica ou exploração comercial dos dados de estudantes e docentes, e usar conteúdos de crianças e adolescentes para treinar modelos de terceiros."
    }
   ]
  }

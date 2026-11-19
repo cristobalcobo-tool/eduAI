@@ -2078,7 +2078,10 @@ function pdfLeccion(JsPDF, t, i) {
   pdfCaja(P, T('pdfLeccion'), tr(t, 'leccion'));
   pdfTitulo(P, T('pdfLoQue')); pdfParrafo(P, String(tr(t, 'resumen') || '').replace(/^"|"$/g, ''), { after: 3 });
   pdfTitulo(P, T('pdfHacer')); pdfVinetas(P, (t.acciones || []).map((x) => tr(x, 't')));
-  const ev = ['causal', 'contexto', 'guia'].flatMap((tier) => (t.evidencia || []).filter((e) => e.tier === tier)).slice(0, 7);
+  const evs = t.evidencia || []; const nv = (e) => (e.nivel === '1' ? 0 : e.nivel === '2' ? 1 : 2);
+  const cau = evs.filter((e) => e.tier === 'causal').map((e, i) => [e, i]).sort((x, y) => nv(x[0]) - nv(y[0]) || x[1] - y[1]).map((x) => x[0]).slice(0, 6);
+  const ctx = evs.filter((e) => e.tier === 'contexto').slice(0, 2);
+  const ev = cau.concat(ctx, evs.filter((e) => e.tier === 'guia')).slice(0, 8);
   if (ev.length) {
     pdfTitulo(P, T('pdfClaves'));
     pdfVinetas(P, ev.map((e) => T('pdfTier_' + e.tier) + ': ' + recorte(tr(e, 'texto'), 260) + ' [' + pdfRef(P, e.ref, '', e.url) + ']'), { size: 9.2 });
