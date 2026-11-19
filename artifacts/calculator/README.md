@@ -7,7 +7,7 @@ Página: `artifacts/calculator/index.html` (en GitHub Pages, https://cristobalco
 ## Secciones
 
 1. **Decidir**: compara dos intervenciones evaluadas con ensayos aleatorizados, con sus cautelas.
-2. **Lecciones para implementar**: empieza con un mapa de calor por año (2025 y 2026) que muestra qué factores resultan más o menos críticos en estudios rigurosos recientes, con los estudios de cada celda; luego ocho lecciones con evidencia causal, descriptiva y de guías, y un explorador de 99 ensayos de nivel 1 por dimensión. Cada sección tiene un botón que arma un PDF de 1 o 2 páginas con lo que el lector está consultando (un tema, las 8 lecciones o los estudios de su búsqueda), en lenguaje simple y con las fuentes al pie. El PDF se genera en el navegador con jsPDF 2.5.1 (cdnjs). Incluye además un enlace al resumen ejecutivo en PDF.
+2. **Lecciones para implementar**: empieza con un mapa de calor que ordena nueve factores de menos a más críticos según estudios rigurosos de 2025 y 2026, con un resumen al pasar el cursor y los estudios de cada factor al tocarlo; luego ocho lecciones con evidencia causal, descriptiva y de guías, y un explorador de 99 ensayos de nivel 1 por dimensión. Cada sección tiene un botón que arma un PDF de 1 o 2 páginas con lo que el lector está consultando (un tema, las 8 lecciones o los estudios de su búsqueda), en lenguaje simple y con las fuentes al pie. El PDF se genera en el navegador con jsPDF 2.5.1 (cdnjs). Incluye además un enlace al resumen ejecutivo en PDF.
 3. **Probar supuestos**: cambia ganancias y costos, o arrastra los puntos en el mapa; los estudios con valores parecidos se iluminan.
 4. **Anexo técnico** (al final de la página): calculadora avanzada; datos y gráficos (lote 1 y AI Skill Atlas); fuentes y método.
 

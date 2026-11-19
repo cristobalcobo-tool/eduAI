@@ -403,6 +403,19 @@ const D = {
   mfd_formacion: ['Alfabetización en IA y orientación sobre cómo pedirle ayuda.', 'AI literacy and guidance on how to ask it for help.', 'Letramento em IA e orientação sobre como pedir ajuda a ela.'],
   mfd_estudiantes: ['Etapa educativa, rendimiento previo y autorregulación del estudiante.', 'Education stage, prior achievement and the student\'s self regulation.', 'Etapa de ensino, desempenho prévio e autorregulação do estudante.'],
   mfd_materia: ['Disciplina, habilidad o tipo de conocimiento que se enseña.', 'Discipline, skill or type of knowledge taught.', 'Disciplina, habilidade ou tipo de conhecimento ensinado.'],
+  mft_acceso: ['Poca evidencia y mixta. Un chatbot por estudiante rindió mucho más que uno compartido; en un curso en línea, solo ofrecer acceso a GPT 4 bajó la participación. Las revisiones señalan internet, electricidad y equipos como barreras, sin medir cuánto pesan.', 'Little and mixed evidence. One chatbot per student worked much better than a shared one; in an online course, merely offering GPT 4 access lowered participation. Reviews flag internet, electricity and devices as barriers without measuring how much they weigh.', 'Pouca evidência e mista. Um chatbot por estudante rendeu muito mais do que um compartilhado; num curso online, só oferecer acesso ao GPT 4 baixou a participação. As revisões apontam internet, eletricidade e equipamentos como barreiras, sem medir quanto pesam.'],
+  mft_docente: ['Sobre todo mixto. En un metaanálisis la ganancia fue muy grande con apoyo docente y casi nula sin él, y la IA que sugiere comentarios a los ayudantes mejoró las revisiones; pero otros metaanálisis no hallan diferencia por el rol docente y las revisiones piden un modelo híbrido.', 'Mostly mixed. In one meta analysis gains were very large with teacher support and near zero without it, and AI suggesting comments to teaching assistants improved revisions; but other meta analyses find no difference by teacher role and reviews call for a hybrid model.', 'Sobretudo misto. Numa meta análise o ganho foi muito grande com apoio docente e quase nulo sem ele, e a IA que sugere comentários aos monitores melhorou as revisões; mas outras meta análises não acham diferença pelo papel docente e as revisões pedem um modelo híbrido.'],
+  mft_duracion: ['Resultados divididos. Varios metaanálisis hallan más efecto con intervenciones más largas (por ejemplo, de 8 a 16 semanas), pero otros no encuentran diferencia y el efecto en la motivación se diluye con el tiempo. Más tiempo no garantiza más aprendizaje.', 'Split results. Several meta analyses find larger effects with longer interventions (for example 8 to 16 weeks), but others find no difference and the effect on motivation fades over time. More time does not guarantee more learning.', 'Resultados divididos. Várias meta análises acham mais efeito com intervenções mais longas (por exemplo, de 8 a 16 semanas), mas outras não acham diferença e o efeito na motivação se dilui com o tempo. Mais tempo não garante mais aprendizagem.'],
+  mft_formacion: ['Poca evidencia. Formar a los estudiantes para usar la IA como compañero, y su alfabetización en IA, se asocian con mejores resultados; pero una formación breve para generar materiales no cambió la nota, y usar ChatGPT sin formación tampoco ayudó.', 'Little evidence. Training students to use AI as a partner, and their AI literacy, are linked to better results; but a short training to generate materials did not change scores, and using ChatGPT without training did not help either.', 'Pouca evidência. Formar os estudantes para usar a IA como parceira, e seu letramento em IA, se associam a melhores resultados; mas uma formação breve para gerar materiais não mudou a nota, e usar o ChatGPT sem formação também não ajudou.'],
+  mft_estudiantes: ['El efecto cambia según la etapa y el punto de partida. Varios ensayos encuentran más ganancia en estudiantes de bajo rendimiento; otros, en los más avanzados o con mejor autorregulación. Conviene desagregar los resultados.', 'The effect changes with stage and starting point. Several trials find larger gains for low achievers; others for more advanced students or those with better self regulation. Results should be broken down.', 'O efeito muda conforme a etapa e o ponto de partida. Vários ensaios acham mais ganho em estudantes de baixo desempenho; outros, nos mais avançados ou com melhor autorregulação. Convém desagregar os resultados.'],
+  mft_materia: ['La disciplina y el tipo de habilidad moderan el efecto con frecuencia; en idiomas, por ejemplo, rinde más en escritura y vocabulario. Algunos metaanálisis no hallan diferencias entre materias.', 'Discipline and skill type often moderate the effect; in languages, for example, it works better for writing and vocabulary. Some meta analyses find no differences between subjects.', 'A disciplina e o tipo de habilidade moderam o efeito com frequência; em idiomas, por exemplo, rende mais em escrita e vocabulário. Algumas meta análises não acham diferenças entre matérias.'],
+  mft_diseno: ['El factor con más evidencia. Rinden más las herramientas que guían con pistas, piden esfuerzo, se adaptan al nivel y dan retroalimentación; cuando la IA hace la tarea por el estudiante, la ganancia no se transfiere. El tipo de herramienta por sí solo a menudo no importa.', 'The factor with the most evidence. Tools that guide with hints, demand effort, adapt to the level and give feedback work better; when AI does the task for the student, gains do not transfer. Tool type alone often does not matter.', 'O fator com mais evidência. Rendem mais as ferramentas que guiam com dicas, pedem esforço, se adaptam ao nível e dão retorno; quando a IA faz a tarefa pelo estudante, o ganho não se transfere. O tipo de ferramenta por si só muitas vezes não importa.'],
+  mft_pedagogia: ['Rinde más cuando la IA se integra a la clase, en trabajo colaborativo o combinado y en ambientes centrados en el estudiante. Con una pedagogía estructurada amplía el pensamiento; sin guía tiende a sustituirlo. Pocos estudios no hallan diferencia.', 'It works better when AI is built into class, in collaborative or blended work and in learner centered settings. With structured pedagogy it amplifies thinking; without guidance it tends to replace it. Few studies find no difference.', 'Rende mais quando a IA se integra à aula, em trabalho colaborativo ou híbrido e em ambientes centrados no estudante. Com uma pedagogia estruturada amplia o pensamento; sem orientação tende a substituí lo. Poucos estudos não acham diferença.'],
+  mft_contexto: ['Pocos estudios, pero todos hallan que importa, en direcciones distintas: el efecto varía por región, cultura e ingreso del país; en un ensayo ganan más los estudiantes con más limitaciones socioeconómicas y en otro los de mayor nivel. Hay que medir quién gana.', 'Few studies, but all find it matters, in different directions: the effect varies by region, culture and country income; in one trial students with more socioeconomic constraints gain more and in another those better off. Measure who gains.', 'Poucos estudos, mas todos acham que importa, em direções distintas: o efeito varia por região, cultura e renda do país; num ensaio ganham mais os estudantes com mais limitações socioeconômicas e em outro os de maior nível. É preciso medir quem ganha.'],
+  mfMenosCrit: ['Menos crítico', 'Less critical', 'Menos crítico'], mfMasCrit: ['Más crítico', 'More critical', 'Mais crítico'],
+  mfTileSub: [(n, c) => n + ' estudios · ' + c + ' críticos', (n, c) => n + ' studies · ' + c + ' critical', (n, c) => n + ' estudos · ' + c + ' críticos'],
+  mfPocos: ['pocos estudios', 'few studies', 'poucos estudos'],
+  mfToca: ['Toca para ver los estudios.', 'Tap to see the studies.', 'Toque para ver os estudos.'],
   mfFactor: ['Factor', 'Factor', 'Fator'], mfTotal: ['Total', 'Total', 'Total'],
   mfCrit: ['Crítico', 'Critical', 'Crítico'], mfMixto: ['Mixto o condicional', 'Mixed or conditional', 'Misto ou condicional'], mfMenos: ['Menos decisivo', 'Less decisive', 'Menos decisivo'],
   mfCritCorto: [(n) => n + ' crít.', (n) => n + ' crit.', (n) => n + ' crít.'],
@@ -2002,31 +2015,36 @@ const mfDe = (f, y) => mfEst().filter((s) => s.factores && s.factores[f] && (y =
 const mfCuenta = (lista, f) => { const c = { C: 0, M: 0, N: 0 }; lista.forEach((s) => { c[s.factores[f]]++; }); c.n = c.C + c.M + c.N; return c; };
 const mfClase = (c) => (!c.n ? 'vacio' : c.C / c.n >= 0.6 ? 'crit' : c.N / c.n >= 0.5 ? 'menos' : 'mixto');
 function mfAbrir(f, y) { MF.f = (MF.f === f && MF.y === y) ? null : f; MF.y = MF.f ? y : null; dash.draw('mfGrid'); dash.draw('mfPanel'); if (MF.f) { const p = document.querySelector('[data-draw="mfPanel"]'); if (p && p.scrollIntoView) setTimeout(() => p.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 30); } }
+const mfVerde = (p) => { const a = [232, 245, 237], b = [17, 94, 61]; const t = 0.08 + 0.92 * p; return 'rgb(' + a.map((v, i) => Math.round(v + (b[i] - v) * t)).join(',') + ')'; };
+const mfOrden = () => MF_FAC.map((f) => { const c = mfCuenta(mfDe(f, null), f); return { f, c, p: c.n ? c.C / c.n : 0 }; }).sort((a, b) => a.p - b.p || a.c.n - b.c.n);
 reg('mfGrid', (box) => {
   const all = mfEst();
   if (!all.length) { failMsg(box, dash.data('mapaFactores').status); return; }
-  const g = el('div', { class: 'mf-tabla', role: 'table' });
-  g.append(el('div', { class: 'mf-h', role: 'columnheader' }, T('mfFactor')), ...MF_ANIOS.map((y) => el('div', { class: 'mf-h', role: 'columnheader' }, String(y))), el('div', { class: 'mf-h', role: 'columnheader' }, T('mfTotal')));
-  const maxN = Math.max(...MF_FAC.map((f) => mfDe(f, null).length), 1);
-  MF_FAC.forEach((f) => {
-    const fb = el('button', { type: 'button', class: 'mf-fac' + (MF.f === f && MF.y === 'all' ? ' on' : ''), title: T('mfd_' + f) }, T('mf_' + f));
-    fb.onclick = () => mfAbrir(f, 'all');
-    g.append(fb);
-    [...MF_ANIOS, 'all'].forEach((y) => {
-      const lista = mfDe(f, y === 'all' ? null : y); const c = mfCuenta(lista, f); const cl = mfClase(c);
-      const b = el('button', { type: 'button', class: 'mf-c ' + cl + (y === 'all' ? ' total' : '') + (MF.f === f && MF.y === y ? ' on' : '') });
-      if (!c.n) { b.textContent = '0'; b.disabled = true; b.setAttribute('aria-label', T('mf_' + f) + ' · ' + (y === 'all' ? T('mfTodos') : y) + ': 0'); g.append(b); return; }
-      const a = 0.35 + 0.65 * Math.min(1, c.n / Math.max(4, maxN * (y === 'all' ? 1 : 0.6)));
-      b.style.setProperty('--mfc', MF_COL[cl]); b.style.setProperty('--mfa', a.toFixed(2));
-      if (a < 0.8 || cl === 'mixto') b.classList.add('claro');
-      b.append(document.createTextNode(String(c.n)), el('small', null, T('mfCritCorto', c.C)));
-      const tt = T('mfCeldaTit', T('mf_' + f), y === 'all' ? T('mfTodos') : y, c.n, c.C, c.M, c.N);
-      b.title = tt; b.setAttribute('aria-label', tt);
-      b.onclick = () => mfAbrir(f, y);
-      g.append(b);
-    });
+  const eje = el('div', { class: 'mf-eje lab-small' }); eje.append(el('span', null, '← ' + T('mfMenosCrit')), el('i', { class: 'mf-grad', 'aria-hidden': 'true' }), el('span', null, T('mfMasCrit') + ' →'));
+  const fila = el('div', { class: 'mf-fila', role: 'list' });
+  const tipBox = el('div', { class: 'mf-tip', role: 'tooltip', id: 'mf-tip' }); tipBox.hidden = true;
+  const mostrar = (b, s) => {
+    tipBox.replaceChildren(el('b', null, T('mf_' + s.f)), el('div', { class: 'mf-tip-n' }, T('mfPct', Math.round(s.p * 100), s.c.n)), el('p', null, T('mft_' + s.f)), el('div', { class: 'mf-tip-n' }, T('mfToca')));
+    tipBox.hidden = false;
+    const r = box.getBoundingClientRect(), rb = b.getBoundingClientRect(), w = Math.min(320, box.clientWidth - 8);
+    tipBox.style.width = w + 'px';
+    const left = Math.max(4, Math.min(rb.left - r.left + rb.width / 2 - w / 2, box.clientWidth - w - 4));
+    tipBox.style.left = left + 'px'; tipBox.style.top = (rb.bottom - r.top + 8) + 'px';
+  };
+  const ocultar = () => { tipBox.hidden = true; };
+  mfOrden().forEach((s) => {
+    const poca = s.c.n < 8;
+    const b = el('button', { type: 'button', role: 'listitem', class: 'mf-tile' + (poca ? ' poca' : '') + (MF.f === s.f ? ' on' : ''), 'aria-describedby': 'mf-tip' });
+    b.style.background = mfVerde(s.p); if (s.p >= 0.6) b.classList.add('osc');
+    b.append(el('span', { class: 'mf-tile-n' }, T('mf_' + s.f)), el('span', { class: 'mf-tile-p' }, Math.round(s.p * 100) + ' %'), el('span', { class: 'mf-tile-s' }, T('mfTileSub', s.c.n, s.c.C)));
+    if (poca) b.append(el('span', { class: 'mf-tile-poca' }, T('mfPocos')));
+    b.setAttribute('aria-label', T('mf_' + s.f) + ': ' + T('mfPct', Math.round(s.p * 100), s.c.n) + '. ' + T('mft_' + s.f));
+    b.addEventListener('mouseenter', () => mostrar(b, s)); b.addEventListener('focus', () => mostrar(b, s));
+    b.addEventListener('mouseleave', ocultar); b.addEventListener('blur', ocultar);
+    b.onclick = () => { ocultar(); mfAbrir(s.f, 'all'); };
+    fila.append(b);
   });
-  box.replaceChildren(g);
+  box.replaceChildren(eje, fila, tipBox);
 });
 reg('mfResumen', (box) => {
   if (!mfEst().length) { box.replaceChildren(); return; }
