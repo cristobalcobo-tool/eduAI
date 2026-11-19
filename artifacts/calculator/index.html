@@ -269,6 +269,11 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 .mf-badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 999px; margin-right: 4px; background: color-mix(in srgb, var(--color-fg) 9%, transparent); color: var(--color-fg); }
 .mf-badge.ev { background: #1e3a8a; color: #fff; }
 .mf-cerrar { float: right; }
+.mapa-guia { margin-top: 12px; border-top: 1px solid var(--color-border-line); padding-top: 8px; font-size: 14px; line-height: 1.5; }
+.mapa-guia > summary { cursor: pointer; font-weight: 700; font-size: 14.5px; padding: 4px 0; }
+.mapa-guia h4 { margin: 12px 0 4px; font-size: 14px; }
+.mapa-guia ul, .mapa-guia ol { margin: 0; padding-left: 20px; }
+.mapa-guia li { margin: 4px 0; }
 a.res-pdf { text-decoration: none; display: inline-flex; align-items: center; }
 .res-pdf-line { margin: 4px 0 0; }
 .res-pdf-a { font-weight: 600; }
@@ -391,7 +396,7 @@ a.res-pdf { text-decoration: none; display: inline-flex; align-items: center; }
     <div class="lab-top">
       <div>
         <h1><span lang="es">Laboratorio de Impacto e Inversión en IA Educativa</span><span lang="en">AI Education Impact &amp; Investment Lab</span><span lang="pt">Laboratório de Impacto e Investimento em IA Educacional</span></h1>
-        <p class="lab-sub"><span lang="es">Fuentes: EvidencIA (primaria, copia del 18 nov 2026); Stanford SCALE y AI and Human Skill Atlas (complementarias). Sitio exploratorio.</span><span lang="en">Sources: EvidencIA (primary, copy of 18 Nov 2026); Stanford SCALE and AI and Human Skill Atlas (complementary). Exploratory site.</span><span lang="pt">Fontes: EvidencIA (primária, cópia de 18 nov 2026); Stanford SCALE e AI and Human Skill Atlas (complementares). Site exploratório.</span></p>
+        <p class="lab-sub"><span lang="es">Fuentes: EvidencIA (primaria, copia del 18 nov 2026); Stanford SCALE, AI and Human Skill Atlas y Consensus (complementarias). Sitio exploratorio.</span><span lang="en">Sources: EvidencIA (primary, copy of 18 Nov 2026); Stanford SCALE, AI and Human Skill Atlas and Consensus (complementary). Exploratory site.</span><span lang="pt">Fontes: EvidencIA (primária, cópia de 18 nov 2026); Stanford SCALE, AI and Human Skill Atlas e Consensus (complementares). Site exploratório.</span></p>
       </div>
       <div class="lab-langs" role="group" aria-label="Idioma / Language / Idioma">
         <button type="button" data-lang="es" aria-pressed="true">ES</button>
@@ -534,6 +539,29 @@ a.res-pdf { text-decoration: none; display: inline-flex; align-items: center; }
         <span><i style="background:#9a9a9a"></i><span lang="es">Promedio de síntesis o supuesto</span><span lang="en">Synthesis average or assumption</span><span lang="pt">Média de síntese ou suposição</span> <button type="button" class="lab-q" data-glos="agrupado" aria-label="?">?</button></span>
       </div>
       <div class="lab-chart tall" data-draw="simMapa" data-source="evidencia_es simulador"></div>
+      <details class="mapa-guia" open>
+        <summary><span lang="es">Cómo leer y usar este mapa</span><span lang="en">How to read and use this map</span><span lang="pt">Como ler e usar este mapa</span></summary>
+        <h4><span lang="es">Qué muestra, en palabras simples</span><span lang="en">What it shows, in plain words</span><span lang="pt">O que mostra, em palavras simples</span></h4>
+        <ul>
+          <li><span lang="es"><b>Hacia arriba, más aprendizaje.</b> El eje vertical es la ganancia en desviaciones estándar. Como referencia, 0,2 equivale a que un estudiante promedio pase a superar a unos 58 de cada 100 compañeros (con el supuesto de la nota * de arriba). Bajo la línea del 0 el grupo con la intervención aprendió menos.</span><span lang="en"><b>Up means more learning.</b> The vertical axis is the gain in standard deviations. As a reference, 0.2 means an average student moves ahead of about 58 out of 100 classmates (under the assumption in the * note above). Below the 0 line the group with the intervention learned less.</span><span lang="pt"><b>Para cima, mais aprendizado.</b> O eixo vertical é o ganho em desvios padrão. Como referência, 0,2 equivale a um estudante médio passar a superar uns 58 de cada 100 colegas (com a suposição da nota * acima). Abaixo da linha do 0 o grupo com a intervenção aprendeu menos.</span></li>
+          <li><span lang="es"><b>Hacia la derecha, más caro.</b> El eje horizontal es el costo por estudiante y cada marca multiplica por diez (1, 10, 100, 1.000 dólares). La columna «sin costo» reúne los estudios que no informan costo: no quiere decir que sean gratis.</span><span lang="en"><b>Right means more expensive.</b> The horizontal axis is cost per student and each mark multiplies by ten (1, 10, 100, 1,000 dollars). The “no cost” column holds studies that do not report a cost: it does not mean they are free.</span><span lang="pt"><b>Para a direita, mais caro.</b> O eixo horizontal é o custo por estudante e cada marca multiplica por dez (1, 10, 100, 1.000 dólares). A coluna «sem custo» reúne os estudos que não informam custo: não quer dizer que sejam grátis.</span></li>
+          <li><span lang="es"><b>La zona verde</b> marca lo que compra más aprendizaje por dólar que B. Si A cae dentro, A rinde más por cada dólar; si cae afuera, rinde menos.</span><span lang="en"><b>The green zone</b> marks what buys more learning per dollar than B. If A falls inside it, A yields more per dollar; outside, it yields less.</span><span lang="pt"><b>A zona verde</b> marca o que compra mais aprendizado por dólar do que B. Se A cai dentro, A rende mais por dólar; se cai fora, rende menos.</span></li>
+          <li><span lang="es">Los puntos grises no son programas reales: uno es el promedio de un metaanálisis con un costo supuesto y otro es una alternativa hipotética para practicar.</span><span lang="en">Gray dots are not real programs: one is a meta analysis average with an assumed cost and the other is a hypothetical alternative to practice with.</span><span lang="pt">Os pontos cinza não são programas reais: um é a média de uma meta análise com um custo suposto e o outro é uma alternativa hipotética para praticar.</span></li>
+        </ul>
+        <h4><span lang="es">Cómo jugar con él</span><span lang="en">How to play with it</span><span lang="pt">Como brincar com ele</span></h4>
+        <ol>
+          <li><span lang="es">Haz clic en un punto para ponerlo como A, la intervención que estás evaluando. Para cambiar B, elige un estudio en la tarjeta B de arriba.</span><span lang="en">Click a dot to make it A, the intervention you are assessing. To change B, pick a study in the B card above.</span><span lang="pt">Clique em um ponto para defini lo como A, a intervenção que você avalia. Para mudar B, escolha um estudo no cartão B acima.</span></li>
+          <li><span lang="es">Arrastra los círculos A o B para probar tus propios supuestos: por ejemplo, ¿qué pasa si en tu país la licencia cuesta la mitad, o si el efecto fuera la mitad del publicado? Los controles de las tarjetas se mueven con el círculo.</span><span lang="en">Drag the A or B circles to test your own assumptions: for example, what if the license costs half in your country, or the effect were half the published one? The sliders in the cards move with the circle.</span><span lang="pt">Arraste os círculos A ou B para testar suas próprias suposições: por exemplo, e se no seu país a licença custar a metade, ou se o efeito fosse a metade do publicado? Os controles dos cartões se movem com o círculo.</span></li>
+          <li><span lang="es">Mira el resultado de la comparación al lado: dice cuál compra más aprendizaje por dólar con esos valores. Abre «Sobre este estudio» en cada tarjeta para ver qué cubre el costo y las advertencias.</span><span lang="en">Look at the comparison result next to the map: it says which one buys more learning per dollar with those values. Open “About this study” in each card to see what the cost covers and the caveats.</span><span lang="pt">Veja o resultado da comparação ao lado: ele diz qual compra mais aprendizado por dólar com esses valores. Abra «Sobre este estudo» em cada cartão para ver o que o custo cobre e as advertências.</span></li>
+        </ol>
+        <h4><span lang="es">Qué lecciones deja</span><span lang="en">What lessons it leaves</span><span lang="pt">Que lições deixa</span></h4>
+        <ul>
+          <li><span lang="es"><b>Pagar lo mismo no da lo mismo.</b> La práctica supervisada de Khan Academy en India (+0,44, unos 14 dólares) y Khanmigo en Tennessee (+0,05, unos 15 dólares en licencias) cuestan casi igual, pero la ganancia es muy distinta. Lo que hace la diferencia es la estructura que acompaña a la herramienta, no el precio.</span><span lang="en"><b>Paying the same does not buy the same.</b> Supervised Khan Academy practice in India (+0.44, about 14 dollars) and Khanmigo in Tennessee (+0.05, about 15 dollars in licenses) cost almost the same, but the gains are very different. What makes the difference is the structure around the tool, not the price.</span><span lang="pt"><b>Pagar o mesmo não dá o mesmo.</b> A prática supervisionada na Khan Academy na Índia (+0,44, uns 14 dólares) e o Khanmigo no Tennessee (+0,05, uns 15 dólares em licenças) custam quase o mesmo, mas o ganho é muito diferente. O que faz a diferença é a estrutura que acompanha a ferramenta, não o preço.</span></li>
+          <li><span lang="es"><b>Barato y prometedor no es lo mismo que probado.</b> Rori en Ghana se ve muy bien por dólar, pero su costo es una proyección de los autores y la evidencia es de nivel 2; ShaIA en Bogotá es un resultado preliminar. Revisa la confiabilidad antes de decidir.</span><span lang="en"><b>Cheap and promising is not the same as proven.</b> Rori in Ghana looks very good per dollar, but its cost is the authors' projection and the evidence is level 2; ShaIA in Bogotá is a preliminary result. Check reliability before deciding.</span><span lang="pt"><b>Barato e promissor não é o mesmo que comprovado.</b> Rori em Gana parece muito bom por dólar, mas seu custo é uma projeção dos autores e a evidência é de nível 2; ShaIA em Bogotá é um resultado preliminar. Verifique a confiabilidade antes de decidir.</span></li>
+          <li><span lang="es"><b>La tutoría humana funciona, pero cuesta mucho más.</b> Saga en Estados Unidos logra una ganancia sólida, pero a unos 2.200 dólares por estudiante queda muy lejos de la zona verde.</span><span lang="en"><b>Human tutoring works, but costs much more.</b> Saga in the United States achieves a solid gain, but at about 2,200 dollars per student it sits far from the green zone.</span><span lang="pt"><b>A tutoria humana funciona, mas custa muito mais.</b> Saga nos Estados Unidos alcança um ganho sólido, mas a uns 2.200 dólares por estudante fica muito longe da zona verde.</span></li>
+          <li><span lang="es"><b>Compara con cuidado.</b> Cada estudio calcula el costo de otra manera (solo licencias, piloto completo o personal), y Gemini en Sierra Leona no informa costo. Usa el mapa para ordenar preguntas, no como un ranking final.</span><span lang="en"><b>Compare with care.</b> Each study computes cost differently (licenses only, full pilot or staff), and Gemini in Sierra Leone reports no cost. Use the map to sort out questions, not as a final ranking.</span><span lang="pt"><b>Compare com cuidado.</b> Cada estudo calcula o custo de outro jeito (só licenças, piloto completo ou pessoal), e o Gemini em Serra Leoa não informa custo. Use o mapa para organizar perguntas, não como um ranking final.</span></li>
+        </ul>
+      </details>
     </div>
 
     <div class="lab-card sim-res" id="sim-resultado">
@@ -841,8 +869,8 @@ a.res-pdf { text-decoration: none; display: inline-flex; align-items: center; }
 
 
 </div>
-<script src="dash-static.js?v=202611191609"></script>
-<script src="app.js?v=202611191609"></script>
+<script src="dash-static.js?v=202611191633"></script>
+<script src="app.js?v=202611191633"></script>
 <script>dash.iniciar();</script>
 </body>
 </html>
