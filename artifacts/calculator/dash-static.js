@@ -18,6 +18,7 @@
     atlas_estudios: { url: 'data/atlas_estudios.json', tipo: 'json' },
     lecciones: { url: 'data/lecciones.json', tipo: 'json' },
     estudiosElementos: { url: 'data/estudiosElementos.json', tipo: 'json' },
+    mapaFactores: { url: 'data/mapaFactores.json', tipo: 'json' },
     evidencia_es: { url: 'data/evidencia_es.txt', tipo: 'texto' },
     evidencia_en: { url: 'data/evidencia_en.txt', tipo: 'texto' },
     panorama_es: { url: 'data/panorama_es.txt', tipo: 'texto' },

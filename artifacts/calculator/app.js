@@ -385,6 +385,41 @@ const D = {
   pdfNotaLec: ['Síntesis exploratoria destilada por Claude a partir de EvidencIA (incluye la colección del Stanford SCALE AI Hub) y del AI and Human Skill Atlas. Las lecciones curadas de EvidencIA son un prototipo pendiente de revisión. Son insumos para decidir: corrobóralos en tu contexto y verifica en cada estudio antes de citar.', 'Exploratory synthesis distilled by Claude from EvidencIA (which includes the Stanford SCALE AI Hub collection) and the AI and Human Skill Atlas. EvidencIA\'s curated lessons are a prototype pending review. They are inputs for deciding: corroborate them in your context and check each study before citing.', 'Síntese exploratória destilada pelo Claude a partir da EvidencIA (inclui a coleção do Stanford SCALE AI Hub) e do AI and Human Skill Atlas. As lições curadas da EvidencIA são um protótipo pendente de revisão. São insumos para decidir: corrobore os no seu contexto e verifique cada estudo antes de citar.'],
   pdfNotaExp: ['Ensayos aleatorios verificados de nivel 1 de EvidencIA (corte de la base 16 oct 2026). Claude escribió en lenguaje simple qué enseña cada estudio y extrajo cómo se hizo cada dimensión, cotejados con el registro de EvidencIA; verifica en el paper antes de citar. Los conteos cubren todos los estudios de la consulta; el detalle, solo los listados.', 'Verified level 1 randomized trials from EvidencIA (database cutoff 16 Oct 2026). Claude wrote in plain language what each study teaches and extracted how each dimension was done, checked against the EvidencIA record; check the paper before citing. Counts cover every study in the query; the detail covers only those listed.', 'Ensaios randomizados verificados de nível 1 da EvidencIA (corte da base 16 out 2026). O Claude escreveu em linguagem simples o que cada estudo ensina e extraiu como cada dimensão foi feita, conferidos com o registro da EvidencIA; verifique no paper antes de citar. As contagens cobrem todos os estudos da consulta; o detalhe, só os listados.'],
   exAprende: ['Qué nos enseña', 'What it teaches us', 'O que nos ensina'],
+  mf_acceso: ['Acceso a dispositivos y a la IA', 'Access to devices and AI', 'Acesso a dispositivos e à IA'],
+  mf_pedagogia: ['Integración pedagógica', 'Pedagogical integration', 'Integração pedagógica'],
+  mf_duracion: ['Duración y dosis', 'Duration and dose', 'Duração e dose'],
+  mf_contexto: ['Contexto socioeconómico y cultural', 'Socioeconomic and cultural context', 'Contexto socioeconômico e cultural'],
+  mf_docente: ['Apoyo docente y supervisión humana', 'Teacher support and human oversight', 'Apoio docente e supervisão humana'],
+  mf_diseno: ['Diseño de la herramienta y forma de uso', 'Tool design and how it is used', 'Desenho da ferramenta e forma de uso'],
+  mf_formacion: ['Formación de estudiantes para usar la IA', 'Training students to use AI', 'Formação de estudantes para usar a IA'],
+  mf_estudiantes: ['Nivel educativo y nivel previo', 'Education level and prior achievement', 'Nível de ensino e nível prévio'],
+  mf_materia: ['Materia y tipo de tarea', 'Subject and task type', 'Matéria e tipo de tarefa'],
+  mfd_acceso: ['Conectividad, dispositivos y si cada estudiante tiene su propio acceso o lo comparte.', 'Connectivity, devices and whether each student has their own access or shares it.', 'Conectividade, dispositivos e se cada estudante tem seu próprio acesso ou o compartilha.'],
+  mfd_pedagogia: ['Cómo entra la IA en la enseñanza: en clase o fuera, colaborativa, combinada, centrada en el estudiante.', 'How AI enters teaching: in or out of class, collaborative, blended, learner centered.', 'Como a IA entra no ensino: em aula ou fora, colaborativa, híbrida, centrada no estudante.'],
+  mfd_duracion: ['Cuánto tiempo y con qué frecuencia se usa.', 'How long and how often it is used.', 'Quanto tempo e com que frequência é usada.'],
+  mfd_contexto: ['Ingreso del país o de las familias, región y cultura.', 'Country or family income, region and culture.', 'Renda do país ou das famílias, região e cultura.'],
+  mfd_docente: ['Si un docente o tutor acompaña, orienta o revisa lo que hace la IA.', 'Whether a teacher or tutor accompanies, guides or reviews what the AI does.', 'Se um docente ou tutor acompanha, orienta ou revisa o que a IA faz.'],
+  mfd_diseno: ['Pistas o respuestas, rol de tutor, tipo de retroalimentación, personalización.', 'Hints or answers, tutor role, feedback type, personalization.', 'Dicas ou respostas, papel de tutor, tipo de retorno, personalização.'],
+  mfd_formacion: ['Alfabetización en IA y orientación sobre cómo pedirle ayuda.', 'AI literacy and guidance on how to ask it for help.', 'Letramento em IA e orientação sobre como pedir ajuda a ela.'],
+  mfd_estudiantes: ['Etapa educativa, rendimiento previo y autorregulación del estudiante.', 'Education stage, prior achievement and the student\'s self regulation.', 'Etapa de ensino, desempenho prévio e autorregulação do estudante.'],
+  mfd_materia: ['Disciplina, habilidad o tipo de conocimiento que se enseña.', 'Discipline, skill or type of knowledge taught.', 'Disciplina, habilidade ou tipo de conhecimento ensinado.'],
+  mfFactor: ['Factor', 'Factor', 'Fator'], mfTotal: ['Total', 'Total', 'Total'],
+  mfCrit: ['Crítico', 'Critical', 'Crítico'], mfMixto: ['Mixto o condicional', 'Mixed or conditional', 'Misto ou condicional'], mfMenos: ['Menos decisivo', 'Less decisive', 'Menos decisivo'],
+  mfCritCorto: [(n) => n + ' crít.', (n) => n + ' crit.', (n) => n + ' crít.'],
+  mfCeldaTit: [(f, y, n, c, m, x) => f + ' · ' + y + ': ' + n + ' estudios (' + c + ' crítico, ' + m + ' mixto, ' + x + ' menos decisivo)', (f, y, n, c, m, x) => f + ' · ' + y + ': ' + n + ' studies (' + c + ' critical, ' + m + ' mixed, ' + x + ' less decisive)', (f, y, n, c, m, x) => f + ' · ' + y + ': ' + n + ' estudos (' + c + ' crítico, ' + m + ' misto, ' + x + ' menos decisivo)'],
+  mfCuenta: [(n, c, m, x) => n + ' estudios: ' + c + ' crítico, ' + m + ' mixto, ' + x + ' menos decisivo.', (n, c, m, x) => n + ' studies: ' + c + ' critical, ' + m + ' mixed, ' + x + ' less decisive.', (n, c, m, x) => n + ' estudos: ' + c + ' crítico, ' + m + ' misto, ' + x + ' menos decisivo.'],
+  mfMas: ['Más críticos en estos estudios', 'Most critical in these studies', 'Mais críticos nestes estudos'],
+  mfMenosR: ['Menos concluyentes', 'Least conclusive', 'Menos conclusivos'],
+  mfPoca: ['Poca evidencia todavía', 'Little evidence so far', 'Pouca evidência por enquanto'],
+  mfPct: [(p, n) => p + ' % de ' + n + ' estudios lo hallan crítico', (p, n) => p + '% of ' + n + ' studies find it critical', (p, n) => p + '% de ' + n + ' estudos o acham crítico'],
+  mfN: [(n) => n + ' estudios', (n) => n + ' studies', (n) => n + ' estudos'],
+  mfResumenNota: ['Resumen calculado con los estudios del mapa; contar estudios no mide el tamaño del efecto.', 'Summary computed from the studies in the map; counting studies does not measure effect size.', 'Resumo calculado com os estudos do mapa; contar estudos não mede o tamanho do efeito.'],
+  mfTodos: ['2025 y 2026', '2025 and 2026', '2025 e 2026'],
+  mfCerrar: ['Cerrar', 'Close', 'Fechar'],
+  mfD_MA: ['Metaanálisis', 'Meta analysis', 'Meta análise'], mfD_SR: ['Revisión sistemática', 'Systematic review', 'Revisão sistemática'], mfD_RCT: ['Ensayo aleatorio', 'Randomized trial', 'Ensaio aleatório'], mfD_QE: ['Cuasi experimento', 'Quasi experiment', 'Quase experimento'],
+  mfEv: [(n) => 'En EvidencIA (nivel ' + n + ')', (n) => 'In EvidencIA (level ' + n + ')', (n) => 'Na EvidencIA (nível ' + n + ')'],
+  mfConsensus: ['Ver en Consensus', 'View in Consensus', 'Ver no Consensus'],
+  mfCitas: [(n) => n + ' citas', (n) => n + ' citations', (n) => n + ' citações'],
   exConteo: [(n, m) => n + ' de ' + m + ' estudios', (n, m) => n + ' of ' + m + ' studies', (n, m) => n + ' de ' + m + ' estudos'],
   exNoInf: ['No informado en el registro', 'Not reported in the record', 'Não informado no registro'],
   exSolo: ['Solo estudios que informan lo elegido', 'Only studies that report the chosen dimensions', 'Só estudos que informam o escolhido'],
@@ -1954,6 +1989,86 @@ reg('expComparar', (box) => {
   EXP.els.concat(EXP_EXTRA.slice(0, 2)).forEach((k) => fila(T('exEl_' + k), (s, td) => { const v = s.elementos && s.elementos[k]; if (v) { td.append(document.createTextNode(txt(v))); if (v.pag) td.append(el('span', { class: 'exp-meta' }, ' [' + v.pag + ']')); } else td.append(el('span', { class: 'exp-meta' }, T('exNoInf'))); }, k));
   const w = el('div', { class: 'lab-tablewrap' }); w.append(t);
   box.append(head, w);
+});
+
+/* ===================== Mapa de factores (Consensus + EvidencIA) ===================== */
+
+const MF_FAC = ['acceso', 'pedagogia', 'duracion', 'contexto', 'docente', 'diseno', 'formacion', 'estudiantes', 'materia'];
+const MF_ANIOS = [2025, 2026];
+const MF_COL = { crit: '#1f8a5b', mixto: '#d99a1e', menos: '#7a8aa0' };
+const MF = { f: null, y: null };
+const mfEst = () => rows('mapaFactores');
+const mfDe = (f, y) => mfEst().filter((s) => s.factores && s.factores[f] && (y == null || s.anio === y));
+const mfCuenta = (lista, f) => { const c = { C: 0, M: 0, N: 0 }; lista.forEach((s) => { c[s.factores[f]]++; }); c.n = c.C + c.M + c.N; return c; };
+const mfClase = (c) => (!c.n ? 'vacio' : c.C / c.n >= 0.6 ? 'crit' : c.N / c.n >= 0.5 ? 'menos' : 'mixto');
+function mfAbrir(f, y) { MF.f = (MF.f === f && MF.y === y) ? null : f; MF.y = MF.f ? y : null; dash.draw('mfGrid'); dash.draw('mfPanel'); if (MF.f) { const p = document.querySelector('[data-draw="mfPanel"]'); if (p && p.scrollIntoView) setTimeout(() => p.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 30); } }
+reg('mfGrid', (box) => {
+  const all = mfEst();
+  if (!all.length) { failMsg(box, dash.data('mapaFactores').status); return; }
+  const g = el('div', { class: 'mf-tabla', role: 'table' });
+  g.append(el('div', { class: 'mf-h', role: 'columnheader' }, T('mfFactor')), ...MF_ANIOS.map((y) => el('div', { class: 'mf-h', role: 'columnheader' }, String(y))), el('div', { class: 'mf-h', role: 'columnheader' }, T('mfTotal')));
+  const maxN = Math.max(...MF_FAC.map((f) => mfDe(f, null).length), 1);
+  MF_FAC.forEach((f) => {
+    const fb = el('button', { type: 'button', class: 'mf-fac' + (MF.f === f && MF.y === 'all' ? ' on' : ''), title: T('mfd_' + f) }, T('mf_' + f));
+    fb.onclick = () => mfAbrir(f, 'all');
+    g.append(fb);
+    [...MF_ANIOS, 'all'].forEach((y) => {
+      const lista = mfDe(f, y === 'all' ? null : y); const c = mfCuenta(lista, f); const cl = mfClase(c);
+      const b = el('button', { type: 'button', class: 'mf-c ' + cl + (y === 'all' ? ' total' : '') + (MF.f === f && MF.y === y ? ' on' : '') });
+      if (!c.n) { b.textContent = '0'; b.disabled = true; b.setAttribute('aria-label', T('mf_' + f) + ' · ' + (y === 'all' ? T('mfTodos') : y) + ': 0'); g.append(b); return; }
+      const a = 0.35 + 0.65 * Math.min(1, c.n / Math.max(4, maxN * (y === 'all' ? 1 : 0.6)));
+      b.style.setProperty('--mfc', MF_COL[cl]); b.style.setProperty('--mfa', a.toFixed(2));
+      if (a < 0.8 || cl === 'mixto') b.classList.add('claro');
+      b.append(document.createTextNode(String(c.n)), el('small', null, T('mfCritCorto', c.C)));
+      const tt = T('mfCeldaTit', T('mf_' + f), y === 'all' ? T('mfTodos') : y, c.n, c.C, c.M, c.N);
+      b.title = tt; b.setAttribute('aria-label', tt);
+      b.onclick = () => mfAbrir(f, y);
+      g.append(b);
+    });
+  });
+  box.replaceChildren(g);
+});
+reg('mfResumen', (box) => {
+  if (!mfEst().length) { box.replaceChildren(); return; }
+  const st = MF_FAC.map((f) => { const c = mfCuenta(mfDe(f, null), f); return { f, c, p: c.n ? c.C / c.n : 0 }; });
+  const fuertes = st.filter((s) => s.c.n >= 8).sort((a, b) => b.p - a.p || b.c.n - a.c.n);
+  const mas = fuertes.slice(0, 3);
+  const menos = st.filter((s) => s.c.n >= 8 && !mas.includes(s)).sort((a, b) => a.p - b.p).slice(0, 2);
+  const poca = st.filter((s) => s.c.n < 8);
+  const linea = (lab, arr, fn) => { const p = el('p'); p.append(el('b', null, lab + ': ')); p.append(document.createTextNode(arr.map(fn).join('; ') + '.')); return p; };
+  const pct = (s) => T('mf_' + s.f) + ' (' + T('mfPct', Math.round(s.p * 100), s.c.n) + ')';
+  const out = [linea(T('mfMas'), mas, pct)];
+  if (menos.length) out.push(linea(T('mfMenosR'), menos, pct));
+  if (poca.length) out.push(linea(T('mfPoca'), poca, (s) => T('mf_' + s.f) + ' (' + T('mfN', s.c.n) + ')'));
+  out.push(el('p', { class: 'lab-small lab-muted' }, T('mfResumenNota')));
+  box.replaceChildren(...out);
+});
+reg('mfPanel', (box) => {
+  if (!MF.f || !mfEst().length) { box.replaceChildren(); return; }
+  const f = MF.f, y = MF.y === 'all' ? null : MF.y;
+  const lista = mfDe(f, y);
+  const ord = { MA: 0, SR: 1, RCT: 2, QE: 3 };
+  const cerrar = el('button', { type: 'button', class: 'lab-btn mf-cerrar' }, T('mfCerrar'));
+  cerrar.onclick = () => { MF.f = null; MF.y = null; dash.draw('mfGrid'); dash.draw('mfPanel'); };
+  const c = mfCuenta(lista, f);
+  const nodos = [cerrar, el('h4', null, T('mf_' + f) + ' · ' + (y == null ? T('mfTodos') : y)), el('p', { class: 'lab-small lab-muted' }, T('mfd_' + f) + ' ' + T('mfCuenta', c.n, c.C, c.M, c.N))];
+  [['C', 'mfCrit', 'crit'], ['M', 'mfMixto', 'mixto'], ['N', 'mfMenos', 'menos']].forEach(([sig, lab, cl]) => {
+    const g = lista.filter((s) => s.factores[f] === sig).sort((a, b) => (ord[a.diseno] - ord[b.diseno]) || (b.anio - a.anio) || ((b.citas || 0) - (a.citas || 0)));
+    if (!g.length) return;
+    const hd = el('div', { class: 'mf-grupo' }); const i = el('i'); i.style.background = MF_COL[cl]; hd.append(i, document.createTextNode(T(lab) + ' (' + g.length + ')'));
+    nodos.push(hd);
+    g.forEach((s) => {
+      const d = el('div', { class: 'mf-est' });
+      const top = el('div');
+      top.append(el('span', { class: 'mf-badge' }, T('mfD_' + s.diseno)), el('span', { class: 'mf-badge' }, String(s.anio)));
+      if (s.evidencia) { const eb = el('a', { class: 'mf-badge ev', href: s.evidencia.url, target: '_blank', rel: 'noopener' }, T('mfEv', s.evidencia.nivel)); top.append(eb); }
+      const t = el('a', { href: s.url, target: '_blank', rel: 'noopener', title: T('mfConsensus') }, s.titulo);
+      const meta = el('div', { class: 'meta' }, [s.autores, s.revista, s.citas != null ? T('mfCitas', s.citas) : null].filter(Boolean).join(' · '));
+      d.append(top, t, meta, el('p', null, tr(s, 'nota')));
+      nodos.push(d);
+    });
+  });
+  box.replaceChildren(...nodos);
 });
 
 /* ===================== Resúmenes en PDF (1 o 2 páginas) ===================== */
