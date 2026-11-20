@@ -1,0 +1,2239 @@
+[
+ {
+  "id": "c0",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "Specifically, GenAI had a greater impact on the academic performance of higher education students",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "C",
+    "quote": "However, this effect varied according to moderators, including education level, subject classification, GenAI interface, GenAI development, interaction approaches, and experimentation time, which enhanced the impact of GenAI on education.",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "C",
+    "quote": "students interacted more effectively with GenAI using text than with mixed media, such as images or audio",
+    "where": "abstract"
+   },
+   "duracion": {
+    "code": "C",
+    "quote": "However, this effect varied according to moderators, including education level, subject classification, GenAI interface, GenAI development, interaction approaches, and experimentation time, which enhanced the impact of GenAI on education.",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract only. 'Interaction approaches' not coded (mapping to pedagogia vs diseno unclear). Experimentation time listed as moderator; abstract ties the time decline mainly to motivation."
+ },
+ {
+  "id": "c2",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "materia": {
+    "code": "C",
+    "quote": "The results also show that the AIEd effect is moderated by the field of education, level of education, learning mode, intervention duration, and geographical distribution of students.",
+    "where": "abstract"
+   },
+   "estudiantes": {
+    "code": "C",
+    "quote": "The results also show that the AIEd effect is moderated by the field of education, level of education, learning mode, intervention duration, and geographical distribution of students.",
+    "where": "abstract"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "The results also show that the AIEd effect is moderated by the field of education, level of education, learning mode, intervention duration, and geographical distribution of students.",
+    "where": "abstract"
+   },
+   "duracion": {
+    "code": "C",
+    "quote": "The results also show that the AIEd effect is moderated by the field of education, level of education, learning mode, intervention duration, and geographical distribution of students.",
+    "where": "abstract"
+   },
+   "contexto": {
+    "code": "C",
+    "quote": "The results also show that the AIEd effect is moderated by the field of education, level of education, learning mode, intervention duration, and geographical distribution of students.",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "M",
+    "quote": "Particularly, chatbots achieved a very large effect, while Intelligent Tutoring Systems (ITS) and personalized learning systems had large effects.",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract only. Tool-type subgroups differ in size but no between-group test reported, so diseno M."
+ },
+ {
+  "id": "c4",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "materia": {
+    "code": "C",
+    "quote": "the effectiveness of GAI is influenced by discipline type but is not significantly affected by instructional period, knowledge type, prior knowledge level, or tool type.",
+    "where": "abstract"
+   },
+   "duracion": {
+    "code": "N",
+    "quote": "the effectiveness of GAI is influenced by discipline type but is not significantly affected by instructional period, knowledge type, prior knowledge level, or tool type.",
+    "where": "abstract"
+   },
+   "estudiantes": {
+    "code": "N",
+    "quote": "the effectiveness of GAI is influenced by discipline type but is not significantly affected by instructional period, knowledge type, prior knowledge level, or tool type.",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "N",
+    "quote": "the effectiveness of GAI is influenced by discipline type but is not significantly affected by instructional period, knowledge type, prior knowledge level, or tool type.",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract only. Discipline significant (knowledge type not); overall materia C."
+ },
+ {
+  "id": "c5",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "M",
+    "quote": "Online learning and virtual reality applications showed moderate positive effects (effect size = 0.79, 95% CI [-0.04, 1.62], p < 0.07) while learning management systems and AI platforms demonstrated promising but more modest impacts",
+    "where": "abstract"
+   }
+  },
+  "note": "Subgroups by technology type only (chatbots/GenAI 1.02, online/VR 0.79 n.s., LMS 0.62); no between-group test. Level/subject variation in Sec 5.2 is speculative, not coded."
+ },
+ {
+  "id": "c6",
+  "design": "MA",
+  "source_used": "full text",
+  "factors": {
+   "duracion": {
+    "code": "N",
+    "quote": "although the between-group difference did not reach statistical significance (p = 0.189)",
+    "where": "full text, Section 4.2, intervention duration"
+   },
+   "materia": {
+    "code": "C",
+    "quote": "The moderating effect of teaching content on effect size was statistically significant (p = 0.013)",
+    "where": "full text, Section 4.2, teaching content"
+   },
+   "estudiantes": {
+    "code": "N",
+    "quote": "When grade level was included as a moderator, the between-group difference was not statistically significant (p = 0.149)",
+    "where": "full text, Section 4.2, educational stage"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "significant between-group differences in how integration level affects learning outcomes (p = 0.010)",
+    "where": "full text, Section 4.2, GenAI integration"
+   }
+  },
+  "note": "Collaborative vs independent learning mode also significant (p = 0.025), supports pedagogia C."
+ },
+ {
+  "id": "c7",
+  "design": "SR",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "M",
+    "quote": "When comparing an intelligent to a non-intelligent system, the results were more contradictory.",
+    "where": "full text, Discussion"
+   },
+   "estudiantes": {
+    "code": "C",
+    "quote": "middle school students frequently demonstrate more pronounced learning gains than their high school counterparts",
+    "where": "full text, Discussion"
+   },
+   "duracion": {
+    "code": "M",
+    "quote": "The benefits of ITS upon learners also appear to increase with prolonged exposure",
+    "where": "full text, Discussion"
+   }
+  },
+  "note": "ITS vs teacher comparisons are AI vs human (not docente). 'Most effective when combined with teacher-led guidance' is reported, not synthesized from varied conditions, so docente not coded. Duration M: prolonged exposure vs novelty-effect caveat for short studies. Lower performers benefit more also noted in Discussion."
+ },
+ {
+  "id": "c8",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "materia": {
+    "code": "C",
+    "quote": "In the analysis of moderating variables, the subject, experimental duration, and instructional mode had significant positive effects on student learning outcomes, whereas educational level and knowledge type did not show significant effects.",
+    "where": "abstract"
+   },
+   "duracion": {
+    "code": "C",
+    "quote": "In the analysis of moderating variables, the subject, experimental duration, and instructional mode had significant positive effects on student learning outcomes, whereas educational level and knowledge type did not show significant effects.",
+    "where": "abstract"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "In the analysis of moderating variables, the subject, experimental duration, and instructional mode had significant positive effects on student learning outcomes, whereas educational level and knowledge type did not show significant effects.",
+    "where": "abstract"
+   },
+   "estudiantes": {
+    "code": "N",
+    "quote": "In the analysis of moderating variables, the subject, experimental duration, and instructional mode had significant positive effects on student learning outcomes, whereas educational level and knowledge type did not show significant effects.",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract only. Subject significant, knowledge type not; materia C."
+ },
+ {
+  "id": "c9",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "It also improved conceptual knowledge over ChatGPT immediately in both studies and at follow-up in Study 2.",
+    "where": "abstract"
+   }
+  },
+  "note": "Two experiments: theory-informed ChatTutor vs generic ChatGPT vs control. Abstract only."
+ },
+ {
+  "id": "c10",
+  "design": "SR",
+  "source_used": "abstract",
+  "factors": {
+   "materia": {
+    "code": "M",
+    "quote": "although AI tools generally improve cognitive knowledge acquisition and affective outcomes, their effectiveness in developing cognitive process and skills varies significantly",
+    "where": "abstract"
+   }
+  },
+  "note": "Mostly descriptive review of design features; only knowledge vs skill-type contrast synthesized against learning. Single-study learner findings and recommendations not coded."
+ },
+ {
+  "id": "c11",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "M",
+    "quote": "Moderator analyses identified several contextual variables—educational levels, knowledge types, intervention durations, agent roles, and instructional modes—as significant or marginally significant.",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "M",
+    "quote": "Moderator analyses identified several contextual variables—educational levels, knowledge types, intervention durations, agent roles, and instructional modes—as significant or marginally significant.",
+    "where": "abstract"
+   },
+   "duracion": {
+    "code": "M",
+    "quote": "Moderator analyses identified several contextual variables—educational levels, knowledge types, intervention durations, agent roles, and instructional modes—as significant or marginally significant.",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "M",
+    "quote": "Moderator analyses identified several contextual variables—educational levels, knowledge types, intervention durations, agent roles, and instructional modes—as significant or marginally significant.",
+    "where": "abstract"
+   },
+   "pedagogia": {
+    "code": "M",
+    "quote": "Moderator analyses identified several contextual variables—educational levels, knowledge types, intervention durations, agent roles, and instructional modes—as significant or marginally significant.",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract does not say which moderators were significant vs marginal, so all coded M."
+ },
+ {
+  "id": "c12",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "contexto": {
+    "code": "C",
+    "quote": "In a collectivist culture, GenAI-PA had a greater effect on learners’ academic performance.",
+    "where": "abstract"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "The effect of GenAI-PA in teacher-directed learning was significantly better than in self-directed learning.",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "C",
+    "quote": "The dialogue modality of GenAI-PA moderated the effect on learners’ academic performance, with multimodal dialogue showing the highest pedagogical potential.",
+    "where": "abstract"
+   },
+   "estudiantes": {
+    "code": "N",
+    "quote": "The predictive effect of GenAI-PA on learners’ academic performance was not influenced by grade level, gender, learning domain, learning duration, or the instructional role of GenAI-PA.",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "N",
+    "quote": "The predictive effect of GenAI-PA on learners’ academic performance was not influenced by grade level, gender, learning domain, learning duration, or the instructional role of GenAI-PA.",
+    "where": "abstract"
+   },
+   "duracion": {
+    "code": "N",
+    "quote": "The predictive effect of GenAI-PA on learners’ academic performance was not influenced by grade level, gender, learning domain, learning duration, or the instructional role of GenAI-PA.",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract only. Instructional role n.s. but modality significant, so diseno C. Teacher-directed vs self-directed coded as pedagogia (teacher- vs learner-centered)."
+ },
+ {
+  "id": "c13",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "In particular, GAI applications involving multiple functions, conversational interactions, and tutor-like roles show stronger learning effects.",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract only. 'Usage patterns' moderator not mapped separately (unclear)."
+ },
+ {
+  "id": "c14",
+  "design": "SR",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "AI-based tutoring systems and adaptive learning platforms generally support improvements in mathematics achievement, particularly among lower-performing learners, although effectiveness varies depending on implementation fidelity, learner characteristics, and instructional context.",
+    "where": "abstract"
+   }
+  },
+  "note": "Narrative synthesis, abstract only. 'Instructional context' too vague to map."
+ },
+ {
+  "id": "c16",
+  "design": "SR",
+  "source_used": "abstract",
+  "factors": {},
+  "note": "Abstract says moderating effects of research and instructional design variables were analyzed but reports no factor-specific result; short duration and incomplete scaffolding are listed as deficiencies, not tested effects. No quotable factor code."
+ },
+ {
+  "id": "c17",
+  "design": "SR",
+  "source_used": "abstract",
+  "factors": {
+   "pedagogia": {
+    "code": "C",
+    "quote": "Improvements in academic outcomes, particularly in language learning, writing quality, and problem-solving, are most evident when AI is pedagogically aligned and implemented with adaptive scaffolding.",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "C",
+    "quote": "Improvements in academic outcomes, particularly in language learning, writing quality, and problem-solving, are most evident when AI is pedagogically aligned and implemented with adaptive scaffolding.",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract only; review conclusions are broad. Teacher-AI-learner interaction statement is hedged ('appears'), not coded as docente."
+ },
+ {
+  "id": "c18",
+  "design": "RCT",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "M",
+    "quote": "While descriptive, these results suggest that the durability of learning gains depends on how students use AI",
+    "where": "full text, Section 5.3"
+   }
+  },
+  "note": "Main contrast is AI vs no AI (not acceso). Self-selected type of use (augmentation vs automation) analyzed descriptively: gains persist for augmentation, fade for automation."
+ },
+ {
+  "id": "c19",
+  "design": "MA",
+  "source_used": "full text",
+  "factors": {
+   "pedagogia": {
+    "code": "C",
+    "quote": "Teaching methods significantly moderated the effectiveness of feedback generated by GenAI (p = 0.026).",
+    "where": "full text, Section 4.1"
+   },
+   "diseno": {
+    "code": "N",
+    "quote": "Although the role of GenAI and its effects on outcomes were non-significant (p = 0.186)",
+    "where": "full text, Section 4.1"
+   },
+   "estudiantes": {
+    "code": "N",
+    "quote": "Between-group differences across educational levels were non-significant (p = 0.48).",
+    "where": "full text, Section 4.1"
+   },
+   "materia": {
+    "code": "N",
+    "quote": "Moderation by disciplines was non-significant (p = 0.969)",
+    "where": "full text, Section 4.1"
+   },
+   "duracion": {
+    "code": "N",
+    "quote": "Differences in intervention duration were also non-significant (p = 0.668).",
+    "where": "full text, Section 4.1"
+   }
+  },
+  "note": "Teacher emotional support is a recommendation, not tested."
+ },
+ {
+  "id": "c23",
+  "design": "MA",
+  "source_used": "full text",
+  "factors": {
+   "duracion": {
+    "code": "C",
+    "quote": "the impact of Gen-AI is most pronounced when the intervention lasts between 8 and 16 weeks",
+    "where": "full text, Section 6 (Q = 9.106, p = 0.011 in Section 4.2.1)"
+   },
+   "estudiantes": {
+    "code": "C",
+    "quote": "SRL exerted a significant moderating effect on the relationship between Gen-AI and students' HOT (Q = 40.962, p < 0.001)",
+    "where": "full text, Section 4.2.4"
+   },
+   "pedagogia": {
+    "code": "N",
+    "quote": "did not exert a statistically significant moderating effect at the between-groups level (Q = 2.918, p = 0.232)",
+    "where": "full text, Section 4.2.3 (instructional method)"
+   },
+   "materia": {
+    "code": "M",
+    "quote": "with the most significant improvement observed in problem-solving abilities, followed by critical thinking, while its effect on creativity is relatively limited",
+    "where": "abstract"
+   }
+  },
+  "note": "Outcome is higher-order thinking. Educational level marginal (p = 0.067) but SRL significant, so estudiantes C. Materia M = differences across HOT skill types, no between-group test reported."
+ },
+ {
+  "id": "c25",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "materia": {
+    "code": "C",
+    "quote": "found that the learning outcome (knowledge vs. skills) as well the inversion-substitution-augmentation-redefinition (ISAR)-level, which compares the cognitive activity of the intervention and control in terms of the interactive-constructive-active-passive (ICAP)-level, both explain parts of the observed heterogeneity",
+    "where": "abstract"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "GAI appears promising in STEM if knowledge gains are targeted as learning outcomes, and when GAI is used to augment students’ learning activities, instead of substituting their activities, where it can be detrimental",
+    "where": "abstract"
+   }
+  },
+  "note": "Moderators robust to RoBMA publication-bias correction. ISAR level (augmentation vs substitution) coded as pedagogia (level of integration). AI literacy noted as underreported, not tested."
+ },
+ {
+  "id": "c28",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "duracion": {
+    "code": "C",
+    "quote": "The effects of GenAI are not universal, but are significantly moderated by key factors, including intervention duration, teaching model and GenAI interaction method.",
+    "where": "abstract"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "The effects of GenAI are not universal, but are significantly moderated by key factors, including intervention duration, teaching model and GenAI interaction method.",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "C",
+    "quote": "The effects of GenAI are not universal, but are significantly moderated by key factors, including intervention duration, teaching model and GenAI interaction method.",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract only. Discipline type and learning method were examined but results not reported, so not coded."
+ },
+ {
+  "id": "c30",
+  "design": "MA",
+  "source_used": "full text",
+  "factors": {
+   "estudiantes": {
+    "code": "N",
+    "quote": "Primary Schools | 8 | 0.64 | −0.09 | 1.39 | 28.18 | 1.70 | 0.08 | Chi2 = 1.45, p = 0.48",
+    "where": "full text, Table 6 (academic level) row"
+   },
+   "materia": {
+    "code": "N",
+    "quote": "Natural sciences | 27 | 0.76 | 0.36 | 1.17 | 89.13 | 3.71 | <0.001 | Chi2 = 1.73, p = 0.62",
+    "where": "full text, Table 7 (subjects) row"
+   },
+   "diseno": {
+    "code": "N",
+    "quote": "Intelligent learning systems | 10 | 0.41 | −0.24 | 1.07 | 88.71 | 1.24 | 0.21 | Chi2 = 1.97, p = 0.37",
+    "where": "full text, Table 8 (types of agents) row"
+   }
+  },
+  "note": "Abstract says effects 'particularly pronounced' for chatbots, universities, engineering, but between-group tests in full text are all non-significant, so coded N."
+ },
+ {
+  "id": "c31",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "The effects were greater in students with lower baseline scores and rose with usage (to approximately 12 hours) after which it was diminishing in returns.",
+    "where": "abstract"
+   },
+   "duracion": {
+    "code": "C",
+    "quote": "The effects were greater in students with lower baseline scores and rose with usage (to approximately 12 hours) after which it was diminishing in returns.",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract only. Usage dose-response analysis coded as duracion."
+ },
+ {
+  "id": "c32",
+  "design": "MA",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "N",
+    "quote": "Moderator analyses showed that functional type, intervention duration, and knowledge domain did not significantly explain between-study heterogeneity at the omnibus level.",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "N",
+    "quote": "Moderator analyses showed that functional type, intervention duration, and knowledge domain did not significantly explain between-study heterogeneity at the omnibus level.",
+    "where": "abstract"
+   },
+   "duracion": {
+    "code": "M",
+    "quote": "significantly larger effect sizes",
+    "where": "full text, Section 3.6.2 (>8 weeks vs <=4 weeks, coefficient p = 0.037; omnibus p = 0.0836)"
+   }
+  },
+  "note": "Duration omnibus marginal (p = 0.0836) with a significant >8 weeks contrast for intellectual outcomes; null for social-emotional outcomes, so M."
+ },
+ {
+  "id": "c33",
+  "design": "SR",
+  "source_used": "full text",
+  "factors": {
+   "pedagogia": {
+    "code": "C",
+    "quote": "structured integration—through scaffolding, argumentation, or reflective cycles—produces more positive",
+    "where": "full text, Section 3.3.1.4 Pedagogical mediation"
+   },
+   "materia": {
+    "code": "M",
+    "quote": "Problem-solving produced the most consistently positive empirical signal.",
+    "where": "full text, Section 3.3.1.3"
+   }
+  },
+  "note": "Narrative SR on higher-order cognitive skills. Retrieval note: no cross-tabulation by duration, discipline, learner characteristics or region. Single-study findings (use frequency, AI literacy) not coded."
+ },
+ {
+  "id": "c37",
+  "design": "SR",
+  "source_used": "abstract",
+  "factors": {
+   "materia": {
+    "code": "M",
+    "quote": "AI interventions significantly improved psychomotor application, procedural skills and communication mechanics compared with traditional instructor-led teaching methods. However, findings on HOTS and retention were mixed",
+    "where": "abstract"
+   }
+  },
+  "note": "Comparisons are AI vs instructor-led teaching (not docente). 'Cognitive offloading if used passively' and hybrid model are recommendations."
+ },
+ {
+  "id": "c38",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {},
+  "note": "Four moderators examined (discipline, duration, teaching mode, teacher intervention) but abstract reports no moderator results; no quotable factor code."
+ },
+ {
+  "id": "c41",
+  "design": "SR",
+  "source_used": "abstract",
+  "factors": {
+   "docente": {
+    "code": "M",
+    "quote": "Reported benefits for student learning and teacher orchestration were generally promising but conditional, varying according to the interpretability of AI information, intervention timing, target level, teachers’ implementation feasibility, and students’ autonomy.",
+    "where": "abstract"
+   }
+  },
+  "note": "Review of teacher intervention in K-12 AI-based instruction; effects on learning described as conditional. Abstract only."
+ },
+ {
+  "id": "c42",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "Structure mattered: tutored students gained 6.63 points more than ability-matched peers (p = .007)",
+    "where": "abstract"
+   }
+  },
+  "note": "Structured course-grounded tutor vs holdout with free consumer AI (AI vs AI). Voice vs text modality randomized within student: 'Modality did not matter for learning' (diseno null for modality)."
+ },
+ {
+  "id": "c43",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "duracion": {
+    "code": "C",
+    "quote": "Moderator analyses revealed that effects vary by intervention duration, instructional setting, learner characteristics, and target language.",
+    "where": "abstract"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "Stronger effects were generally observed in informal learning environments, for productive skills, and in studies addressing less commonly taught languages.",
+    "where": "abstract"
+   },
+   "estudiantes": {
+    "code": "C",
+    "quote": "Moderator analyses revealed that effects vary by intervention duration, instructional setting, learner characteristics, and target language.",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "C",
+    "quote": "Stronger effects were generally observed in informal learning environments, for productive skills, and in studies addressing less commonly taught languages.",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract only. Instructional setting (informal vs formal) coded as pedagogia; target language and skill type as materia."
+ },
+ {
+  "id": "c44",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "N",
+    "quote": "Subgroup comparisons by AI tool type, learner level, interaction modality, and risk of bias were all non-significant.",
+    "where": "abstract"
+   },
+   "estudiantes": {
+    "code": "N",
+    "quote": "Subgroup comparisons by AI tool type, learner level, interaction modality, and risk of bias were all non-significant.",
+    "where": "abstract"
+   }
+  },
+  "note": "Meta-analysis of RCTs in medical education. Abstract only."
+ },
+ {
+  "id": "c45",
+  "design": "SR",
+  "source_used": "abstract",
+  "factors": {
+   "acceso": {
+    "code": "C",
+    "quote": "Three major moderating factors influencing AI effectiveness were institutional digital readiness, faculty AI literacy, and the maturity of ethical governance frameworks.",
+    "where": "abstract"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "AI contributes positively to personalised learning, academic performance, student engagement, and feedback efficiency when supported by appropriate pedagogical design and institutional readiness.",
+    "where": "abstract"
+   }
+  },
+  "note": "Narrative/thematic SR, abstract only; link of moderators to learning is general. Faculty AI literacy is not docente as defined (not human support of students' AI use)."
+ },
+ {
+  "id": "c48",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "duracion": {
+    "code": "C",
+    "quote": "subgroup analysis indicated enhanced knowledge performance in the GAI group specifically for extended learning periods (exceeding one week) and practice-oriented courses.",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "C",
+    "quote": "subgroup analysis indicated enhanced knowledge performance in the GAI group specifically for extended learning periods (exceeding one week) and practice-oriented courses.",
+    "where": "abstract"
+   }
+  },
+  "note": "GAI vs traditional teaching RCTs; pooled knowledge effect n.s. but significant in longer-duration and practice-oriented subgroups. Abstract only."
+ },
+ {
+  "id": "c49",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "M",
+    "quote": "Further moderator analyses showed that Gen-AI was more consistently effective at the tertiary level and for productive skills, specifically writing skills.",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "M",
+    "quote": "Further moderator analyses showed that Gen-AI was more consistently effective at the tertiary level and for productive skills, specifically writing skills.",
+    "where": "abstract"
+   }
+  },
+  "note": "Evidence for other domains and contexts called inconclusive due to few studies, so M."
+ },
+ {
+  "id": "c55",
+  "design": "SR",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "Tool selection significantly affects learning effectiveness",
+    "where": "full text, factors passage (tool selection)"
+   },
+   "estudiantes": {
+    "code": "C",
+    "quote": "Student ability levels also constitute an influencing factor",
+    "where": "full text, factors passage (student ability)"
+   },
+   "materia": {
+    "code": "C",
+    "quote": "AI is particularly effective for algorithmic and library application tasks",
+    "where": "full text, factors passage (task type)"
+   }
+  },
+  "note": "Abstract also names AI tool selection, students' foundational abilities and task complexity as key variables. AI literacy and teacher items are recommendations, not coded."
+ },
+ {
+  "id": "c57",
+  "design": "RCT",
+  "source_used": "full text",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "students with higher prior academic performance benefited more from the intervention",
+    "where": "full text, Section 3.2 (Table 4, col. 2)"
+   },
+   "contexto": {
+    "code": "C",
+    "quote": "The interaction term is positive (0.113) and significant, also at the 5% level",
+    "where": "full text, Section 3.2 (Table 4, col. 3, SES interaction)"
+   },
+   "duracion": {
+    "code": "C",
+    "quote": "the estimated effect size of each additional day of attendance is of 0.031",
+    "where": "full text, Section 3.3"
+   }
+  },
+  "note": "Female interaction also significant (0.420) but influenced by a girls-only school. Teacher supervision and paired computer use held constant (not tested)."
+ },
+ {
+  "id": "c65",
+  "design": "SR",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "Tutoring roles, though few, showed the strongest evidence of positive learning outcomes.",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract only. Synthesis by GenAI role (problem solver, tutor, teacher assistant). Human supervision is a recommendation."
+ },
+ {
+  "id": "c68",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "Finally, it is seen that the educational context (grade level and educational subject), as well as the experiment type (research design, intervention duration, and sample size), moderate the effect of AI on students' learning achievement in blended learning.",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "C",
+    "quote": "Finally, it is seen that the educational context (grade level and educational subject), as well as the experiment type (research design, intervention duration, and sample size), moderate the effect of AI on students' learning achievement in blended learning.",
+    "where": "abstract"
+   },
+   "duracion": {
+    "code": "C",
+    "quote": "Finally, it is seen that the educational context (grade level and educational subject), as well as the experiment type (research design, intervention duration, and sample size), moderate the effect of AI on students' learning achievement in blended learning.",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "M",
+    "quote": "Particularly, personalized systems in blended learning had the highest effect (i.e., large) compared to chatbots and intelligent tutoring systems.",
+    "where": "abstract"
+   }
+  },
+  "note": "Full text meta-regression confirms significant Q for grade level, subject and duration. Tool-type subgroups differ but no between-group test reported (chatbot k = 1), so diseno M."
+ },
+ {
+  "id": "c69",
+  "design": "SR",
+  "source_used": "abstract",
+  "factors": {
+   "pedagogia": {
+    "code": "C",
+    "quote": "null, mixed, and negative findings were also reported, particularly when AI was compared with established educational resources or used without structured instructional guidance.",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "M",
+    "quote": "the evidence is inconsistent across technologies, instructional designs, comparators, and cognitive constructs.",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "M",
+    "quote": "the evidence is inconsistent across technologies, instructional designs, comparators, and cognitive constructs.",
+    "where": "abstract"
+   }
+  },
+  "note": "Narrative SR on higher-order cognitive outcomes in health sciences. Abstract only."
+ },
+ {
+  "id": "c72",
+  "design": "MA",
+  "source_used": "full text",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "Educational level (Q-between = 30.13, df = 3, p < 0.001)",
+    "where": "full text, Table 3 (as returned)"
+   },
+   "duracion": {
+    "code": "C",
+    "quote": "Intervention duration (Q-between = 16.95, df = 5, p = 0.004)",
+    "where": "full text, Table 3 (as returned)"
+   },
+   "materia": {
+    "code": "M",
+    "quote": "Although Science and Mathematics disciplines showed slightly higher effect sizes, the between-group difference was not statistically significant (Q = 4.85, df = 2, p = 0.088).",
+    "where": "abstract"
+   }
+  },
+  "note": "Discipline marginal (p = 0.088), authors still say effectiveness varies by disciplinary context, so M. Duration effect non-monotonic (peak at 1-2 months)."
+ },
+ {
+  "id": "c73",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "formacion": {
+    "code": "C",
+    "quote": "identified three moderators—student AI literacy, task planning, and task assessors—that potentially moderate its effectiveness.",
+    "where": "abstract"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "identified three moderators—student AI literacy, task planning, and task assessors—that potentially moderate its effectiveness.",
+    "where": "abstract"
+   },
+   "docente": {
+    "code": "C",
+    "quote": "identified three moderators—student AI literacy, task planning, and task assessors—that potentially moderate its effectiveness.",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract only; wording hedged ('potentially'). Task planning mapped to pedagogia; task assessors (teachers as assessors) to docente."
+ },
+ {
+  "id": "c77",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "N",
+    "quote": "Moderator analyses show that learning outcome types, educational levels, and GAI tool types do not produce statistically significant differences",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "N",
+    "quote": "Moderator analyses show that learning outcome types, educational levels, and GAI tool types do not produce statistically significant differences",
+    "where": "abstract"
+   }
+  },
+  "note": "Second-order meta-analysis of 13 meta-analyses. Only methodological quality significant (not a factor)."
+ },
+ {
+  "id": "c78",
+  "design": "RCT",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "M",
+    "quote": "An F-test confirmed this significant difference in effects between the two interventions (F (1,34) =5.68, p<0.05)",
+    "where": "full text, Section 4.1.3"
+   },
+   "estudiantes": {
+    "code": "C",
+    "quote": "for low-performing students, the GAI-powered recommendation significantly improved performance by 0.673 SD (p<0.05)",
+    "where": "full text, Section 4.1.3"
+   }
+  },
+  "note": "Hints vs workbook answers differ only in the medium-third subgroup; no whole-sample effect; on-demand vs shared control n.s. Prior-achievement subgroups exploratory (high achievers gain with on-demand help, d = 0.378)."
+ },
+ {
+  "id": "c79",
+  "design": "SR",
+  "source_used": "abstract",
+  "factors": {
+   "formacion": {
+    "code": "C",
+    "quote": "Emotional well-being, AI literacy, and discipline specialization were determined as key moderators of effectiveness.",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "C",
+    "quote": "Emotional well-being, AI literacy, and discipline specialization were determined as key moderators of effectiveness.",
+    "where": "abstract"
+   }
+  },
+  "note": "Narrative SR of 12 studies; emotional well-being linked to satisfaction, not learning, so not coded. 'Effectiveness' not clearly restricted to learning."
+ },
+ {
+  "id": "c81",
+  "design": "SR",
+  "source_used": "full text",
+  "factors": {
+   "docente": {
+    "code": "C",
+    "quote": "hybrid human–AI workflows, rather than fully autonomous tutors, yield the most robust learning gains",
+    "where": "full text, Discussion"
+   }
+  },
+  "note": "SR of 82 studies on LLM educational agents; other factors only described."
+ },
+ {
+  "id": "c89",
+  "design": "RCT",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "M",
+    "quote": "four of the five highest mean gains came from Gemini tutors, led by Gemini 3.5 Flash",
+    "where": "full text, Section 3"
+   },
+   "materia": {
+    "code": "M",
+    "quote": "equivalence was also established for Quantitative, but not Verbal",
+    "where": "full text, Section 3"
+   }
+  },
+  "note": "Lab RCT, 13 AI tutors (different LLMs) randomly assigned; gains vary by model but no formal between-model test quoted. AI vs human tutor not coded as docente."
+ },
+ {
+  "id": "c94",
+  "design": "SR",
+  "source_used": "abstract",
+  "factors": {
+   "materia": {
+    "code": "M",
+    "quote": "others highlight limitations, including over-reliance on AI and variable effectiveness across disciplines",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract only; mixed evidence."
+ },
+ {
+  "id": "c96",
+  "design": "MA",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "M",
+    "quote": "Integrated support was found to be more effective for knowledge acquisition than cognitive-only support, but less effective for perception, with similar effect on affect.",
+    "where": "abstract"
+   }
+  },
+  "note": "Type of AI support (integrated vs cognitive-only) compared; skill acquisition favors cognitive-only (0.24 vs 0.44), no formal test. Education level subgroups not performed."
+ },
+ {
+  "id": "c100",
+  "design": "MA",
+  "source_used": "full text",
+  "factors": {
+   "docente": {
+    "code": "C",
+    "quote": "Teacher support With support 8 1.426 [0.609; 2.242] F(1, 18) = 7.565 0.013*",
+    "where": "full text, Table 3"
+   },
+   "materia": {
+    "code": "M",
+    "quote": "Discipline Natural and applied science 16 0.958 [0.342; 1.574] F(1, 21) = 3.256 0.086",
+    "where": "full text, Table 3"
+   },
+   "diseno": {
+    "code": "N",
+    "quote": "GenAI tool General GenAI tools 16 0.600 [-0.034; 1.234] F(1, 22) = 0.213 0.649",
+    "where": "full text, Table 3"
+   },
+   "duracion": {
+    "code": "N",
+    "quote": "Intervention duration ≤ One month 16 0.833 [0.225; 1.441] F(1, 20) = 0.160 0.693",
+    "where": "full text, Table 3"
+   },
+   "estudiantes": {
+    "code": "N",
+    "quote": "Educational level K-12 5 0.620 [-0.491; 1.731] F(1, 22) = 0.017 0.899",
+    "where": "full text, Table 3"
+   }
+  },
+  "note": "Discipline marginal (p=.086) coded M."
+ },
+ {
+  "id": "c101",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "examined nine moderating variables and identified three significant moderators: learner level, experimental period and types of feedback.",
+    "where": "abstract"
+   },
+   "duracion": {
+    "code": "C",
+    "quote": "examined nine moderating variables and identified three significant moderators: learner level, experimental period and types of feedback.",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "C",
+    "quote": "examined nine moderating variables and identified three significant moderators: learner level, experimental period and types of feedback.",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract only; does not say whether moderators apply to learning outcomes or motivation; non-significant moderators unnamed."
+ },
+ {
+  "id": "c103",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "Equity-focused moderation analyses indicated a compensatory pattern, with larger benefits among students with lower baseline self-regulation and greater socioeconomic constraints.",
+    "where": "abstract"
+   },
+   "contexto": {
+    "code": "C",
+    "quote": "Equity-focused moderation analyses indicated a compensatory pattern, with larger benefits among students with lower baseline self-regulation and greater socioeconomic constraints.",
+    "where": "abstract"
+   }
+  },
+  "note": "Cluster RCT; abstract does not specify whether moderated 'benefits' are academic performance or SRL. Teacher oversight held constant."
+ },
+ {
+  "id": "c104",
+  "design": "MA",
+  "source_used": "full text",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "indicating significant differences across educational levels (QB=6.689, p=0.010)",
+    "where": "full text, Section 3.4"
+   },
+   "materia": {
+    "code": "C",
+    "quote": "subjects (QB=30.546, p<0.001)",
+    "where": "full text, Section 3.4"
+   },
+   "diseno": {
+    "code": "C",
+    "quote": "adaptive targets (QB=21.558, p<0.001), and feedback types (QB=15.555, p<0.001)",
+    "where": "full text, Section 3.4"
+   },
+   "duracion": {
+    "code": "C",
+    "quote": "Duration of the intervention: <1day * | ≥1day n.s. | <1day n.s.",
+    "where": "full text, Appendix C"
+   },
+   "pedagogia": {
+    "code": "N",
+    "quote": "Adaptive strategy (instructional role): In class n.s.",
+    "where": "full text, Appendix C"
+   },
+   "acceso": {
+    "code": "N",
+    "quote": "Hardware used in experimental groups: Mobile devices n.s. | Mobile devices n.s. | Traditional computers or devices **",
+    "where": "full text, Appendix C"
+   }
+  },
+  "note": "Primary studies 2012-2021, MA published 2025. Hardware significant only for behavioural outcomes (not counted as learning); duration significant for cognitive only. Prior knowledge n.s.; SES not analyzed."
+ },
+ {
+  "id": "c106",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "Subgroup analyses showed more positive results among lower-achieving, higher-SES, and non-multilingual students",
+    "where": "abstract"
+   },
+   "contexto": {
+    "code": "C",
+    "quote": "Subgroup analyses showed more positive results among lower-achieving, higher-SES, and non-multilingual students",
+    "where": "abstract"
+   }
+  },
+  "note": "Cluster RCT, 641 students, AI writing aid vs business as usual."
+ },
+ {
+  "id": "c107",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "pedagogia": {
+    "code": "C",
+    "quote": "Teaching method was the only significant moderator, with collaborative learning (g = 1.026) and blended learning (g = 0.633) yielding the strongest effects",
+    "where": "abstract"
+   }
+  },
+  "note": "Other six moderators non-significant but not named in abstract."
+ },
+ {
+  "id": "c108",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "duracion": {
+    "code": "M",
+    "quote": "Dose-related analyses suggested a possible asynchronous pattern: motivational gains may emerge rapidly in the short term, whereas gains in higher-order cognition may become more evident under sustained intervention.",
+    "where": "abstract"
+   }
+  },
+  "note": "Mixed-methods review with three-level MA. Task complexity x prior ability interaction mainly for motivation, not coded; AI roles from qualitative synthesis not coded."
+ },
+ {
+  "id": "c109",
+  "design": "MA",
+  "source_used": "full text",
+  "factors": {
+   "materia": {
+    "code": "C",
+    "quote": "[table row as returned] Language type | | | | | | 18.091 | 1 | 0.000",
+    "where": "full text, Table 2"
+   },
+   "estudiantes": {
+    "code": "C",
+    "quote": "The difference between these groups is statistically significant, Q(3) = 11.368, p = 0.010.",
+    "where": "full text, Section 4.2.2"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "statistically significant, Q(1) = 3.915, p = 0.048.",
+    "where": "full text, Section 4.2.6"
+   },
+   "docente": {
+    "code": "N",
+    "quote": "we determined that there was no statistically significant difference between the groups, Q(2) = 2.499, p = 0.287.",
+    "where": "full text, Section 4.2.4"
+   },
+   "duracion": {
+    "code": "N",
+    "quote": "However, the difference between the groups is not statistically significant, Q(2) = 1.245, p = 0.536.",
+    "where": "full text, Section 4.2.5"
+   }
+  },
+  "note": "Language type = L1 vs L2 vocabulary; setting = in-school vs out-of-school."
+ },
+ {
+  "id": "c110",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "materia": {
+    "code": "C",
+    "quote": "AI-assisted L2 learning was more beneficial in developing receptive skills than productive skills; AI technologies excelled at building learners’ vocabulary skills compared to other language skills",
+    "where": "abstract"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "the effectiveness of AI-assisted L2 learning was higher in an in-class context than in an out-of-class context",
+    "where": "abstract"
+   },
+   "acceso": {
+    "code": "C",
+    "quote": "IMALL was more impactful for L2 learning than ICALL",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "N",
+    "quote": "type of AI-assisted interactions was not a significant moderator affecting the effectiveness of AI-assisted L2 learning",
+    "where": "abstract"
+   },
+   "estudiantes": {
+    "code": "N",
+    "quote": "there was no significant difference in the effectiveness of AI technology intervention for L2 learning between K-12 and college learners.",
+    "where": "abstract"
+   }
+  },
+  "note": "IMALL (mobile) vs ICALL (computer) coded as device/access."
+ },
+ {
+  "id": "c111",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "AI-enabled STEM education is more effective in junior and senior high school.",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "C",
+    "quote": "AR or VR tools show the most significant impact on students’ learning outcomes.",
+    "where": "abstract"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "learning models combined with classroom use exert more significant effects.",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "C",
+    "quote": "AI technology demonstrates the most important effects in comprehensive courses.",
+    "where": "abstract"
+   }
+  },
+  "note": "Four of six moderators significant (school level, AI application type, personalized learning model type, subject); GAI usage n.s. (within diseno)."
+ },
+ {
+  "id": "c113",
+  "design": "MA",
+  "source_used": "full text",
+  "factors": {
+   "contexto": {
+    "code": "C",
+    "quote": "The highest effect sizes were found in lower-middle-income countries (g = 1.919, p",
+    "where": "full text, Discussion"
+   },
+   "materia": {
+    "code": "C",
+    "quote": "The lowest effect sizes were found in medical and health sciences",
+    "where": "full text, Discussion"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "Scaffolded learning and personalized learning yielded the strongest results (g > 1.0)",
+    "where": "full text, Discussion"
+   },
+   "formacion": {
+    "code": "C",
+    "quote": "Users with prior experience benefited more than novice users",
+    "where": "full text, Discussion"
+   }
+  },
+  "note": "No between-group Q tests reported for moderators; abstract states effectiveness varied significantly by these factors. Prior user experience with chatbots treated as AI literacy."
+ },
+ {
+  "id": "c115",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "M",
+    "quote": "AI intervention type showed the clearest moderator pattern, with adaptive tutoring showing the largest point estimate.",
+    "where": "abstract"
+   },
+   "estudiantes": {
+    "code": "N",
+    "quote": "Education level, subject area, study design, and publication year were not significant moderators.",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "N",
+    "quote": "Education level, subject area, study design, and publication year were not significant moderators.",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract does not state whether intervention type was significant."
+ },
+ {
+  "id": "c116",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "The strongest outcomes were associated with intelligent tutoring systems (g = 0.91), individualized learning strategies (g = 0.79), STEM disciplines (g = 0.84), and interventions lasting more than eight weeks (g = 0.81).",
+    "where": "abstract"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "The strongest outcomes were associated with intelligent tutoring systems (g = 0.91), individualized learning strategies (g = 0.79), STEM disciplines (g = 0.84), and interventions lasting more than eight weeks (g = 0.81).",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "C",
+    "quote": "The strongest outcomes were associated with intelligent tutoring systems (g = 0.91), individualized learning strategies (g = 0.79), STEM disciplines (g = 0.84), and interventions lasting more than eight weeks (g = 0.81).",
+    "where": "abstract"
+   },
+   "duracion": {
+    "code": "C",
+    "quote": "The strongest outcomes were associated with intelligent tutoring systems (g = 0.91), individualized learning strategies (g = 0.79), STEM disciplines (g = 0.84), and interventions lasting more than eight weeks (g = 0.81).",
+    "where": "abstract"
+   }
+  },
+  "note": "Abstract only; moderator significance tests not reported. Infrastructure listed as barrier only."
+ },
+ {
+  "id": "c117",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "Heterogeneity is mainly driven by AI type and results direction, while methodological factors have minor influence.",
+    "where": "abstract"
+   }
+  },
+  "note": "Outcome described as teaching effectiveness / intelligent teaching assessment; learning outcome not explicit."
+ },
+ {
+  "id": "c118",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "moderator analysis identified significant moderating effects of both AI embodiment ( F (1, 53) = 7.446, p < 0.01) and intervention duration",
+    "where": "abstract"
+   },
+   "duracion": {
+    "code": "C",
+    "quote": "moderator analysis identified significant moderating effects of both AI embodiment ( F (1, 53) = 7.446, p < 0.01) and intervention duration ( F (20, 24) = 5.563, p < 0.001).",
+    "where": "abstract"
+   }
+  },
+  "note": ""
+ },
+ {
+  "id": "c119",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "acceso": {
+    "code": "C",
+    "quote": "a 1:1 chatbot-student ratio was substantially more effective than a 1:N ratio.",
+    "where": "abstract"
+   }
+  },
+  "note": "Chatbot-to-student ratio significant for posttest performance."
+ },
+ {
+  "id": "c120",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "the moderators influencing the variability of effects of AI on student outcomes include education level, education field, and publication bias status.",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "C",
+    "quote": "the moderators influencing the variability of effects of AI on student outcomes include education level, education field, and publication bias status.",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "N",
+    "quote": "Effect sizes were robust across AI types and learning outcome types.",
+    "where": "abstract"
+   }
+  },
+  "note": "Second-order meta-analysis."
+ },
+ {
+  "id": "c124",
+  "design": "MA",
+  "source_used": "full text",
+  "factors": {
+   "contexto": {
+    "code": "C",
+    "quote": "The first moderator, country, yielded a statistically significant Qb value (Qb = 177.633, p = .000)",
+    "where": "full text, Results"
+   },
+   "duracion": {
+    "code": "C",
+    "quote": "was found to be a major moderator (Qb = 94.849, p = .000)",
+    "where": "full text, Results"
+   },
+   "pedagogia": {
+    "code": "N",
+    "quote": "This level did not produce a significant Qb value (Qb = 0.019, p = .891)",
+    "where": "full text, Results"
+   }
+  },
+  "note": "Preservice teachers; pedagogia = SAMR level of technology integration."
+ },
+ {
+  "id": "c127",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "(1) for AI intervention type that applies AI algorithms",
+    "where": "abstract"
+   },
+   "contexto": {
+    "code": "C",
+    "quote": "(3) among European students",
+    "where": "abstract"
+   },
+   "estudiantes": {
+    "code": "C",
+    "quote": "(4) among senior secondary students",
+    "where": "abstract"
+   },
+   "duracion": {
+    "code": "C",
+    "quote": "(6) for interventions lasting more than 2 months or less than 1 week",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "C",
+    "quote": "(7) in traditional programming courses",
+    "where": "abstract"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "(8) when using project‐based design; (9) for individual learning",
+    "where": "abstract"
+   }
+  },
+  "note": "Outcome computational thinking."
+ },
+ {
+  "id": "c128",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "pedagogia": {
+    "code": "C",
+    "quote": "Results indicated clear intervention effects, with Decomposition/Collaborative Planning demonstrating the largest sustained CTPK gains.",
+    "where": "abstract"
+   }
+  },
+  "note": "Multi-arm RCT with four AI-ILE activity designs vs non-AI control; arms differ in activity structure (collaborative planning etc.). Between-arm test not shown in abstract."
+ },
+ {
+  "id": "c132",
+  "design": "RCT",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "indicated significant positive impacts of model-based support on teaching knowledge and skills development",
+    "where": "full text, Abstract"
+   }
+  },
+  "note": "Three arms: AI VR simulation with model-based support, AI VR only, no-treatment control. Pairwise comparison of the two AI arms on knowledge not shown; randomization not explicit."
+ },
+ {
+  "id": "c133",
+  "design": "SR",
+  "source_used": "abstract",
+  "factors": {
+   "docente": {
+    "code": "C",
+    "quote": "There is consistent evidence of better student results, such as understanding, retention, and language acquisition, especially in the hybrid models where AI is used to give adaptive feedback and analytics, whereas teachers are used to provide instructional scaffolding",
+    "where": "abstract"
+   }
+  },
+  "note": "Descriptive synthesis including grey literature."
+ },
+ {
+  "id": "c139",
+  "design": "QE",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "N",
+    "quote": "No significant difference between instructional video-without-preview and video-with-preview conditions",
+    "where": "full text, Section 4.2"
+   }
+  },
+  "note": "Within-subjects comparison of two AI-generated video formats; no non-AI group; randomization not stated. Preview also n.s. for task performance (Section 4.3)."
+ },
+ {
+  "id": "c140",
+  "design": "RCT",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "and also outperformed the MOOC group (M difference = 0.112, p < .01).",
+    "where": "full text, Section 4.1"
+   }
+  },
+  "note": "AI instructional agent (real-time interruptible lecture) vs self-paced MOOC with chatbot; human teacher arm not coded as docente."
+ },
+ {
+  "id": "c141",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "learners with intermediate proficiency benefited more substantially compared to advanced learners",
+    "where": "abstract"
+   },
+   "pedagogia": {
+    "code": "C",
+    "quote": "blended learning environments yielded stronger effects than traditional classroom settings",
+    "where": "abstract"
+   },
+   "duracion": {
+    "code": "N",
+    "quote": "the duration of intervention did not significantly moderate the results",
+    "where": "abstract"
+   }
+  },
+  "note": "SR and meta-analysis."
+ },
+ {
+  "id": "c143",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "pedagogia": {
+    "code": "N",
+    "quote": "whereas instructional model, duration, and sample size were non-significant.",
+    "where": "abstract"
+   },
+   "duracion": {
+    "code": "N",
+    "quote": "whereas instructional model, duration, and sample size were non-significant.",
+    "where": "abstract"
+   }
+  },
+  "note": "Only risk of bias significant."
+ },
+ {
+  "id": "c145",
+  "design": "MA",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "M",
+    "quote": "Early evidence from RCTs suggests that the effects of AI applications are neither uniform across AI types",
+    "where": "full text, Discussion"
+   },
+   "materia": {
+    "code": "N",
+    "quote": "Subgroup analyses (by field and region of study, LLM vs non-LLM, predominant function, and single vs multiple sessions) revealed no consistent explanation of heterogeneity, as none of these factors consistently moderated the direction",
+    "where": "full text, Results, Investigation of Heterogeneity (two consecutive extract lines of one sentence)"
+   },
+   "contexto": {
+    "code": "N",
+    "quote": "Subgroup analyses (by field and region of study, LLM vs non-LLM, predominant function, and single vs multiple sessions) revealed no consistent explanation of heterogeneity, as none of these factors consistently moderated the direction",
+    "where": "full text, Results, Investigation of Heterogeneity (two consecutive extract lines of one sentence)"
+   },
+   "duracion": {
+    "code": "N",
+    "quote": "Subgroup analyses (by field and region of study, LLM vs non-LLM, predominant function, and single vs multiple sessions) revealed no consistent explanation of heterogeneity, as none of these factors consistently moderated the direction",
+    "where": "full text, Results, Investigation of Heterogeneity (two consecutive extract lines of one sentence)"
+   }
+  },
+  "note": "SR+MA of RCTs; AI subtypes analysed separately, only LLM personalized learning aids clearly significant; LLM vs non-LLM subgroup not consistent. Quote for N joins two adjacent extract lines."
+ },
+ {
+  "id": "c147",
+  "design": "MA",
+  "source_used": "abstract",
+  "factors": {
+   "duracion": {
+    "code": "C",
+    "quote": "Key moderating factors include intervention duration, chatbot role, and chatbot form.",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "C",
+    "quote": "Key moderating factors include intervention duration, chatbot role, and chatbot form.",
+    "where": "abstract"
+   },
+   "estudiantes": {
+    "code": "N",
+    "quote": "However, educational levels and teacher roles did not significantly affect the moderating effects.",
+    "where": "abstract"
+   },
+   "docente": {
+    "code": "N",
+    "quote": "However, educational levels and teacher roles did not significantly affect the moderating effects.",
+    "where": "abstract"
+   }
+  },
+  "note": ""
+ },
+ {
+  "id": "c148",
+  "design": "QE",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "N",
+    "quote": "No significant differences emerged between the two AI models employed, indicating that both GPT-3.5 Turbo and Claude 3 Opus provided similar benefits.",
+    "where": "abstract"
+   }
+  },
+  "note": "AI pair vs individual is AI vs no AI; AI vs human pair not docente. Model confounded with year."
+ },
+ {
+  "id": "c151",
+  "design": "MA",
+  "source_used": "full text",
+  "factors": {
+   "duracion": {
+    "code": "C",
+    "quote": "a significant difference was found in the duration of implementation (QB = 7.69; p < 0.05)",
+    "where": "full text, Section 3.1"
+   },
+   "materia": {
+    "code": "N",
+    "quote": "no significant differences were observed in terms of lessons (QB = 1.7; p > 0.05)",
+    "where": "full text, Section 3.1"
+   }
+  },
+  "note": "Mixed meta-method; only meta-analysis part used."
+ },
+ {
+  "id": "c152",
+  "design": "SR",
+  "source_used": "abstract",
+  "factors": {
+   "formacion": {
+    "code": "C",
+    "quote": "These findings confirm that the impact of AI is more determined by task–AI fit, AI literacy and ethics, assessment design that assesses thought processes, and equity-sensitive school governance.",
+    "where": "abstract"
+   },
+   "materia": {
+    "code": "C",
+    "quote": "These findings confirm that the impact of AI is more determined by task–AI fit, AI literacy and ethics, assessment design that assesses thought processes, and equity-sensitive school governance.",
+    "where": "abstract"
+   }
+  },
+  "note": "Narrative SR of 9 mostly non-experimental studies; weak basis for synthesis."
+ },
+ {
+  "id": "c157",
+  "design": "SR",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "interpretable, well-specified AI mechanisms tend to produce clearer learning benefits",
+    "where": "full text, Section 5.2"
+   }
+  },
+  "note": "Thematic SR of 55 studies; adaptive-difficulty direction and NPC behavior also linked to outcomes. Prior ability, teacher role, subject not systematically synthesized."
+ },
+ {
+  "id": "c161",
+  "design": "RCT",
+  "source_used": "full text",
+  "factors": {
+   "estudiantes": {
+    "code": "M",
+    "quote": "the experimental-control difference decreases with prior knowledge (β3 = −1.39, P = 0.032)",
+    "where": "full text, Supplementary 3.1"
+   }
+  },
+  "note": "Treatment x prior knowledge significant in game theory only; Python and university-ranking interactions n.s.; main-text exploratory interactions n.s. Learning behavior observed, not varied."
+ },
+ {
+  "id": "c165",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "pedagogia": {
+    "code": "C",
+    "quote": "The model analysis indicated that the AIGC’s impact on learning performance was mediated by extraneous cognitive load and depended on the self-paced environment.",
+    "where": "abstract"
+   }
+  },
+  "note": "2x2 pacing x AIGC experiment; randomization not explicit in abstract."
+ },
+ {
+  "id": "c166",
+  "design": "SR",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "challenges, including AI dependency, academic integrity concerns, data privacy risks, and unequal benefits across student groups, have consistently been reported.",
+    "where": "abstract"
+   }
+  },
+  "note": "Qualitative SR of 20 mostly non-experimental studies; full text mentions disparities by prior quantitative skills, gender, SES but only as fragments."
+ },
+ {
+  "id": "c170",
+  "design": "RCT",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "there is a main effect for type of chatbot, F(1,18) = 402.13, p < .001",
+    "where": "full text, Results"
+   }
+  },
+  "note": "Personalized adaptive bot vs standard ChatGPT, n=20; duration equal across arms, not coded."
+ },
+ {
+  "id": "c173",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "Results showed that students using the self-evaluation chatbot achieved a substantially higher mean score 79.3% than those using the control chatbot 61.1%.",
+    "where": "abstract"
+   }
+  },
+  "note": "Self-evaluation chatbot vs identical chatbot without the feature; randomization and significance test not stated in abstract."
+ },
+ {
+  "id": "c175",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "duracion": {
+    "code": "N",
+    "quote": "ChatGPT use patterns (frequency, duration, perceived helpfulness) were not associated with performance.",
+    "where": "abstract"
+   },
+   "estudiantes": {
+    "code": "N",
+    "quote": "Prior academic performance significantly predicted assessment scores (p = 0.04), with no preferential benefit for weaker students.",
+    "where": "abstract"
+   }
+  },
+  "note": "ChatGPT allowed vs no aids at bedside exam; no overall difference. Training only speculated in discussion."
+ },
+ {
+  "id": "c176",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "N",
+    "quote": "Despite these performance gains, neither AI condition produced greater pre–post knowledge gains or code-comprehension advantages.",
+    "where": "abstract"
+   }
+  },
+  "note": "Scaffolded hint tutor (Iris) vs unrestricted ChatGPT vs no AI; learning gains did not differ."
+ },
+ {
+  "id": "c178",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "Students receiving metacognitive feedback showed higher transfer scores, greater metacognitive sensitivity, and increased brain activation in the frontopolar area and middle temporal gyrus compared to other feedback types.",
+    "where": "abstract"
+   }
+  },
+  "note": "Feedback type (metacognitive, affective, neutral) varied; randomization not stated in abstract, assumed experimental assignment."
+ },
+ {
+  "id": "c179",
+  "design": "RCT",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "N",
+    "quote": "we see approximately and statistically equal performance regardless of AI explanation quality.",
+    "where": "full text, Section 4.2.4"
+   }
+  },
+  "note": "AI Peer vs physics-history control; AI accuracy/explanation quality analyzed against learning, no difference."
+ },
+ {
+  "id": "c181",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "The Peer and GPT groups, where students could ask questions, demonstrated significantly higher post-dialogue performance in both absolute score and conditional correct rate compared to the ITS group, which only answered questions.",
+    "where": "abstract"
+   }
+  },
+  "note": "ChatGPT vs ITS (tool type / dialogue mode) compared; peer arm is human, not coded as docente. Randomization not explicit."
+ },
+ {
+  "id": "c184",
+  "design": "QE",
+  "source_used": "abstract",
+  "factors": {
+   "pedagogia": {
+    "code": "N",
+    "quote": "However, no significant differences emerged in programming knowledge acquisition (p = .79)",
+    "where": "abstract"
+   }
+  },
+  "note": "ChatGPT vs ChatGPT plus SRL strategies vs traditional; SRL integration affected motivation/self-efficacy only. Assignment method unclear."
+ },
+ {
+  "id": "c186",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "Notably, this only benefited lower-knowledge students (0-1 of 5 prior problems correct), who showed a 7% increase in next-problem success, while effects diminished for higher-performing students.",
+    "where": "abstract"
+   }
+  },
+  "note": "Study 2 (AI vs teacher-written feedback) is AI vs human, not coded."
+ },
+ {
+  "id": "c188",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "N",
+    "quote": "Effects were consistent across subgroups defined by prior VR experience and digital literacy.",
+    "where": "abstract"
+   }
+  },
+  "note": "Crossover VR vs VR+ChatGPT feedback. Digital literacy (not AI literacy) treated as learner characteristic."
+ },
+ {
+  "id": "c190",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "those with low spatial abilities (ChatGPT group: mean 70.20, SD 10.71; control group: mean 55.41, SD 13.31; P<.001) were more positively influenced by ChatGPT.",
+    "where": "abstract"
+   }
+  },
+  "note": "Spatial ability subgroup on operational test. Theoretical knowledge did not differ overall."
+ },
+ {
+  "id": "c196",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "Iterative AI-supported revision produced the largest and most durable gains across all outcome variables",
+    "where": "abstract"
+   }
+  },
+  "note": "Four AI scaffold types vs human feedback; scaffold type varied between arms."
+ },
+ {
+  "id": "c210",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "formacion": {
+    "code": "C",
+    "quote": "Independent samples t tests revealed that the experimental group showed greater AI-assisted revision performance ( d = 0.81, p < 0.001) than did the control group.",
+    "where": "abstract"
+   }
+  },
+  "note": "Structured GenAI training vs none; outcome is AI-assisted revision performance on CSEM items. Training also attenuated effect of prior GenAI experience."
+ },
+ {
+  "id": "c214",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "The experimental group reached an advanced level (M = 84.83%), significantly outperforming the control group (M = 61.54%), with an effect size of 0.73.",
+    "where": "abstract"
+   }
+  },
+  "note": "Same ITS with vs without real-time feedback."
+ },
+ {
+  "id": "c215",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "Results showed that students using Chat GPT scored, on average, 48% on a post-test, whereas those using the self-assessment chatbot scored, on average, 92%.",
+    "where": "abstract"
+   }
+  },
+  "note": "Self-assessment chatbot vs ChatGPT; assignment method not stated. Difficulty claim compares across studies, not coded."
+ },
+ {
+  "id": "c218",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "students who used the self-assessment chatbot scored, on average, 20.7 percentage points higher than those who used Chat GPT to study",
+    "where": "abstract"
+   }
+  },
+  "note": "Very small sample (N=9)."
+ },
+ {
+  "id": "c220",
+  "design": "MA",
+  "source_used": "full text",
+  "factors": {
+   "materia": {
+    "code": "C",
+    "quote": "Subgroup analysis revealed that AI significantly improved surgical and invasive procedural skills, but showed no advantage for clinical assessment and diagnostic skills.",
+    "where": "abstract"
+   },
+   "diseno": {
+    "code": "C",
+    "quote": "In the subgroup analysis by AI modality, vision-based/deep-learning AI significantly improved skill scores compared to traditional training",
+    "where": "full text, Section 3.2.1.2"
+   }
+  },
+  "note": "LLM subgroup not significant (p = 0.08) vs vision AI significant. Comparison with expert-led instruction not coded as docente."
+ },
+ {
+  "id": "c221",
+  "design": "RCT",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "N",
+    "quote": "there was no statistically significant difference in language test performance between the two groups.",
+    "where": "full text, Section 5.3.2.1"
+   }
+  },
+  "note": "Immediate vs delayed corrective feedback from LLM chatbot."
+ },
+ {
+  "id": "c226",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "materia": {
+    "code": "M",
+    "quote": "Findings reveal the use of ChatGPT had little to no effect for Entrepreneurship students yet tended to enhance creativity for Marketing and, to a lesser extent, Management students.",
+    "where": "abstract"
+   }
+  },
+  "note": "Outcome is creativity task performance; discipline subgroups, originality effects inconsistent."
+ },
+ {
+  "id": "c227",
+  "design": "RCT",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "N",
+    "quote": "NeuroChat did not significantly improve quiz or essay scores compared to the control condition",
+    "where": "full text, Section 6.1"
+   }
+  },
+  "note": "Within-subjects neuroadaptive vs non-adaptive chatbot (n=24); engagement rose, learning did not."
+ },
+ {
+  "id": "c228",
+  "design": "QE",
+  "source_used": "full text",
+  "factors": {
+   "estudiantes": {
+    "code": "N",
+    "quote": "there was no significant interaction between the discovery learning model and self-efficacy on mathematical literacy",
+    "where": "full text, Results"
+   }
+  },
+  "note": "Intact classes; self-efficacy tested as moderator."
+ },
+ {
+  "id": "c235",
+  "design": "RCT",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "N",
+    "quote": "neither the comparison between ChatGPT and DeepSeek R1 nor that between ChatGPT and control reached statistical significance",
+    "where": "full text, Results, Test After Self-Study"
+   }
+  },
+  "note": "Model compared (ChatGPT o3-mini vs DeepSeek R1); only DeepSeek beat control. Question-type breakdowns not coded as moderator."
+ },
+ {
+  "id": "c238",
+  "design": "RCT",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "When TAs used FeedbackWriter and adopted more AI-generated constructive feedback messages, students had higher quality revisions.",
+    "where": "full text, Section 6.3 (Table 7 heading)"
+   }
+  },
+  "note": "AI-mediated (TA plus AI suggestions) vs TA-only feedback; revisions improved but post-test did not differ. Constructive (not positive) AI feedback adoption predicted revision quality."
+ },
+ {
+  "id": "c241",
+  "design": "SR",
+  "source_used": "abstract",
+  "factors": {},
+  "note": "Not coded: synthesis links routines and teacher orchestration to productive collaboration, not explicitly to learning outcomes; causal evidence described as limited (NOFACTOR)."
+ },
+ {
+  "id": "c243",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "N",
+    "quote": "Physical presence of the tutor agent was not significantly related to task performance or anthropomorphism, but to higher initial on-task enjoyment.",
+    "where": "abstract"
+   }
+  },
+  "note": "Embodiment (on-screen vs physical robot) varied; randomization not stated. Gender correlation with performance is not a moderator test."
+ },
+ {
+  "id": "c248",
+  "design": "QE",
+  "source_used": "full text",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "significantly outperformed those in the Always condition regarding objective post-test scores.",
+    "where": "full text, Section 5.2 (participants in the RL condition)"
+   }
+  },
+  "note": "RL-timed access vs unrestricted vs no access; conditions assigned by session, randomization not stated."
+ },
+ {
+  "id": "bastani2025",
+  "design": "RCT",
+  "source_used": "abstract",
+  "factors": {
+   "diseno": {
+    "code": "C",
+    "quote": "These negative learning effects are largely mitigated by the safeguards in GPT Tutor.",
+    "where": "abstract"
+   }
+  },
+  "note": "GPT Base vs GPT Tutor (safeguarded prompts) vs no AI."
+ },
+ {
+  "id": "e:khanmigo-tennessee-2026",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {},
+  "note": "Khanmigo plus adaptive practice vs business as usual (AI vs no AI). Year 1 vs year 2 effects reported but not framed as a dose or moderator test; no factor varied (NOFACTOR)."
+ },
+ {
+  "id": "e:reino-unido-ia-ayuda-o-dana-2026",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {
+   "formacion": {
+    "code": "N",
+    "quote": "No change in the exam without AI: +0.078 correct answers with ChatGPT and −0.234 with guided ChatGPT, out of 15, against a control of about 8.",
+    "where": "EvidencIA record"
+   },
+   "estudiantes": {
+    "code": "M",
+    "quote": "Guided AI was linked to more top scores among high GPA women and more very low scores among students without a high GPA. These subgroup results are underpowered.",
+    "where": "EvidencIA record"
+   }
+  },
+  "note": "Guided ChatGPT arm (researcher guide on how to use it) vs ChatGPT vs control."
+ },
+ {
+  "id": "e:estados-unidos-coach-ia-comunicacion-empatica-2026",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {},
+  "note": "AI coach vs no feedback vs human coach videos vs combined; contrasts are AI vs none or AI vs human, no factor tested (NOFACTOR)."
+ },
+ {
+  "id": "e:estados-unidos-numi-2026",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {
+   "pedagogia": {
+    "code": "M",
+    "quote": "AI was randomly crossed with a mastery rule: three correct answers in a row to advance and at least one minute of video. AI showed signs of helping only with the mastery rule.",
+    "where": "EvidencIA record"
+   }
+  },
+  "note": "2x2x2 design; effect with mastery rule marginal (p = 0.065)."
+ },
+ {
+  "id": "e:estados-unidos-retroalimentacion-ia-diapositivas-2025",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {},
+  "note": "Main contrast is AI vs human feedback (not a factor); results for the slide feature are not reported in the record (NOFACTOR)."
+ },
+ {
+  "id": "e:pais-no-informado-chatgpt-google-retencion-2025",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {
+   "materia": {
+    "code": "M",
+    "quote": "Immediate quiz without tools on Task 1: ChatGPT scored 22.39 points above the control (p < .01). There were no significant differences on the most complex task.",
+    "where": "EvidencIA record"
+   }
+  },
+  "note": "Task complexity (Bloom levels) across three tasks; effect only on the simplest task."
+ },
+ {
+  "id": "e:estados-unidos-evaluar-soluciones-ia-algoritmos-2026",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {},
+  "note": "Evaluating AI solutions vs solving directly without AI; essentially AI-use vs no AI, no factor varied (NOFACTOR)."
+ },
+ {
+  "id": "e:estados-unidos-tutor-pares-llm-2026",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {},
+  "note": "Tutor, simulated peers, both, or control; record gives only descriptive percentages for tutor alone vs tutor plus peers, no test of the design contrast, so not coded."
+ },
+ {
+  "id": "e:inglaterra-llm-toma-de-notas-2026",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {},
+  "note": "Chatbot vs note-taking within student; chatbot-plus-notes result not reported in record. No factor coded (NOFACTOR)."
+ },
+ {
+  "id": "e:reino-unido-retroalimentacion-metacognitiva-asistente-llm-2026",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {
+   "diseno": {
+    "code": "M",
+    "quote": "Feedback raised the odds of a correct answer (OR 1.51) versus the same assistant without it, significant only one sided.",
+    "where": "EvidencIA record"
+   },
+   "estudiantes": {
+    "code": "N",
+    "quote": "Neither perceived confidence, trust in AI nor need for cognition moderated the effect of the feedback.",
+    "where": "EvidencIA record"
+   }
+  },
+  "note": "Metacognitive feedback on AI use vs same assistant without feedback."
+ },
+ {
+  "id": "e:alemania-tutor-lectura-ia-2025",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {
+   "diseno": {
+    "code": "M",
+    "quote": "+0.34 SD with unrestricted access and +0.13 SD (not significant) with restricted access.",
+    "where": "EvidencIA record"
+   },
+   "estudiantes": {
+    "code": "M",
+    "quote": "Gains were concentrated among students with low baseline scores, less procrastination and less preference for distraction. The authors call these results suggestive.",
+    "where": "EvidencIA record"
+   }
+  },
+  "note": "Restricted (last 15 min) vs unrestricted tutor access; direct contrast not reported in record."
+ },
+ {
+  "id": "e:eeuu-guia-instruccional-ia-2026",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {
+   "formacion": {
+    "code": "M",
+    "quote": "Open explanation score: 12.41 with guided AI, 10.45 with unguided AI and 9.68 with slides, out of 18 (ANOVA p = 0.0011).",
+    "where": "EvidencIA record"
+   }
+  },
+  "note": "Guided (five-step script) vs unguided AI; only omnibus ANOVA, no pairwise test, hence M."
+ },
+ {
+  "id": "e:estados-unidos-apoyo-humano-tutor-ia-2026",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {
+   "docente": {
+    "code": "N",
+    "quote": "−0.052 SD on the end of year reading score in District A and −0.129 SD in District B, both not significant.",
+    "where": "EvidencIA record"
+   }
+  },
+  "note": "Human tutor support added to AI platform vs AI alone; reading outcome exploratory."
+ },
+ {
+  "id": "e:gallegos-chile-2026",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {
+   "formacion": {
+    "code": "C",
+    "quote": "+0.218 SD on the standardized final exam grade with the guidance emails (ITT).",
+    "where": "EvidencIA record"
+   }
+  },
+  "note": "Guidance on how to use the AI tutor vs same access without guidance."
+ },
+ {
+  "id": "e:learnlm-eedi-reino-unido-2026",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {
+   "diseno": {
+    "code": "N",
+    "quote": "−0.01 SD on Star Maths for AI with question context and +0.02 SD with personalized context, both with intervals that include zero.",
+    "where": "EvidencIA record"
+   },
+   "estudiantes": {
+    "code": "M",
+    "quote": "Exploratory: with standard remediation boys outpaced girls by 0.31 SD on Star Maths; with AI the gap fell to 0.09 and 0.02 SD.",
+    "where": "EvidencIA record"
+   }
+  },
+  "note": "Personalized vs question context arms. Human tutor arm is AI vs human, not coded."
+ },
+ {
+  "id": "e:estados-unidos-pistas-ia-diferida-ciencia-de-datos-2026",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {
+   "diseno": {
+    "code": "N",
+    "quote": "No difference on the final test: 5.70 without AI, 4.75 with on demand AI and 5.67 with deferred AI, out of 10 (p = 0.18).",
+    "where": "EvidencIA record"
+   }
+  },
+  "note": "Deferred vs on-demand AI hints; high attrition."
+ },
+ {
+  "id": "e:gemini-sierra-leona-2026",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "Students with higher baseline scores gained more: the effect rose by 0.195 SD per SD of baseline score. The difference between girls and boys was not significant.",
+    "where": "EvidencIA record"
+   }
+  },
+  "note": "Prior achievement moderated effect; gender did not. Completer (12 hours) estimate not treated as a dose moderator."
+ },
+ {
+  "id": "e:sin-pais-mensajes-apoyo-llm-educacion-distancia-2026",
+  "design": "RCT",
+  "source_used": "EvidencIA record",
+  "factors": {
+   "estudiantes": {
+    "code": "C",
+    "quote": "Model based estimates suggest positive effects for about two thirds of learners, larger with moderate prior achievement and in older cohorts, peaking around ages 34 to 40.",
+    "where": "EvidencIA record"
+   }
+  },
+  "note": "Heterogeneity on course score; final exam effect not significant."
+ }
+]
