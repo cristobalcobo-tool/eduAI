@@ -1,0 +1,31 @@
+{
+ "studies_coded_by_all_three": 127,
+ "missing_codings": {
+  "A": [],
+  "B": [],
+  "C": []
+ },
+ "cells": 1143,
+ "fleiss_kappa_code_with_absent": 0.938,
+ "observed_agreement_code": 0.977,
+ "fleiss_kappa_tested_or_not": 0.967,
+ "observed_agreement_tested": 0.989,
+ "pending_adjudication": 0,
+ "adjudicated": 0,
+ "studies_in_map": 119,
+ "dropped_no_factor_by_majority": [
+  "c16",
+  "c241",
+  "c38",
+  "e:estados-unidos-coach-ia-comunicacion-empatica-2026",
+  "e:estados-unidos-evaluar-soluciones-ia-algoritmos-2026",
+  "e:estados-unidos-retroalimentacion-ia-diapositivas-2025",
+  "e:estados-unidos-tutor-pares-llm-2026",
+  "e:inglaterra-llm-toma-de-notas-2026"
+ ],
+ "source_used": {
+  "abstract": 72,
+  "full text": 37,
+  "EvidencIA record": 18
+ }
+}

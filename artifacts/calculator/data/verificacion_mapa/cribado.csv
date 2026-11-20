@@ -1,0 +1,292 @@
+id,A_include,A_reason,A_note,B_include,B_reason,B_note,C_include,C_reason,C_note,final
+c0,True,,"GenAI MA; moderators education level, subject, interface, duration",True,,"moderators level, subject, interface, duration",True,,"GenAI MA; level, subject, interface, time moderators",included
+c1,False,NOFACTOR,"scoping review; engagement patterns, no explicit factor-learning synthesis",False,DESIGN,"scoping review, thematic not effect synthesis",False,DESIGN,"scoping review, thematic",excluded
+c2,True,,"AIEd MA; moderators field, level, mode, duration, region",True,,"moderators field, level, mode, duration, region",True,,"AIEd MA; field, level, mode, duration, geography",included
+c3,False,DESIGN,"trend review of benefits/challenges, no learning-effect synthesis by factor",False,DESIGN,SR of trends,False,DESIGN,SR of trends/benefits,excluded
+c4,True,,"GAI MA; discipline, duration, knowledge type, prior knowledge, tool type",True,,"moderators discipline, duration, prior knowledge, tool type",True,,"GAI MA; discipline, period, prior knowledge, tool type",included
+c5,True,,MA 13 studies; AI technology type subgroups,True,,subgroups by AI technology type,True,,AI MA; technology type subgroups,included
+c6,True,,"math GenAI MA; integration level, content, collaboration, stage, duration",True,,"moderators integration level, content, collaboration",True,,"math GenAI MA; integration level, content, collaboration",included
+c7,True,,SR ITS K-12; ITS vs non-intelligent tutoring systems comparison,True,,ITS effects mitigated vs non-intelligent systems,False,NOFACTOR,ITS K-12 SR; only comparator type noted,included
+c8,True,,"ChatGPT MA; subject, duration, instructional mode",True,,"moderators subject, duration, instructional mode",True,,"ChatGPT MA; subject, duration, instructional mode",included
+c9,True,,ChatTutor vs ChatGPT design comparison,True,,ChatTutor vs ChatGPT vs control,True,,ChatTutor vs ChatGPT vs control,included
+c10,True,,SR AI tools higher ed; outcomes vary by knowledge vs skills,True,,SR of design features; effects vary by outcome type,True,,SR; effectiveness differs knowledge vs skills,included
+c11,True,,"GenAI CA MA; level, knowledge type, duration, role, mode",True,,"moderators level, knowledge type, duration, agent role",True,,"GenAI agents MA; level, knowledge type, duration, roles",included
+c12,True,,"GenAI-PA MA; culture, teacher-directed, modality, grade",True,,"moderators culture, teacher-directed, modality",True,,"GenAI-PA MA; culture, teacher-directed, modality",included
+c13,True,,"GAI MA; functions, interaction modes, usage patterns",True,,"moderators function, interaction mode, usage pattern",True,,"GAI MA; functions, interaction modes, roles",included
+c14,True,,math AI SR; lower-performing learners benefit more,True,,narrative SR; benefits larger for lower performers,True,,"math SR; lower-performing learners, tool type",included
+c15,False,DESIGN,thematic SLR incl. reports; no synthesis of learning effects by factor,True,,thematic SLR incl reports; value depends on teacher supervision,False,DESIGN,thematic SLR incl reports; claims not synthesized effects,excluded
+c16,True,,SR TPACK; moderating effect of instructional design variables on learning,True,,SR examines moderating effect of instructional design variables,True,,SR with moderating effects of design variables,included
+c17,True,,SR SDT; achievement gains by subject and pedagogical alignment,True,,SR: academic gains when pedagogically aligned with scaffolding,True,,SR; academic gains when pedagogically aligned/scaffolded,included
+c18,True,,RCT AI access; heterogeneity by augmentation vs automation use,True,,AI vs no AI; gains by usage type (augmentation vs automation),True,,AI vs none; gains by augmentation vs automation use,included
+c19,True,,GenAI feedback MA; teaching method moderator,True,,"moderators teaching method, level, duration, role",True,,GenAI feedback MA; teaching method moderator,included
+c20,False,DESIGN,mapping review K-12 GenAI,False,DESIGN,mapping SR via 3P model,False,DESIGN,mapping SR K-12,excluded
+c21,False,NOFACTOR,narrative PRISMA review AI vs traditional teaching,False,NOFACTOR,vague PRISMA review AI vs traditional,False,DESIGN,narrative PRISMA-based review AI vs traditional,excluded
+c22,False,DESIGN,systematic mapping review AI-SRL,False,DESIGN,mapping review,False,DESIGN,mapping review,excluded
+c23,True,,GenAI HOT MA; duration and SRL moderators,True,,moderators duration and SRL ability,True,,"HOT MA; duration, SRL moderators",included
+c24,False,NOFACTOR,"SR SRL/critical thinking; percentages, no factor-learning synthesis",False,NOFACTOR,"SR on SRL and critical thinking, no factor synthesis",False,NOFACTOR,SR SRL/CT; no factor,excluded
+c25,True,,STEM GAI MA; outcome type and ISAR level moderators,True,,moderators outcome type and ISAR level,True,,"STEM MA; outcome type, ISAR level",included
+c26,True,,3-arm RCT AI-enhanced vs blended vs traditional; arms differ in pedagogical model,False,NOFACTOR,AI-enhanced vs blended vs traditional; blended likely non-AI,False,NOFACTOR,AI-enhanced vs blended vs traditional,excluded
+c27,False,DESIGN,narrative SLR of GenAI advancements and challenges,False,NOFACTOR,"thematic SLR, no factor synthesis",False,DESIGN,thematic review,excluded
+c28,True,,"higher ed GenAI MA; duration, teaching model, interaction method",True,,"moderators duration, teaching model, interaction",True,,"HE MA; duration, teaching model, interaction method",included
+c29,False,DESIGN,SLR of perceptions and adoption,False,DESIGN,SLR of perceptions and adoption,False,DESIGN,SLR domains/perceptions,excluded
+c30,True,,"educational agents MA; agent type, subject, level",True,,"moderators agent type, subject, level",True,,"agents MA; type, subject, level",included
+c31,True,,AITS RCT; moderation by baseline score and usage dose,True,,larger effects for low baseline; rose with usage,True,,AITS RCT; baseline and usage moderation,included
+c32,True,,"higher ed MA; moderators functional type, duration, domain non-significant",True,,"moderators tested, none significant",True,,HE MA; moderators ns,included
+c33,True,,narrative SR; structured pedagogy vs unguided use conditions effects,True,,narrative SR; structured vs unguided pedagogy,True,,SR; amplifier under structured pedagogy vs substitute unguided,included
+c34,False,NOFACTOR,science SR 12 studies; no factor synthesis,False,NOFACTOR,SR without factor synthesis,False,NOFACTOR,science SR; no factor,excluded
+c35,False,DESIGN,K-12 GenAI use mapping review,False,DESIGN,mapping SR K-12,False,DESIGN,mapping SR K-12,excluded
+c36,False,DESIGN,"SR of faculty CIA practices, no learning outcomes synthesis",False,DESIGN,"SR on faculty CIA, no learning synthesis",False,DESIGN,faculty CIA practices,excluded
+c37,True,,nursing SR; effects differ procedural skills vs HOTS/retention,True,,SR: effects differ procedural skills vs HOTS,True,,nursing SR; procedural vs HOTS outcomes differ,included
+c38,True,,"higher ed MA; discipline, duration, teaching mode, teacher intervention",True,,"moderators discipline, duration, mode, teacher intervention",True,,"HE MA; discipline, duration, teaching mode, teacher intervention",included
+c39,False,DESIGN,narrative SLR of GenAI capabilities,False,DESIGN,"SLR descriptive, no learning synthesis",False,DESIGN,narrative SLR,excluded
+c40,False,DESIGN,SLR opportunities/challenges/policies,False,DESIGN,SLR on opportunities and policy,False,DESIGN,SLR opportunities/challenges,excluded
+c41,True,,SR teacher intervention in AI instruction; conditional learning effects,True,,SR on teacher intervention; effects conditional,True,,teacher intervention SR; conditional effects,included
+c42,True,,structured AI tutor vs consumer AI; voice vs text modality,True,,structured tutor vs consumer AI; voice vs text,True,,structured tutor vs consumer AI; voice vs text,included
+c43,True,,"language GenAI MA; duration, setting, learner, language",True,,"moderators duration, setting, learner, language",True,,"language MA; duration, setting, learner, language",included
+c44,True,,"medical GenAI MA of RCTs; subgroups tool, level, modality ns",True,,"subgroups tool type, level, modality n.s.",True,,medical MA of RCTs; subgroups ns,included
+c45,True,,"SR higher ed; moderators digital readiness, faculty AI literacy",True,,"SLR names readiness, faculty AI literacy as moderators",True,,SLR; institutional readiness and faculty AI literacy as moderators,included
+c46,False,NOFACTOR,medical GAI MA; no moderators reported in abstract,False,NOFACTOR,MA without moderators,False,NOFACTOR,medical MA; no moderators,excluded
+c47,True,,four experiments with GenAI in different roles (tutor vs problem solver),False,NOFACTOR,four experiments on AI roles; role not varied within,False,NOFACTOR,four experiments on AI roles; design unclear,excluded
+c48,True,,medical GAI MA; subgroups duration and practice-oriented courses,True,,subgroups duration and course type,True,,medical MA RCTs; duration and course type subgroups,included
+c49,True,,English GenAI MA; level and skill moderators,True,,moderators level and skill,True,,"English MA; level, skill",included
+c50,False,OUTCOME,self-efficacy only,False,OUTCOME,self-efficacy only,False,OUTCOME,self-efficacy,excluded
+c51,False,NOFACTOR,health professions SR; no factor synthesis,False,NOFACTOR,"SR of poor evidence, no factor",False,NOFACTOR,health professions SR; poor evidence,excluded
+c52,False,NOFACTOR,programming SR; descriptive categories,False,NOFACTOR,SR descriptive on programming,False,DESIGN,programming SR; mapping objectives/challenges,excluded
+c53,False,NOFACTOR,AI allowed vs not; experiment disrupted,False,NOFACTOR,AI permitted vs not; design compromised,False,NOFACTOR,AI allowed vs not; compromised design,excluded
+c54,False,NOFACTOR,SR GenAI writing feedback; no factor synthesis,False,NOFACTOR,"SR on feedback, no factor",False,NOFACTOR,writing feedback SR; no factor,excluded
+c55,True,,"programming SR; tool selection, foundational abilities, task complexity as key variables",True,,"SR identifies tool, student ability, task complexity",True,,"programming SR; tool selection, abilities, task complexity",included
+c56,False,DESIGN,conceptual perspective paper,False,DESIGN,opinion piece,False,DESIGN,opinion piece,excluded
+c57,True,,Nigeria RCT; heterogeneity by gender and baseline performance,True,,heterogeneity by gender and baseline ability,True,,Nigeria RCT; heterogeneity by gender and prior performance,included
+c58,False,DESIGN,field review of pedagogical applications,False,DESIGN,SLR of themes,False,DESIGN,field mapping SR,excluded
+c59,False,DESIGN,narrative PRISMA review of adoption themes,False,DESIGN,"literature review, no effect synthesis",False,DESIGN,narrative review,excluded
+c60,False,DESIGN,narrative review of AI tutoring,False,DESIGN,narrative review,False,DESIGN,narrative review,excluded
+c61,False,NOFACTOR,RCT AI teacher added vs traditional; no factor varied,False,NOFACTOR,AI teacher plus traditional vs traditional,False,NOFACTOR,AI teacher vs traditional,excluded
+c62,False,NOFACTOR,descriptive SR high school STEM AI,False,DESIGN,"SR mostly single-group, mapping",False,DESIGN,"mapping SR, mostly single-group",excluded
+c63,False,OUTCOME,motivation only,False,OUTCOME,motivation only,False,OUTCOME,motivation,excluded
+c64,False,DESIGN,ethics/regulation SR,False,DESIGN,SLR on ethics,False,DESIGN,ethics SR,excluded
+c65,True,,physics SR; tutoring role strongest learning evidence,True,,SR: tutoring role strongest learning evidence,True,,physics SR; tutor role strongest learning evidence,included
+c66,False,DESIGN,SR personalised learning algorithms/applications,False,DESIGN,SLR categorizing applications,False,DESIGN,SLR categorizing algorithms,excluded
+c67,False,DESIGN,SR ITS/RTS classification; no learning-effect synthesis by factor,False,DESIGN,SR classification of tutoring systems,False,DESIGN,classification SR,excluded
+c68,True,,"AI blended learning MA; AI type, duration, level, subject",True,,"moderators AI type, level, subject, duration",True,,"blended MA; AI type, level, subject, duration",included
+c69,True,,health science SR; structured guidance and comparator conditions,True,,SR: structured guidance and technology shape effects,True,,health SR; structured guidance vs unguided,included
+c70,False,DESIGN,"SR of SRL scaffolding mechanisms, no learning outcome synthesis",False,DESIGN,SR of SRL scaffolding mechanisms,False,DESIGN,SRL mechanisms SR,excluded
+c71,False,DESIGN,SR applications benefits challenges,False,DESIGN,"SR of applications, no factor synthesis",False,DESIGN,pedagogical practices SR,excluded
+c72,True,,"STEM AI MA; level, discipline, duration",True,,"moderators level, discipline, duration",True,,"STEM MA; moderators level, discipline, duration",included
+c73,True,,"TBLT GenAI MA; AI literacy, task planning, task assessors",True,,"moderators AI literacy, task planning, task assessors",True,,"GenAI TBLT MA; moderators AI literacy, task planning, assessors",included
+c74,False,DESIGN,thematic SLR mostly conceptual evidence,False,DESIGN,"thematic SLR, mostly conceptual evidence",False,DESIGN,thematic SR of opportunities/challenges; no learning-effect synthesis,excluded
+c75,False,NOFACTOR,programming AI MA; no moderator analysis reported,False,NOFACTOR,MA without reported moderator analysis,True,,programming MA; says effectiveness depends on tool functionality and course design,excluded
+c76,False,DESIGN,scoping review of critical thinking,False,DESIGN,scoping review,False,DESIGN,scoping review,excluded
+c77,True,,"second-order MA; outcome type, level, tool type moderators",True,,"second-order MA; moderators level, tool type",True,,"second-order MA; moderators level, tool type",included
+c78,True,,two RCTs on AI feedback usage patterns and achievement levels,True,,usage pattern arms and achievement-level heterogeneity,True,,"RCTs hints vs answers, usage patterns, prior achievement",included
+c79,True,,"SR 12 studies; AI literacy, discipline as moderators",True,,SR names AI literacy and discipline as moderators,True,,SR; AI literacy and discipline as moderators of effectiveness,included
+c80,False,DESIGN,scoping review learner agency,False,DESIGN,scoping review,False,DESIGN,scoping review on agency,excluded
+c81,True,,SLR educational agents; hybrid human-AI workflows outperform autonomous tutors,True,,SLR claims hybrid teacher-moderated workflows outperform autonomous tutors,True,,SLR; hybrid human-AI workflows outperform autonomous tutors,included
+c82,False,DESIGN,K-12 GenAI trends review,False,NOFACTOR,"thematic SR, factors only as challenges",False,NOFACTOR,SR of trends; no factor synthesized,excluded
+c83,False,DESIGN,scoping review AI dropout prediction,False,DESIGN,scoping review,False,DESIGN,scoping review dropout prediction,excluded
+c84,False,DESIGN,language GenAI review of designs and roles,False,DESIGN,SR mapping research designs and focus,False,DESIGN,mapping SR mostly perceptions,excluded
+c85,False,DESIGN,narrative medical AI review,False,DESIGN,narrative SR without learning-effect synthesis,False,DESIGN,"narrative SR, no learning-effect synthesis",excluded
+c86,False,DESIGN,SR of how HPE students use GenAI,False,DESIGN,SR mapping uses to learning types,False,DESIGN,SR of how students use GenAI; no learning outcomes,excluded
+c87,False,NOFACTOR,QE AI vs conventional; no factor varied,False,NOFACTOR,AI vs conventional instruction,False,NOFACTOR,AI vs conventional only,excluded
+c88,False,NOFACTOR,AI-supported vs instructor-led (AI replaces human),False,NOFACTOR,AI-supported vs instructor-led,False,NOFACTOR,AI-supported vs instructor-led (AI replacing human),excluded
+c89,True,,lab RCT; AI vs human tutor; comparison across 13 AI tutors,True,,13 AI tutors on different models compared; human and control,True,,lab RCT; multiple AI tutors/models compared on gains,included
+c90,False,NOAI,modules teaching about genAI; intervention not AI-based learning,False,NOAI,"modules teaching about genAI, not AI-delivered learning",False,NOAI,modules teaching about genAI; intervention does not use AI for learning,excluded
+c91,False,OUTCOME,engagement outcomes only,False,OUTCOME,engagement outcomes,False,OUTCOME,engagement outcomes,excluded
+c92,False,NOFACTOR,umbrella review narrative; no explicit factor-learning synthesis,True,,"umbrella review, evidence by AI tool type",False,NOFACTOR,umbrella review; no explicit factor-learning synthesis,excluded
+c93,False,DESIGN,SLR trends benefits challenges,False,DESIGN,"SLR of trends, no learning synthesis",False,DESIGN,thematic SLR trends/benefits,excluded
+c94,True,,SR mixed evidence; variable effectiveness across disciplines,True,,SLR notes variable effectiveness across disciplines,True,,SR learning outcomes; variable effectiveness across disciplines,included
+c95,False,NOFACTOR,QE ChatGPT vs conventional; digital literacy only as mediator,False,NOFACTOR,digital literacy as mediator only; confused design,False,NOFACTOR,AI vs conventional; digital literacy only as mediator,excluded
+c96,True,,emotional AI MA; integrated vs cognitive-only support,True,,integrated vs cognitive-only support types,True,,emotional AI MA; integrated vs cognitive-only support,included
+c97,False,DESIGN,narrative two-tier synthesis,False,DESIGN,narrative two-tier synthesis incl. surveys,False,DESIGN,"narrative synthesis, not systematic",excluded
+c98,False,NOFACTOR,AI vs traditional writing RCT,False,NOFACTOR,ChatGPT vs traditional,False,NOFACTOR,ChatGPT vs traditional only,excluded
+c99,False,DESIGN,narrative structured review EFL writing,False,DESIGN,structured narrative review incl one-group studies,False,DESIGN,structured narrative review,excluded
+c100,True,,GenAI MA; teacher support moderator,True,,teacher support moderator significant,True,,MA; teacher support moderator,included
+c101,True,,"AI feedback MA; learner level, period, feedback type",True,,"moderators learner level, period, feedback type",True,,"MA; learner level, period, feedback type",included
+c102,False,DESIGN,conceptual framework paper,False,DESIGN,conceptual paper,False,DESIGN,conceptual paper,excluded
+c103,True,,cluster RCT AI e-mentoring; moderation by baseline SRL and SES,True,,moderation by baseline SRL and SES,True,,cluster RCT; moderation by baseline SRL and SES,included
+c104,True,,adaptive learning MA; many moderators,True,,"adaptive learning moderators (subject, adaptive targets)",True,,"adaptive learning MA; subjects, adaptive targets moderators",included
+c105,False,DESIGN,SR teacher perceptions,False,DESIGN,SR of teacher perceptions,False,OUTCOME,teacher perceptions SR,excluded
+c106,True,,"cluster RCT AI writing aid; subgroups achievement, SES, multilingual",True,,"subgroups by achievement, SES, multilingual",True,,"cluster RCT ELA; subgroups achievement, SES",included
+c107,True,,higher ed GenAI 3-level MA; teaching method moderator,True,,teaching method moderator significant,True,,MA; teaching method moderator,included
+c108,True,,"music AI mixed-methods MA; creative performance, dose and task x ability analyses",True,,"music MA; task x ability, dose analyses; creative performance",True,,music MA; creative performance; dose analyses,included
+c109,True,,"vocabulary AI MA; language, level, setting, teacher involvement, duration",True,,"moderators level, setting, teacher involvement, duration",True,,"vocab MA; level, setting, teacher involvement, duration",included
+c110,True,,"L2 AI MA; skill type, in-class vs out-of-class, level",True,,"moderators in-class vs out-of-class, skills, level",True,,"L2 MA; in-class vs out-of-class, skills, level",included
+c111,True,,"personalized STEM AI MA; school level, app type, model, subject",True,,"moderators school level, AI type, subject",True,,"STEM MA; school level, app type, subject",included
+c112,False,OUTCOME,TAM acceptance correlations only,False,OUTCOME,TAM relationships,False,OUTCOME,TAM acceptance outcomes,excluded
+c113,True,,"chatbot science MA; income context, subject, pedagogical design",True,,"moderators income context, subject, pedagogy",True,,"chatbot science MA; context, subject, pedagogy",included
+c114,False,OUTCOME,self-efficacy only,False,OUTCOME,self-efficacy only,False,OUTCOME,self-efficacy outcomes,excluded
+c115,True,,Korea AI MA; intervention type moderator,True,,"moderator AI intervention type, level, subject",True,,"Korea MA; intervention type, level, subject",included
+c116,True,,"Nigeria AI MA; tool type, strategy, discipline, duration",True,,"moderators tool type, discipline, duration",True,,"Nigeria MA; tool type, discipline, duration",included
+c117,True,,AI teaching effectiveness MA; AI type moderator; outcome unclear,True,,AI-enabled teaching; heterogeneity by AI type; outcome unclear,True,,MA AI-enabled teaching; AI type drives heterogeneity; outcome unclear,included
+c118,True,,"vocabulary AI agents MA; embodiment, duration",True,,moderators embodiment and duration,True,,"vocab MA; embodiment, duration",included
+c119,True,,programming chatbot MA; chatbot-student ratio moderator,True,,chatbot-to-student ratio moderator,True,,programming chatbot MA; chatbot-student ratio,included
+c120,True,,"second-order MA; education level, field",True,,"second-order MA; level, field moderators",True,,"second-order MA; level, field",included
+c121,False,OUTCOME,"trust in AI antecedents, correlational",False,OUTCOME,trust antecedents,False,OUTCOME,trust in AI; moderators on trust,excluded
+c122,False,NOFACTOR,"AI vs Excel analysis; no cognitive difference, no factor varied",False,NOFACTOR,AI chatbot vs Excel,False,NOFACTOR,AI vs Excel only,excluded
+c123,False,DESIGN,narrative discussion paper,False,DESIGN,conceptual/narrative paper,False,DESIGN,conceptual/narrative paper,excluded
+c124,True,,"preservice teacher AI MA; country, outcome, duration",True,,"moderators country, duration",True,,"preservice teacher MA; country, duration",included
+c125,False,NOAI,technology-supported learning broadly (GenAI only one subtype); digital literacy,False,NOAI,"technology-supported learning generally, digital literacy",False,NOAI,technology-supported learning generally; digital literacy,excluded
+c126,False,DESIGN,SR teacher PD needs,False,DESIGN,SR of PD needs,False,DESIGN,teacher PD needs SR,excluded
+c127,True,,AIBL computational thinking MA; many moderators,True,,"moderators project-based, individual, duration, level",True,,CT MA; many moderators,included
+c128,True,,multi-arm RCT four AI-ILE designs vs control; teacher CTPK,True,,four AI-ILE arms vs control for teacher learners,True,,multi-arm RCT four AI-ILE designs; CTPK measure unclear,included
+c129,False,NOFACTOR,motor skill AI MA; no moderators,False,NOFACTOR,MA without moderators,False,NOFACTOR,motor skill MA; no moderators reported,excluded
+c130,False,DESIGN,thematic review principal leadership,False,DESIGN,thematic review on leadership,False,OUTCOME,principal leadership; teacher acceptance,excluded
+c131,False,DESIGN,focused narrative review,False,DESIGN,narrative focused review,False,DESIGN,focused narrative review,excluded
+c132,True,,model-based support scaffolds in AI-VR simulation vs control,True,,model-based supports within AI VR simulation,True,,model-based support vs control in AI VR simulation; teaching knowledge,included
+c133,True,,SR incl. grey literature; hybrid teacher-guided models more effective,True,,SR says hybrid teacher-guided models more effective,True,,SR; hybrid human-guided models better results,included
+c134,False,NOFACTOR,AI platform vs face-to-face (AI replaces teacher),False,NOFACTOR,AI platform vs face-to-face,False,NOFACTOR,AI platform vs face-to-face teaching,excluded
+c135,False,DESIGN,scoping review discussion forums,False,DESIGN,scoping review,False,DESIGN,scoping review,excluded
+c136,False,NOFACTOR,"language AI SR; mostly positive, no factor synthesis",False,NOFACTOR,"SR of effectiveness, no factor synthesis",False,NOFACTOR,SR effectiveness; no factor synthesized,excluded
+c137,False,NOAI,SR of AI PD for teachers; not learning with AI,False,NOAI,"SR of AI PD for teachers, not AI used in learning",False,NOAI,SR of AI PD for teachers; not learning with AI,excluded
+c138,False,DESIGN,narrative review,False,DESIGN,narrative review,False,DESIGN,narrative review,excluded
+c139,True,,AI-generated video with vs without preview feature,True,,"AI-generated videos with vs without preview, within-subjects",True,,within-subjects AI videos with vs without preview,included
+c140,True,,RCT human teacher vs MOOC+chatbot vs AI instructional agent,True,,human vs chatbot-MOOC vs AI agent,True,,RCT human vs MOOC+chatbot vs AI agent,included
+c141,True,,"AI writing feedback MA; proficiency, setting, duration",True,,"moderators proficiency, setting, duration",True,,"writing feedback MA; proficiency, setting, duration",included
+c142,False,NOFACTOR,AI interactive scaffolding vs fixed scaffolding (AI vs non-AI),False,NOFACTOR,AI scaffolding vs fixed non-AI scaffolding,False,NOFACTOR,AI interactive scaffolding vs fixed scaffolding observation,excluded
+c143,True,,"GenAI writing MA; instructional model, duration ns",True,,"moderators instructional model, duration",True,,"writing MA; instructional model, duration ns",included
+c144,False,NOAI,"digital SEL interventions, not AI",False,NOAI,"digital SEL interventions, not AI",False,NOAI,"digital SEL interventions, not AI",excluded
+c145,True,,health professions AI MA of RCTs; subgroups by technology type and function,True,,subcategory analyses by AI technology type,True,,MA of RCTs; analyses by AI technology subtype,included
+c146,False,NOFACTOR,AI feedback vs instructor feedback (AI replaces human),False,NOFACTOR,AI vs instructor feedback; TAM paths on attitudes,False,NOFACTOR,AI feedback vs instructor feedback,excluded
+c147,True,,"EFL chatbot MA; duration, role, form, level, teacher role",True,,"moderators duration, chatbot role/form, level, teacher role",True,,"EFL chatbot MA; duration, role, form",included
+c148,True,,AI pair vs human pair vs individual; GPT-3.5 vs Claude model comparison,True,,AI pair vs human pair vs individual; two AI models compared,True,,AI pair vs human pair vs individual; two AI models compared,included
+c149,False,DESIGN,SR teacher-AI co-design trends,False,DESIGN,"SR on teacher co-design, no learning synthesis",False,DESIGN,teacher-AI co-design SR,excluded
+c150,False,DESIGN,survey of lecturers' adoption intention,False,DESIGN,survey of lecturers,False,DESIGN,survey of lecturers,excluded
+c151,True,,mixed meta-method primary AI; variables analyzed unclear,True,,mixed meta-method; variables evaluated as moderators unclear,True,,"mixed meta-method; variables evaluated, unclear",included
+c152,True,,"narrative SLR 9 studies; conditions task-AI fit, AI literacy",True,,"narrative SR on academic performance; conditions (task fit, AI literacy)",True,,"SLR; impact depends on task-AI fit, AI literacy",included
+c153,False,DESIGN,scoping review teacher education,False,DESIGN,scoping review,False,DESIGN,scoping review,excluded
+c154,False,NOFACTOR,AI vs traditional writing; no factor,False,NOFACTOR,AI vs traditional writing,False,NOFACTOR,AI vs traditional writing,excluded
+c155,False,OUTCOME,autonomy and self-efficacy only; AI vs teacher facilitation,False,OUTCOME,autonomy and self-efficacy only,False,OUTCOME,autonomy and self-efficacy,excluded
+c156,False,NOAI,"teacher-student relationships, no AI",False,NOAI,"teacher-student relationships, no AI",False,NOAI,teacher-student relationships,excluded
+c157,True,,AI game-based learning SR; adaptive mechanism conditions for learning,True,,SR of AI game-based learning; adaptive mechanisms vs learning,True,,AI-GBL SR; adaptive mechanism effects depend on design,included
+c158,False,NOFACTOR,AI predictive model for math ed tech; model-guided vs traditional only,False,NOFACTOR,AI predictive model of non-AI math ed tech; experiment AI vs traditional,False,NOFACTOR,predictive model of MET; model-guided vs traditional,excluded
+c159,False,DESIGN,scoping review AI assessment,False,DESIGN,scoping review,False,DESIGN,scoping review,excluded
+c160,False,DESIGN,critical scoping review AI/LA,False,DESIGN,scoping review,False,DESIGN,scoping review,excluded
+c161,True,,learning experiments; heterogeneity by prior knowledge and university rank,False,DESIGN,"correlational heterogeneity analysis, no clear comparison group",True,,"heterogeneity by prior knowledge, university rank",included
+c162,False,NOAI,"teacher education interventions, not AI",False,NOAI,"teacher education interventions, no AI",False,NOAI,teacher education interventions,excluded
+c163,False,OUTCOME,intention to use correlations,False,OUTCOME,MA of intention to use,False,OUTCOME,use intention,excluded
+c164,False,DESIGN,framework development and teacher pilot perceptions,False,DESIGN,framework plus pilot,False,DESIGN,framework and pilot,excluded
+c165,True,,2x2 pacing x AIGC experiment,True,,2x2 pacing x AIGC; pacing moderates,True,,2x2 pacing x AIGC,included
+c166,False,NOFACTOR,"thematic SLR; generic conditions, no explicit factor synthesis",True,,"SLR on academic performance; pedagogical integration, unequal benefits",True,,SLR; unequal benefits across student groups,included
+c167,False,DESIGN,SR of AI dashboards techniques,False,DESIGN,SR of dashboard techniques,False,DESIGN,LAD techniques SR,excluded
+c168,False,DESIGN,narrative review AI in teaching and PD,False,DESIGN,"SR on adoption, no learning synthesis",False,DESIGN,teacher adoption SR,excluded
+c169,False,DESIGN,mapping SR elementary STEM AI,False,DESIGN,mapping review,False,DESIGN,mapping SR,excluded
+c170,True,,personalized adaptive chatbot vs standard ChatGPT,True,,personalized adaptive vs standard ChatGPT,True,,personalized vs standard ChatGPT,included
+c171,False,NOFACTOR,chatbot vs self-remediation (AI vs no AI),False,NOFACTOR,self-assessment with chatbot vs without chatbot,False,NOFACTOR,chatbot vs self-remediation without tech,excluded
+c172,False,NOFACTOR,chatbot vs classic case-based learning,False,NOFACTOR,chatbot vs classic,False,NOFACTOR,chatbot vs classic,excluded
+c173,True,,self-evaluation chatbot vs control chatbot,True,,self-evaluation chatbot vs control chatbot; assignment not stated,True,,self-evaluation chatbot vs control chatbot,included
+c174,False,NOFACTOR,ChatGPT guides vs standard feedback (AI vs no AI),False,NOFACTOR,ChatGPT guides vs standard non-AI feedback,False,NOFACTOR,AI guides vs standard non-AI feedback,excluded
+c175,True,,ChatGPT permitted vs not; no preferential benefit for weaker students,True,,prior performance interaction tested (no benefit for weaker); performance with AI,True,,ChatGPT permitted vs not; no preferential benefit weaker students,included
+c176,True,,scaffolded tutor vs unrestricted ChatGPT vs no AI,True,,scaffolded Iris vs ChatGPT vs no AI,True,,scaffolded Iris vs unrestricted ChatGPT vs control,included
+c177,False,NOFACTOR,chatbot vs conventional instruction,False,NOFACTOR,chatbot vs conventional instruction,False,NOFACTOR,chatbot vs conventional,excluded
+c178,True,,metacognitive vs affective vs neutral chatbot feedback,True,,metacognitive vs affective vs neutral chatbot feedback,True,,metacognitive vs affective vs neutral feedback,included
+c179,True,,AI peer RCT; gains analyzed by AI correctness (model accuracy),True,,AI peer vs control; learning vs AI correctness analyzed,True,,AI peer vs control; gains not dependent on AI correctness,included
+c180,False,NOFACTOR,ChatGPT vs other resources (AI vs no AI),False,NOFACTOR,ChatGPT vs other resources,False,NOFACTOR,ChatGPT vs other resources,excluded
+c181,True,,peer vs ChatGPT vs ITS dialogue conditions (tool type),True,,peer vs ChatGPT vs ITS dialogue conditions,True,,peer vs ChatGPT vs ITS dialogue,included
+c182,False,NOFACTOR,ChatGPT individual vs expert generic feedback (AI vs human); usage correlational,False,NOFACTOR,AI individual vs expert generic feedback; AI vs human,True,,crossover ChatGPT individual vs expert generic feedback,excluded
+c183,False,NOFACTOR,AI chatbot vs tutor-supervised peer role-play,False,NOFACTOR,AI chatbot vs peer role-play,False,NOFACTOR,chatbot vs peer role-play,excluded
+c184,True,,control vs ChatGPT vs ChatGPT+SRL strategies; knowledge ns,True,,ChatGPT vs ChatGPT plus SRL strategies vs control,True,,ChatGPT vs ChatGPT+SRL strategies vs control,included
+c185,False,NOFACTOR,GAI chatbot vs peer interaction,False,NOFACTOR,GAI chatbot vs peer interaction,False,NOFACTOR,chatbot vs peer interaction,excluded
+c186,True,,AI feedback RCTs; benefit only for low-knowledge students,True,,AI feedback benefited low-knowledge students only,True,,AI feedback; benefit only low-knowledge students,included
+c187,False,NOFACTOR,chatbot + videos vs videos,False,NOFACTOR,chatbot plus video vs video,False,NOFACTOR,chatbot plus video vs video,excluded
+c188,True,,VR+ChatGPT crossover; subgroups prior VR experience and digital literacy,True,,subgroups by prior VR experience and digital literacy,True,,"crossover; subgroups prior VR experience, digital literacy",included
+c189,False,NOFACTOR,language AI SR incl. one-group designs; descriptive,False,NOFACTOR,SR mostly descriptive; factors not linked to learning,False,DESIGN,mapping SR incl one-group designs,excluded
+c190,True,,ChatGPT dental skills RCT; spatial ability moderation,True,,spatial ability subgroup moderation,True,,ChatGPT; spatial ability subgroups,included
+c191,False,OUTCOME,speaking self-efficacy focus; AI vs no AI,False,OUTCOME,speaking self-efficacy main outcome,False,OUTCOME,speaking self-efficacy,excluded
+c192,False,NOFACTOR,pilot chatbot vs none,False,NOFACTOR,chatbot vs none pilot,False,NOFACTOR,chatbot vs none,excluded
+c193,False,NOFACTOR,AI platform vs traditional lecture,False,NOFACTOR,AI platform vs traditional; only within-arm correlations,False,NOFACTOR,AI platform vs traditional,excluded
+c194,False,NOFACTOR,AI tools with training vs usual instructions; training not isolated,False,NOFACTOR,AI-use training plus AI tools vs usual instruction (AI vs no AI),False,NOFACTOR,AI tools training+use vs usual instructions,excluded
+c195,False,NOFACTOR,AI-PBL vs PBL,False,NOFACTOR,AI-PBL vs PBL,False,NOFACTOR,AI-PBL vs PBL,excluded
+c196,True,,five-arm RCT of different AI scaffold types vs human feedback,True,,five arms of AI scaffold types vs human feedback,True,,five arms of AI scaffold types vs human feedback,included
+c197,False,OUTCOME,"engagement, motivation, enjoyment only",False,OUTCOME,"engagement, motivation, enjoyment only",False,OUTCOME,"engagement, motivation, enjoyment",excluded
+c198,False,NOFACTOR,AI virtual patient vs human standardized patient,False,NOFACTOR,AI virtual patients vs standardized patients,False,NOFACTOR,AI virtual patient vs standardized patient,excluded
+c199,False,NOAI,"mental health chatbot, not education",False,OUTCOME,mental health treatment,False,OUTCOME,mental health treatment,excluded
+c200,False,NOAI,"mental health chatbot vs nurse hotline, not education",False,OUTCOME,anxiety and depression,False,OUTCOME,anxiety/depression,excluded
+c201,False,NOFACTOR,ChatGPT vs teacher-led vocabulary,False,NOFACTOR,ChatGPT vs teacher-led,False,NOFACTOR,ChatGPT vs teacher-led,excluded
+c202,False,NOFACTOR,GPT-4 access RCT; country moderation only on exam participation/engagement,False,NOFACTOR,"country moderates exam participation (engagement), not learning",False,NOFACTOR,GPT access; country moderates participation only,excluded
+c203,False,NOFACTOR,AI speech recognition vs none,False,NOFACTOR,AI speech recognition vs no AI,False,NOFACTOR,AI speech recognition vs control,excluded
+c204,False,NOFACTOR,AI PBL/CBL MA of 6 RCTs; no moderators,False,NOFACTOR,"MA of 6 RCTs, no moderators",False,NOFACTOR,AI PBL/CBL MA; no moderators,excluded
+c205,False,DESIGN,SR chatbot design framework for SRL,False,DESIGN,"SR on chatbot design for SRL, no learning synthesis",False,DESIGN,design framework SR,excluded
+c206,False,NOFACTOR,"AI calibration tool RCT; subgroup only on calibration, not learning",False,NOFACTOR,moderation by overconfidence only on calibration,False,NOFACTOR,AI calibration tool vs control; subgroup on calibration only,excluded
+c207,False,OUTCOME,executive coaching AI vs human; goals and wellbeing,False,OUTCOME,"coaching goals, wellbeing",False,OUTCOME,coaching goals/wellbeing,excluded
+c208,False,DESIGN,study protocol,False,DESIGN,study protocol,False,DESIGN,protocol,excluded
+c209,False,DESIGN,"sequential within-subjects, no comparison group",False,DESIGN,sequential within-subjects without control,False,DESIGN,sequential within-subjects without counterbalancing,excluded
+c210,True,,RCT structured GenAI training for students vs none,True,,structured AI-use training vs none,True,,structured GenAI training vs none,included
+c211,False,DESIGN,AI assessment of tutors; no comparison group,False,DESIGN,no comparison group; tutor training prediction,False,DESIGN,tutor training observational,excluded
+c212,False,OUTCOME,chatbots for executive functions incl. mental health outcomes,False,OUTCOME,executive functions and mental health,False,OUTCOME,executive functions/mental health,excluded
+c213,False,NOFACTOR,SLR chatbots higher ed; generic conditions,True,,SLR concludes guided integration matters,False,NOFACTOR,SLR; guided integration recommended,excluded
+c214,True,,ITS with real-time feedback vs same ITS without feedback,True,,ITS with vs without real-time feedback,True,,ITS with vs without real-time feedback,included
+c215,True,,self-assessment chatbot vs ChatGPT; assignment not stated,True,,self-assessment chatbot vs ChatGPT; assignment unclear,True,,self-assessment chatbot vs ChatGPT,included
+c216,False,OUTCOME,scoping review chatbots and motivation,False,DESIGN,scoping review on motivation,False,DESIGN,scoping review motivation,excluded
+c217,False,NOFACTOR,chatbot vs website learning,False,NOFACTOR,chatbot vs website,False,NOFACTOR,chatbot vs website,excluded
+c218,True,,self-assessment chatbot vs ChatGPT (n=9),True,,adaptive self-assessment chatbot vs ChatGPT (diseno),True,,adaptive self-assessment chatbot vs ChatGPT; n=9,included
+c219,False,DESIGN,"single group pre-post, self-rated competence",False,DESIGN,"single group pre-post, self-rated competence",False,DESIGN,"single-group pre-post, self-rated competence",excluded
+c220,True,,AI clinical simulation MA; subgroups skill type and AI model type,True,,subgroups by skill type and AI model type,True,,MA of RCTs; skill type and model type subgroups,included
+c221,True,,immediate vs delayed chatbot corrective feedback,True,,"immediate vs delayed feedback, grammar gains",True,,immediate vs delayed feedback; grammar gains,included
+c222,True,,GenAI vs teacher-led; subgroup by visual-spatial ability and low achievers,False,NOFACTOR,GenAI vs teacher-led; AI replacing teacher not docente,False,NOFACTOR,GenAI vs teacher-led (AI replacing human),excluded
+c223,False,NOAI,"mental health chatbot, not education",False,OUTCOME,mental health outcomes only,False,OUTCOME,mental health outcomes,excluded
+c224,False,NOFACTOR,ChatGPT pathways vs conventional resources,False,NOFACTOR,ChatGPT vs conventional resources only,False,NOFACTOR,ChatGPT vs conventional only,excluded
+c225,False,DESIGN,scoping review nursing chatbots,False,DESIGN,scoping review,False,DESIGN,scoping review,excluded
+c226,True,,ChatGPT creativity RCT; effects differ by discipline,True,,creativity task effects by discipline (materia),True,,creativity task; effect differs by discipline,included
+c227,True,,within-subjects neuroadaptive vs non-adaptive chatbot; learning ns,True,,"within-subjects neuroadaptive vs non-adaptive chatbot, learning no diff",True,,within-subjects neuroadaptive vs non-adaptive chatbot; learning ns,included
+c228,True,,ChatGPT discovery learning QE; self-efficacy interaction tested ns,True,,self-efficacy moderation of ChatGPT effect tested,True,,QE; self-efficacy interaction tested ns,included
+c229,False,NOFACTOR,ChatGPT-PBL vs traditional,False,NOFACTOR,ChatGPT-PBL vs traditional only,False,NOFACTOR,ChatGPT-PBL vs traditional only,excluded
+c230,False,DESIGN,SR science identity,False,OUTCOME,"SR on science identity, not learning effects",False,OUTCOME,science identity/interest,excluded
+c231,False,NOFACTOR,custom chatbot vs conventional crossover,False,NOFACTOR,"chatbot vs conventional crossover, no factor",False,NOFACTOR,crossover chatbot vs conventional,excluded
+c232,False,NOFACTOR,ChatGPT vs teacher-led,False,NOFACTOR,ChatGPT vs teacher-led,False,NOFACTOR,ChatGPT vs teacher-led only,excluded
+c233,False,DESIGN,exploratory observational usage study,False,DESIGN,"exploratory observational, no comparison",False,DESIGN,exploratory observational,excluded
+c234,False,DESIGN,technical benchmark of chatbots on exam,False,DESIGN,technical benchmark of chatbots on exam,False,DESIGN,technical benchmark,excluded
+c235,True,,ChatGPT vs DeepSeek vs control (model comparison),True,,DeepSeek vs ChatGPT vs control arms (model),True,,ChatGPT vs DeepSeek vs control; model comparison,included
+c236,False,OUTCOME,participation and self-reported confidence only,False,OUTCOME,participation and self-reported confidence only,False,OUTCOME,participation and self-reported confidence,excluded
+c237,False,NOFACTOR,conversational bot vs listen-and-repeat interface,False,NOFACTOR,conversational bot vs listen-repeat interface,False,NOFACTOR,bot vs listen-and-repeat interface,excluded
+c238,True,,AI-mediated TA feedback vs handwritten; gains rise with AI suggestion adoption,True,,gains increased with amount of AI suggestions adopted (dose),True,,AI-mediated TA feedback; gains rise with AI adoption (dose),included
+c239,False,DESIGN,"SR categorizing human-AI synergy, no learning synthesis",False,DESIGN,"SR categorizing AI uses, no learning synthesis",False,DESIGN,SR categorizing AI roles; no learning outcomes,excluded
+c240,False,DESIGN,conceptual book chapter,False,DESIGN,conceptual chapter,False,DESIGN,conceptual chapter,excluded
+c241,True,,SLR 10 studies; structured routines and teacher orchestration linked to gains,True,,SR of human-AI CPS; orchestration and structured routines,True,,SR; structured routines and teacher orchestration associated with productive learning,included
+c242,False,NOFACTOR,AI vs human feedback MA; no factor moderators reported,True,,AI vs human feedback; subgroup language/writing domain,False,NOFACTOR,AI vs human feedback (replacement),excluded
+c243,True,,physical robot vs on-screen tutor agent embodiment in ITS,True,,"physical vs on-screen tutor embodiment, task performance",True,,physical vs on-screen tutor embodiment; task performance,included
+c244,False,OUTCOME,learning satisfaction outcomes only,False,OUTCOME,"satisfaction, flow, self-efficacy only",False,OUTCOME,learning satisfaction,excluded
+c245,False,DESIGN,SR co-teaching thematic,False,DESIGN,"thematic SR on teaching practice, no learning synthesis",False,DESIGN,thematic SR teaching practice,excluded
+c246,False,DESIGN,"dialogue analysis, no learning outcome",False,DESIGN,"dialogue comparison, no learners",False,DESIGN,"dialogue comparison, no learners",excluded
+c247,False,OUTCOME,"AI-assisted decision accuracy, not learning",False,OUTCOME,"tutor decision accuracy with AI support, not learning",False,OUTCOME,"tutor decision accuracy with AI support, not learning",excluded
+c248,True,,RL-timed GenAI access vs unrestricted vs restricted,True,,timed vs unrestricted vs restricted GenAI access,True,,RL-timed access vs unrestricted vs restricted,included
+c249,False,OUTCOME,cognitive load outcomes only,False,OUTCOME,SR on cognitive load not learning outcomes,False,OUTCOME,cognitive load outcomes,excluded
+c250,False,DESIGN,scoping review teacher informal learning,False,DESIGN,scoping review,False,DESIGN,scoping review,excluded
+bastani2025,True,,GPT Base vs GPT Tutor vs control,True,,GPT Base vs GPT Tutor with guardrails,True,,GPT Base vs GPT Tutor,included
+e:aleks-republica-dominicana-lopez-2026,False,NOFACTOR,ALEKS vs control; no factor described,True,,'ALEKS alone' implies extra arm; factor unclear,False,NOFACTOR,ALEKS vs control; no factor in text,excluded
+e:estados-unidos-chatbot-mensajes-cursos-universitarios-2026,False,NOFACTOR,chatbot outreach vs none,False,NOFACTOR,chatbot outreach vs control; no factor stated,False,NOFACTOR,chatbot outreach vs none,excluded
+e:estados-unidos-maryland-tutor-ia-2026,False,NOFACTOR,AI tutor RCT; same-course subsample only,False,NOFACTOR,AI tutor vs control; no factor analysis stated,False,NOFACTOR,AI tutor vs none,excluded
+e:khanmigo-tennessee-2026,True,,Khanmigo RCT; effects by year of exposure,True,,effect grew in year 2 vs year 1 (duration),True,,effect differs year 1 vs year 2 (duration),included
+e:reino-unido-ia-ayuda-o-dana-2026,True,,control vs ChatGPT vs guided ChatGPT,True,,ChatGPT vs guided ChatGPT vs control,True,,ChatGPT vs guided ChatGPT vs control,included
+e:shaia-bogota-2026,False,NOFACTOR,ShaIA RCT interim; no factor,False,NOFACTOR,"AI vs control, preliminary",False,NOFACTOR,ShaIA vs control,excluded
+e:tutor-copilot-eeuu-2025,False,NOFACTOR,Tutor CoPilot RCT; no factor analysis in record text,False,NOFACTOR,AI support for tutors vs control; no factor stated,False,NOFACTOR,AI copilot for tutors vs none; no factor in text,excluded
+e:australia-chatgpt-programacion-retencion-2026,False,NOFACTOR,ChatGPT vs no AI lab,False,NOFACTOR,AI vs no AI,False,NOFACTOR,ChatGPT vs no AI,excluded
+e:brasil-chatgpt-retencion-2025,False,NOFACTOR,ChatGPT vs no AI retention,False,NOFACTOR,AI vs no AI,False,NOFACTOR,ChatGPT vs no AI,excluded
+e:corea-del-sur-chatbot-busqueda-aprendizaje-2025,False,NOFACTOR,within-subjects ChatGPT vs textbook vs other tool,False,NOFACTOR,ChatGPT vs textbook/search,False,NOFACTOR,ChatGPT vs textbook/search,excluded
+e:estados-unidos-coach-ia-comunicacion-empatica-2026,True,,control vs video vs AI coach vs combined; AI combined with instruction,True,,AI coach alone vs combined with video (integration),True,,AI coach alone vs combined with videos,included
+e:estados-unidos-numi-2026,True,,2x2x2 design; AI tutor effect only with mastery rule,True,,2x2x2 incl mastery rule (tool design),True,,2x2x2 incl mastery rule,included
+e:estados-unidos-retroalimentacion-ia-diapositivas-2025,True,,human vs AI feedback vs AI slides vs combined (AI feature type),True,,AI vs human feedback x relevant slide retrieval,True,,AI feedback vs AI plus slide arms,included
+e:kestin-harvard-2025,False,NOFACTOR,AI tutor vs in-class active learning (AI vs no AI),False,NOFACTOR,AI tutor vs active learning,False,NOFACTOR,AI tutor vs in-class active learning,excluded
+e:pais-no-informado-chatgpt-google-retencion-2025,True,,ChatGPT vs Google vs PDF vs control; effects differ by task complexity,True,,effects differ by task complexity (task type),True,,effects differ by task complexity,included
+e:reino-unido-medly-tutor-ia-2026,False,NOFACTOR,Medly vs control,False,NOFACTOR,AI tutor vs control,False,NOFACTOR,Medly vs control,excluded
+e:shen-tamkin-habilidades-ia-2026,False,NOFACTOR,AI vs no AI coding,False,NOFACTOR,AI vs no AI,False,NOFACTOR,AI vs no AI,excluded
+e:alemania-paises-bajos-programacion-llm-2024,False,NOFACTOR,LLM vs no LLM; record gives no factor analysis,False,NOFACTOR,"LLM vs no LLM, no factor visible",False,NOFACTOR,LLM vs no LLM; no factor in text,excluded
+e:eeuu-escritura-coach-ia-2026,False,NOFACTOR,AI practice vs no AI practice,False,NOFACTOR,practice with AI vs without,False,NOFACTOR,practice with vs without AI,excluded
+e:estados-unidos-evaluar-soluciones-ia-algoritmos-2026,False,NOFACTOR,evaluating AI solutions vs solving (AI vs no AI use mode),True,,solving vs evaluating GenAI solutions (how AI used),True,,solving vs evaluating GenAI solutions,included
+e:estados-unidos-persistencia-ia-2026,False,NOFACTOR,AI assistance vs control,False,NOFACTOR,AI vs control,False,NOFACTOR,AI vs control,excluded
+e:estados-unidos-tutor-pares-llm-2026,True,,control vs AI tutor vs tutor plus AI peers configurations,True,,tutor plus AI peers vs tutor alone vs control,True,,tutor plus peers vs tutor alone vs control,included
+e:inglaterra-llm-toma-de-notas-2026,True,,LLM vs note-taking vs combined conditions,True,,LLM vs note-taking conditions (activity structure),True,,LLM alone vs note-taking (vs combined),included
+e:khan-academy-uttar-pradesh-2026,False,NOAI,"Khan Academy prewritten exercises with lab managers, not AI",False,NOAI,"Khan Academy prewritten content, not clearly AI",False,NOAI,Khan Academy prewritten content; not clearly AI,excluded
+e:reino-unido-retroalimentacion-metacognitiva-asistente-llm-2026,True,,AI assistant with vs without metacognitive feedback / effort reward arms,True,,metacognitive feedback arms,True,,metacognitive feedback vs AI only,included
+e:alemania-tutor-lectura-ia-2025,True,,unrestricted vs restricted AI tutor access vs control,True,,unrestricted vs restricted tutor access,True,,unrestricted vs restricted tutor access,included
+e:eeuu-guia-instruccional-ia-2026,True,,guided AI vs unguided AI vs slides,True,,guided vs unguided AI vs slides,True,,guided vs unguided AI vs slides,included
+e:estados-unidos-apoyo-humano-tutor-ia-2026,True,,AI tutoring with vs without human support; reading exploratory,True,,human support added to AI tutoring,True,,human support added to AI tutoring; reading ns,included
+e:gallegos-chile-2026,True,,guidance emails on using course GPT vs none,True,,guidance emails on AI use,True,,guidance emails on AI use,included
+e:learnlm-eedi-reino-unido-2026,True,,AI question context vs personalized context vs human tutor vs standard,True,,question vs personalized context AI arms,True,,question vs personalized context arms,included
+e:mindspark-escala-rajastan-2026,False,NOFACTOR,Mindspark adaptive CAL vs control; no factor in record,False,NOFACTOR,"adaptive system vs control, no factor stated",False,NOFACTOR,Mindspark vs control,excluded
+e:canada-tutoria-virtual-khan-academy-2026,False,NOAI,"virtual human tutoring with Khan Academy, not AI",False,NOAI,"human tutoring with Khan Academy, not clearly AI",False,NOAI,virtual human tutoring with Khan Academy; not clearly AI,excluded
+e:china-pereza-metacognitiva-2024,False,NOFACTOR,ChatGPT vs human expert vs checklist vs control,False,NOFACTOR,ChatGPT vs human expert vs checklist vs control,False,NOFACTOR,ChatGPT vs human expert vs checklist vs control,excluded
+e:estados-unidos-asistente-ia-patentes-abogados-2026,False,NOFACTOR,patent attorneys AI vs no AI; professional setting,False,NOFACTOR,"AI vs control, professionals",False,NOFACTOR,workplace AI vs control,excluded
+e:estados-unidos-learn-your-way-2026,False,NOFACTOR,AI learning platform vs control,False,NOFACTOR,AI platform vs control,False,NOFACTOR,AI platform vs comparison,excluded
+e:estados-unidos-pistas-ia-diferida-ciencia-de-datos-2026,True,,no AI vs on-demand AI vs deferred AI hints,True,,on-demand vs deferred AI,True,,on-demand vs deferred AI vs none,included
+e:gemini-sierra-leona-2026,True,,Gemini guided learning RCT; dose (12 hours completed) analysis,True,,dose: completing planned 12 hours,True,,dose: completing planned hours,included
+e:turquia-docentes-ia-2026,False,NOFACTOR,teacher AI assistant; heterogeneity by teacher quality only,False,NOFACTOR,"heterogeneity by teacher quality, not a listed factor",False,NOFACTOR,AI for teachers; heterogeneity by teacher quality,excluded
+e:sin-pais-mensajes-apoyo-llm-educacion-distancia-2026,True,,LLM support messages; treatment effect heterogeneity analysis,True,,treatment effect heterogeneity (learner characteristics),True,,treatment effect heterogeneity (who benefits),included
