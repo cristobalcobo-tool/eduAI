@@ -483,7 +483,8 @@ function setLang(l) {
   document.querySelectorAll('.lab-langs [data-lang]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === L)));
 }
 const nav = (navigator.language || 'es').slice(0, 2);
-setLang(nav === 'pt' ? 'pt' : nav === 'en' ? 'en' : 'es');
+let langUrl = null; try { langUrl = new URL(location.href).searchParams.get('lang'); } catch (e) {}
+setLang(['es', 'en', 'pt'].includes(langUrl) ? langUrl : nav === 'pt' ? 'pt' : nav === 'en' ? 'en' : 'es');
 document.querySelectorAll('.lab-langs [data-lang]').forEach((b) => b.addEventListener('click', () => { setLang(b.dataset.lang); redibujarTodo(); }));
 const evId = () => (L === 'en' ? 'evidencia_en' : 'evidencia_es');
 const panId = () => (L === 'en' ? 'panorama_en' : 'panorama_es');
@@ -547,7 +548,7 @@ document.querySelectorAll('.anexo-tab').forEach((b) => b.addEventListener('click
 }));
 document.querySelectorAll('.lab-tab').forEach((b) => b.addEventListener('click', () => abrir(b.dataset.tab)));
 document.querySelectorAll('[data-tab-ir]').forEach((b) => b.addEventListener('click', () => { abrir(b.dataset.tabIr); const t = document.getElementById(b.dataset.tabIr); if (t && t.scrollIntoView) setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60); }));
-if (location.hash) abrir(location.hash.slice(1));
+if (location.hash) { const h = decodeURIComponent(location.hash.slice(1)); if (/^(anexo:|glosario$|mapa-factores$)/.test(h)) setTimeout(() => irDestino(h), 0); else abrir(h); }
 
 // Inicio (título), Acerca de y enlaces internos
 function irArriba() { const h = document.getElementById('encabezado'); if (h && h.scrollIntoView) h.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
@@ -561,17 +562,27 @@ function acerca(abierto) {
 document.querySelectorAll('a.lab-home').forEach((a) => a.addEventListener('click', (ev) => { ev.preventDefault(); acerca(false); abrir('decidir'); irArriba(); }));
 document.querySelectorAll('#acerca-btn').forEach((b) => b.addEventListener('click', () => acerca(document.getElementById('acerca').hidden)));
 document.querySelectorAll('#acerca-x').forEach((b) => b.addEventListener('click', () => { acerca(false); const x = document.getElementById('acerca-btn'); if (x) x.focus(); }));
-document.querySelectorAll('[data-acerca-ir]').forEach((a) => a.addEventListener('click', (ev) => {
-  ev.preventDefault();
-  const d = a.dataset.acercaIr;
-  acerca(false);
+function irDestino(d) {
   let destino = null;
   if (d.indexOf('anexo:') === 0) { abrirAnexo(d.slice(6)); destino = document.querySelector('.lab-section.anx[data-panel="' + d.slice(6) + '"]') || document.getElementById('anexo'); }
   else if (d === 'glosario') { document.querySelectorAll('#glosario').forEach((g) => { g.open = true; }); destino = document.getElementById('glosario'); }
   else if (d === 'mapa-factores') { abrir('lecciones'); const m = document.getElementById('mapa-factores'); if (m) m.open = true; destino = m; }
   else { abrir(d); destino = document.getElementById(d); }
-  if (destino && destino.scrollIntoView) setTimeout(() => destino.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
-}));
+  if (destino && destino.scrollIntoView) setTimeout(() => destino.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
+}
+document.querySelectorAll('[data-acerca-ir]').forEach((a) => {
+  a.setAttribute('href', '#' + a.dataset.acercaIr);
+  a.setAttribute('target', '_blank');
+  a.setAttribute('rel', 'noopener');
+  a.addEventListener('click', (ev) => {
+    ev.preventDefault();
+    const d = a.dataset.acercaIr;
+    let w = null;
+    try { const u = new URL(location.href); u.searchParams.set('lang', L); u.hash = d; w = window.open(u.toString(), '_blank'); } catch (e) { w = null; }
+    if (w) { try { w.opener = null; } catch (e) {} return; }
+    irDestino(d); // si el navegador bloquea la ventana nueva, se navega aquí y Acerca de queda abierto
+  });
+});
 document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') { const sec = document.getElementById('acerca'); if (sec && !sec.hidden) acerca(false); } });
 
 function verGlosario(key) {
@@ -2036,7 +2047,8 @@ reg('expComparar', (box) => {
 
 /* ===================== Mapa de factores (Consensus + EvidencIA) ===================== */
 
-const MF_FAC = ['acceso', 'pedagogia', 'duracion', 'contexto', 'docente', 'diseno', 'formacion', 'estudiantes', 'materia'];
+// 'docente' (apoyo docente y supervisión humana) se dejó fuera del mapa a pedido: solo 8 estudios lo probaron y los resultados están divididos.
+const MF_FAC = ['acceso', 'pedagogia', 'duracion', 'contexto', 'diseno', 'formacion', 'estudiantes', 'materia'];
 const MF_ANIOS = [2025, 2026];
 const MF_COL = { crit: '#1f8a5b', mixto: '#d99a1e', menos: '#7a8aa0' };
 const MF = { f: null, y: null };
