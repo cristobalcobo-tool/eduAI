@@ -549,6 +549,31 @@ document.querySelectorAll('.lab-tab').forEach((b) => b.addEventListener('click',
 document.querySelectorAll('[data-tab-ir]').forEach((b) => b.addEventListener('click', () => { abrir(b.dataset.tabIr); const t = document.getElementById(b.dataset.tabIr); if (t && t.scrollIntoView) setTimeout(() => t.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60); }));
 if (location.hash) abrir(location.hash.slice(1));
 
+// Inicio (título), Acerca de y enlaces internos
+function irArriba() { const h = document.getElementById('encabezado'); if (h && h.scrollIntoView) h.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+function acerca(abierto) {
+  const sec = document.getElementById('acerca'); const btn = document.getElementById('acerca-btn');
+  if (!sec) return;
+  sec.hidden = !abierto;
+  if (btn) btn.setAttribute('aria-expanded', String(abierto));
+  if (abierto && sec.scrollIntoView) setTimeout(() => sec.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 30);
+}
+document.querySelectorAll('a.lab-home').forEach((a) => a.addEventListener('click', (ev) => { ev.preventDefault(); acerca(false); abrir('decidir'); irArriba(); }));
+document.querySelectorAll('#acerca-btn').forEach((b) => b.addEventListener('click', () => acerca(document.getElementById('acerca').hidden)));
+document.querySelectorAll('#acerca-x').forEach((b) => b.addEventListener('click', () => { acerca(false); const x = document.getElementById('acerca-btn'); if (x) x.focus(); }));
+document.querySelectorAll('[data-acerca-ir]').forEach((a) => a.addEventListener('click', (ev) => {
+  ev.preventDefault();
+  const d = a.dataset.acercaIr;
+  acerca(false);
+  let destino = null;
+  if (d.indexOf('anexo:') === 0) { abrirAnexo(d.slice(6)); destino = document.querySelector('.lab-section.anx[data-panel="' + d.slice(6) + '"]') || document.getElementById('anexo'); }
+  else if (d === 'glosario') { document.querySelectorAll('#glosario').forEach((g) => { g.open = true; }); destino = document.getElementById('glosario'); }
+  else if (d === 'mapa-factores') { abrir('lecciones'); const m = document.getElementById('mapa-factores'); if (m) m.open = true; destino = m; }
+  else { abrir(d); destino = document.getElementById(d); }
+  if (destino && destino.scrollIntoView) setTimeout(() => destino.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
+}));
+document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') { const sec = document.getElementById('acerca'); if (sec && !sec.hidden) acerca(false); } });
+
 function verGlosario(key) {
   document.querySelectorAll('#glosario').forEach((d) => { d.open = true; });
   document.querySelectorAll('#glosario .g').forEach((g) => g.classList.toggle('on', g.id === 'g-' + key));
