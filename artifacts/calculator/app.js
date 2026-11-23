@@ -556,6 +556,7 @@ function acerca(abierto) {
   const sec = document.getElementById('acerca'); const btn = document.getElementById('acerca-btn');
   if (!sec) return;
   sec.hidden = !abierto;
+  const vid = document.getElementById('acerca-vid'); if (!abierto && vid && !vid.paused) vid.pause();
   if (btn) btn.setAttribute('aria-expanded', String(abierto));
   if (abierto && sec.scrollIntoView) setTimeout(() => sec.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 30);
 }
