@@ -427,6 +427,7 @@ a.res-pdf { text-decoration: none; display: inline-flex; align-items: center; }
 .lab-about-btn { appearance: none; border: 1px solid #2a78d6; background: var(--color-panel); color: #2a78d6; font: inherit; font-size: var(--cds-font-size-caption); padding: 5px 12px; border-radius: 999px; cursor: pointer; }
 .lab-about-btn[aria-expanded="true"], .lab-about-btn:hover { background: #2a78d6; color: #fff; }
 .lab-about-btn:focus-visible, .acerca-x:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+.lab-about-btn .ab-ic { width: 1.25em; height: 1.25em; vertical-align: -0.28em; margin-right: 5px; }
 .lab-acerca { border: 1px solid var(--color-border-line); border-top: 3px solid #2a78d6; background: var(--color-panel); border-radius: var(--cds-radius); padding: 16px 18px; margin: 8px 0 16px; }
 .acerca-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .acerca-head h2 { margin: 0; font-size: 18px; }
@@ -461,7 +462,7 @@ a.res-pdf { text-decoration: none; display: inline-flex; align-items: center; }
         <p class="lab-sub"><span lang="es">Fuentes: EvidencIA (primaria, copia del 18 nov 2026); Stanford SCALE, AI and Human Skill Atlas y Consensus (complementarias). Sitio exploratorio.</span><span lang="en">Sources: EvidencIA (primary, copy of 18 Nov 2026); Stanford SCALE, AI and Human Skill Atlas and Consensus (complementary). Exploratory site.</span><span lang="pt">Fontes: EvidencIA (primária, cópia de 18 nov 2026); Stanford SCALE, AI and Human Skill Atlas e Consensus (complementares). Site exploratório.</span></p>
       </div>
       <div class="lab-acc">
-      <button type="button" class="lab-about-btn" id="acerca-btn" aria-expanded="false" aria-controls="acerca"><span lang="es">ⓘ Acerca de</span><span lang="en">ⓘ About</span><span lang="pt">ⓘ Sobre</span></button>
+      <button type="button" class="lab-about-btn" id="acerca-btn" aria-expanded="false" aria-controls="acerca"><span lang="es"><svg class="ab-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.5" y="4" width="19" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8l5 2.5-5 2.5z" fill="currentColor"/><path d="M8 20.5h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Acerca de</span><span lang="en">ⓘ About</span><span lang="pt">ⓘ Sobre</span></button>
       <div class="lab-langs" role="group" aria-label="Idioma / Language / Idioma">
         <button type="button" data-lang="es" aria-pressed="true">ES</button>
         <button type="button" data-lang="en" aria-pressed="false">EN</button>
