@@ -801,6 +801,20 @@
    "antes": null,
    "despues": "p. 4; p. 7",
    "motivo": "The 50 analyzed participants are cited to p. 4 and the completion rates by group to p. 7."
+  },
+  {
+   "id": "ia-disenada-docentes-li-2026",
+   "field": "(new record)",
+   "antes": null,
+   "despues": "Li et al., 2026, https://doi.org/10.48550/arXiv.2611.19099",
+   "motivo": "Level 1 trial added to EvidencIA on 2026-11-23 and missing from the explorer. All figures, pages and links copied from the EvidencIA record (EvidencIA view_study, consulted 2026-11-24 (whats_new max_level 1, sort_by date_added)); EvidencIA verification: AI extraction with quotes checked by code and a second independent reading, no human figure by figure review yet. Preprint (arXiv v1, 14 Nov 2026)."
+  },
+  {
+   "id": "tutoria-virtual-nula-huffaker-2026",
+   "field": "(new record)",
+   "antes": null,
+   "despues": "Huffaker et al., 2026, https://doi.org/10.3102/00028312261492656",
+   "motivo": "Level 1 trial added to EvidencIA on 2026-11-16 and missing from the explorer. All figures, pages and links copied from the EvidencIA record (EvidencIA view_study, consulted 2026-11-24 (whats_new max_level 1, sort_by date_added)). Figures and pages are from the 2025 EdWorkingPaper 25-1295 (https://edworkingpapers.com/sites/default/files/ai25-1295.pdf); the 2026 AERJ version could not be read by EvidencIA."
   }
  ],
  "juicios": [
@@ -1308,6 +1322,51 @@
    "id": "tutoria-fryer-2020",
    "field": "codigos.costoReportado",
    "juicio": "Kept true: the record's cost line says not reported, but a result gives a marginal cost of 2,200 dollars per student per year (p. 9, printed 7)."
+  },
+  {
+   "id": "ia-disenada-docentes-li-2026",
+   "field": "ingreso",
+   "juicio": "null because the trial mixes high income (United States, Hong Kong) and lower middle income (India) countries; the explorer filter takes a single value."
+  },
+  {
+   "id": "ia-disenada-docentes-li-2026",
+   "field": "lugar",
+   "juicio": "null: the record does not say whether students used the tools in class, at home or online."
+  },
+  {
+   "id": "ia-disenada-docentes-li-2026",
+   "field": "efecto.comun",
+   "juicio": "null: EvidencIA marks the 0.32 as SD within class, the study's own metric, not comparable with other SD."
+  },
+  {
+   "id": "ia-disenada-docentes-li-2026",
+   "field": "codigos.formacionDocente",
+   "juicio": "yes from the technical and design support given to instructors in both groups (videoconferences, workshops, tutorial; p. 14)."
+  },
+  {
+   "id": "ia-disenada-docentes-li-2026",
+   "field": "codigos.privacidadReportada",
+   "juicio": "true from the secure environment of Faculty Twin, consent based deletion and de-identified restricted data (pp. 13, 14, 20-21)."
+  },
+  {
+   "id": "tutoria-virtual-nula-huffaker-2026",
+   "field": "tipo",
+   "juicio": "learning_science, the category EvidencIA gives this human tutoring program without AI (same as other tutoring trials in the explorer)."
+  },
+  {
+   "id": "tutoria-virtual-nula-huffaker-2026",
+   "field": "lugar",
+   "juicio": "school_other_time: the tutoring took place in a dedicated intervention block of the school timetable, not in the regular lesson (p. 10)."
+  },
+  {
+   "id": "tutoria-virtual-nula-huffaker-2026",
+   "field": "codigos.alineadoCurriculo",
+   "juicio": "no: tutoring covered only 10% to 13% (math) and 6% to 15% (reading) of grade standards, and the authors point to weak alignment with the state test (p. 27)."
+  },
+  {
+   "id": "tutoria-virtual-nula-huffaker-2026",
+   "field": "efecto.comun",
+   "juicio": "null: no entry for this study in data/estandarizacion.json; left for human review rather than computed here."
   }
  ]
 }
