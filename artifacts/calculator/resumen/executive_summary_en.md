@@ -49,7 +49,7 @@ There is a real causal base, but a narrow one: it can guide decisions, not promi
 
 | Indicator | Value |
 | --- | --- |
-| Verified level 1 trials (randomized, measure learning without AI) | 99 studies: 70 on AI, 29 without AI; 71 field and 28 lab |
+| Verified level 1 trials (randomized, measure learning without AI) | More than 100 studies, on AI and without AI, field and lab |
 | Verified core studies that report cost per student | 8 of 247 |
 | Core studies that measure two or more weeks later | 25 of 247 |
 | Tool evaluations with the developer's involvement | 110 of 161 (31 independent) |
@@ -84,4 +84,4 @@ Figures come from the [EvidencIA](https://mcp.redevidencia.org/) connector (Lati
 
 Studies cited: [Oreopoulos et al., 2026](https://www.nber.org/papers/w34683) · [Oreopoulos & Low, 2026](https://www.nber.org/papers/w35620) · [Bastani et al., 2025](https://doi.org/10.1073/pnas.2422633122) · [Burneo et al., 2026](https://thedocs.worldbank.org/en/doc/2fba81cd6cd60d2f54532fc7062395fb-0050062026/original/Can-EdTech-Close-Learning-Gaps.pdf) · [Nickow et al., 2020](https://doi.org/10.3386/w27476) · [Henkel et al., 2024](https://doi.org/10.1007/978-3-031-64315-6_34) · [LearnLM Team & Fab AI, 2026](https://storage.googleapis.com/deepmind-media/LearnLM/learnLM_sierraleone_may26.pdf) · [De Simone et al., 2025](https://documents.worldbank.org/curated/en/099548105192529324/pdf/IDU-c09f40d8-9ff8-42dc-b315-591157499be7.pdf) · [Barrera-Osorio & Muñoz-Morales, 2026](https://juansmunoz.github.io/AI_Evaluation_Bogota.pdf) · [Bhatt et al., 2024](https://www.nber.org/papers/w32510) · [Kestin et al., 2025](https://doi.org/10.1038/s41598-025-97652-6)
 
-Site with the detail, the explorer of 99 trials and the calculator: [AI Education Impact Lab](https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/).
+Site with the detail, the explorer of more than 100 trials and the calculator: [AI Education Impact Lab](https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/).

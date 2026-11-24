@@ -49,7 +49,7 @@ Há uma base causal real, mas estreita: serve para orientar decisões, não para
 
 | Indicador | Valor |
 | --- | --- |
-| Ensaios verificados de nível 1 (randomizados, medem aprendizagem sem IA) | 99 estudos: 70 sobre IA, 29 sem IA; 71 de campo e 28 de laboratório |
+| Ensaios verificados de nível 1 (randomizados, medem aprendizagem sem IA) | Mais de 100 estudos, sobre IA e sem IA, de campo e de laboratório |
 | Estudos do núcleo verificado que informam custo por estudante | 8 de 247 |
 | Estudos do núcleo que medem duas semanas ou mais depois | 25 de 247 |
 | Avaliações de ferramentas com participação do desenvolvedor | 110 de 161 (31 independentes) |
@@ -84,4 +84,4 @@ Os números vêm do conector da [EvidencIA](https://mcp.redevidencia.org/) (rede
 
 Estudos citados: [Oreopoulos et al., 2026](https://www.nber.org/papers/w34683) · [Oreopoulos & Low, 2026](https://www.nber.org/papers/w35620) · [Bastani et al., 2025](https://doi.org/10.1073/pnas.2422633122) · [Burneo et al., 2026](https://thedocs.worldbank.org/en/doc/2fba81cd6cd60d2f54532fc7062395fb-0050062026/original/Can-EdTech-Close-Learning-Gaps.pdf) · [Nickow et al., 2020](https://doi.org/10.3386/w27476) · [Henkel et al., 2024](https://doi.org/10.1007/978-3-031-64315-6_34) · [LearnLM Team & Fab AI, 2026](https://storage.googleapis.com/deepmind-media/LearnLM/learnLM_sierraleone_may26.pdf) · [De Simone et al., 2025](https://documents.worldbank.org/curated/en/099548105192529324/pdf/IDU-c09f40d8-9ff8-42dc-b315-591157499be7.pdf) · [Barrera-Osorio & Muñoz-Morales, 2026](https://juansmunoz.github.io/AI_Evaluation_Bogota.pdf) · [Bhatt et al., 2024](https://www.nber.org/papers/w32510) · [Kestin et al., 2025](https://doi.org/10.1038/s41598-025-97652-6)
 
-Site com o detalhe, o explorador de 99 ensaios e a calculadora: [Laboratório de Impacto da IA Educacional](https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/).
+Site com o detalhe, o explorador de mais de 100 ensaios e a calculadora: [Laboratório de Impacto da IA Educacional](https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/).
