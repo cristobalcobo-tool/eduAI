@@ -49,7 +49,7 @@ Hay una base causal real, pero estrecha: sirve para orientar decisiones, no para
 
 | Indicador | Valor |
 | --- | --- |
-| Ensayos verificados de nivel 1 (aleatorios, miden aprendizaje sin IA) | 99 estudios: 70 sobre IA, 29 sin IA; 71 de campo y 28 de laboratorio |
+| Ensayos verificados de nivel 1 (aleatorios, miden aprendizaje sin IA) | Más de 100 estudios, sobre IA y sin IA, de campo y de laboratorio |
 | Estudios del núcleo verificado que reportan costo por estudiante | 8 de 247 |
 | Estudios del núcleo que miden dos semanas o más después | 25 de 247 |
 | Evaluaciones de herramientas con participación del desarrollador | 110 de 161 (31 independientes) |
@@ -84,4 +84,4 @@ Las cifras vienen del conector de [EvidencIA](https://mcp.redevidencia.org/) (re
 
 Estudios citados: [Oreopoulos et al., 2026](https://www.nber.org/papers/w34683) · [Oreopoulos & Low, 2026](https://www.nber.org/papers/w35620) · [Bastani et al., 2025](https://doi.org/10.1073/pnas.2422633122) · [Burneo et al., 2026](https://thedocs.worldbank.org/en/doc/2fba81cd6cd60d2f54532fc7062395fb-0050062026/original/Can-EdTech-Close-Learning-Gaps.pdf) · [Nickow et al., 2020](https://doi.org/10.3386/w27476) · [Henkel et al., 2024](https://doi.org/10.1007/978-3-031-64315-6_34) · [LearnLM Team & Fab AI, 2026](https://storage.googleapis.com/deepmind-media/LearnLM/learnLM_sierraleone_may26.pdf) · [De Simone et al., 2025](https://documents.worldbank.org/curated/en/099548105192529324/pdf/IDU-c09f40d8-9ff8-42dc-b315-591157499be7.pdf) · [Barrera-Osorio & Muñoz-Morales, 2026](https://juansmunoz.github.io/AI_Evaluation_Bogota.pdf) · [Bhatt et al., 2024](https://www.nber.org/papers/w32510) · [Kestin et al., 2025](https://doi.org/10.1038/s41598-025-97652-6)
 
-Sitio con el detalle, el explorador de 99 ensayos y la calculadora: [Laboratorio de Impacto de la IA Educativa](https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/).
+Sitio con el detalle, el explorador de más de 100 ensayos y la calculadora: [Laboratorio de Impacto de la IA Educativa](https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/).
