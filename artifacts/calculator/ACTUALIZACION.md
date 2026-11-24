@@ -34,7 +34,7 @@ Para cada ensayo de nivel 1 que falte en `data/estudiosElementos.json`:
 - `data/fuentes.json`: estado, cobertura y `fechaConsulta` de cada fuente revisada.
 - Conteo de ensayos del explorador en `index.html` (hoy "99 ensayos" y "100 registros", en es, en y pt, y en el texto de "Acerca de"). Cambiar todos los idiomas a la vez.
 - La línea de fuentes bajo el título del sitio ("copia del …").
-- Si cambia el número de ensayos, avisar en el informe que **el video de "Acerca de" menciona 99 ensayos** y no se actualiza solo.
+- Los videos de "Acerca de" (español e inglés) dicen "más de 100 ensayos". Solo hay que avisar en el informe si el número de ensayos del explorador baja de 101.
 - Si una lección o un resumen ejecutivo citan cifras que cambiaron, no reescribirlos: anotarlo en el informe para revisión humana.
 
 ## 4. Probar antes de proponer
