@@ -2108,7 +2108,6 @@ reg('mfResumen', (box) => {
   const out = [linea(T('mfMas'), mas, pct)];
   if (menos.length) out.push(linea(T('mfMenosR'), menos, pct));
   if (poca.length) out.push(linea(T('mfPoca'), poca, (s) => T('mf_' + s.f) + ' (' + T('mfN', s.c.n) + ')'));
-  out.push(el('p', { class: 'lab-small lab-muted' }, T('mfResumenNota')));
   box.replaceChildren(...out);
 });
 reg('mfPanel', (box) => {
