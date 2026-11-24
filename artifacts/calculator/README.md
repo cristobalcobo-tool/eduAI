@@ -1,4 +1,4 @@
-# Laboratorio de Impacto e Inversión en IA Educativa
+# Laboratorio de Impacto de la IA Educativa
 
 Calculadora interactiva en español, inglés y portugués para comparar el impacto en el aprendizaje y el costo por estudiante de intervenciones de IA en educación, y para calcular hasta qué costo una intervención sigue siendo mejor compra que una alternativa.
 

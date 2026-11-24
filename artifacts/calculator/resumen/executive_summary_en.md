@@ -2,7 +2,7 @@
 
 AI tutoring can improve learning, but what matters most is how it is implemented: protected time in the timetable, someone in charge of making it happen, and tools that demand effort. Open access to chatbots worsens what students learn without them, and generative AI does not yet show a clear advantage over cheaper adaptive practice. Cost evidence is scarce (8 of 247 verified studies report cost per student) and there are almost no rigorous trials from low income countries or Latin America, so pilot with independent evaluation before scaling.
 
-This summary accompanies the [AI Education Impact and Investment Lab](https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/), an exploratory site that brings together EvidencIA, the Stanford SCALE AI Hub and the AI and Human Skill Atlas.
+This summary accompanies the [AI Education Impact Lab](https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/), an exploratory site that brings together EvidencIA, the Stanford SCALE AI Hub and the AI and Human Skill Atlas.
 
 ## Five conclusions for deciding
 
@@ -84,4 +84,4 @@ Figures come from the [EvidencIA](https://mcp.redevidencia.org/) connector (Lati
 
 Studies cited: [Oreopoulos et al., 2026](https://www.nber.org/papers/w34683) · [Oreopoulos & Low, 2026](https://www.nber.org/papers/w35620) · [Bastani et al., 2025](https://doi.org/10.1073/pnas.2422633122) · [Burneo et al., 2026](https://thedocs.worldbank.org/en/doc/2fba81cd6cd60d2f54532fc7062395fb-0050062026/original/Can-EdTech-Close-Learning-Gaps.pdf) · [Nickow et al., 2020](https://doi.org/10.3386/w27476) · [Henkel et al., 2024](https://doi.org/10.1007/978-3-031-64315-6_34) · [LearnLM Team & Fab AI, 2026](https://storage.googleapis.com/deepmind-media/LearnLM/learnLM_sierraleone_may26.pdf) · [De Simone et al., 2025](https://documents.worldbank.org/curated/en/099548105192529324/pdf/IDU-c09f40d8-9ff8-42dc-b315-591157499be7.pdf) · [Barrera-Osorio & Muñoz-Morales, 2026](https://juansmunoz.github.io/AI_Evaluation_Bogota.pdf) · [Bhatt et al., 2024](https://www.nber.org/papers/w32510) · [Kestin et al., 2025](https://doi.org/10.1038/s41598-025-97652-6)
 
-Site with the detail, the explorer of 99 trials and the calculator: [AI Education Impact and Investment Lab](https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/).
+Site with the detail, the explorer of 99 trials and the calculator: [AI Education Impact Lab](https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/).

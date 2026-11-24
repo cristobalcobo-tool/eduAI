@@ -282,7 +282,7 @@ const D = {
   cl_fuente: ['Resumido de las fichas de EvidencIA de cada estudio. Sirve para ver si las condiciones se parecen a las tuyas.', 'Summarized from each study\'s EvidencIA record. Use it to judge whether the conditions resemble yours.', 'Resumido das fichas da EvidencIA de cada estudo. Serve para ver se as condições se parecem com as suas.'],
   resumen: [(g, v, a, b) => g + ' compra ' + v + ' veces más aprendizaje por dólar (' + a + ' frente a ' + b + ' DE por USD 100). Pero el costo no lo es todo:', (g, v, a, b) => g + ' buys ' + v + ' times more learning per dollar (' + a + ' versus ' + b + ' SD per USD 100). But cost is not everything:', (g, v, a, b) => g + ' compra ' + v + ' vezes mais aprendizado por dólar (' + a + ' versus ' + b + ' DP por USD 100). Mas o custo não é tudo:'],
   resumenNo: ['Elige A y B para comparar.', 'Pick A and B to compare.', 'Escolha A e B para comparar.'],
-  mejorCompra: ['Más aprendizaje por dólar', 'Best buy per dollar', 'Melhor compra por dólar'],
+  mejorCompra: ['Más aprendizaje por dólar', 'More learning per dollar', 'Mais aprendizagem por dólar'],
   masPorDolar: [(w) => w + ' rinde más aprendizaje por dólar', (w) => w + ' buys more learning per dollar', (w) => w + ' rende mais aprendizado por dólar'],
   detGan: ['Ganancia', 'Gain', 'Ganho'], detCosto: ['Costo por estudiante', 'Cost per student', 'Custo por estudante'],
   verdB: [(th, now) => [['Para igualar a B por dólar, A tendría que costar como máximo ', null], [th, 'b'], [' por estudiante. Hoy cuesta ' + now + '.', null]], (th, now) => [['To match B per dollar, A would have to cost at most ', null], [th, 'b'], [' per student. It costs ' + now + ' now.', null]], (th, now) => [['Para igualar B por dólar, A teria de custar no máximo ', null], [th, 'b'], [' por estudante. Hoje custa ' + now + '.', null]]],
@@ -353,7 +353,9 @@ const D = {
   exEl_medicion: ['Cómo se midió', 'How it was measured', 'Como foi medido'],
   exEl_cautelas: ['Cautelas', 'Cautions', 'Cuidados'],
   exDe: [(n, m) => n + ' de ' + m, (n, m) => n + ' of ' + m, (n, m) => n + ' de ' + m],
-  pdfSitio: ['Laboratorio de Impacto de la IA Educativa', 'AI Education Impact and Investment Lab', 'Laboratório de Impacto e Investimento em IA Educacional'],
+  pdfSitio: ['Laboratorio de Impacto de la IA Educativa', 'AI Education Impact Lab', 'Laboratório de Impacto da IA Educacional'],
+  pdfExtraido: ['Extraído del Laboratorio de Impacto de la IA Educativa', 'Taken from the AI Education Impact Lab', 'Extraído do Laboratório de Impacto da IA Educacional'],
+  pdfDescargado: ['Descargado el ', 'Downloaded on ', 'Baixado em '],
   pdfLecTema: [(t) => 'Descargar «' + t + '» en PDF', (t) => 'Download “' + t + '” as PDF', (t) => 'Baixar «' + t + '» em PDF'],
   pdfLecTodo: ['Descargar las 8 lecciones en PDF', 'Download the 8 lessons as PDF', 'Baixar as 8 lições em PDF'],
   pdfLecAyuda: ['Una página con la lección y el primer paso de cada tema. Abre un tema para descargar solo ese, con sus claves y fuentes.', 'One page with the lesson and first step of each theme. Open a theme to download just that one, with its key findings and sources.', 'Uma página com a lição e o primeiro passo de cada tema. Abra um tema para baixar só esse, com suas chaves e fontes.'],
@@ -2170,7 +2172,7 @@ function pdfNuevo(JsPDF, color, kicker, titulo, subtitulo) {
   const P = { doc, W, H, M, CW, col, y: 0, refs: [] };
   doc.setFillColor(...col); doc.rect(0, 0, W, 9, 'F');
   doc.setFont('helvetica', 'normal'); doc.setFontSize(7.5); doc.setTextColor(255, 255, 255);
-  doc.text(pdfTxt(T('pdfSitio')), M, 6); doc.text(pdfTxt(fechaHoy()), W - M, 6, { align: 'right' });
+  doc.text(pdfTxt(T('pdfExtraido')), M, 6); doc.text(pdfTxt(T('pdfDescargado') + fechaHoy()), W - M, 6, { align: 'right' });
   P.y = 19;
   doc.setFont('helvetica', 'bold'); doc.setFontSize(8); doc.setTextColor(...col);
   doc.text(pdfTxt(kicker).toUpperCase(), M, P.y); P.y += 7;
@@ -2228,6 +2230,8 @@ function pdfCerrar(P, nota) {
   }
   doc.setFont('helvetica', 'italic'); doc.setFontSize(6.8); doc.setTextColor(120, 126, 136);
   doc.splitTextToSize(pdfTxt(nota), P.CW).forEach((ln) => { pdfSalto(P, 3); doc.text(ln, P.M, P.y); P.y += 3; });
+  pdfSalto(P, 12); P.y += 4; doc.setFillColor(...P.col); doc.rect(P.M, P.y - 3.2, 1.2, 4.4, 'F'); doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); doc.setTextColor(...P.col);
+  doc.text(pdfTxt(T('pdfExtraido') + '  ·  ' + T('pdfDescargado') + fechaHoy()), P.M + 3.5, P.y); P.y += 4;
   const n = doc.getNumberOfPages();
   for (let i = 1; i <= n; i++) { doc.setPage(i); doc.setFont('helvetica', 'normal'); doc.setFontSize(7); doc.setTextColor(140, 146, 156); doc.text(pdfTxt(SITIO_URL), P.M, P.H - 9); doc.text(i + ' / ' + n, P.W - P.M, P.H - 9, { align: 'right' }); doc.link(P.M, P.H - 12, 90, 4, { url: SITIO_URL }); }
 }
@@ -2342,4 +2346,41 @@ reg('lecPdf', (box) => {
 reg('expPdf', (box) => {
   if (!expEstudios().length) { box.replaceChildren(); return; }
   pdfBoton(box, T('pdfExp'), T('pdfExpAyuda'), (J) => pdfConsulta(J), () => pdfArchivo('estudios'));
+});
+
+/* ===== Resumen ejecutivo con marca de procedencia y fecha de descarga ===== */
+let pdfLibP = null;
+function cargarPdfLib() {
+  if (window.PDFLib) return Promise.resolve(window.PDFLib);
+  if (pdfLibP) return pdfLibP;
+  const intentar = (src) => new Promise((ok, mal) => { const s = document.createElement('script'); s.src = src; s.onload = () => (window.PDFLib ? ok(window.PDFLib) : mal(new Error('pdf-lib'))); s.onerror = () => mal(new Error('pdf-lib')); document.head.append(s); });
+  pdfLibP = intentar('vendor/pdf-lib.min.js').catch(() => intentar(SITIO_URL + 'vendor/pdf-lib.min.js')).catch((e) => { pdfLibP = null; throw e; });
+  return pdfLibP;
+}
+async function resumenConMarca(url, lang) {
+  const PL = await cargarPdfLib();
+  const bytes = await (await fetch(url, { mode: 'cors' })).arrayBuffer();
+  const pdf = await PL.PDFDocument.load(bytes);
+  const f = await pdf.embedFont(PL.StandardFonts.HelveticaBold);
+  const i = { es: 0, en: 1, pt: 2 }[lang] || 0;
+  const Lprev = L; L = lang; const fecha = fechaHoy(); L = Lprev;
+  const txt = pdfTxt(D.pdfExtraido[i] + "  ·  " + D.pdfDescargado[i] + fecha);
+  const pages = pdf.getPages(); const col = PL.rgb(0.118, 0.227, 0.541);
+  const marca = (p, y) => { const { width } = p.getSize(); const w = f.widthOfTextAtSize(txt, 7.5); p.drawRectangle({ x: 48, y: y - 1.5, width: 3.4, height: 10, color: col }); p.drawText(txt, { x: 56, y, size: 7.5, font: f, color: col }); return w; };
+  marca(pages[0], pages[0].getSize().height - 30);
+  marca(pages[pages.length - 1], 44);
+  return new Blob([await pdf.save()], { type: 'application/pdf' });
+}
+document.addEventListener('click', async (ev) => {
+  const a = ev.target.closest && ev.target.closest('a.res-pdf, a.res-pdf-a');
+  if (!a || ev.metaKey || ev.ctrlKey || ev.shiftKey) return;
+  ev.preventDefault();
+  const lang = a.getAttribute('lang') || L; const nombre = a.href.split('/').pop();
+  try {
+    const blob = await resumenConMarca(a.href, lang);
+    if (window.claude && typeof window.claude.use === 'function') {
+      try { const dl = await Promise.race([window.claude.use('downloads'), new Promise((r) => setTimeout(() => r(null), 2500))]); if (dl) { await dl.save({ filename: nombre, data: blob }); return; } } catch (e) { if (e && e.code === 'declined') return; }
+    }
+    const u = URL.createObjectURL(blob); const d = el('a', { href: u, download: nombre }); document.body.append(d); d.click(); d.remove();
+  } catch (e) { window.open(a.href, '_blank', 'noopener'); }
 });

@@ -2,7 +2,7 @@
 
 La tutoría con IA puede mejorar el aprendizaje, pero lo que más pesa es cómo se implementa: tiempo protegido en el horario, alguien a cargo de que ocurra y herramientas que exijan esfuerzo. El acceso abierto a chatbots empeora lo que se aprende sin ellos, y la IA generativa todavía no muestra una ventaja clara sobre la práctica adaptativa más barata. La evidencia de costo es escasa (8 de 247 estudios verificados reportan costo por estudiante) y casi no hay ensayos rigurosos de países de ingreso bajo ni de América Latina, así que conviene pilotear con evaluación independiente antes de escalar.
 
-Este resumen acompaña el [Laboratorio de Impacto e Inversión en IA Educativa](https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/), un sitio exploratorio que reúne EvidencIA, el Stanford SCALE AI Hub y el AI and Human Skill Atlas.
+Este resumen acompaña el [Laboratorio de Impacto de la IA Educativa](https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/), un sitio exploratorio que reúne EvidencIA, el Stanford SCALE AI Hub y el AI and Human Skill Atlas.
 
 ## Cinco conclusiones para decidir
 
@@ -84,4 +84,4 @@ Las cifras vienen del conector de [EvidencIA](https://mcp.redevidencia.org/) (re
 
 Estudios citados: [Oreopoulos et al., 2026](https://www.nber.org/papers/w34683) · [Oreopoulos & Low, 2026](https://www.nber.org/papers/w35620) · [Bastani et al., 2025](https://doi.org/10.1073/pnas.2422633122) · [Burneo et al., 2026](https://thedocs.worldbank.org/en/doc/2fba81cd6cd60d2f54532fc7062395fb-0050062026/original/Can-EdTech-Close-Learning-Gaps.pdf) · [Nickow et al., 2020](https://doi.org/10.3386/w27476) · [Henkel et al., 2024](https://doi.org/10.1007/978-3-031-64315-6_34) · [LearnLM Team & Fab AI, 2026](https://storage.googleapis.com/deepmind-media/LearnLM/learnLM_sierraleone_may26.pdf) · [De Simone et al., 2025](https://documents.worldbank.org/curated/en/099548105192529324/pdf/IDU-c09f40d8-9ff8-42dc-b315-591157499be7.pdf) · [Barrera-Osorio & Muñoz-Morales, 2026](https://juansmunoz.github.io/AI_Evaluation_Bogota.pdf) · [Bhatt et al., 2024](https://www.nber.org/papers/w32510) · [Kestin et al., 2025](https://doi.org/10.1038/s41598-025-97652-6)
 
-Sitio con el detalle, el explorador de 99 ensayos y la calculadora: [Laboratorio de Impacto e Inversión en IA Educativa](https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/).
+Sitio con el detalle, el explorador de 99 ensayos y la calculadora: [Laboratorio de Impacto de la IA Educativa](https://cristobalcobo-tool.github.io/eduAI/artifacts/calculator/).
