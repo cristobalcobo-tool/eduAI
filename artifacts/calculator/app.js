@@ -282,7 +282,7 @@ const D = {
   cl_fuente: ['Resumido de las fichas de EvidencIA de cada estudio. Sirve para ver si las condiciones se parecen a las tuyas.', 'Summarized from each study\'s EvidencIA record. Use it to judge whether the conditions resemble yours.', 'Resumido das fichas da EvidencIA de cada estudo. Serve para ver se as condições se parecem com as suas.'],
   resumen: [(g, v, a, b) => g + ' compra ' + v + ' veces más aprendizaje por dólar (' + a + ' frente a ' + b + ' DE por USD 100). Pero el costo no lo es todo:', (g, v, a, b) => g + ' buys ' + v + ' times more learning per dollar (' + a + ' versus ' + b + ' SD per USD 100). But cost is not everything:', (g, v, a, b) => g + ' compra ' + v + ' vezes mais aprendizado por dólar (' + a + ' versus ' + b + ' DP por USD 100). Mas o custo não é tudo:'],
   resumenNo: ['Elige A y B para comparar.', 'Pick A and B to compare.', 'Escolha A e B para comparar.'],
-  mejorCompra: ['Mejor compra por dólar', 'Best buy per dollar', 'Melhor compra por dólar'],
+  mejorCompra: ['Más aprendizaje por dólar', 'Best buy per dollar', 'Melhor compra por dólar'],
   masPorDolar: [(w) => w + ' rinde más aprendizaje por dólar', (w) => w + ' buys more learning per dollar', (w) => w + ' rende mais aprendizado por dólar'],
   detGan: ['Ganancia', 'Gain', 'Ganho'], detCosto: ['Costo por estudiante', 'Cost per student', 'Custo por estudante'],
   verdB: [(th, now) => [['Para igualar a B por dólar, A tendría que costar como máximo ', null], [th, 'b'], [' por estudiante. Hoy cuesta ' + now + '.', null]], (th, now) => [['To match B per dollar, A would have to cost at most ', null], [th, 'b'], [' per student. It costs ' + now + ' now.', null]], (th, now) => [['Para igualar B por dólar, A teria de custar no máximo ', null], [th, 'b'], [' por estudante. Hoje custa ' + now + '.', null]]],
@@ -353,7 +353,7 @@ const D = {
   exEl_medicion: ['Cómo se midió', 'How it was measured', 'Como foi medido'],
   exEl_cautelas: ['Cautelas', 'Cautions', 'Cuidados'],
   exDe: [(n, m) => n + ' de ' + m, (n, m) => n + ' of ' + m, (n, m) => n + ' de ' + m],
-  pdfSitio: ['Laboratorio de Impacto e Inversión en IA Educativa', 'AI Education Impact and Investment Lab', 'Laboratório de Impacto e Investimento em IA Educacional'],
+  pdfSitio: ['Laboratorio de Impacto de la IA Educativa', 'AI Education Impact and Investment Lab', 'Laboratório de Impacto e Investimento em IA Educacional'],
   pdfLecTema: [(t) => 'Descargar «' + t + '» en PDF', (t) => 'Download “' + t + '” as PDF', (t) => 'Baixar «' + t + '» em PDF'],
   pdfLecTodo: ['Descargar las 8 lecciones en PDF', 'Download the 8 lessons as PDF', 'Baixar as 8 lições em PDF'],
   pdfLecAyuda: ['Una página con la lección y el primer paso de cada tema. Abre un tema para descargar solo ese, con sus claves y fuentes.', 'One page with the lesson and first step of each theme. Open a theme to download just that one, with its key findings and sources.', 'Uma página com a lição e o primeiro passo de cada tema. Abra um tema para baixar só esse, com suas chaves e fontes.'],
@@ -486,12 +486,16 @@ const nav = (navigator.language || 'es').slice(0, 2);
 let langUrl = null; try { langUrl = new URL(location.href).searchParams.get('lang'); } catch (e) {}
 setLang(['es', 'en', 'pt'].includes(langUrl) ? langUrl : nav === 'pt' ? 'pt' : nav === 'en' ? 'en' : 'es');
 document.querySelectorAll('.lab-langs [data-lang]').forEach((b) => b.addEventListener('click', () => { setLang(b.dataset.lang); redibujarTodo(); }));
+const temaBtn = document.getElementById('lab-tema');
+const pintarTema = () => { const claro = document.documentElement.classList.contains('tema-claro'); if (temaBtn) { temaBtn.setAttribute('aria-pressed', String(claro)); temaBtn.querySelector('[lang="es"]').textContent = claro ? 'Modo oscuro' : 'Modo claro'; temaBtn.querySelector('[lang="en"]').textContent = claro ? 'Dark mode' : 'Light mode'; temaBtn.querySelector('[lang="pt"]').textContent = claro ? 'Modo escuro' : 'Modo claro'; } };
+pintarTema();
+if (temaBtn) temaBtn.addEventListener('click', () => { const claro = document.documentElement.classList.toggle('tema-claro'); try { localStorage.setItem('eduai-tema', claro ? 'claro' : 'oscuro'); } catch (e) {} pintarTema(); redibujarTodo(); });
 const evId = () => (L === 'en' ? 'evidencia_en' : 'evidencia_es');
 const panId = () => (L === 'en' ? 'panorama_en' : 'panorama_es');
 
 /* ===================== Utilidades ===================== */
 
-const AZUL = '#2a78d6', VERDE = '#2e8b57', LILA = '#8a6fd1';
+const AZUL = 'var(--t-a)', VERDE = 'var(--t-b)', LILA = 'var(--t-c)';
 const ok = (id) => dash.data(id).status === 'ok';
 const rows = (id) => (ok(id) ? dash.data(id).data || [] : []);
 const corto = (e) => String(e.autores || '').split(',')[0] + ' (' + e.anio + ')';
@@ -502,8 +506,8 @@ const el = (tag, attrs, text) => {
   return n;
 };
 const pill = (cls, txt) => el('span', { class: 'lab-pill ' + cls }, txt);
-const TIPO_COL = { ia_generativa: '#7b61c9', ia_docentes: '#c15b9a', ia_adaptativa: '#d08a1e', sin_ia: '#5f7a8f', tutoria: '#5f7a8f', sintesis: '#9a9a9a', hipotetica: '#9a9a9a' };
-const TEC_COL = { 'IA generativa (LLM)': '#7b61c9', 'Adaptativa y con IA (agrupado)': '#9a9a9a' };
+const TIPO_COL = { ia_generativa: 'var(--k1)', ia_docentes: 'var(--k2)', ia_adaptativa: 'var(--k3)', sin_ia: 'var(--k4)', tutoria: 'var(--k4)', sintesis: 'var(--k5)', hipotetica: 'var(--k5)' };
+const TEC_COL = { 'IA generativa (LLM)': 'var(--k1)', 'Adaptativa y con IA (agrupado)': 'var(--k5)' };
 const tag = (txt, col) => { const t = el('span', { class: 'lab-tag' }, txt); t.style.setProperty('--tc', col || '#888'); return t; };
 const phi = (z) => { const t = 1 / (1 + 0.2316419 * Math.abs(z)); const d = 0.3989423 * Math.exp(-z * z / 2); const p = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274)))); return z > 0 ? 1 - p : p; };
 const pillVer = (row) => pill(row.verificacion === 'Verificado' ? 'ver' : row.verificacion === 'Provisional' ? 'pro' : '', tr(row, 'verificacion'));
@@ -803,7 +807,7 @@ reg('simDuelo', (box) => {
   const gana = pos ? (r.aiEffectiveness >= r.alternativeEffectiveness ? 'a' : 'b') : null;
   const lado = (side, eff) => {
     const s = SIM[side], o = ops.find((x) => x.id === s.id), c = side === 'a' ? AZUL : VERDE;
-    const d = el('div', { class: 'duelo-lado' + (gana === side ? ' gana' : '') });
+    const d = el('div', { class: 'duelo-lado duelo-' + side + (gana === side ? ' gana' : '') });
     d.style.setProperty('--c', c);
     if (gana === side) d.append(el('span', { class: 'duelo-cinta' }, T('mejorCompra')));
     const top = el('div', { class: 'duelo-top' });
@@ -1208,7 +1212,7 @@ reg('tablaEstudios', (tb) => {
     const row = el('tr', { class: 'lab-click' + (SEL === e.id ? ' lab-sel' : ''), 'data-key': encodeURIComponent(e.id) });
     const td1 = el('td'); td1.append(el('div', null, corto(e)), el('div', { class: 'lab-muted' }, tr(e, 'nivelEvidencia') + ' · ' + tr(e, 'diseno')));
     const td2 = el('td'); td2.append(el('div', null, tr(e, 'herramienta')));
-    const tg = el('div'); tg.append(tag(tr(e, 'tecnologia'), TEC_COL[e.tecnologia]), tag(tr(e, 'funcion'), '#2a78d6'), tag(tr(e, 'disenoPedagogico'), '#2e8b57')); td2.append(tg);
+    const tg = el('div'); tg.append(tag(tr(e, 'tecnologia'), TEC_COL[e.tecnologia]), tag(tr(e, 'funcion'), 'var(--t-a)'), tag(tr(e, 'disenoPedagogico'), 'var(--t-b)')); td2.append(tg);
     const td3 = el('td', null, tr(e, 'pais'));
     const p = res.find((r) => r.estudio === e.id && r.principal);
     const td4 = el('td');
@@ -1297,7 +1301,7 @@ reg('forestPlot', (box) => {
     if (r.icInf != null) g.append('line').attr('x1', x(r.icInf)).attr('x2', x(r.icSup)).attr('y1', cy).attr('y2', cy).style('stroke', r.agrupado ? LILA : AZUL).style('stroke-width', 2);
     if (r.agrupado) g.append('path').attr('d', d3.symbol(d3.symbolDiamond, 110)()).attr('transform', `translate(${x(r.efecto)},${cy})`).style('fill', LILA);
     else g.append('circle').attr('cx', x(r.efecto)).attr('cy', cy).attr('r', 5).style('fill', r.verificacion === 'Verificado' ? AZUL : 'var(--color-panel)').style('stroke', AZUL).style('stroke-width', 2);
-    if (marcaEv.has(r.id)) g.append('path').attr('d', d3.symbol(d3.symbolDiamond, 90)()).attr('transform', `translate(${x(marcaEv.get(r.id))},${cy})`).style('fill', 'none').style('stroke', '#d08a1e').style('stroke-width', 2);
+    if (marcaEv.has(r.id)) g.append('path').attr('d', d3.symbol(d3.symbolDiamond, 90)()).attr('transform', `translate(${x(marcaEv.get(r.id))},${cy})`).style('fill', 'none').style('stroke', 'var(--t-c)').style('stroke-width', 2);
     g.append('text').attr('x', x(Math.max(r.icSup ?? r.efecto, marcaEv.has(r.id) ? marcaEv.get(r.id) : -Infinity)) + 9).attr('y', cy + 4).style('font-size', '11px').style('fill', 'var(--cds-text-secondary)').text(f3(r.efecto) + (marcaEv.has(r.id) ? ' · EvidencIA ' + f2(marcaEv.get(r.id)) : ''))
       .each(function () { if (x(r.icSup ?? r.efecto) + 9 + this.getComputedTextLength() > W) d3.select(this).attr('x', x(r.icInf ?? r.efecto) - 9).attr('text-anchor', 'end'); });
     g.append('rect').attr('width', W).attr('height', rowH).style('fill', 'transparent')
@@ -1557,7 +1561,7 @@ reg('chartD', (box) => {
   const vals = cells.map((c) => c.th).filter((v) => v != null);
   if (!vals.length) { box.textContent = T('verdNoInterp'); return; }
   const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Heatmap');
-  const col = d3.scaleSequential(d3.interpolateBlues).domain([d3.min(vals), d3.max(vals)]);
+  const col = d3.scaleSequential(document.documentElement.classList.contains('tema-claro') ? d3.interpolateRgb('#FFF7DC', '#C99600') : d3.interpolateRgb('#2E2E33', '#F2C94C')).domain([d3.min(vals), d3.max(vals)]);
   const tt = tip(box);
   cells.forEach((c) => {
     const gx = m.l + c.j * cw, gy = m.t + (mult.length - 1 - c.i) * ch;
@@ -1735,7 +1739,7 @@ reg('mapeoBody', (tb) => {
 /* ===================== AI and Human Skill Atlas ===================== */
 
 const AF = { rct: true, sinIA: true, diferido: false, subgrupos: false };
-const CMP_COL = { ai_vs_bau: '#2a78d6', ai_vs_active: '#d08a1e', ai_design: '#7b61c9', ai_bundled: '#8a8a8a' };
+const CMP_COL = { ai_vs_bau: 'var(--k1)', ai_vs_active: 'var(--k3)', ai_design: 'var(--k2)', ai_bundled: 'var(--k5)' };
 document.querySelectorAll('#atlas-filtros [data-af]').forEach((b) => b.addEventListener('click', () => {
   AF[b.dataset.af] = !AF[b.dataset.af];
   b.setAttribute('aria-pressed', String(AF[b.dataset.af]));
@@ -1839,9 +1843,10 @@ reg('cotejoBody', (tb) => {
 /* ===================== Lecciones para implementar ===================== */
 
 const LEC = { sel: null };
-const LEC_COL = { consistente: '#1e3a8a', moderada: '#2f6fd6', parcial: '#5ab4e8', guias: '#7b61c9', pendiente: '#b8b8b8' };
+const LEC_HEX = { consistente: '#1e3a8a', moderada: '#2f6fd6', parcial: '#5ab4e8', guias: '#7b61c9', pendiente: '#b8b8b8' };
+const LEC_COL = { consistente: 'var(--ev1)', moderada: 'var(--ev2)', parcial: 'var(--ev3)', guias: 'var(--ev4)', pendiente: 'var(--ev5)' };
 const lecPill = (col, txt) => { const s = el('span', { class: 'lec-pill' }, txt); s.style.setProperty('--pc', col); return s; };
-const NIV_COL = { '1': '#1e3a8a', '2': '#2f6fd6', '3': '#5ab4e8', '4': '#7b61c9', pol: '#7b61c9', atlas: '#6b7a90' };
+const NIV_COL = { '1': 'var(--ev1)', '2': 'var(--ev2)', '3': 'var(--ev3)', '4': 'var(--ev4)', pol: 'var(--ev4)', atlas: 'var(--k4)' };
 reg('lecTiles', (box) => {
   const ts = rows('lecciones');
   if (!ts.length) { failMsg(box, dash.data('lecciones').status); return; }
@@ -1876,7 +1881,7 @@ reg('lecDetalle', (box) => {
   const ul = el('ul'); (t.acciones || []).forEach((x) => ul.append(el('li', null, tr(x, 't')))); acc.append(ul);
   const ns = el('div', { class: 'lec-box' }); ns.append(el('h4', null, T('lecNoSabe')), el('p', { style: 'margin:0;font-size:13.5px;line-height:1.5' }, tr(t, 'noSabemos')), el('p', { class: 'lec-med' }, T('lecMedicion') + ': ' + tr(t, 'medicion')));
   grid.append(acc, ns); c.append(grid);
-  const TCOL = { causal: '#1e3a8a', contexto: '#5ab4e8', guia: '#7b61c9' };
+  const TCOL = { causal: 'var(--ev1)', contexto: 'var(--ev3)', guia: 'var(--ev4)' };
   ['causal', 'contexto', 'guia'].forEach((tier) => {
     const items = (t.evidencia || []).filter((e) => e.tier === tier);
     const sec = el('section', { class: 'lec-tier' });
@@ -1903,7 +1908,7 @@ reg('lecDetalle', (box) => {
 
 const EXP_GRUPOS = [['personas', ['docentes']], ['infra', ['infraestructura', 'lugar']], ['uso', ['dosis', 'diseno']], ['pedagogia', ['pedagogia']], ['eq', ['equidad', 'privacidad', 'costo']]];
 const EXP_EXTRA = ['comparacion', 'medicion', 'cautelas'];
-const EXP_GCOL = { personas: '#c2410c', infra: '#f08a24', uso: '#e3b007', pedagogia: '#a8661a', eq: '#e0603a' };
+const EXP_GCOL = { personas: 'var(--g1)', infra: 'var(--g2)', uso: 'var(--g3)', pedagogia: 'var(--g4)', eq: 'var(--g5)' };
 const EXP_DCOL = {};
 EXP_GRUPOS.forEach(([g, ks]) => ks.forEach((k) => { EXP_DCOL[k] = EXP_GCOL[g]; }));
 const EXP_COND = { formacion: (c) => c.formacionDocente === 'yes', adulto: (c) => c.adultoPresente === 'yes', compartido: (c) => c.dispositivo === 'shared', conect: (c) => c.conectividad === 'low_bandwidth' || c.conectividad === 'offline', curriculo: (c) => c.alineadoCurriculo === 'yes', equidad: (c) => !!c.equidadReportada, costo: (c) => !!c.costoReportado, privacidad: (c) => !!c.privacidadReportada };
@@ -2051,14 +2056,14 @@ reg('expComparar', (box) => {
 // 'docente' (apoyo docente y supervisión humana) se dejó fuera del mapa a pedido: solo 8 estudios lo probaron y los resultados están divididos.
 const MF_FAC = ['acceso', 'pedagogia', 'duracion', 'contexto', 'diseno', 'formacion', 'estudiantes', 'materia'];
 const MF_ANIOS = [2025, 2026];
-const MF_COL = { crit: '#1f8a5b', mixto: '#d99a1e', menos: '#7a8aa0' };
+const MF_COL = { crit: 'var(--mf1)', mixto: 'var(--mf2)', menos: 'var(--mf3)' };
 const MF = { f: null, y: null };
 const mfEst = () => rows('mapaFactores');
 const mfDe = (f, y) => mfEst().filter((s) => s.factores && s.factores[f] && (y == null || s.anio === y));
 const mfCuenta = (lista, f) => { const c = { C: 0, M: 0, N: 0 }; lista.forEach((s) => { c[s.factores[f]]++; }); c.n = c.C + c.M + c.N; return c; };
 const mfClase = (c) => (!c.n ? 'vacio' : c.C / c.n >= 0.6 ? 'crit' : c.N / c.n >= 0.5 ? 'menos' : 'mixto');
 function mfAbrir(f, y) { MF.f = (MF.f === f && MF.y === y) ? null : f; MF.y = MF.f ? y : null; dash.draw('mfGrid'); dash.draw('mfPanel'); if (MF.f) { const p = document.querySelector('[data-draw="mfPanel"]'); if (p && p.scrollIntoView) setTimeout(() => p.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 30); } }
-const mfVerde = (p) => { const a = [232, 245, 237], b = [17, 94, 61]; const t = 0.08 + 0.92 * p; return 'rgb(' + a.map((v, i) => Math.round(v + (b[i] - v) * t)).join(',') + ')'; };
+const mfVerde = (p) => 'color-mix(in srgb, var(--mf-hi) ' + Math.round((0.08 + 0.92 * p) * 100) + '%, var(--mf-lo))';
 const mfOrden = () => MF_FAC.map((f) => { const c = mfCuenta(mfDe(f, null), f); return { f, c, p: c.n ? c.C / c.n : 0 }; }).sort((a, b) => a.p - b.p || a.c.n - b.c.n);
 reg('mfGrid', (box) => {
   const all = mfEst();
@@ -2273,7 +2278,7 @@ function pdfTodas(JsPDF) {
   const P = pdfNuevo(JsPDF, '#1e3a8a', T('pdfLeccionesK'), T('pdfTodasTit'), T('pdfTodasSub'));
   ts.forEach((t, i) => {
     pdfSalto(P, 26);
-    const c = hexRgb(LEC_COL[t.fuerza] || '#999999');
+    const c = hexRgb(LEC_HEX[t.fuerza] || '#999999');
     P.doc.setFillColor(...c); P.doc.circle(P.M + 2.4, P.y - 1.3, 2.4, 'F');
     P.doc.setFont('helvetica', 'bold'); P.doc.setFontSize(7.5); P.doc.setTextColor(255, 255, 255); P.doc.text(String(i + 1), P.M + 2.4, P.y - 0.3, { align: 'center' });
     P.doc.setFontSize(8); P.doc.setTextColor(...c); P.doc.text(pdfTxt(tr(t, 'titulo').toUpperCase() + '  ·  ' + T('lecFuerza_' + t.fuerza)), P.M + 7, P.y); P.y += 5;
